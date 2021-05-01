@@ -1,0 +1,106 @@
+{% extends "games/base.html" %}
+
+{% block title %}{{ game.title }}{% endblock %}
+
+{% block content %}
+<div class="row">
+	<div class="nine columns">
+		<h2>{{ game.title }}</h2>
+	</div>
+
+	<div class="three columns right">
+		{% if game.platform.icon %}<img class="platform_icon" src="{{ game.platform.icon.url }}" title="{{ game.platform.full_name }}">{% endif %}
+	</div>
+</div>
+
+<hr>
+
+<div class="row">
+	<div class="six columns">
+		<b>{{ game.genre }}</b>
+		{% if game.tags %}<br>{{ game.get_game_tags }}{% endif %}
+	</div>
+
+	<div class="six columns right">
+		<b>{{ game.get_player_display }}</b>
+		{% if game.co_op %}<br>Co-Op{% endif %}			
+		{% if game.online_multiplayer %}<br>Online Mulitplayer{% endif %}
+	</div>
+</div>
+
+<hr>
+
+<div class="row">
+	<div class="twelve columns right">
+		{{ game.description|linebreaks|safe }}
+
+		{% if game.notes %}
+		<hr>
+		<h3>Notes</h3>
+		<p>{{ game.notes|linebreaks|safe }}</p>
+		{% endif %}
+	</div>
+</div>
+
+<div class="row right">
+	{% if game.kid_friendly %}
+		<img class="icon" src="/static/imgs/icons/kid_friendly.png" title="Family Friendly">
+	{% endif %}
+
+	{% if game.favorite %}
+		<img class="icon" src="/static/imgs/icons/favorite.png" title="Favorite">
+	{% endif %}
+
+	{% if game.controller_support %}
+		<img class="icon" src="/static/imgs/icons/controller.png" title="Controller Support">
+	{% endif %}
+
+	{% if game.esrb %}
+		<img class="icon" src="/static/imgs/esrb/{{ game.get_esrb_display|slugify }}.png" title="ESRB Rating">
+	{% endif %}
+</div>
+
+<div class="row right">
+	{% if game.installed %}<button><a href="/launcher/{{ game.id }}">Launch Game</a></button>{% endif %}
+</div>
+
+<div class="row right">
+	{% if game.installed_remote %}<button><a href="/launcher_remote/{{ game.id }}">Launch on Arcade</a></button>{% endif %}
+</div>
+{% endblock %}
+
+{% block sidebar %}
+{% if game.boxart %}
+<img class="boxart" src="{{ game.boxart.url }}" title="{{ game.title }}">
+{% endif %}
+
+<table class="u-full-width">
+	{% if game.developer %}
+	<tr>
+		<td>Developer</td>
+		<td class="right">{{ game.developer }}</td>
+	</tr>
+	{% endif %}
+	
+	{% if game.publisher %}
+	<tr>
+		<td>Publisher</td>
+		<td class="right">{{ game.publisher }}</td>
+	</tr>
+	{% endif %}
+
+	{% if game.release_date %}
+	<tr>
+		<td>Release Date</td>
+		<td class="right">{{ game.release_date }}</td>
+	</tr>
+	{% endif %}
+
+	{% if game.store %}
+	<tr>
+		<td>Store</td>
+		<td class="right">{{ game.get_store_display }}</td>
+	</tr>
+	{% endif %}
+</table>
+{% endblock %}
