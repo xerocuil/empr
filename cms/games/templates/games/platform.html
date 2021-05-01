@@ -1,0 +1,15 @@
+{% extends "games/base.html" %}
+
+{% block title %}{{ platform.full_name }}{% endblock %}
+
+{% block content %}
+	<h2>{{ platform.full_name }}</h2>
+
+	{% for g in games %}
+	<p><a href="/detail/{{ g.id }}/">{{ g.title }}</a></p>
+	{% endfor %}
+{% endblock %}
+
+{% block sidebar %}
+
+{% endblock %}

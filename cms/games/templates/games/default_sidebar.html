@@ -1,0 +1,13 @@
+<h3>Browse</h3>
+
+<h4>Platform</h4>
+
+{% for p in platforms %}
+<p><a href="/platform/{{ p.id }}">{{ p.full_name }}</a></p>
+{% endfor %}
+
+<h4>Genre</h4>
+
+{% for g in genres %}
+<p><a href="/genre/{{ g.id }}">{{ g.name }}</a></p>
+{% endfor %}

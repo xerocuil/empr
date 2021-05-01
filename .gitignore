@@ -1,0 +1,39 @@
+## General Files
+cache
+browser
+docs
+launchers
+.cache
+.vagrant
+media
+settings.sh
+settings.py
+
+## Compiled Object files
+*.slo
+*.lo
+*.o
+
+## Compiled Dynamic libraries
+*.so
+
+## Compiled Static libraries
+*.lai
+*.la
+*.a
+
+## Dependency makefiles
+*.d
+
+## build directory
+build
+Debug
+Release
+MinSizeRel
+RelWithDebInfo
+
+## CMake
+CMakeCache.txt
+CMakeFiles
+cmake_install.cmake
+Makefile
