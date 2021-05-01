@@ -1,0 +1,7 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=EmulationStation
+Exec=emulationstation
+Type=Application
+Icon=emulationstation
+Categories=Game;

@@ -1,7 +1,22 @@
 #!/bin/bash
+
+sudo apt-get update ; sudo apt-get install -y git
+
+if [[ ! -d $HOME/Applications/Empr ]]; then
+	echo -e "\nEmpr not found.\n"
+	mkdir -p $HOME/Applications
+	cd $HOME/Applications
+	git clone ssh://pi@192.168.0.144/home/pi/Git/empr Empr
+	cd Empr/config/empr
+	cp settings.default.sh settings.sh
+fi
+
 source ~/Applications/Empr/config/empr/settings.sh
+
 GAMELAUNCHER="/usr/local/bin/game-launcher"
 EMULATIONSTATION="$HOME/Applications/EmulationStation"
+ESCONFIG=$CONFIGDIR/emulationstation
+ESLAUNCHER="/usr/local/bin/emulationstation"
 
 ## Install Game Launcher
 if [[ -f $GAMELAUNCHER ]]; then
@@ -40,7 +55,7 @@ fi
 install_python_env(){
 	sudo apt-get install -y git htop jq python3 \
 	python3-pip python3-venv tmux vim
-	echo "\nVirtual Environment not found.\n"
+	echo -e "\nVirtual Environment not found.\n"
 	cd $APPDIR
 	python3 -m venv $VENV
 
@@ -54,4 +69,14 @@ if [[ ! -d $VENV ]]; then
 	install_python_env
 else
 	echo -e "\nPython Environment found.\n"
+fi
+
+if [[ ! -f $ESLAUNCHER ]]; then
+	echo -e "\nEmulationStation Launcher not found.\n"
+	sudo cp "$ESCONFIG/launcher.sh" "$ESLAUNCHER"
+	cp "$ESCONFIG/EmulationStation.desktop" "$HOME/.local/share/applications/"
+	mkdir -p "$HOME/.icons"
+	cp "$ESCONFIG/emulationstation.svg" "$HOME/.icons/"
+else
+	echo -e "\nEmulationStation Launcher found.\n"
 fi
