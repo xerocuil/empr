@@ -1,0 +1,360 @@
+<?xml version="1.0"?>
+<gameList>
+	<game>
+		<path>./cars.desktop</path>
+		<name>Cars</name>
+		<desc>A racing game/minigame collection based vaguely on the 2006 Disney/Pixar movie Cars, and features the full movie voice cast.</desc>
+		<image>~/.assets/cars/boxart.jpg</image>
+		<releasedate>20060606</releasedate>
+		<developer>Rainbow Studios</developer>
+		<publisher>THQ</publisher>
+		<genre>Racing</genre>
+		<players>1-2 Players</players>
+		<playcount>2</playcount>
+		<lastplayed>20200528T190808</lastplayed>
+	</game>
+	<game>
+		<path>./castle-of-illusion.desktop</path>
+		<name>Castle of Illusion</name>
+		<desc>Journey back through the mysterious Castle of Illusion in this remake of one of Mickey Mouse's earliest 2D platforming adventures.</desc>
+		<image>~/.assets/castle-of-illusion/boxart.jpg</image>
+		<releasedate>20130904</releasedate>
+		<developer>Sega</developer>
+		<publisher>Sega</publisher>
+		<genre>Action, Platformer</genre>
+		<players>Single Player</players>
+		<playcount>1</playcount>
+		<lastplayed>20200524</lastplayed>
+	</game>
+	<game>
+		<path>./godzilla-destroy-all-monsters-melee.desktop</path>
+		<name>Godzilla: Destroy All Monsters Melee</name>
+		<desc>Destroy All Monsters Melee brings 12 classic Toho movie monsters monsters to life to save or destroy the world. The game features both a story mode and a multiplayer 'Melee' mode, where up to four players can go head-to-head.</desc>
+		<image>~/.assets/godzilla-destroy-all-monsters-melee/boxart.jpg</image>
+		<releasedate>2002-12-12</releasedate>
+		<developer>Pipeworks Software</developer>
+		<publisher>Infrogrames</publisher>
+		<genre>Fighting</genre>
+		<players>1-2 Players</players>
+		<lastplayed />
+		<playcount>1</playcount>
+		<lastplayed>20200422T115705</lastplayed>
+	</game>
+	<game>
+		<path>./incredibles-rise-ot-underminer.desktop</path>
+		<name>The Incredibles: Rise of the Underminer</name>
+		<desc>The Incredibles: Rise of the Underminer is a follow-up to THQ's action game starring Disney and Pixar's animated family of superheroes.</desc>
+		<image>~/.assets/incredibles-rise-ot-underminer/boxart.jpg</image>
+		<releasedate>20051024</releasedate>
+		<developer>Heavy Iron Studios</developer>
+		<publisher>THQ</publisher>
+		<genre>Action</genre>
+		<players>1-2 Players</players>
+		<playcount>2</playcount>
+		<lastplayed>20200501T174837</lastplayed>
+	</game>
+	<game>
+		<path>./mario-kart-double-dash.desktop</path>
+		<name>Mario Kart: Double Dash!!</name>
+		<desc>Mario Kart: Double Dash!! is the fourth installment in the Mario Kart series. The game introduced a number of new gameplay features, most notably the inclusion of two riders per kart.</desc>
+		<image>~/.assets/mario-kart-double-dash/boxart.jpg</image>
+		<releasedate>20031118</releasedate>
+		<developer>Nintendo</developer>
+		<publisher>Nintendo</publisher>
+		<genre>Driving/Racing</genre>
+		<players>1-2 Players</players>
+		<playcount />
+		<lastplayed />
+	</game>
+	<game>
+		<path>./marvel-vs-capcom-2.desktop</path>
+		<name>Marvel Vs. Capcom 2</name>
+		<desc>One of the most legendary crossover fighting game series is thrown into high gear with a whopping 56-character roster and new three-on-three tag-team gameplay.</desc>
+		<image>~/.assets/marvel-vs-capcom-2/boxart.jpg</image>
+		<releasedate>20000630</releasedate>
+		<developer>Capcom</developer>
+		<publisher>Capcom</publisher>
+		<genre>Fighting</genre>
+		<players>1-2 Players</players>
+		<playcount />
+		<lastplayed />
+	</game>
+	<game>
+		<path>./toki-tori-2.desktop</path>
+		<name>Toki Tori 2+</name>
+		<desc>Toki Tori 2 is the sequel to the award winning game from developer Two Tribes. The game features a non-linear open world puzzle game starring a chirping and stomping bird trying to save his people. The 'Plus' Edition features new music and puzzles.</desc>
+		<image>~/.assets/toki-tori-2/boxart.jpg</image>
+		<releasedate>20130711</releasedate>
+		<developer>Two Tribes</developer>
+		<publisher>Two Tribes</publisher>
+		<genre>Puzzle</genre>
+		<players>Single Player</players>
+		<playcount />
+		<lastplayed />
+	</game>
+	<game>
+		<path>./transformers-devastation.desktop</path>
+		<name>Transformers Devastation</name>
+		<desc>Based on the classic 80s version of the Transformers animated series, Transformers: Devastation by PlatinumGames is a brawler with an authentic retro-themed art style.</desc>
+		<image>~/.assets/transformers-devastation/boxart.jpg</image>
+		<releasedate>20151015</releasedate>
+		<developer>Platinum Games</developer>
+		<publisher>Activision</publisher>
+		<genre>Action</genre>
+		<players>Single Player</players>
+		<playcount>3</playcount>
+		<lastplayed>20200428T041539</lastplayed>
+	</game>
+	<game>
+		<path>./ultimate-marvel-vs-capcom-3.desktop</path>
+		<name>Ultimate Marvel Vs. Capcom 3</name>
+		<desc>A standalone update to Marvel vs Capcom 3 featuring new modes, characters, stages, an enhanced online experience, and large-scale rebalancing of core systems and the existing roster.</desc>
+		<image>~/.assets/ultimate-marvel-vs-capcom-3/boxart.jpg</image>
+		<releasedate>20111115</releasedate>
+		<developer>Platinum Games</developer>
+		<publisher>Activision</publisher>
+		<genre>Action</genre>
+		<players>Single Player</players>
+		<playcount>3</playcount>
+		<lastplayed>20200428T041539</lastplayed>
+	</game>
+	<game>
+		<path>./wario-world.desktop</path>
+		<name>Wario World</name>
+		<desc>Wario leaps from the hand-helds on to the big screen in his first GameCube adventure.</desc>
+		<image>~/.assets/wario-world/boxart.jpg</image>
+		<releasedate>20030624</releasedate>
+		<developer>Treasure</developer>
+		<publisher>Nintendo</publisher>
+		<genre>Action</genre>
+		<players>Single Player</players>
+		<playcount>3</playcount>
+		<lastplayed>20200428T041539</lastplayed>
+	</game>
+	<game>
+		<path>./power-stone-2.desktop</path>
+		<name>Power Stone 2</name>
+		<desc>Power Stone 2 is a classic 3D fighting arena video game developed by Capcom for the Sega Dreamcast. It is a sequel of the Power Stone released in 1999.</desc>
+		<image>~/.assets/power-stone-2/boxart.jpg</image>
+		<releasedate>20000823</releasedate>
+		<developer>Capcom</developer>
+		<publisher>Capcom</publisher>
+		<genre>Fighting</genre>
+		<players>1-2 Players</players>
+		<playcount>1</playcount>
+		<lastplayed>20200529T005023</lastplayed>
+	</game>
+	<game>
+		<path>./brave.desktop</path>
+		<name>brave</name>
+		<desc>Brave: The Video Game invites players to run, jump and battle their way through the rugged landscape of mythical and mysterious Scotland. By using their wits and bravery, gamers will also be able to wield a sword and bow and arrow to defeat fierce enemies, break a magical curse and save a kingdom.</desc>
+		<image>~/.assets/brave/boxart.jpg</image>
+		<releasedate>20120619</releasedate>
+		<developer>Behaviour Interactive</developer>
+		<publisher>Disney Interactive</publisher>
+		<genre>Action, Adventure</genre>
+		<players>1-2 Players</players>
+		<playcount>3</playcount>
+		<lastplayed>20200529T145026</lastplayed>
+	</game>
+	<game>
+		<path>./gauntlet-iv.desktop</path>
+		<name>Gauntlet IV</name>
+		<desc>As the first four-player game for the Genesis, Gauntlet IV is a carbon copy of the arcade classic.</desc>
+		<image>~/.assets/gauntlet-iv/boxart.jpg</image>
+		<releasedate>19930916</releasedate>
+		<developer>Atari</developer>
+		<publisher>Tengen</publisher>
+		<genre>Action, Adventure</genre>
+		<players>1-4 Players</players>
+		<playcount />
+		<lastplayed />
+	</game>
+	<game>
+		<path>./kirby-super-star.desktop</path>
+		<name>Kirby Super Star</name>
+		<desc>Take control of the the famous pink puffball and his new "Helper" friends as they trek through a collection of platforming adventures and minigames.</desc>
+		<image>~/.assets/kirby-super-star/boxart.jpg</image>
+		<releasedate>19960920</releasedate>
+		<developer>HAL Laboratory</developer>
+		<publisher>Nintendo</publisher>
+		<genre>Action, Platform</genre>
+		<players>1-4 Players</players>
+		<playcount />
+		<lastplayed />
+	</game>
+	<game>
+		<path>./ristar.desktop</path>
+		<name>Ristar</name>
+		<desc>In Ristar, players control a star-shaped character who uses his arms to latch onto enemies and fly towards them, smashing them with his face. The gameplay is similar to that of Bionic Commando, except players can jump as well as grapple.</desc>
+		<image>~/.assets/ristar/boxart.jpg</image>
+		<releasedate>19950217</releasedate>
+		<developer>Sonic Team</developer>
+		<publisher>Sega</publisher>
+		<genre>Action, Platform</genre>
+		<players>Single Player</players>
+		<playcount />
+		<lastplayed />
+	</game>
+	<game>
+		<path>./sonic-the-hedgehog-2.desktop</path>
+		<name>Sonic the Hedgehog 2</name>
+		<desc>Run, jump and spin through levels as Sonic and Tails, in order to thwart the plans of the nefarious Dr. Robotnik and free the kidnapped animals! Released by Sega in 1992, Sonic the Hedgehog 2 is often considered one of the greatest platformers of all time.</desc>
+		<image>~/.assets/sonic-the-hedgehog-2/boxart.jpg</image>
+		<releasedate>19921121</releasedate>
+		<developer>Sonic Team</developer>
+		<publisher>Sega</publisher>
+		<genre>Action, Platform</genre>
+		<players>1-2 Players</players>
+		<playcount />
+		<lastplayed />
+	</game>
+	<game>
+		<path>./sonic-the-hedgehog-2.desktop</path>
+		<name>Sonic the Hedgehog 2</name>
+		<desc>Run, jump and spin through levels as Sonic and Tails, in order to thwart the plans of the nefarious Dr. Robotnik and free the kidnapped animals! Released by Sega in 1992, Sonic the Hedgehog 2 is often considered one of the greatest platformers of all time.</desc>
+		<image>~/.assets/sonic-the-hedgehog-2/boxart.jpg</image>
+		<releasedate>19921121</releasedate>
+		<developer>Sonic Team</developer>
+		<publisher>Sega</publisher>
+		<genre>Action, Platform</genre>
+		<players>1-2 Players</players>
+		<playcount />
+		<lastplayed />
+	</game>
+	<game>
+		<path>./strider.desktop</path>
+		<name>Strider</name>
+		<desc>Strider is an arcade action side-scroller, and one of Capcom's first big hits for the Sega Genesis console. A PlayStation version of Strider was released in 2000.</desc>
+		<image>~/.assets/strider/boxart.jpg</image>
+		<releasedate>20000101</releasedate>
+		<developer>Capcom</developer>
+		<publisher>Capcom</publisher>
+		<genre>Action, Platform</genre>
+		<players>1-2 Players</players>
+		<playcount />
+		<lastplayed />
+	</game>
+	<game>
+		<path>./sunset-riders.desktop</path>
+		<name>Sunset Riders</name>
+		<desc>A 2D side-scrolling, action game set in the Wild West that features four bounty hunters collecting awards on targeted outlaws.</desc>
+		<image>~/.assets/sunset-riders/boxart.jpg</image>
+		<releasedate>19931005</releasedate>
+		<developer>Konami</developer>
+		<publisher>Konami</publisher>
+		<genre>Action, Shooter</genre>
+		<players>1-2 Players</players>
+		<playcount />
+		<lastplayed />
+	</game>
+	<game>
+		<path>./vectorman-2.desktop</path>
+		<name>Vectorman 2</name>
+		<desc>After saving Earth from Warhead, Vectorman's sludge barge is targeted and destroyed by a missile. Vectorman escapes, parachuting down to the planet to battle with mutant insects on Earth. Now it is up to Vectorman to fight through the mutant bugs and find the evil Black Widow Queen.</desc>
+		<image>~/.assets/vectorman-2/boxart.jpg</image>
+		<releasedate>19961115</releasedate>
+		<developer>BlueSky Software</developer>
+		<publisher>Sega</publisher>
+		<genre>Platform, Shooter</genre>
+		<players>Single Player</players>
+		<playcount />
+		<lastplayed />
+	</game>
+	<game>
+		<path>./legend-of-the-mystical-ninja.desktop</path>
+		<name>The Legend of the Mystical Ninja</name>
+		<desc>Players take on the role of Goemon and Ebisumaru as they traverse Japan searching for a kidnapped princess.</desc>
+		<image>~/.assets/legend-of-the-mystical-ninja/boxart.jpg</image>
+		<releasedate>19960920</releasedate>
+		<developer>Konami</developer>
+		<publisher>Konami</publisher>
+		<genre>Action, Adventure</genre>
+		<players>1-2 Players</players>
+		<playcount>1</playcount>
+		<lastplayed>20200602T120236</lastplayed>
+	</game>
+	<game>
+		<path>./vectorman.desktop</path>
+		<name>Vectorman</name>
+		<image>~/.assets/vectorman/boxart.jpg</image>
+		<releasedate>19951024</releasedate>
+		<developer>BlueSky Software</developer>
+		<publisher>Sega</publisher>
+		<genre>Platform, Shooter</genre>
+		<players>Single Player</players>
+		<playcount>1</playcount>
+		<lastplayed>20200602T120307</lastplayed>
+	</game>
+	<game>
+		<path>./mighty-morphin-power-rangers-movie.desktop</path>
+		<name>Mighty Morphin Power Rangers: The Movie</name>
+		<desc>A 1995 video game based on a movie license that was released on by Bandai and developed by Natsume. The game follows the plot of the movie.</desc>
+		<image>~/.assets/mighty-morphin-power-rangers-movie/boxart.jpg</image>
+		<releasedate>19950630</releasedate>
+		<developer>Natsume</developer>
+		<publisher>Bandai</publisher>
+		<genre>Action</genre>
+		<players>1-2 Players</players>
+		<playcount>3</playcount>
+		<lastplayed>20200603T085702</lastplayed>
+	</game>
+	<game>
+		<path>./tmnt-hyperstone-heist.desktop</path>
+		<name>Teenage Mutant Ninja Turtles: The Hyperstone Heist</name>
+		<desc>Shredder steals the powerful Hyperstone to shrink New York City and it's up to you to teach that treacherous troublemaker not to mess with the fearless foursome!</desc>
+		<image>~/.assets/tmnt-hyperstone-heist/boxart.jpg</image>
+		<releasedate>19921211</releasedate>
+		<developer>Konami</developer>
+		<publisher>Konami</publisher>
+		<genre>Action</genre>
+		<players>1-2 Players</players>
+		<playcount>2</playcount>
+		<lastplayed>20200603T094946</lastplayed>
+	</game>
+	<game>
+		<path>./lego-batman-2.desktop</path>
+		<name>LEGO Batman 2</name>
+		<desc>Sequel to 2008's LEGO Batman, Batman and Robin are forced to work together alongside the likes of Superman, Wonder Woman and Green Lantern to help stop the combined tyranny of Lex Luthor and The Joker.</desc>
+		<image>~/.assets/lego-batman-2/boxart.jpg</image>
+		<releasedate>20120619</releasedate>
+		<developer>TT Games</developer>
+		<publisher>WB Games</publisher>
+		<genre>Action</genre>
+		<players>1-2 Players</players>
+		<playcount>6</playcount>
+		<lastplayed>20200603T111837</lastplayed>
+	</game>
+	<game>
+		<path>./donkey-kong-country.desktop</path>
+		<name>Donkey Kong Country</name>
+		<desc>For the first time in Nintendo history, take control of Mario's former adversary as he travels through the island (with his nephew Diddy Kong) to recover his stolen banana hoard in this side-scrolling platformer.</desc>
+		<image>~/.assets/donkey-kong-country/boxart.jpg</image>
+		<releasedate>19941121</releasedate>
+		<developer>Rare</developer>
+		<publisher>Nintendo</publisher>
+		<genre>Action, Platformer</genre>
+		<players>1-2 Players</players>
+		<playcount>2</playcount>
+		<lastplayed>20200605T191051</lastplayed>
+	</game>
+	<game>
+		<path>./lego-batman.desktop</path>
+		<name>LEGO Batman</name>
+		<desc>Play as Batman and his sidekick Robin as you build, drive, swing and fight your way through Gotham City capturing escaped villains including The Joker, Penguin, Scarecrow and more.</desc>
+		<image>~/.assets/lego-batman/boxart.jpg</image>
+		<releasedate>20080923T000000</releasedate>
+		<developer>Traveller's Tales</developer>
+		<publisher>WB Games</publisher>
+		<genre>Action</genre>
+		<players>1-2 Players</players>
+		<playcount>28</playcount>
+		<lastplayed>20200607T130528</lastplayed>
+	</game>
+	<game>
+		<path>./last-knight.desktop</path>
+		<name>last-knight</name>
+		<playcount>2</playcount>
+		<lastplayed>20200607T170637</lastplayed>
+	</game>
+</gameList>

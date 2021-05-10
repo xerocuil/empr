@@ -13,7 +13,6 @@ class Tag(models.Model):
 class App(models.Model):
 	title = models.CharField(max_length=128, unique=True)
 		
-
 class Game(models.Model):
 	## Classes
 	class esrb_ratings(models.TextChoices):
@@ -69,20 +68,21 @@ class Game(models.Model):
 
 	## Images
 	boxart = models.ImageField(blank=True, null=True, upload_to='games/boxart/')
-	#icon = models.ImageField(blank=True, null=True, upload_to='games/icons/')
 	wallpaper = models.ImageField(blank=True, null=True, upload_to='games/wallpaper/')
+
+	## Misc
+	favorite = models.BooleanField(default=False)
+	kid_friendly = models.BooleanField(default=False)
+	required_files = models.TextField(blank=True, null=True)
+	steam_id = models.IntegerField(blank=True, null=True)
+	hidden = models.BooleanField(default=False)
 
 	## DB Info
 	date_added = models.DateTimeField('Date Added', auto_now_add=True)
 	date_modified = models.DateTimeField('Date Modified', auto_now=True)
-	hidden = models.BooleanField(default=False)
 	notes = models.TextField(blank=True, null=True)
 	path = models.CharField(blank=True, max_length=128, null=True)
 	installed = models.BooleanField(default=False)
-	installed_remote = models.BooleanField(default=False)
-	rating = models.DecimalField(blank=True, max_digits=3, decimal_places=2, null=True)
-	favorite = models.BooleanField(default=False)
-	kid_friendly = models.BooleanField(default=False)
 	
 	def __str__(self):
 		return self.title
@@ -107,19 +107,10 @@ class Genre(models.Model):
 		return self.name
 
 class Platform(models.Model):
-	full_name = models.CharField(max_length=128, unique=True)
+	name = models.CharField(max_length=128, unique=True)
 	slug = models.CharField(max_length=64, unique=True)
 	path = models.CharField(max_length=128, unique=True, null=True)
-	year = models.IntegerField(blank=True, null=True)
-	description = models.TextField(blank=True, max_length=4096)
-	launcher = models.CharField(max_length=192, blank=True, null=True)
 	logo = models.ImageField(blank=True, null=True, upload_to='platform/logos/')
 	icon = models.ImageField(blank=True, null=True, upload_to='platform/icons/')
-	image = models.ImageField(blank=True, null=True, upload_to='platform/images/')
 	def __str__(self):
-		return self.full_name
-
-# class Tag(models.Model):
-# 	title = models.CharField(max_length=64, unique=True)
-# 	def __str__(self):
-# 		return self.title
+		return self.name

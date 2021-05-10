@@ -1,0 +1,196 @@
+May 01 20:37:30 lvl2: 	EmulationStation - v2.10.0rp-dev, built May  1 2021 - 01:07:52
+May 01 20:37:30 lvl2: 	Parsing XML file "/home/xerocuil/Applications/EmulationStation/resources/mamenames.xml"...
+May 01 20:37:30 lvl2: 	Parsing XML file "/home/xerocuil/Applications/EmulationStation/resources/mamebioses.xml"...
+May 01 20:37:30 lvl2: 	Parsing XML file "/home/xerocuil/Applications/EmulationStation/resources/mamedevices.xml"...
+May 01 20:37:30 lvl2: 	Creating window...
+May 01 20:37:31 lvl2: 	Created window successfully.
+May 01 20:37:31 lvl2: 	GL vendor:   Intel Open Source Technology Center
+May 01 20:37:31 lvl2: 	GL renderer: Mesa DRI Intel(R) HD Graphics 2500 (IVB GT1)
+May 01 20:37:31 lvl2: 	GL version:  3.0 Mesa 20.2.6
+May 01 20:37:31 lvl2: 	Checking available OpenGL extensions...
+May 01 20:37:31 lvl2: 	 ARB_texture_non_power_of_two: ok
+May 01 20:37:31 lvl2: 	Added unconfigured joystick Microsoft Microsoft® SideWinder™ X5 Mouse Consumer Control (GUID: 030000005e0400003607000011010000, instance ID: 0, device index: 0).
+May 01 20:37:31 lvl2: 	Loading system config file /home/xerocuil/.emulationstation/es_systems.cfg...
+May 01 20:37:31 lvl1: 	  Unknown platform for system "apps" (platform "apps" from list "apps")
+May 01 20:37:31 lvl1: 	Error - folder with path "/home/xerocuil/Applications/Empr/launchers/apps" is not a directory!
+May 01 20:37:31 lvl2: 	Parsing XML file "/home/xerocuil/.emulationstation/gamelists/apps/gamelist.xml"...
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/steam.app" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/DS4 Options/ds4-two.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/kodi.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/retroarch.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/youtube.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/DS4 Connect/ds4-two.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	System "apps" has no games! Ignoring it.
+May 01 20:37:31 lvl1: 	  Unknown platform for system "steam" (platform "steam" from list "steam")
+May 01 20:37:31 lvl2: 	Parsing XML file "/home/xerocuil/.emulationstation/gamelists/pc/gamelist.xml"...
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/thug-2.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/hat-in-time.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/toy-story-2.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/claw.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/bloodstained.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/chaos-engine.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/doom.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/doom-ii.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/gato-roboto.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/ktane.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/epic-mickey-2.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/lego-batman-2.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/shrek-2-team-action.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/forager.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/freedom-fighters.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/hexen.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/jade-empire.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/lhp1-4.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/sea-salt.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/tesla-vs-lovecraft.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/towerfall.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/vtm-bloodlines.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/worms-2.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/nights-into-dreams.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/monsters-inc.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/transformers-devastation.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/rayman-2.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/brave.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/lego-batman.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/lego-racers-2.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/tarzan.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/wall-e.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/x-men-legends-ii.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Applications/Empr/launchers/pc/lego-marvel-super-heroes.desktop" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	Error - folder with path "/home/xerocuil/Games/arcade" is not a directory!
+May 01 20:37:31 lvl2: 	Parsing XML file "/home/xerocuil/.emulationstation/gamelists/arcade/gamelist.xml"...
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/dino.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/kinst13.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/kinst14.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/kinst.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/tekkenac.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/tekken.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/tekken3.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/tekken3ua.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/tekken3ud.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/tektagtja.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/tektagtjb.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/tektagtjc1.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/tektagtub.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/tektagt.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/tekken3a.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/tekken3b.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/tekkenb.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/tektagtc1.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/tektagtuc1.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/avsp.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/avspu.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/altbeast.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/batcir.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/btoads.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/bishi.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/blastoff.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/blazstar.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/boscomd.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/bosco.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/cabal.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/cadashu.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/cadash.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/captaven.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/captavnu.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/dstlk.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/dstlku.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/ddragon.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/ddragonu.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/ddragon3j.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/ddragon3.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/ddragon2.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/ddsom.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/ddsomur1.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/ddtod.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/ddtodu.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/mspacman.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/pacman.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/paperboy.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/samsh5sp.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/shocktro.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/shocktroa.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/shocktr2.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/ssriders.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/dinou.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/dkong.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/atetris.zip" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	System "arcade" has no games! Ignoring it.
+May 01 20:37:31 lvl1: 	Error - folder with path "/home/xerocuil/Games/dreamcast" is not a directory!
+May 01 20:37:31 lvl2: 	Parsing XML file "/home/xerocuil/.emulationstation/gamelists/dreamcast/gamelist.xml"...
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/power-stone-2.cdi" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	Error - folder with path "/home/xerocuil/Games/genesis" is not a directory!
+May 01 20:37:31 lvl2: 	Parsing XML file "/home/xerocuil/.emulationstation/gamelists/genesis/gamelist.xml"...
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/soul-star.cue" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/comix-zone.gen" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/toejam-earl-2.gen" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	System "dreamcast" has no games! Ignoring it.
+May 01 20:37:31 lvl1: 	  Unknown platform for system "gamecube" (platform "gamecube" from list "gamecube")
+May 01 20:37:31 lvl1: 	Error - folder with path "/home/xerocuil/Games/gamecube" is not a directory!
+May 01 20:37:31 lvl2: 	Parsing XML file "/home/xerocuil/.emulationstation/gamelists/gamecube/gamelist.xml"...
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/baldurs-gate-dark-alliance.gcz" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/custom-robo.gcz" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/shrek-superslam.gcz" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/eternal-darkness.gcz" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/fight-night-round-2.gcz" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/luigis-mansion.gcz" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/mario-kart-double-dash.gcz" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/mario-party-7.gcz" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/mario-superstar-baseball.gcz" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/naruto-clash-of-ninja-2.gcz" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/pikmin.gcz" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/pikmin-2.gcz" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/pokemon-colosseum.gcz" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/second-sight.gcz" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/ssx-3.gcz" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/super-mario-strikers.gcz" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/super-smash-bros-melee.gcz" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/teenage-mutant-ninja-turtles.gcz" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/legend-of-zelda-twilight-princess.gcz" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/viewtiful-joe.gcz" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/wario-world.gcz" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/warioware-inc-mega-party-games.gcz" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	System "genesis" has no games! Ignoring it.
+May 01 20:37:31 lvl1: 	Error - folder with path "/home/xerocuil/Games/n64" is not a directory!
+May 01 20:37:31 lvl2: 	Parsing XML file "/home/xerocuil/.emulationstation/gamelists/n64/gamelist.xml"...
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/super-mario-64.n64" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/banjo-kazooie.n64" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/chameleon-twist.n64" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	System "gamecube" has no games! Ignoring it.
+May 01 20:37:31 lvl1: 	Error - folder with path "/home/xerocuil/Games/nes" is not a directory!
+May 01 20:37:31 lvl1: 	System "n64" has no games! Ignoring it.
+May 01 20:37:31 lvl1: 	  Unknown platform for system "ps1" (platform "ps1" from list "ps1")
+May 01 20:37:31 lvl1: 	Error - folder with path "/home/xerocuil/Games/ps1" is not a directory!
+May 01 20:37:31 lvl1: 	System "nes" has no games! Ignoring it.
+May 01 20:37:31 lvl1: 	Error - folder with path "/home/xerocuil/Games/ps2" is not a directory!
+May 01 20:37:31 lvl1: 	System "ps1" has no games! Ignoring it.
+May 01 20:37:31 lvl1: 	Error - folder with path "/home/xerocuil/Games/saturn" is not a directory!
+May 01 20:37:31 lvl1: 	System "ps2" has no games! Ignoring it.
+May 01 20:37:31 lvl1: 	Error - folder with path "/home/xerocuil/Games/snes" is not a directory!
+May 01 20:37:31 lvl2: 	Parsing XML file "/home/xerocuil/.emulationstation/gamelists/snes/gamelist.xml"...
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/actraiser-2.smc" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/super-mario-all-stars.smc" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/2020-super-baseball.smc" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/7th-saga.smc" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/donkey-kong-country.smc" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/fire-team-rogue-beta.smc" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/mmpr.smc" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/mmpr-fighting-edition.smc" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	System "saturn" has no games! Ignoring it.
+May 01 20:37:31 lvl1: 	Error - folder with path "/home/xerocuil/Games/wii" is not a directory!
+May 01 20:37:31 lvl2: 	Parsing XML file "/home/xerocuil/.emulationstation/gamelists/wii/gamelist.xml"...
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/bomberman-hero.wad" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/mario-kart-64.wad" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/super-mario-64.wad" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	File "/home/xerocuil/Games/legend-of-zelda-oot.wad" does not exist! Ignoring.
+May 01 20:37:31 lvl1: 	  Warning from theme "/home/xerocuil/.emulationstation/themes/empr/wii/theme.xml"
+    could not find file "./_inc/system.svg" (which resolved to "/home/xerocuil/.emulationstation/themes/empr/wii/_inc/system.svg") 
+May 01 20:37:31 lvl1: 	System "snes" has no games! Ignoring it.
+May 01 20:37:31 lvl1: 	  Warning from theme "/home/xerocuil/.emulationstation/themes/empr/wii/theme.xml"
+    could not find file "./_inc/system.svg" (which resolved to "/home/xerocuil/.emulationstation/themes/empr/wii/_inc/system.svg") 
+May 01 20:37:31 lvl1: 	  Warning from theme "/home/xerocuil/.emulationstation/themes/empr/wii/theme.xml"
+    could not find file "./_inc/system.svg" (which resolved to "/home/xerocuil/.emulationstation/themes/empr/wii/_inc/system.svg") 
+May 01 20:37:31 lvl1: 	  Warning from theme "/home/xerocuil/.emulationstation/themes/empr/wii/theme.xml"
+    could not find file "./_inc/system.svg" (which resolved to "/home/xerocuil/.emulationstation/themes/empr/wii/_inc/system.svg") 
+May 01 20:37:31 lvl1: 	System "wii" has no games! Ignoring it.
+May 01 20:37:39 lvl2: 	EmulationStation cleanly shutting down.

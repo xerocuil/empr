@@ -41,21 +41,23 @@ install_es(){
 	cd EmulationStation
 	cmake .
 	make
+	ln -s $CONFIGDIR/emulationstation ~/.emulationstation
+	ln -s $CMSDIR/media ~/.empr
+	if [[ ! -f $ESLAUNCHER ]]; then
+		echo -e "\nEmulationStation Launcher not found.\n"
+		sudo cp "$ESCONFIG/launcher.sh" "$ESLAUNCHER"
+		cp "$ESCONFIG/EmulationStation.desktop" "$HOME/.local/share/applications/"
+		mkdir -p "$HOME/.icons"
+		cp "$ESCONFIG/emulationstation.svg" "$HOME/.icons/"
+	else
+		echo -e "\nEmulationStation Launcher found.\n"
+	fi
 }
-
-if [[ ! -d $EMULATIONSTATION ]]; then
-	echo -e "\nEmulationStation not found.\n"
-	install_es
-	ln -s $APPDIR/config/emulationstation ~/.emulationstation
-else
-	echo -e "\nEmulationStation found.\n"
-fi
 
 ## Install Python Environment
 install_python_env(){
 	sudo apt-get install -y git htop jq python3 \
 	python3-pip python3-venv tmux vim
-	echo -e "\nVirtual Environment not found.\n"
 	cd $APPDIR
 	python3 -m venv $VENV
 
@@ -64,19 +66,6 @@ install_python_env(){
 	python3 -m pip install -r requirements.txt
 }
 
-if [[ ! -d $VENV ]]; then
-	echo -e "\nPython Environment not found.\n"
-	install_python_env
-else
-	echo -e "\nPython Environment found.\n"
-fi
 
-if [[ ! -f $ESLAUNCHER ]]; then
-	echo -e "\nEmulationStation Launcher not found.\n"
-	sudo cp "$ESCONFIG/launcher.sh" "$ESLAUNCHER"
-	cp "$ESCONFIG/EmulationStation.desktop" "$HOME/.local/share/applications/"
-	mkdir -p "$HOME/.icons"
-	cp "$ESCONFIG/emulationstation.svg" "$HOME/.icons/"
-else
-	echo -e "\nEmulationStation Launcher found.\n"
-fi
+
+

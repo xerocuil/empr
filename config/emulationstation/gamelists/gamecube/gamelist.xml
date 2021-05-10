@@ -1,0 +1,254 @@
+<?xml version="1.0"?>
+<gameList>
+	<game>
+		<path>./baldurs-gate-dark-alliance.gcz</path>
+		<name>Baldur's Gate: Dark Alliance</name>
+		<desc>Baldur's Gate: Dark Alliance casts the player as one of three basic characters: an elf sorceress, a human archer, or a dwarf fighter. From humble beginnings slaying rats in the cellars of an inn, the adventurer will move on to exploring caves, crypts, and mountain passes. The adventurer must eventually unravel the secrets of a dark, new Thieves Guild backed by powerful mages.</desc>
+		<image>~/Applications/Empr/cms/media/games/boxart/baldurs-gate-dark-alliance-boxart.jpg</image>
+		<releasedate>20021118T000000</releasedate>
+		<developer>Snowblind Studios</developer>
+		<publisher>Interplay Entertainment Corp.</publisher>
+		<genre>Role-Playing</genre>
+		<players>2</players>
+	</game>
+	<game>
+		<path>./custom-robo.gcz</path>
+		<name>Custom Robo</name>
+		<desc>Get ready to enter a world of hypertech weapons, holosseums, and heavy-barrel battles. Custom Robo puts you in the pilot's seat of a state-of-the-art war machine in the not-too-distant future where crime and justice duke it out in virtual battlegrounds. With the game's powerful, innovative customization, you can construct your robot from the ground up using an arsenal of more than 200 parts and weapons, from guns and bombs to robo models and homing pods. Many weapons are freely available on the market, but some--deadly and highly illegal--can only be acquired in secret robo gambling rooms and from the hands of crime syndicates.</desc>
+		<image>~/.emulationstation/downloaded_images/gamecube/custom-robo-image.jpg</image>
+		<releasedate>20040304T000000</releasedate>
+		<developer>Noise</developer>
+		<publisher>Nintendo</publisher>
+		<genre>Action, Role-Playing</genre>
+		<players>4</players>
+	</game>
+	<game>
+		<path>./shrek-superslam.gcz</path>
+		<name>DreamWorks Shrek SuperSlam</name>
+		<desc>You can battle characters from the Shrek movies in Shrek SuperSlam. The game lets you play as one of 20 characters, such as the heroic Shrek or villainous Prince Charming. Use weapons, potions, or a character's signature special move to fight through 16 fully-destructible arenas. Then, battle with up to four of your friends or play through more than 30 minigames.</desc>
+		<image>~/.emulationstation/downloaded_images/gamecube/shrek-superslam-image.jpg</image>
+		<releasedate>20051025T000000</releasedate>
+		<developer>Shaba Games LLC</developer>
+		<publisher>Activision</publisher>
+		<genre>Action, Fighting</genre>
+		<players>4</players>
+	</game>
+	<game>
+		<path>./eternal-darkness.gcz</path>
+		<name>Eternal Darkness: Sanity's Requiem</name>
+		<desc>Eternal Darkness: Sanity's Requiem is a psychological horror action adventure, released in 2002 by Nintendo for the Gamecube. It tells the stories of twelve characters that span across the world and two millennia who have to deal with ancient forces of evil which have been trying to manifest themselves in our world. Chapters take place in Ancient Rome, Persia, the Middle East, and modern-day Rhode Island. Throughout the game, the protagonists will have access to several weapons appropriate for their era, from bastard sword &amp; gladius to flintlock pistol and shotgun.
+
+The game features an involved Magic system, which allows different spells to be created through the combination of runes. These spells can attack enemies, dispel illusions, and heal both the body and items.
+
+Eternal Darkness: Sanity's Requiem also has a unique feature called Sanity. If an enemy sees a character, their Sanity meter drops. When Sanity gets low, hallucinations begin to plague the character. Walls bleed, voices whisper from nowhere, the camera gets disoriented. Sanity can be restored by dealing a finishing move on a dying enemy, or with spells or some items.</desc>
+		<image>~/.emulationstation/downloaded_images/gamecube/eternal-darkness-image.jpg</image>
+		<releasedate>20020623T000000</releasedate>
+		<developer>Silicon Knights</developer>
+		<publisher>Nintendo</publisher>
+		<genre>Action, Adventure, Horror</genre>
+	</game>
+	<game>
+		<path>./fight-night-round-2.gcz</path>
+		<name>Fight Night Round 2</name>
+		<desc>EA's Fight Night returns in its second installment. Once again, you can create a new boxer and start a career that begins as an amateur in a shady gym somewhere in Queens, NY and fight your way up to the top. Alternatively, you could relive the careers of some legendary boxers. Of course, you could go for a simple match with either a computer or a live opponent. Round 2 offers many new features, like fancy particle effects that show blood and sweat spraying into the camera in ultra slow-motion. The "Total Boxer Control", which lets you throw punches by making certain movements with the analog stick, has been improved. There are also many ways to customize the appearance of your character, up to the shaping of the cranium and ears. The soundtrack consists of a dozen contemporary (but unfortunately edited) hip-hop tracks.</desc>
+		<image>~/.emulationstation/downloaded_images/gamecube/fight-night-round-2-image.jpg</image>
+		<releasedate>20050228T000000</releasedate>
+		<developer>EA Sports</developer>
+		<publisher>EA Sports</publisher>
+		<genre>Fighting, Sports</genre>
+		<players>2</players>
+	</game>
+	<game>
+		<path>./luigis-mansion.gcz</path>
+		<name>Luigi's Mansion</name>
+		<desc>Luigi's Won a Mansion! 
+The bad news is that it's crawling with ghosts... and Mario seems to be trapped inside...
+
+Luigi's in for a spooktacular surprise as he creeps into the pitch-dark mansion he won, armed with only a flashlight and a vacuum custom-made for sucking up ghosts. Ghosts lurk in every nook and cranny. You'll have to master the Poltergust 3000 to vacuum them all up! Jewels, coins and cash are hidden throughout the mansion-and finding it all will be worth your while...
+
+You'll have to solve the mansion's many mysteries to catch a gallery of quirky ghouls, such as the fire-belching Mr. Luggs. Deep inside the mansion hide elusive boss ghosts like Bogmire, each with ghastly powers and a ghostly bone to pick with Luigi!
+
+After collecting special medals, you'll be able to shoot fire, water, and ice from your vacuum to unearth secrets and thwart extra-eerie ghosts!</desc>
+		<image>~/.emulationstation/downloaded_images/gamecube/luigis-mansion-image.jpg</image>
+		<releasedate>20010914T000000</releasedate>
+		<developer>Nintendo EAD</developer>
+		<publisher>Nintendo</publisher>
+		<genre>Adventure</genre>
+	</game>
+	<game>
+		<path>./mario-kart-double-dash.gcz</path>
+		<name>Mario Kart: Double Dash!!</name>
+		<desc>The Mushroom Kingdom just got a whole lot more hectic as Mario and friends double up for furious kart racing. This time around, each kart holds two racers that can switch places at any time, so choose from a huge cast of favorites and pair them up any way you see fit. The character in front handles the driving duties, while the character in the rear doles out damage with six normal items and eight special items that only specific characters can use. Get ready for some intense multiplayer mayhem with your favorite characters, including Mario, Luigi, Donkey Kong, Peach, Bowser, and Koopa.</desc>
+		<image>~/.emulationstation/downloaded_images/gamecube/mario-kart-double-dash-image.jpg</image>
+		<releasedate>20031117T000000</releasedate>
+		<developer>Nintendo</developer>
+		<publisher>Nintendo</publisher>
+		<genre>Action, Racing, Sports</genre>
+		<players>4</players>
+	</game>
+	<game>
+		<path>./mario-party-7.gcz</path>
+		<name>Mario Party 7</name>
+		<desc>You can play more than 80 new minigames in the most recent Mario-themed party game, Mario Party 7. Mario and pals needed some time off, but they forgot to invite Bowser on their cruise. You can battle against an angry Bowser or up to seven of your friends on a single GameCube system. Mario Party 7 includes a few new characters and brings back microphone support from Mario Party 6.</desc>
+		<image>~/.emulationstation/downloaded_images/gamecube/mario-party-7-image.jpg</image>
+		<releasedate>20051107T000000</releasedate>
+		<developer>Hudson Entertainment, Inc.</developer>
+		<publisher>Nintendo</publisher>
+		<genre>Action, Puzzle, Sports</genre>
+		<players>7</players>
+	</game>
+	<game>
+		<path>./mario-superstar-baseball.gcz</path>
+		<name>Mario Superstar Baseball</name>
+		<desc>The superstars of the Mushroom Kingdom have gathered on the diamond to power up America's game! Pick a captain, fill your team with your favorite characters from the Mario universe, then hit the field. Each captain has a special Star Skill for pitching and batting, so whether you're hurling fireballs as Mario or blasting curving banana-ball dingers as DK, you've never played ball like this!</desc>
+		<image>~/.emulationstation/downloaded_images/gamecube/mario-superstar-baseball-image.jpg</image>
+		<releasedate>20050829T000000</releasedate>
+		<developer>Namco, NOW Production</developer>
+		<publisher>Nintendo</publisher>
+		<genre>Sports</genre>
+		<players>4</players>
+	</game>
+	<game>
+		<path>./naruto-clash-of-ninja-2.gcz</path>
+		<name>Naruto: Clash of Ninja 2</name>
+		<image>~/.emulationstation/downloaded_images/gamecube/naruto-clash-of-ninja-2-image.jpg</image>
+		<rating>0</rating>
+		<releasedate>20040926T000000</releasedate>
+		<developer>Eighting Co., Ltd.</developer>
+		<publisher>D3 Publisher Inc.</publisher>
+		<genre>Fighting</genre>
+		<players>2</players>
+	</game>
+	<game>
+		<path>./pikmin.gcz</path>
+		<name>Pikmin</name>
+		<desc>The tiny Extra-Terrestrial Captain Olimar is on vacation when his ship is hit by a comet.  The S.S Dolphin makes a forced landing on a planet, shedding parts as he goes (presumed to be Earth). Here he encounters the Pikmin. The Pikmin are on the verge of extinction and Olimar has 30 days to retrieve all the parts of his ship leading the Pikmin in a dash for survival.</desc>
+		<image>~/.emulationstation/downloaded_images/gamecube/pikmin-image.jpg</image>
+		<releasedate>20011203T000000</releasedate>
+		<developer>Nintendo EAD</developer>
+		<publisher>Nintendo</publisher>
+		<genre>Adventure, Strategy</genre>
+	</game>
+	<game>
+		<path>./pikmin-2.gcz</path>
+		<name>Pikmin 2</name>
+		<desc>Captain Olimar has returned to the planet where the Pikmin live, and he's all business this time. The company he works for is going bankrupt, so to save it, Olimar must salvage the treasure buried all over the planet. Of course, he'll need the help of the Pikmin to do that--he can't do anything by himself. Control one of two main characters--Olimar or his assistant--as you command your Pikmin to defeat enemies, propagate more Pikmin, collect precious doodads, and solve puzzles. With unlimited time, new colors of Pikmin, and two-player cooperative play, Pikmin 2 improves on the original in many ways.</desc>
+		<image>~/.emulationstation/downloaded_images/gamecube/pikmin-2-image.jpg</image>
+		<releasedate>20040830T000000</releasedate>
+		<developer>Nintendo</developer>
+		<publisher>Nintendo</publisher>
+		<genre>Strategy</genre>
+		<players>2</players>
+	</game>
+	<game>
+		<path>./pokemon-colosseum.gcz</path>
+		<name>Pokémon Colosseum</name>
+		<desc>Pokemon fans can now battle their favorite Pokemon on the grand stage. Starring a brand new leading character, Pokemon, Colosseum offers a story mode that pits you against tough trainers who routinely catch damaged Pokemon. In Battle mode, you can use the Game Boy Advance cable to send your team from your Pokemon Ruby or Pokemon Sapphire Game Pak to your Gamecube, then witness the true potential of your team. Rescue Pokemon and watch them come to life in spectacular Colosseum battles.</desc>
+		<image>~/.emulationstation/downloaded_images/gamecube/pokemon-colosseum-image.jpg</image>
+		<releasedate>20040322T000000</releasedate>
+		<developer>Genius Sonority Inc.</developer>
+		<publisher>Nintendo</publisher>
+		<genre>Role-Playing</genre>
+		<players>2</players>
+	</game>
+	<game>
+		<path>./second-sight.gcz</path>
+		<name>Second Sight</name>
+		<desc>Join John Vattic, a man endowed with psychic abilities, as he attempts to escape a US medical facility. As you discover more and more of John's psychic powers, you'll slowly uncover the events that landed him in the hands of the researchers. You'll gain access to a variety of psionic abilities (such as Psi-Blast, Telekinesis, Projection, and Charm) and powerful weapons (including handguns, tranquilizers, and machine guns). Complete your objectives using a combination of shooting action and stealth tactics.</desc>
+		<image>~/.emulationstation/downloaded_images/gamecube/second-sight-image.jpg</image>
+		<releasedate>20040921T000000</releasedate>
+		<developer>Free Radical Design</developer>
+		<publisher>Codemasters</publisher>
+		<genre>Action</genre>
+		<players>2</players>
+	</game>
+	<game>
+		<path>./ssx-3.gcz</path>
+		<name>SSX 3</name>
+		<desc>Players can discover the open mountain in the newest version of the smash-hit SSX snowboarding franchise. SSX 3 allows gamers to go anywhere gravity will take them. Players will discover a colossal mountain where they can immerse themselves in a free-roaming snow paradise.</desc>
+		<image>~/.emulationstation/downloaded_images/gamecube/ssx-3-image.jpg</image>
+		<releasedate>20031010T000000</releasedate>
+		<developer>Electronic Arts</developer>
+		<publisher>Electronic Arts</publisher>
+		<genre>Sports</genre>
+		<players>2</players>
+	</game>
+	<game>
+		<path>./super-mario-strikers.gcz</path>
+		<name>Super Mario Strikers</name>
+		<desc>Nintendo's foray into sports titles continues with Super Mario Strikers, a new soccer game that's unlike anything ever to hit the pitch. Whether players are freezing their opponents with an ice-cold shell, unleashing a spiny shell on their hapless opponents or making entire teams flee in terror with a roving Chain Chomp, they're sure to see something new around every corner kick. Super Mario Strikers features all the favorite characters from the Nintendo universe, as well as four-person multiplayer action that will have players and their friends cheering all night long. Get ready for the world cup of gaming.</desc>
+		<image>~/.emulationstation/downloaded_images/gamecube/super-mario-strikers-image.jpg</image>
+		<releasedate>20051205T000000</releasedate>
+		<developer>Next Level Games</developer>
+		<publisher>Nintendo</publisher>
+		<genre>Sports</genre>
+		<players>4</players>
+	</game>
+	<game>
+		<path>./super-smash-bros-melee.gcz</path>
+		<name>Super Smash Bros. Melee</name>
+		<desc>Super Smash Bros. Melee differs from traditional fighting games in that inflicting the most damage does not guarantee victory. Instead, opposing players must force their opponents beyond the boundaries of the stage. Most attacks inflict damage and can, if enough damage is dealt, knock back the enemy. Each character's health is measured by a meter that represents the damage received as a percentage. The higher the percentage value, the farther the player gets knocked back, and the easier they are to knock off the stage. Unlike other games of the same genre, in which moves are entered by button-input combinations, most moves in Super Smash Bros. Melee can be accessed via one-button presses and a joystick direction.</desc>
+		<image>~/.emulationstation/downloaded_images/gamecube/super-smash-bros-melee-image.jpg</image>
+		<releasedate>20011203T000000</releasedate>
+		<developer>HAL Laboratory</developer>
+		<publisher>Nintendo</publisher>
+		<genre>Action, Fighting, Platform</genre>
+		<players>4</players>
+	</game>
+	<game>
+		<path>./teenage-mutant-ninja-turtles.gcz</path>
+		<name>Teenage Mutant Ninja Turtles</name>
+		<desc>Be your favorite Teenage Mutant Ninja Turtle and master your ninja skills in their action-packed world. Roam NYC streets, scour underground sewers and fight your way across rooftops on a collision course with The Shredder and his vile pack of foot ninjas. Find scrolls to unlock special attack moves and effects. Interact with characters from the animated television series, such as Splinter and Casey Jones. Don't hide in your shell--be a hero.</desc>
+		<image>~/.emulationstation/downloaded_images/gamecube/teenage-mutant-ninja-turtles-image.jpg</image>
+		<releasedate>20031021T000000</releasedate>
+		<developer>Konami</developer>
+		<publisher>Konami</publisher>
+		<genre>Action</genre>
+		<players>2</players>
+	</game>
+	<game>
+		<path>./legend-of-zelda-twilight-princess.gcz</path>
+		<name>The Legend of Zelda: Twilight Princess</name>
+		<desc>In the next chapter in the Legend of Zelda series, Link can transform into a wolf to scour the darkened land of Hyrule. With the help of Midna, a mysterious being, you must guide Link through hordes of foul creatures and challenging bosses using new moves and a new horseback combat system. Many puzzles stand between Link and the fulfillment of his quest, so you must sharpen your wits as you hunt for weapons and items.</desc>
+		<image>~/.emulationstation/downloaded_images/gamecube/legend-of-zelda-twilight-princess-image.jpg</image>
+		<rating>0</rating>
+		<releasedate>20061211T000000</releasedate>
+		<developer>Nintendo</developer>
+		<publisher>Nintendo</publisher>
+		<genre>Action, Adventure, Role-Playing, Puzzle, Platform</genre>
+	</game>
+	<game>
+		<path>./viewtiful-joe.gcz</path>
+		<name>Viewtiful Joe</name>
+		<desc>Joe is no ordinary man and Viewtiful Joe is no ordinary game. Capcom's new superhero action game mixes funky cartoon-style visuals with classic side-scrolling gameplay and introduces the world's quirkiest million dollar action hero. More than just any ordinary dude, Joe must transform into the ultimate superhero. It's up to you to activate the correct view mode like "slow" or "zoom in" in order to clobber your enemies with beautiful style. You can also speed up or slow down your visual effects for even more "viewtiful" moves. Viewtiful Joe mixes an innovative viewpoint with an amazing stunt-filled action movie universe.</desc>
+		<image>~/.emulationstation/downloaded_images/gamecube/viewtiful-joe-image.jpg</image>
+		<releasedate>20031007T000000</releasedate>
+		<developer>Clover Studio</developer>
+		<publisher>Capcom</publisher>
+		<genre>Action, Fighting</genre>
+	</game>
+	<game>
+		<path>./wario-world.gcz</path>
+		<name>Wario World</name>
+		<desc>While Wario enjoys the riches from his many adventures, a mysterious black jewel in his trove transforms gems into monsters. Now, Wario must scramble to recover his riches in an alternate world filled with quirky puzzles, swarming enemies, and lots of loot. As Wario, you'll punch, kick, jump, grab monsters and objects, and inhale surrounding coins like a vacuum cleaner. You must cling to 3D balls to fight bosses, find hidden areas through trap doors, and bash your surroundings to uncover secrets.</desc>
+		<image>~/.emulationstation/downloaded_images/gamecube/wario-world-image.jpg</image>
+		<releasedate>20030624T000000</releasedate>
+		<developer>Treasure</developer>
+		<publisher>Nintendo</publisher>
+		<genre>Action, Adventure</genre>
+	</game>
+	<game>
+		<path>./warioware-inc-mega-party-games.gcz</path>
+		<name>WarioWare, Inc.: Mega Party Game$!</name>
+		<desc>Following the almost universally acclaimed short-attention-span action of the Game Boy Advance's WarioWare, Inc.: Mega Microgame$! comes this party-game adaptation for GameCube. Many of the mini-games featured in the handheld original have been converted for four-player competition on the console. Gamers strive to be the quickest teeth-brushers, the most precise nose pickers, the best free-throwers, the most accurate apple shooters, the most skillful paper-airplane pilots, and the victors in countless other quick contests that take no more than a few seconds to complete.
+
+As in the GBA original, a wide variety of activities combine with a simple, unifying theme, for an experience designed to appeal instantly to anyone who played video games in the days before 3D graphics and complicated storylines. Half the fun is in not knowing which five-second challenge will pop up next, or what the player will be required to do in it. Even when players aren't in control of the active character, some of the mini-games allow them to participate in a more passive fashion, adding to the group-oriented strategy.</desc>
+		<image>~/.emulationstation/downloaded_images/gamecube/warioware-inc-mega-party-games-image.jpg</image>
+		<rating>0</rating>
+		<releasedate>20040406T000000</releasedate>
+		<developer>Nintendo R&amp;D1</developer>
+		<publisher>Nintendo</publisher>
+		<genre>Action</genre>
+		<players>4</players>
+	</game>
+</gameList>

@@ -1,0 +1,354 @@
+<?xml version="1.0"?>
+<gameList>
+	<game>
+		<path>./thug-2.desktop</path>
+		<name>thug-2</name>
+		<playcount>1</playcount>
+		<lastplayed>20200417T200826</lastplayed>
+	</game>
+	<game>
+		<path>./hat-in-time.desktop</path>
+		<name>hat-in-time</name>
+		<playcount>1</playcount>
+		<lastplayed>20200417T213135</lastplayed>
+	</game>
+	<game>
+		<path>./toy-story-2.desktop</path>
+		<name>Toy Story 2: Buzz Lightyear to the Rescue</name>
+		<desc>Woody has been stolen from the bedroom, ready to be sold to the highest bidder by an evil toy collector. It's up to good friend Buzz Lightyear to fight his way through from the bedroom to the outside world in order to save Woody from the toy market and bring him home.</desc>
+		<image>~/.assets/toy-story-2/boxart.jpg</image>
+		<releasedate>1999-11-30</releasedate>
+		<developer>Traveller's Tales</developer>
+		<publisher>Activision</publisher>
+		<genre>Action</genre>
+		<players>Single-Player</players>
+		<playcount>1</playcount>
+		<lastplayed>20200418T023742</lastplayed>
+	</game>
+	<game>
+		<path>./claw.desktop</path>
+		<name>Claw</name>
+		<desc>As feline pirate Captain Nathaniel Claw, you must use your sword, pistol, dynamite, and magic to escape from prison and track down a hidden treasure.</desc>
+		<image>~/.assets/claw/boxart.jpg</image>
+		<releasedate>1997-09-30</releasedate>
+		<developer>Takara</developer>
+		<publisher>Monolith Productions</publisher>
+		<genre>Action</genre>
+		<players>1-2 Players</players>
+		<playcount>1</playcount>
+		<lastplayed>20200418T030244</lastplayed>
+	</game>
+	<game>
+		<path>./bloodstained.desktop</path>
+		<name>Bloodstained</name>
+		<desc>Bloodstained: Ritual of the Night is an exploration-focused, side-scroller action RPG by Koji Igarashi. Play as Miriam, an orphan scarred by an alchemist's curse that slowly crystallizes her body. Battle through a demon-infested castle and defeat its master to save yourself, and all of humanity!</desc>
+		<image>~/.assets/bloodstained/boxart.jpg</image>
+		<releasedate>2019-06-18</releasedate>
+		<developer>ArtPlay</developer>
+		<publisher>505 Games</publisher>
+		<genre>Action</genre>
+		<players>Single-Player</players>
+		<playcount>1</playcount>
+		<lastplayed>20200418T043254</lastplayed>
+	</game>
+	<game>
+		<path>./chaos-engine.desktop</path>
+		<name>The Chaos Engine</name>
+		<desc>Prepare for the dark world of The Chaos Engine, a steampunk Victorian age in which one or two players must fight the hostile creations of the Chaos Engine across four dynamic landscapes and take part in the ultimate battle.</desc>
+		<image>~/.assets/chaos-engine/boxart.jpg</image>
+		<releasedate>1993-03-01</releasedate>
+		<developer>The Bitmap Brothers</developer>
+		<publisher>Renegade Software</publisher>
+		<genre>Shooter</genre>
+		<players>1-2 Players</players>
+		<playcount>1</playcount>
+		<lastplayed>20200418T043345</lastplayed>
+	</game>
+	<game>
+		<path>./doom.desktop</path>
+		<name>Doom</name>
+		<desc>In one of the most revolutionary first-person shooters of the 1990s, players control the last remaining space marine in the demon-infested stations on Mars' moons.</desc>
+		<image>~/.assets/doom/boxart.jpg</image>
+		<releasedate>1993-12-10</releasedate>
+		<developer>id Software</developer>
+		<publisher>id Software</publisher>
+		<genre>Shooter</genre>
+		<players>Single-Player</players>
+		<playcount>1</playcount>
+		<lastplayed>20200418T043949</lastplayed>
+	</game>
+	<game>
+		<path>./doom-ii.desktop</path>
+		<name>Doom II</name>
+		<desc>After the events of Doom, Hell has found its way to Earth. The last living scientists develop a plan to evacuate what's remaining of the human race with enormous space ships. Unfortunately, the demons have taken control of the only spaceport, and it's up to the nameless space marine to take it back.</desc>
+		<image>~/.assets/doom-ii/boxart.jpg</image>
+		<releasedate>1994-09-30</releasedate>
+		<developer>id Software</developer>
+		<publisher>id Software</publisher>
+		<genre>Shooter</genre>
+		<players>Single-Player</players>
+		<playcount>1</playcount>
+		<lastplayed>20200418T044003</lastplayed>
+	</game>
+	<game>
+		<path>./gato-roboto.desktop</path>
+		<name>Gato Roboto</name>
+		<desc>Pounce inside of your cozy armored mech and set off on a dangerous trek through an alien underworld full of irritable creatures and treacherous obstacles in a valiant effort to save your stranded captain and his crashed spaceship.</desc>
+		<image>~/.assets/gato-roboto/boxart.jpg</image>
+		<releasedate>2019-05-30</releasedate>
+		<developer>doinksoft</developer>
+		<publisher>Devolver Digital</publisher>
+		<genre>Adventure</genre>
+		<players>Single-Player</players>
+		<playcount>1</playcount>
+		<lastplayed>20200418T044041</lastplayed>
+	</game>
+	<game>
+		<path>./ktane.desktop</path>
+		<name>Keep Talking and Nobody Explodes</name>
+		<desc>A game where one player can see the bomb, and must listen to their friends who have the instructions on how to defuse it.</desc>
+		<image>~/.assets/ktane/boxart.jpg</image>
+		<releasedate>2015-10-08</releasedate>
+		<developer>Steel Crate Games</developer>
+		<publisher>Steel Crate Games</publisher>
+		<genre>Puzzle</genre>
+		<players>2+ Players</players>
+		<playcount>1</playcount>
+		<lastplayed>20200418T044117</lastplayed>
+	</game>
+	<game>
+		<path>./epic-mickey-2.desktop</path>
+		<name>Epic Mickey 2</name>
+		<desc>Unleash the power of the brush in an all new co-op adventure. Join Mickey and Oswald in an epic battle to save the magical world of Wasteland and change it forever. Interact with your favorite characters like never before in the most heroic adventure yet.</desc>
+		<image>~/.assets/epic-mickey-2/boxart.jpg</image>
+		<releasedate>2012-11-18</releasedate>
+		<developer>Junction Point Studios</developer>
+		<publisher>Disney Interactive Studios</publisher>
+		<genre>Action</genre>
+		<players>1-2 Players</players>
+		<playcount>2</playcount>
+		<lastplayed>20200418T164551</lastplayed>
+	</game>
+	<game>
+		<path>./lego-batman-2.desktop</path>
+		<name>Lego Batman 2</name>
+		<desc>The Dynamic Duo of Batman and Robin join other famous super heroes from the DC Universe including Superman, Wonder Woman and Green Lantern to save Gotham City from destruction at the hands of the notorious villains Lex Luthor and the Joker.</desc>
+		<image>~/.assets/lego-batman-2/boxart.jpg</image>
+		<releasedate>20120619T000000</releasedate>
+		<developer>Traveller's Tales</developer>
+		<publisher>WB Games</publisher>
+		<genre>Action</genre>
+		<players>1-2 Players</players>
+		<playcount>2</playcount>
+		<lastplayed>20200418T155718</lastplayed>
+	</game>
+	<game>
+		<path>./shrek-2-team-action.desktop</path>
+		<name>Shrek 2: Team Action</name>
+		<desc>Shrek 2 is an action-adventure video game published by Activision and released in 2004. The game was developed by Luxoflux for the PlayStation 2, Xbox and GameCube, while a version for PC was developed by KnowWonder.</desc>
+		<image>~/.assets/shrek-2-team-action/boxart.jpg</image>
+		<releasedate>20040503</releasedate>
+		<developer>Luxoflux</developer>
+		<publisher>Activision</publisher>
+		<genre>Action</genre>
+		<players>1-2 Players</players>
+		<playcount>2</playcount>
+		<lastplayed>20200418T162652</lastplayed>
+	</game>
+	<game>
+		<path>./forager.desktop</path>
+		<name>forager</name>
+		<playcount>1</playcount>
+		<lastplayed>20200418T190105</lastplayed>
+	</game>
+	<game>
+		<path>./freedom-fighters.desktop</path>
+		<name>freedom-fighters</name>
+		<playcount>1</playcount>
+		<lastplayed>20200418T190431</lastplayed>
+	</game>
+	<game>
+		<path>./hexen.desktop</path>
+		<name>hexen</name>
+		<playcount>1</playcount>
+		<lastplayed>20200418T191518</lastplayed>
+	</game>
+	<game>
+		<path>./jade-empire.desktop</path>
+		<name>jade-empire</name>
+		<playcount>2</playcount>
+		<lastplayed>20200418T191547</lastplayed>
+	</game>
+	<game>
+		<path>./lhp1-4.desktop</path>
+		<name>lhp1-4</name>
+		<playcount>1</playcount>
+		<lastplayed>20200418T191939</lastplayed>
+	</game>
+	<game>
+		<path>./sea-salt.desktop</path>
+		<name>sea-salt</name>
+		<playcount>1</playcount>
+		<lastplayed>20200418T192035</lastplayed>
+	</game>
+	<game>
+		<path>./tesla-vs-lovecraft.desktop</path>
+		<name>tesla-vs-lovecraft</name>
+		<playcount>1</playcount>
+		<lastplayed>20200418T192104</lastplayed>
+	</game>
+	<game>
+		<path>./towerfall.desktop</path>
+		<name>towerfall</name>
+		<playcount>1</playcount>
+		<lastplayed>20200418T192210</lastplayed>
+	</game>
+	<game>
+		<path>./vtm-bloodlines.desktop</path>
+		<name>vtm-bloodlines</name>
+		<playcount>1</playcount>
+		<lastplayed>20200418T192514</lastplayed>
+	</game>
+	<game>
+		<path>./worms-2.desktop</path>
+		<name>worms-2</name>
+		<playcount>1</playcount>
+		<lastplayed>20200418T192538</lastplayed>
+	</game>
+	<game>
+		<path>./nights-into-dreams.desktop</path>
+		<name>nights-into-dreams</name>
+		<playcount>1</playcount>
+		<lastplayed>20200428T031202</lastplayed>
+	</game>
+	<game>
+		<path>./monsters-inc.desktop</path>
+		<name>Monsters, Inc.</name>
+		<playcount>1</playcount>
+		<desc>A 3D plaformer that is a prequel to the Disney/Pixar movie.</desc>
+		<image>~/.assets/monsters-inc/boxart.jpg</image>
+		<releasedate>2001-10-30</releasedate>
+		<developer>Behaviour Interactive</developer>
+		<publisher>Disney Interactive</publisher>
+		<genre>Action/Adventure</genre>
+		<players>Single-Player</players>
+		<lastplayed>20200428T040306</lastplayed>
+	</game>
+	<game>
+		<path>./transformers-devastation.desktop</path>
+		<name>transformers-devastation</name>
+		<desc>Based on the classic 80s version of the Transformers animated series, Transformers: Devastation by PlatinumGames is a brawler with an authentic retro-themed art style.</desc>
+		<image>~/.assets/transformers-devastation/boxart.jpg</image>
+		<releasedate>10-15-2015</releasedate>
+		<developer>Platinum Games</developer>
+		<publisher>Activision</publisher>
+		<genre>Action</genre>
+		<players>Single-Player</players>
+		<playcount>3</playcount>
+		<lastplayed>20200428T041539</lastplayed>
+	</game>
+	<game>
+		<path>./rayman-2.desktop</path>
+		<name>Rayman 2</name>
+		<desc>Help to repair the damage done to the world and repel an evil pirate invasion in this critically acclaimed platforming adventure.</desc>
+		<image>~/.assets/rayman-2/boxart.jpg</image>
+		<releasedate>1999-10-29</releasedate>
+		<developer>Gameloft</developer>
+		<publisher>Gameloft</publisher>
+		<genre>Action/Adventure</genre>
+		<players>Single-Player</players>
+		<playcount>1</playcount>
+		<lastplayed />
+	</game>
+	<game>
+		<path>./brave.desktop</path>
+		<name>brave</name>
+		<desc>Brave: The Video Game invites players to run, jump and battle their way through the rugged landscape of mythical and mysterious Scotland. By using their wits and bravery, gamers will also be able to wield a sword and bow and arrow to defeat fierce enemies, break a magical curse and save a kingdom.</desc>
+		<image>~/.assets/brave/boxart.jpg</image>
+		<releasedate>2012-06-19</releasedate>
+		<developer>Behaviour Interactive</developer>
+		<publisher>Disney Interactive</publisher>
+		<genre>Action/Adventure</genre>
+		<players>1-2 Players</players>
+		<playcount>2</playcount>
+		<lastplayed>20200428T123120</lastplayed>
+	</game>
+	<game>
+		<path>./lego-batman.desktop</path>
+		<name>Lego Batman</name>
+		<desc>Play as Batman and his sidekick Robin as you build, drive, swing and fight your way through Gotham City capturing escaped villains including The Joker, Penguin, Scarecrow and more.</desc>
+		<image>~/.assets/lego-batman/boxart.jpg</image>
+		<releasedate>20080923T000000</releasedate>
+		<developer>Traveller's Tales</developer>
+		<publisher>WB Games</publisher>
+		<genre>Action</genre>
+		<players>1-2 Players</players>
+		<playcount>15</playcount>
+		<lastplayed>20200526T083240</lastplayed>
+	</game>
+	<game>
+		<path>./lego-racers-2.desktop</path>
+		<name>Lego Racers 2</name>
+		<desc>Rocket Racer is back and he's teamed up with the toughest competitors in the galaxy to bring racers of all ages this awesome challenge. Players must win their races, keep their cars on the road and muster all their adventure racing skills to find and collect the elusive Golden Bricks.</desc>
+		<image>~/.assets/lego-racers-2/boxart.jpg</image>
+		<releasedate>2001-09-04</releasedate>
+		<developer>Attention to Detail</developer>
+		<publisher>LEGO Media</publisher>
+		<genre>Driving/Racing</genre>
+		<players>1-2 Players</players>
+		<playcount>3</playcount>
+		<lastplayed>20200528T155133</lastplayed>
+	</game>
+	<game>
+		<path>./tarzan.desktop</path>
+		<name>Tarzan</name>
+		<desc>Tarzan is a game based on the 1999 Animated Disney Film of the same name. It is mainly a 2D platformer, although it features several variations of the base gameplay.</desc>
+		<image>~/.assets/tarzan/boxart.jpg</image>
+		<releasedate>19990624</releasedate>
+		<developer>Eurocom</developer>
+		<publisher>Activision</publisher>
+		<genre>Action</genre>
+		<players>Single-Player</players>
+		<playcount>4</playcount>
+		<lastplayed>20200528T160059</lastplayed>
+	</game>
+	<game>
+		<path>./wall-e.desktop</path>
+		<name>WALL-E</name>
+		<desc>Based on the 2008 computer animated film from Pixar Animation Studios, the video game version of WALL-E involves playing as the lonely robot as he navigates a trash-tainted world and begins an unlikely trek across the cosmos.</desc>
+		<image>~/.assets/wall-e/boxart.jpg</image>
+		<releasedate>2008-06-24</releasedate>
+		<developer>Asobo Studio</developer>
+		<publisher>Play THQ</publisher>
+		<genre>Action/Adventure</genre>
+		<players>Single-Player</players>
+		<playcount>4</playcount>
+		<lastplayed>20200528T160556</lastplayed>
+	</game>
+	<game>
+		<path>./x-men-legends-ii.desktop</path>
+		<name>X-Men Legends II</name>
+		<desc>When Apocalypse and his Four Horsemen threaten the safety of the world, and Magneto's position of power, the X-Men and the Brotherhood of Mutants must team-up in order to combat this threat and ultimately save the world.</desc>
+		<image>~/.assets/x-men-legends-ii/boxart.jpg</image>
+		<releasedate>20050920</releasedate>
+		<developer>Raven Software</developer>
+		<publisher>Activision</publisher>
+		<genre>Action RPG</genre>
+		<players>1-2 Players</players>
+		<playcount>3</playcount>
+		<lastplayed>20200528T162113</lastplayed>
+	</game>
+	<game>
+		<path>./lego-marvel-super-heroes.desktop</path>
+		<name>lego-marvel-super-heroes</name>
+		<desc>The first Marvel based LEGO game ambitiously takes on the entirety of the Marvel universe. Loki desires the throne of Asgard once again, while at the same time, Galactus is on his way to Earth hoping to succeed in consuming it once and for all. Now the heroes of the Marvel universe must put a stop to these massive threats to their planet.</desc>
+		<image>~/.assets/lego-marvel-super-heroes/boxart.jpg</image>
+		<releasedate>2013-09-30</releasedate>
+		<developer>Traveller's Tales</developer>
+		<publisher>WB Games</publisher>
+		<genre>Action</genre>
+		<players>1-2 Players</players>
+		<playcount>4</playcount>
+		<lastplayed>20200607T130544</lastplayed>
+	</game>
+</gameList>
