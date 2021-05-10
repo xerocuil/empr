@@ -1,13 +1,14 @@
 ## General Files
-cache
-browser
-docs
-launchers
 .cache
 .vagrant
+browser
+cache
+docs
+launchers
 media
-settings.sh
 settings.py
+settings.sh
+nvram
 
 ## Compiled Object files
 *.slo

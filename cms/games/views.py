@@ -14,7 +14,7 @@ from .models import Game, Genre, Platform
 def home(request):
 	genres = Genre.objects.order_by('name')
 	latest_games = Game.objects.order_by('-date_added')[:15]
-	platforms = Platform.objects.order_by('full_name')
+	platforms = Platform.objects.order_by('name')
 	
 	return render(request, 'games/home.html', {
 		'genres': genres,

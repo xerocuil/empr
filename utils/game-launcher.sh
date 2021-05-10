@@ -6,7 +6,7 @@ filename=$2
 
 
 arcade(){
-	retroarch -L ~/.rcores/mame2016_libretro.so $filename
+	mame $filename -skip_gameinfo
 }
 cps-2(){
 	retroarch -L ~/.rcores/fbalpha2012_cps2_libretro.so $filename
@@ -27,13 +27,16 @@ nes(){
 	retroarch -L ~/.rcores/nestopia_libretro.so $filename
 }
 neo-geo(){
-	retroarch -L ~/.rcores/fbalpha2012_neogeo_libretro.so $filename
+	mame $filename -bios unibios40 -skip_gameinfo
 }
 pc(){
-	$APPDIR/launchers/pc/$filename
+	$filename
 }
 ps1(){
 	retroarch -L ~/.rcores/pcsx_rearmed_libretro.so $filename
+}
+ps2(){
+	PCSX2 --nogui --fullscreen $filename
 }
 psp (){
 	ppsspp $filename
@@ -42,7 +45,7 @@ saturn(){
 	retroarch -L ~/.rcores/mednafen_saturn_libretro.so $filename
 }
 steam(){
-	/usr/games/steam -silent -applaunch "$filename"
+	/usr/games/steam -silent -applaunch "$(cat $filename)"
 }
 snes(){
 	retroarch -L ~/.rcores/snes9x_libretro.so $filename

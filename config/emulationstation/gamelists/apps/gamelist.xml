@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<gameList>
+	<game>
+		<path>./steam.app</path>
+		<name>Steam</name>
+		<playcount>2</playcount>
+		<lastplayed>20190205T063636</lastplayed>
+	</game>
+	<game>
+		<path>./DS4 Options/ds4-two.desktop</path>
+		<name>ds4-two</name>
+		<playcount>1</playcount>
+		<lastplayed>20200418T151648</lastplayed>
+	</game>
+	<game>
+		<path>./kodi.desktop</path>
+		<name>kodi</name>
+		<playcount>1</playcount>
+		<lastplayed>20200428T222323</lastplayed>
+	</game>
+	<game>
+		<path>./retroarch.desktop</path>
+		<name>retroarch</name>
+		<playcount>1</playcount>
+		<lastplayed>20200428T222316</lastplayed>
+	</game>
+	<game>
+		<path>./youtube.desktop</path>
+		<name>youtube</name>
+		<playcount>1</playcount>
+		<lastplayed>20200428T222309</lastplayed>
+	</game>
+	<game>
+		<path>./DS4 Connect/ds4-two.desktop</path>
+		<name>ds4-two</name>
+		<playcount>2</playcount>
+		<lastplayed>20200501T131713</lastplayed>
+	</game>
+</gameList>
