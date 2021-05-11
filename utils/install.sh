@@ -1,16 +1,5 @@
 #!/bin/bash
 
-sudo apt-get update ; sudo apt-get install -y git
-
-if [[ ! -d $HOME/Applications/Empr ]]; then
-	echo -e "\nEmpr not found.\n"
-	mkdir -p $HOME/Applications
-	cd $HOME/Applications
-	git clone ssh://pi@192.168.0.144/home/pi/Git/empr Empr
-	cd Empr/config/empr
-	cp settings.default.sh settings.sh
-fi
-
 source ~/Applications/Empr/config/empr/settings.sh
 
 GAMELAUNCHER="/usr/local/bin/game-launcher"
@@ -19,12 +8,38 @@ ESCONFIG=$CONFIGDIR/emulationstation
 ESLAUNCHER="/usr/local/bin/emulationstation"
 
 ## Install Game Launcher
-if [[ -f $GAMELAUNCHER ]]; then
-	sudo rm -rf $GAMELAUNCHER
-fi
 
-sudo ln -s $UTILSDIR/game-launcher.sh $GAMELAUNCHER
 
+## Install packages
+install_pkgs(){
+	echo -e "## Installing system dependencies. ##"
+	sudo apt-get install \
+		csvkit \
+		git \
+		mono-runtime \
+		python3 \
+		python3-dev \
+		python3-django \
+		python3-pip \
+		python3-venv \
+		python3-wheel \
+		tmux \
+		vim
+}
+
+## Install Empr
+install_empr(){
+	if [[ ! -d $HOME/Applications/Empr ]]; then
+		echo -e "\nEmpr not found.\n"
+		mkdir -p $HOME/Applications
+		cd $HOME/Applications
+		git clone ssh://pi@192.168.0.144/home/pi/Git/empr Empr
+		cd Empr/config/empr
+		cp settings.default.sh settings.sh
+		sudo rm -rf $GAMELAUNCHER
+		sudo ln -s $UTILSDIR/game-launcher.sh $GAMELAUNCHER
+	fi
+}
 
 ## Install EmulationStation (Debian/Ubuntu)
 install_es(){
@@ -54,16 +69,29 @@ install_es(){
 	fi
 }
 
-## Install Python Environment
+## Create Python Environment
 install_python_env(){
-	sudo apt-get install -y git htop jq python3 \
-	python3-pip python3-venv tmux vim
 	cd $APPDIR
 	python3 -m venv $VENV
-
 	cd $CMSDIR
 	source $VENV/bin/activate
 	python3 -m pip install -r requirements.txt
 }
+
+
+## Install Production Environment
+install_prod_env(){
+	sudo apt-get install -y \
+		curl \
+		libpq-dev \
+		nginx \
+		postgresql \
+		postgresql-contrib \
+		python3-dev \
+		python3-pip
+}
+
+sudo apt-get update ; sudo apt-get upgrade -y
+install_empr
 
 $1
