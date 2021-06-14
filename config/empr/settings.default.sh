@@ -4,6 +4,7 @@
 APPDIR="$HOME/Applications/Empr"
 APPNAME="$(basename $APPDIR)"
 CMSDIR="$APPDIR/cms"
+CACHEDIR="$HOME/.cache/empr"
 APPDB="$CMSDIR/db.sqlite3"
 CONFIGDIR="$APPDIR/config"
 UTILSDIR="$APPDIR/utils"
