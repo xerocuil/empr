@@ -11,10 +11,11 @@ ESLAUNCHER="/usr/local/bin/emulationstation"
 
 
 ## Install packages
-install_pkgs(){
+packages(){
 	echo -e "## Installing system dependencies. ##"
 	sudo apt-get install \
 		csvkit \
+		curl \
 		git \
 		mono-runtime \
 		python3 \
@@ -28,7 +29,7 @@ install_pkgs(){
 }
 
 ## Install Empr
-install_empr(){
+empr(){
 	if [[ ! -d $HOME/Applications/Empr ]]; then
 		echo -e "\nEmpr not found.\n"
 		mkdir -p $HOME/Applications
@@ -42,7 +43,7 @@ install_empr(){
 }
 
 ## Install EmulationStation (Debian/Ubuntu)
-install_es(){
+estation(){
 	## Install Dependencies
 	sudo apt-get install -y libsdl2-dev libfreeimage-dev \
 	libfreetype6-dev libcurl4-openssl-dev rapidjson-dev \
@@ -70,19 +71,25 @@ install_es(){
 }
 
 ## Create Python Environment
-install_python_env(){
-	cd $APPDIR
-	python3 -m venv $VENV
+python_env(){
+	if [[ ! -d $VENV ]]; then
+		cd $APPDIR
+		python3 -m venv $VENV
+		sudo mkdir -p /var/lib/pgadmin
+		sudo mkdir -p /var/log/pgadmin
+		sudo chown $USER /var/lib/pgadmin
+		sudo chown $USER /var/log/pgadmin
+	fi
 	cd $CMSDIR
 	source $VENV/bin/activate
+	python3 -m pip install wheel
 	python3 -m pip install -r requirements.txt
 }
 
 
 ## Install Production Environment
-install_prod_env(){
+prod_env(){
 	sudo apt-get install -y \
-		curl \
 		libpq-dev \
 		nginx \
 		postgresql \
@@ -92,6 +99,5 @@ install_prod_env(){
 }
 
 sudo apt-get update ; sudo apt-get upgrade -y
-install_empr
 
 $1

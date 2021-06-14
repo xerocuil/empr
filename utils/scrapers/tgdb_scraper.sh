@@ -1,6 +1,6 @@
 #! /bin/bash
 
-source $HOME/Applications/empr/utils/config.sh
+source $HOME/Applications/Empr/config/empr/settings.sh
 SCRAPERRDIR=$UTILSDIR/scrapers
 CACHEDIR=$SCRAPERRDIR/.cache
 
@@ -162,7 +162,7 @@ fi
 ### Get images
 asset_dir="$APPDIR/cache/assets"
 asset_boxart=$asset_dir/$slug-boxart.jpg
-asset_background=$asset_dir/$slug-background.jpg
+asset_background=$asset_dir/$slug-fanart.jpg
 readme=$library/$slug.md
 mkdir -p $asset_dir
 
@@ -196,4 +196,4 @@ fi
 # find $json_dir* -mtime +1 -exec rm {} \;
 # #rm $json_dir/*.json
 
-$APPDIR/browser/browser.sh "http://127.0.0.1:8000/admin/games/game/add/?title=$title&sort_title=$sort_title&slug=$slug&genre=$genre&developer=${developer_name_array[*]}&publisher=${publisher_name_array[*]}&release_date=$release_date&path=$path&description=$description" &
+firefox "http://127.0.0.1:8000/admin/games/game/add/?title=$title&sort_title=$sort_title&slug=$slug&genre=$genre&developer=${developer_name_array[*]}&publisher=${publisher_name_array[*]}&release_date=$release_date&path=$path&description=$description" &
