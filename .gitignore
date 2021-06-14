@@ -9,6 +9,7 @@ media
 settings.py
 settings.sh
 nvram
+venv
 
 ## Compiled Object files
 *.slo

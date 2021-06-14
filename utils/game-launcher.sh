@@ -4,7 +4,6 @@ source ~/Applications/Empr/config/empr/settings.sh
 console=$1
 filename=$2
 
-
 arcade(){
 	mame $filename -skip_gameinfo
 }
