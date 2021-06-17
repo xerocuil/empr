@@ -114,5 +114,7 @@ class Platform(models.Model):
 	path = models.CharField(max_length=128, unique=True, null=True)
 	logo = models.ImageField(blank=True, null=True, upload_to='platform/logos/')
 	icon = models.ImageField(blank=True, null=True, upload_to='platform/icons/')
+	class Meta:
+		ordering = ['name']
 	def __str__(self):
 		return self.name

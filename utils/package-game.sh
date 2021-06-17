@@ -48,7 +48,7 @@ fi
 
 mkdir -p $PKGDIR
 cd $DIRNAME
-tar cvzf $PKGDIR/$GAME.tar.gz $(ls $GAME*)
-cp -v $PKGDIR/$GAME.tar.gz $ARCHIVEDIR/
+tar cvzf $PKGDIR/$GAME.pkg $(ls $GAME*)
+cp -v $PKGDIR/$GAME.pkg $ARCHIVEDIR/
 echo -e "\nArchive Complete!\n"
 rm -rf $PKGDIR/*

@@ -99,7 +99,7 @@ fi
 
 
 ## Scrape TGDB with selected GUID
-##########################################
+#################################
 
 ### Set delimiter to carriage return for JSON values.
 IFS=$'\n'
@@ -196,4 +196,4 @@ fi
 # find $json_dir* -mtime +1 -exec rm {} \;
 # #rm $json_dir/*.json
 
-firefox "http://127.0.0.1:8000/admin/games/game/add/?title=$title&sort_title=$sort_title&slug=$slug&genre=$genre&developer=${developer_name_array[*]}&publisher=${publisher_name_array[*]}&release_date=$release_date&path=$path&description=$description" &
+firefox "http://empr.local/admin/games/game/add/?title=$title&sort_title=$sort_title&slug=$slug&genre=$genre&developer=${developer_name_array[*]}&publisher=${publisher_name_array[*]}&release_date=$release_date&path=$path&description=$description" &
