@@ -3,12 +3,11 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'f6l!bn#hnz@^-+(%s1zzb^dxmx@e9x7e9#q01cteqh*y@9qs0!'
+SECRET_KEY = 'iAFV_c3/ed!X>]4GNyV=Xn8VO_n;qv4R9bD]uj/j:W(^FqA/@B[eVrCxRw_Q@{vU'
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
-
+ALLOWED_HOSTS = ['empr.local', '192.168.0.144']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -55,8 +54,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'empr',
-        'USER': 'kidchameleon',
-        'PASSWORD': '@l3xk1dd',
+        'USER': 'empr',
+        'PASSWORD': 'k1dcham3l30n',
         'HOST': 'localhost',
         'PORT': '',
     }
