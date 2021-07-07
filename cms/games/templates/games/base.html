@@ -4,6 +4,14 @@
 <head>
 	<title>{% block title %}Video Game Database{% endblock %}&nbsp;&nbsp;|&nbsp;&nbsp;Empr</title>
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<style>
+		.box { display: none }
+	</style>
+	<script>
+		function toggle (target, cclass) {
+			document.getElementById(target).classList.toggle(cclass);
+		}
+	</script>
 </head>
 
 <body{% if game.wallpaper %} style="background-image: url('{{ game.wallpaper.url }}'); background-repeat: no-repeat; background-size: 1920px 1080px;"{% endif %}>
@@ -15,11 +23,11 @@
 					<h1><a class="link" href="/">empr</a></h1>
 				</div>
 
-				<nav class="six columns right">
-					<ul>
-						<li><a href="/admin/games/platform/">Add Game</a></li>
-					</ul>
-				</nav>
+				<div class="six columns right">
+					<form action="{% url 'games:search_results' %}" method="get">
+						<input name="q" type="text" placeholder="Search...">
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -28,10 +36,12 @@
 		<ul>
 			{% if game.id %}
 			<li><a href="/admin/games/game/{{ game.id }}/change/">Edit Game</a></li>
+			{% else %}
+			<li><a href="/admin/games/platform/">Add Game</a></li>
 			{% endif %}
 			<li><a href="/admin/games/game/">Games</a></li>
 			<li><a href="/admin/games/platform/">Platforms</a></li>
-			<li><hr></li>
+			<hr>
 			<li><a href="/test/">Test</a></li>
 			<li><a href="/scrape_game/">scrape_game</a></li>
 		</ul>
@@ -62,6 +72,5 @@
 			</div>
 		</div>
 	</footer>
-
 </body>
 </html>
