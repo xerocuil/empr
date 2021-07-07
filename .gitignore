@@ -4,25 +4,31 @@
 browser
 cache
 docs
+emulationstation
 launchers
+mame
 media
+node_modules
+nvram
+package-lock.json
+package.json
 settings.py
 settings.sh
-nvram
+Vagrantfile
 venv
 
 ## Compiled Object files
-*.slo
 *.lo
 *.o
+*.slo
 
 ## Compiled Dynamic libraries
 *.so
 
 ## Compiled Static libraries
-*.lai
-*.la
 *.a
+*.la
+*.lai
 
 ## Dependency makefiles
 *.d
@@ -30,12 +36,12 @@ venv
 ## build directory
 build
 Debug
-Release
 MinSizeRel
+Release
 RelWithDebInfo
 
 ## CMake
+cmake_install.cmake
 CMakeCache.txt
 CMakeFiles
-cmake_install.cmake
 Makefile
