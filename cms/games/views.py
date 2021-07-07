@@ -9,18 +9,22 @@ from django.urls import reverse
 from django.views.generic import TemplateView, ListView
 
 from .forms import ScrapeGameForm
-from .models import Game, Genre, Platform
-
+from .models import Game, Genre, Platform, Tag
+	
 def home(request):
-	genres = Genre.objects.order_by('name')
 	latest_games = Game.objects.order_by('-date_added')[:15]
+	genres = Genre.objects.order_by('name')
 	platforms = Platform.objects.order_by('name')
+	tags = Tag.objects.order_by('name')
 	
 	return render(request, 'games/home.html', {
 		'genres': genres,
 		'latest_games': latest_games,
-		'platforms': platforms
+		'platforms': platforms,
+		'tags': tags
 	})
+
+
 
 def detail(request, game_id):
 	game = get_object_or_404(Game, pk=game_id)
@@ -82,11 +86,28 @@ def launcher_remote(request, game_id):
 
 def platform(request, platform_id):
 	platform = get_object_or_404(Platform, pk=platform_id)
-	games = Platform.objects.get(id=platform_id).game_set.all()
+	games = Platform.objects.get(id=platform_id).game_set.order_by('sort_title')
 	return render(request, 'games/platform.html', {
 		'games': games,
 		'platform': platform,
 	})
+
+class SearchResultsView(ListView):
+	model = Game
+	template_name = 'games/search_results.html'
+
+	def get_queryset(self):
+		query = self.request.GET.get('q')
+		object_list = Game.objects.filter(
+			Q(sort_title__icontains=query) |
+			Q(developer__icontains=query) |
+			Q(genre__name__icontains=query) |
+			#Q(tags__name__icontains=query) |
+			Q(platform__name__icontains=query) |
+			Q(publisher__icontains=query)
+			
+		).order_by('sort_title')
+		return object_list
 
 def scrape_search(request,file_name):
 	notification = 'You submitted: ' + file_name
@@ -106,6 +127,14 @@ def scrape_game(request):
 		form = ScrapeGameForm()
 
 	return render(request, 'games/scrape_game.html', { 'form': form })
+
+def tag(request, tag_id):
+	tag = get_object_or_404(Tag, pk=tag_id)
+	games = Tag.objects.get(id=tag_id).game_set.order_by('sort_title')
+	return render(request, 'games/tag.html', {
+		'games': games,
+		'tag': tag
+	})
 
 def test(request):
 	notification = 'This is a test page.'
