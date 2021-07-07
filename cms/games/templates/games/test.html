@@ -1,11 +1,21 @@
-{% extends "games/base.html" %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Toggle Element Show Hide</title>
 
-{% block content %}
-<div class="row">
-	<div class="twelve columns">
-		<p>{{ notification }}</p>
-		<p>{{ message }}</p>
-	</div>
-</div>
+    <style>
+    .column1 { display: none }
+    </style>
 
-{% endblock %}
+    <script>
+    function toggle (target, cclass) {
+      document.getElementById(target).classList.toggle(cclass);
+    }
+    </script>
+  </head>
+  <body>    
+    <button class="button" onclick="toggle('demoA', 'column1')">Toggle A</button>
+    <div id="demoA" class="column1">DEMO A - DISPLAY</div>
+    <br><br>
+  </body>
+</html>
