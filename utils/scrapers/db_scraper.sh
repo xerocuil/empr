@@ -1,9 +1,9 @@
 #!/bin/bash
 
-source $HOME/Applications/Empr/config/empr/settings.sh
+source $HOME/.config/empr/config.sh
 
 SCRAPERDIR=$UTILSDIR/scrapers
-CACHE=$SCRAPERDIR/.cache/xml
+CACHE=$CACHEDIR/xml
 PLATFORM_SLUG="$1"
 
 game_query(){
@@ -76,6 +76,8 @@ list_games(){
 	PLATFORM_ID=$($SQLITE "$APPDB" "select id from games_platform where slug = '$PLATFORM_SLUG'")
 	$SQLITE "$APPDB" "select path from games_game where platform_id = '$PLATFORM_ID' and installed = '1'"
 }
+
+mkdir -p $CACHE
 
 echo "<?xml version=\"1.0\"?>
 <gameList>" >$CACHE/$PLATFORM_SLUG.gamelist.xml

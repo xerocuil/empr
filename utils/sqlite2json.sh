@@ -2,7 +2,8 @@
 
 source $HOME/.config/empr/config.sh
 
-EXPORTDIR="$APPDIR/docs/export"
+EXPORTDIR="$APPDIR/docs/export/json"
+mkdir -p $EXPORTDIR
 
 echo -e "
 ## DEBUGGING
@@ -19,40 +20,40 @@ cd $EXPORTDIR
 
 sqlite3 $APPDB <<EOF
 .headers on
-.mode csv
-.once games.csv
-select * from games_game;
+.mode json
+.once games.json
+select * from games_game order by sort_title;
 .exit
 EOF
 
 sqlite3 $APPDB <<EOF
 .headers on
-.mode csv
-.once genres.csv
-select * from games_genre;
+.mode json
+.once genres.json
+select * from games_genre order by name;
 .exit
 EOF
 
 sqlite3 $APPDB <<EOF
 .headers on
-.mode csv
-.once platforms.csv
-select * from games_platform;
+.mode json
+.once platforms.json
+select * from games_platform order by name;
 .exit
 EOF
 
 sqlite3 $APPDB <<EOF
 .headers on
-.mode csv
-.once game_tags.csv
+.mode json
+.once game_tags.json
 select * from games_game_tags;
 .exit
 EOF
 
 sqlite3 $APPDB <<EOF
 .headers on
-.mode csv
-.once tags.csv
+.mode json
+.once tags.json
 select * from games_tag;
 .exit
 EOF
