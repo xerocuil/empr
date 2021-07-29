@@ -111,7 +111,7 @@ class SearchResultsView(ListView):
 
 def scrape_search(request,file_name):
 	notification = 'You submitted: ' + file_name
-	cmd = '/home/xerocuil/Projects/empr/utils/scrapers/tgdb_scraper.sh ' + file_name
+	cmd = '/home/xerocuil/Projects/empr/utils/scrapers/tgdb/tgdb_scraper.sh ' + file_name
 	subprocess.Popen(cmd, shell=True)
 	return render(request, 'games/scrape_search.html', {
 		'notification': notification
@@ -136,8 +136,16 @@ def tag(request, tag_id):
 		'tag': tag
 	})
 
+def readme(request, game_id):
+	game = get_object_or_404(Game, pk=game_id)
+	return render(request, 'games/readme.html', {
+		'game': game,
+	})
+
 def test(request):
+	platforms = Platform.objects.order_by('name')
 	notification = 'This is a test page.'
 	return render(request, 'games/test.html', {
-		'notification': notification
+		'notification': notification,
+		'platforms': platforms
 	})
