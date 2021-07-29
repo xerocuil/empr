@@ -50,7 +50,7 @@ class Game(models.Model):
 	## Release Info
 	title = models.CharField(max_length=128, unique=True)
 	sort_title = models.CharField(max_length=128, unique=True)
-	description = models.TextField(blank=True, max_length=512)
+	description = models.TextField(blank=True, max_length=1024)
 	developer = models.CharField(blank=True, max_length=128)
 	publisher = models.CharField(blank=True, max_length=128)
 	esrb = models.CharField('ESRB', blank=True, choices=esrb_ratings.choices, max_length=4, null=True)
@@ -63,6 +63,13 @@ class Game(models.Model):
 	## System Info
 	controller_support = models.BooleanField(default=True)
 	platform = models.ForeignKey('Platform', on_delete=models.CASCADE)
+
+	## System Requirements
+	operating_system = models.CharField(max_length=128, blank=True, null=True)
+	processor = models.CharField(max_length=128, blank=True, null=True)
+	ram = models.CharField('RAM', max_length=128, blank=True, null=True)
+	hdd = models.CharField('HDD', max_length=128, blank=True, null=True)
+	gpu = models.CharField('GPU', max_length=128, blank=True, null=True)
 
 	## Player Support
 	player = models.CharField(blank=True, choices=player_options.choices, max_length=10, null=True)
@@ -112,9 +119,14 @@ class Genre(models.Model):
 class Platform(models.Model):
 	name = models.CharField(max_length=128, unique=True)
 	slug = models.CharField(max_length=64, unique=True)
-	path = models.CharField(max_length=128, unique=True, null=True)
 	logo = models.ImageField(blank=True, null=True, upload_to='platform/logos/')
 	icon = models.ImageField(blank=True, null=True, upload_to='platform/icons/')
+
+	class platform_types(models.TextChoices):
+		APP = 'APP', _('Application')
+		EMU= 'EMU', _('Emulator')
+
+	platform_type = models.CharField(blank=True, choices=platform_types.choices, max_length=10, null=True)
 	class Meta:
 		ordering = ['name']
 	def __str__(self):

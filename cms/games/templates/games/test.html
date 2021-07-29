@@ -1,21 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Toggle Element Show Hide</title>
+{% extends "games/console.html" %}
 
-    <style>
-    .column1 { display: none }
-    </style>
+{% block title %}Home{% endblock %}
 
-    <script>
-    function toggle (target, cclass) {
-      document.getElementById(target).classList.toggle(cclass);
-    }
-    </script>
-  </head>
+{% block content %}
   <body>    
-    <button class="button" onclick="toggle('demoA', 'column1')">Toggle A</button>
-    <div id="demoA" class="column1">DEMO A - DISPLAY</div>
-    <br><br>
-  </body>
-</html>
+    {% for p in platforms %}
+    <a href="/platform/{{ p.id }}"><div><h2>{{ p.name }}</h2></div></a>
+    {% endfor %}
+{% endblock %}

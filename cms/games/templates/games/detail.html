@@ -1,14 +1,14 @@
 {% extends "games/base.html" %}
-
+{% load markdown %}
 {% block title %}{{ game.title }}{% endblock %}
 
 {% block content %}
 <div class="row">
-	<div class="nine columns">
+	<div class="ten columns">
 		<h2>{{ game.title }}</h2>
 	</div>
 
-	<div class="three columns right">
+	<div class="two columns right">
 		{% if game.platform.icon %}<img class="platform_icon" src="{{ game.platform.icon.url }}" title="{{ game.platform.full_name }}">{% endif %}
 	</div>
 </div>
@@ -31,33 +31,40 @@
 <hr>
 
 <div class="row">
-	<div class="twelve columns right">
+	<div class="twelve columns">
 		{{ game.description|linebreaks|safe }}
 
 		{% if game.notes %}
 		<hr>
-		<h3>Notes</h3>
-		<p>{{ game.notes|linebreaks|safe }}</p>
+		<p>{{ game.notes | markdown | safe }}</p>
 		{% endif %}
 	</div>
 </div>
 
-<div class="row right">
-	{% if game.kid_friendly %}
-		<img class="icon" src="/static/imgs/icons/kid_friendly.png" title="Family Friendly">
-	{% endif %}
+<div class="row">
+	<table class="grid-info">
+		<tr>
+			<td>
+				{% if game.esrb %}
+					<img class="icon" src="/static/imgs/esrb/{{ game.get_esrb_display|slugify }}.png" title="ESRB Rating">
+				{% endif %}
+			</td>
+			<td>{{ game.get_esrb_display }}</td>
+		</tr>
 
-	{% if game.favorite %}
-		<img class="icon" src="/static/imgs/icons/favorite.png" title="Favorite">
-	{% endif %}
-
-	{% if game.controller_support %}
-		<img class="icon" src="/static/imgs/icons/controller.png" title="Controller Support">
-	{% endif %}
-
-	{% if game.esrb %}
-		<img class="icon" src="/static/imgs/esrb/{{ game.get_esrb_display|slugify }}.png" title="ESRB Rating">
-	{% endif %}
+		<tr>
+			<td>
+				{% if game.controller_support %}
+					<img class="icon" src="/static/imgs/icons/controller.png" title="Controller Support">
+				{% endif %}
+			</td>
+			<td>
+				{% if game.controller_support %}
+					<span>Controller Support</span>
+				{% endif %}
+			</td>
+		</tr>
+	</table>
 </div>
 
 <div class="row right">
@@ -93,13 +100,6 @@
 	<tr>
 		<td>Release Date</td>
 		<td class="right">{{ game.release_date }}</td>
-	</tr>
-	{% endif %}
-
-	{% if game.store %}
-	<tr>
-		<td>Store</td>
-		<td class="right">{{ game.get_store_display }}</td>
 	</tr>
 	{% endif %}
 </table>

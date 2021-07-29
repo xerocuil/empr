@@ -1,18 +1,7 @@
 #! /bin/bash
 
-source $HOME/Applications/Empr/config/empr/settings.sh
-SCRAPERRDIR=$UTILSDIR/scrapers
-CACHEDIR=$SCRAPERRDIR/.cache
-
-## Make sure library is mounted
-library=$CACHEDIR/md
-
-if [[ -d $library ]]; then
-	echo "Library found."
-else
-	echo "Library not found."
-	mkdir -p $library
-fi
+source $HOME/.config/empr/config.sh
+SCRAPERRDIR=$UTILSDIR/scrapers/tgdb
 
 ## Set variables
 file="$1"
@@ -28,11 +17,12 @@ tgdb_file="$json_dir/tgdb_$slug.json"
 tgdb_search_file="$json_dir/tgdb_search_$slug.json"
 tgdb_image_file="$json_dir/tgdb_image_$slug.json"
 
-developer_list=$CACHEDIR/tgdb/developers.json
-genre_list=$CACHEDIR/tgdb/genres.json
-platform_list=$CACHEDIR/tgdb/platforms.json
-publisher_list=$CACHEDIR/tgdb/publishers.json
+developer_list=$SCRAPERRDIR/helpers/developers.json
+genre_list=$SCRAPERRDIR/helpers/genres.json
+platform_list=$SCRAPERRDIR/helpers/platforms.json
+publisher_list=$SCRAPERRDIR/helpers/publishers.json
 
+mkdir -p $json_dir
 
 ## Check file
 path_query(){
@@ -196,4 +186,4 @@ fi
 # find $json_dir* -mtime +1 -exec rm {} \;
 # #rm $json_dir/*.json
 
-firefox "http://http://127.0.0.1:8000/admin/games/game/add/?title=$title&sort_title=$sort_title&slug=$slug&genre=$genre&developer=${developer_name_array[*]}&publisher=${publisher_name_array[*]}&release_date=$release_date&path=$path&description=$description" &
+firefox "http://0.0.0.0:8000/admin/games/game/add/?title=$title&sort_title=$sort_title&slug=$slug&genre=$genre&developer=${developer_name_array[*]}&publisher=${publisher_name_array[*]}&release_date=$release_date&path=$path&description=$description" &

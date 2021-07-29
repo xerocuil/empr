@@ -1,5 +1,5 @@
 #!/bin/bash
-source $HOME/Applications/Empr/config/empr/settings.sh
+source $HOME/.config/empr/config.sh
 
 cd $CMSDIR
 
