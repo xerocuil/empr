@@ -19,6 +19,9 @@ dreamcast(){
 gamecube(){
 	dolphin-emu -b -e "$filename"
 }
+gba(){
+	retroarch -L $CORES/mgba_libretro.so "$filename"
+}
 genesis(){
 	retroarch -L $CORES/picodrive_libretro.so "$filename"
 }
