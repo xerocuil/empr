@@ -18,3 +18,10 @@
 		<p><a href="/tag/{{ t.id }}">{{ t.name }}</a></p>
 	{% endfor %}
 </div>
+
+<h4 onclick="toggle('collectionBox', 'box')">Collections</h4>
+<div id="collectionBox" class="box">
+	{% for c in collections %}
+		<p><a href="/collection/{{ c.id }}">{{ c.name }}</a></p>
+	{% endfor %}
+</div>

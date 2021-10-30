@@ -9,22 +9,30 @@ from django.urls import reverse
 from django.views.generic import TemplateView, ListView
 
 from .forms import ScrapeGameForm
-from .models import Game, Genre, Platform, Tag
+from .models import Collection, Game, Genre, Platform, Tag
 	
 def home(request):
 	latest_games = Game.objects.order_by('-date_added')[:15]
+	collections = Collection.objects.order_by('name')
 	genres = Genre.objects.order_by('name')
 	platforms = Platform.objects.order_by('name')
 	tags = Tag.objects.order_by('name')
 	
 	return render(request, 'games/home.html', {
+		'collections': collections,
 		'genres': genres,
 		'latest_games': latest_games,
 		'platforms': platforms,
 		'tags': tags
 	})
 
-
+def collection(request, collection_id):
+	collection = get_object_or_404(Collection, pk=collection_id)
+	games = Collection.objects.get(id=collection_id).game_set.order_by('sort_title')
+	return render(request, 'games/collection.html', {
+		'games': games,
+		'collection': collection
+	})
 
 def detail(request, game_id):
 	game = get_object_or_404(Game, pk=game_id)
@@ -32,27 +40,27 @@ def detail(request, game_id):
 		'game': game,
 	})
 
-def gamelist(request, platform_id):
-	from django.core import serializers
-	games = serializers.serialize(
-		"xml", Game.objects.filter(platform_id=platform_id),
-		fields=(
-			'title',
-			'sort_title',
-			'description',
-			'release_date',
-			'developer',
-			'publisher',
-			'genre',
-			'player',
-		)
-	)
-	from django.core.files import File
-	f = open('gamelist.xml', 'w')
-	myfile = File(f)
-	myfile.write(games)
-	myfile.close()
-	return HttpResponse("All done!")
+# def gamelist(request, platform_id):
+# 	from django.core import serializers
+# 	games = serializers.serialize(
+# 		"xml", Game.objects.filter(platform_id=platform_id),
+# 		fields=(
+# 			'title',
+# 			'sort_title',
+# 			'description',
+# 			'release_date',
+# 			'developer',
+# 			'publisher',
+# 			'genre',
+# 			'player',
+# 		)
+# 	)
+# 	from django.core.files import File
+# 	f = open('gamelist.xml', 'w')
+# 	myfile = File(f)
+# 	myfile.write(games)
+# 	myfile.close()
+# 	return HttpResponse("All done!")
 
 def genre(request, genre_id):
 	genre = get_object_or_404(Genre, pk=genre_id)
@@ -142,10 +150,10 @@ def readme(request, game_id):
 		'game': game,
 	})
 
-def test(request):
-	platforms = Platform.objects.order_by('name')
-	notification = 'This is a test page.'
-	return render(request, 'games/test.html', {
-		'notification': notification,
-		'platforms': platforms
+def gamelist(request, platform_id):
+	platform = get_object_or_404(Platform, pk=platform_id)
+	games = Platform.objects.get(id=platform_id).game_set.order_by('sort_title')
+	return render(request, 'games/xml_list.html', {
+		'games': games,
+		'platform': platform
 	})

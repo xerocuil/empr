@@ -11,6 +11,7 @@ app_name = 'games'
 urlpatterns = [
 	path('', views.home, name='home'),
 	path('admin/', admin.site.urls),
+	path('collection/<int:collection_id>/', views.collection, name='collection'),
 	path('detail/<int:game_id>/', views.detail, name='detail'),
 	path('genre/<int:genre_id>/', views.genre, name='genre'),
 	path('platform/<int:platform_id>/', views.platform, name='platform'),
@@ -22,5 +23,5 @@ urlpatterns = [
 	path('scrape_game/', views.scrape_game, name='scrape_game'),
 	path('scrape_search/<str:file_name>', views.scrape_search, name='scrape_search'),
 	path('tag/<int:tag_id>/', views.tag, name='tag'),
-	path('test/', views.test, name='test'),
+	#path('test/', views.test, name='test'),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
