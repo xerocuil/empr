@@ -1,6 +1,5 @@
 #! /bin/bash
 
-source ~/Applications/Empr/config/empr/settings.sh
 console=$1
 filename=$2
 CORES=$HOME/.config/retroarch/cores
@@ -15,7 +14,7 @@ cps-2(){
 	retroarch -L $CORES/fbalpha2012_cps2_libretro.so "$filename"
 }
 dreamcast(){
-	retroarch -L $CORES/reicast_libretro.so "$filename"
+	retroarch -L $CORES/flycast_libretro.so "$filename"
 }
 gamecube(){
 	dolphin-emu -b -e "$filename"

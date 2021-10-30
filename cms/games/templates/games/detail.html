@@ -6,6 +6,7 @@
 <div class="row">
 	<div class="ten columns">
 		<h2>{{ game.title }}</h2>
+		{% if game.collection %}<em>Part of the <a href="/collection/{{ game.collection_id }}/">{{ game.collection.name }} Collection</a></em>{% endif %}
 	</div>
 
 	<div class="two columns right">
@@ -64,6 +65,22 @@
 				{% endif %}
 			</td>
 		</tr>
+	</table>
+
+	<table>
+		{% if game.icon %}
+			<tr>
+				<td>Icon</td>
+				<td><img src="{{ game.icon.url }}"></td>
+			</tr>
+		{% endif %}
+
+		{% if game.title_image %}
+			<tr>
+				<td>Title</td>
+				<td><img class="title-image" src="{{ game.title_image.url }}"></td>
+			</tr>
+		{% endif %}
 	</table>
 </div>
 
