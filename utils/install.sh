@@ -1,14 +1,10 @@
 #!/bin/bash
 
-source ~/Applications/Empr/config/empr/settings.sh
+source /opt/empr/settings.sh
 
 GAMELAUNCHER="/usr/local/bin/game-launcher"
-EMULATIONSTATION="$HOME/Applications/EmulationStation"
 ESCONFIG=$CONFIGDIR/emulationstation
 ESLAUNCHER="/usr/local/bin/emulationstation"
-
-## Install Game Launcher
-
 
 ## Install packages
 packages(){
@@ -30,9 +26,10 @@ packages(){
 
 ## Install Empr
 empr(){
-	if [[ ! -d $HOME/Applications/Empr ]]; then
+	if [[ ! -d $APPDIR ]]; then
 		echo -e "\nEmpr not found.\n"
-		mkdir -p $HOME/Applications
+		sudo mkdir -p $APPDIR
+		sudo chown $USER $APPDIR
 		cd $HOME/Applications
 		git clone ssh://pi@192.168.0.144/home/pi/Git/empr Empr
 		cd Empr/config/empr

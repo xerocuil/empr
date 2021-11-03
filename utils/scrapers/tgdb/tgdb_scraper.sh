@@ -1,7 +1,8 @@
 #! /bin/bash
 
-source $HOME/.config/empr/config.sh
+source /opt/empr/config/settings.sh
 SCRAPERRDIR=$UTILSDIR/scrapers/tgdb
+HELPERS=$SCRAPERRDIR/helpers
 
 ## Set variables
 file="$1"
@@ -10,31 +11,31 @@ slug=$(echo $path | cut -d "." -f 1)
 tgdb_apikey=fc021a8b97fe3d3e5977d7d403f1ca6cc50148ee4bbae951a47296eeb6970183
 tgdb_apiurl="https://api.thegamesdb.net"
 
-json_dir="$CACHEDIR/json"
+json_dir="$CACHEDIR/tgdb/json"
 json_file="$json_dir/$slug.json" 
 json_search_file="$json_dir/search_$slug.json"
 tgdb_file="$json_dir/tgdb_$slug.json"
 tgdb_search_file="$json_dir/tgdb_search_$slug.json"
 tgdb_image_file="$json_dir/tgdb_image_$slug.json"
 
-developer_list=$SCRAPERRDIR/helpers/developers.json
-genre_list=$SCRAPERRDIR/helpers/genres.json
-platform_list=$SCRAPERRDIR/helpers/platforms.json
-publisher_list=$SCRAPERRDIR/helpers/publishers.json
+developer_list=$HELPERS/developers.json
+genre_list=$HELPERS/genres.json
+platform_list=$HELPERS/platforms.json
+publisher_list=$HELPERS/publishers.json
 
 mkdir -p $json_dir
 
-## Check file
-path_query(){
-	$SQLITE "$APPDB" "select id from games_game where path = '$path'"
-}
+# ## Check file
+# path_query(){
+# 	$SQLITE "$APPDB" "select id from games_game where path = '$path'"
+# }
 
-if [[ -z $(path_query) ]];then
-	echo "No path in database."
-else
-	echo "Path found in database: id# $(path_query)"
-	exit
-fi
+# if [[ -z $(path_query) ]];then
+# 	echo "No path in database."
+# else
+# 	echo "Path found in database: id# $(path_query)"
+# 	exit
+# fi
 
 ## Search for TGDB ID
 #####################
@@ -72,12 +73,9 @@ do
 	echo "$tgdb_result_id: $tgdb_result_name, $platform_name, $tgdb_result_release_date"
 done
 
-tgdb_id=$(zenity --entry \
-	--title="Add new game" \
-	--text="Enter correct TGDB ID for $slug:" \
-)
+read -p "enter TGDB ID: " tgdb_id
 
-#read tgdb_id
+echo "tgdb_id: $tgdb_id"
 
 ### If no TGDB ID is entered, the program will exit
 if [[ -z $tgdb_id ]]; then rm $json_dir/*; exit; fi
@@ -94,12 +92,18 @@ fi
 ### Set delimiter to carriage return for JSON values.
 IFS=$'\n'
 
-### Get fields
+echo "
+### Geting fields
+"
 
 coop=$(cat $tgdb_file | jq -r '.data.games[].coop')
-description=$(cat $tgdb_file | jq -r '.data.games[].overview')
+echo "Co-op: $coop"
 
-### Get developer
+description=$(cat $tgdb_file | jq -r '.data.games[].overview')
+echo "description:
+$description
+"
+
 developer_id_array=()
 developer_name_array=()
 developer_id_array=$(cat $tgdb_file | jq -r '.data.games[].developers[]')
@@ -108,6 +112,8 @@ do
 	developer_name=$(cat $developer_list | jq -r ". | select(.id==$dev_id).name")
 	developer_name_array+=($developer_name)
 done
+
+echo "developer(s): $developer_name_array"
 
 ### Get genre
 genre_id_array=()
@@ -150,10 +156,11 @@ else
 fi
 
 ### Get images
-asset_dir="$APPDIR/cache/assets"
-asset_boxart=$asset_dir/$slug-boxart.jpg
-asset_background=$asset_dir/$slug-fanart.jpg
-readme=$library/$slug.md
+asset_dir="$CACHEDIR/assets/$slug"
+asset_boxart=$asset_dir/tgdb-$slug-boxart.jpg
+asset_background=$asset_dir/tgdb-$slug-fanart.jpg
+asset_screenshot=$asset_dir/tgdb-$slug-screenshot.jpg
+asset_clearlogo=$asset_dir/tgdb-$slug-logo.png
 mkdir -p $asset_dir
 
 if [[ ! -f $tgdb_image_file ]]; then
@@ -168,8 +175,7 @@ boxart_file_base=$(basename $boxart_file | cut -d '.' -f 1)
 boxart_file_ext=$(basename $boxart_file | cut -d '.' -f 2)
 if [[ ! -f $asset_boxart ]]; then
 	echo "No Boxart"
-	wget -q -P $asset_dir/ $base_url$boxart_file
-	mv $asset_dir/$boxart_file_base.$boxart_file_ext $asset_dir/$slug-boxart.$boxart_file_ext
+	wget -O $asset_boxart $base_url$boxart_file
 fi
 
 #### Background
@@ -178,12 +184,25 @@ background_file_base=$(basename $background_file | cut -d '.' -f 1)
 background_file_ext=$(basename $background_file | cut -d '.' -f 2)
 if [[ ! -f $asset_background ]]; then
 	echo "No background"
-	wget -q -P $asset_dir/ $base_url$background_file
-	mv $asset_dir/$background_file_base.$background_file_ext $asset_dir/$slug-background.$background_file_ext
+	wget -O $asset_background $base_url$background_file
 fi
 
-## Clean up JSON directory (delete files older than a day)
-# find $json_dir* -mtime +1 -exec rm {} \;
-# #rm $json_dir/*.json
+#### Screenshot
+screenshot_file=$(cat $tgdb_image_file | jq -r '.data.images[][] | select(.type == "screenshot").filename' | sed '1q;d')
+screenshot_file_base=$(basename $screenshot_file | cut -d '.' -f 1)
+screenshot_file_ext=$(basename $screenshot_file | cut -d '.' -f 2)
+if [[ ! -f $asset_screenshot ]]; then
+	echo "No screenshot"
+	wget -O $asset_screenshot $base_url$screenshot_file
+fi
+
+#### Logo
+logo_file=$(cat $tgdb_image_file | jq -r '.data.images[][] | select(.type == "clearlogo").filename' | sed '1q;d')
+logo_file_base=$(basename $logo_file | cut -d '.' -f 1)
+logo_file_ext=$(basename $logo_file | cut -d '.' -f 2)
+if [[ ! -f $asset_clearlogo ]]; then
+	echo "No logo"
+	wget -O $asset_clearlogo $base_url$logo_file
+fi
 
 firefox "http://0.0.0.0:8000/admin/games/game/add/?title=$title&sort_title=$sort_title&slug=$slug&genre=$genre&developer=${developer_name_array[*]}&publisher=${publisher_name_array[*]}&release_date=$release_date&path=$path&description=$description" &

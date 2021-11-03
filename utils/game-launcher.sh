@@ -55,11 +55,11 @@ psp (){
 saturn(){
 	retroarch -L $CORES/mednafen_saturn_libretro.so "$filename"
 }
-steam(){
-	/usr/games/steam -silent -applaunch "$(cat "$filename")"
-}
 snes(){
 	retroarch -L $CORES/snes9x_libretro.so "$filename"
+}
+steam(){
+	/usr/games/steam -silent -applaunch "$(cat "$filename")"
 }
 wii(){
 	dolphin-emu -b -e "$filename"
