@@ -39,6 +39,9 @@
 		<hr>
 		<p>{{ game.notes | markdown | safe }}</p>
 		{% endif %}
+
+		{% if game.manual %}<a href="{{ game.manual.url }}">{{ game.title }} Manual</a>{% endif %}
+
 	</div>
 </div>
 
@@ -81,6 +84,22 @@
 				<td><img class="title-image" src="{{ game.title_image.url }}"></td>
 			</tr>
 		{% endif %}
+
+		{% if game.screenshot %}
+			<tr>
+				<td>Screenshot</td>
+				<td><img class="screenshot" src="{{ game.screenshot.url }}"></td>
+			</tr>
+		{% endif %}
+
+		{% if game.display %}
+			<tr>
+				<td>Display</td>
+				<td><img class="title-image" src="{{ game.display.url }}"></td>
+			</tr>
+		{% endif %}
+
+		
 	</table>
 </div>
 

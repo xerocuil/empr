@@ -37,9 +37,9 @@ class Game(models.Model):
 	class player_options(models.TextChoices):
 		ONE = '1', _('1 Player')
 		TWO = '2', _('2 Players')
-		THREE = '2-3', _('2-3 Players')
-		FOUR = '2-4', _('2-4 Players')
-		FOURPLUS = '4+', _('4+ Players')
+		THREE = '3', _('3 Players')
+		FOUR = '4', _('4 Players')
+		EIGHT = '8', _('8 Players')
 
 	class regions(models.TextChoices):
 		EU = 'EU', _('Europe')
@@ -93,7 +93,9 @@ class Game(models.Model):
 
 	## Images
 	boxart = models.ImageField(blank=True, null=True, upload_to='games/boxart/')
+	display = models.ImageField(blank=True, null=True, upload_to='games/display/')
 	icon = models.ImageField(blank=True, null=True, upload_to='games/icons/')
+	screenshot = models.ImageField(blank=True, null=True, upload_to='games/screenshot/')
 	title_image = models.ImageField(blank=True, null=True, upload_to='games/title/')
 	wallpaper = models.ImageField(blank=True, null=True, upload_to='games/wallpaper/')
 

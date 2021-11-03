@@ -28,7 +28,7 @@ def home(request):
 
 def collection(request, collection_id):
 	collection = get_object_or_404(Collection, pk=collection_id)
-	games = Collection.objects.get(id=collection_id).game_set.order_by('sort_title')
+	games = Collection.objects.get(id=collection_id).game_set.order_by('release_date')
 	return render(request, 'games/collection.html', {
 		'games': games,
 		'collection': collection
