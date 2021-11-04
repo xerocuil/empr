@@ -1,5 +1,6 @@
 #!/bin/bash
-source $HOME/.config/empr/config.sh
+
+source /opt/empr/config/settings.sh
 
 cd $CMSDIR
 
@@ -10,13 +11,6 @@ dev(){
 	tmux send-keys -t $APPNAME 'sass-watch games/static/css/style.sass' C-m
 	tmux select-window -t $APPNAME:1
 	tmux attach -t $APPNAME	
-}
-
-app(){
-	source ../venv/bin/activate
-	nohup python3 manage.py runserver &>/dev/null &
-	sleep 2
-	$APPDIR/browser/browser.sh &>/dev/null &
 }
 
 stop(){
