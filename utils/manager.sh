@@ -11,7 +11,7 @@ photos(){
 ## Update source code
 update-src(){
 	cd $CMSDIR
-	git pull origin main
+	git pull origin
 	. $VENV/bin/activate
 	python3 -m pip install -r requirements.txt
 	python3 manage.py makemigrations
