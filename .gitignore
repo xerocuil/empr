@@ -13,7 +13,6 @@ nvram
 package-lock.json
 package.json
 settings.py
-settings.sh
 Vagrantfile
 venv
 
