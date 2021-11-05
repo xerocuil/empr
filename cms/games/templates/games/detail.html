@@ -6,12 +6,22 @@
 {% block content %}
 
 <div class="row">
+	<div class="nine columns">
+		<h2>{{ game.title }}</h2>
+	</div>
+
+	<div class="three columns">
+		<h4 class="u-pull-right">{{ game.platform }}</h4>
+	</div>
+</div>
+
+<div class="row">
 	{% if game.display %}
-	<div class="twelve columns">
+	<div class="eight columns">
 		<img class="game-display" src="{{ game.display.url }}" title="{{ game.title }}">
 	</div>
 	{% elif game.boxart %}
-	<div class="twelve columns">
+	<div class="eight columns">
 		<img class="game-boxart" src="{{ game.boxart.url }}" title="{{ game.title }}">
 	</div>
 	{% endif %}
@@ -28,7 +38,7 @@
 <div class="row">
 	<div class="eight columns">
 		<h4>Game Information</h4>
-		
+
 		<table class="u-full-width">
 			<tr>
 				<td><strong>Sort Title</strong></td>
@@ -118,48 +128,51 @@
 	</div>
 
 	<div class="four columns">
-		<h4>Assets</h4>
-		<div class="images">
-			{% if game.boxart %}
-			<div class="row">
-				<div class="five columns">Boxart</div>
 
-				<div class="six columns">
-					<img class="u-pull-right" src="{{ game.boxart.url }}">
-				</div>
-			</div><hr>
+		<h4>Files</h4>
+
+		<table class="u-full-width">
+			<tr>
+				<td><strong>Readme</strong></td>
+				<td><span class="u-pull-right"><a href="/readme/{{ game.id }}/" target="_blank">Preview</a></span></td>
+			</tr>
+
+			{% if game.manual %}
+			<tr>
+				<td><strong>Manual</strong></td>
+				<td><span class="u-pull-right"><a href="{{ game.manual.url }}">Download</a></span></td>
+			</tr>
+			{% endif %}
+
+			{% if game.boxart %}
+			<tr>
+				<td><strong>Boxart</strong></td>
+				<td><img class="u-pull-right game-boxart-thumb" src="{{ game.boxart.url }}"></td>
+			</tr>
 			{% endif %}
 
 			{% if game.screenshot %}
-			<div class="row">
-				<div class="five columns">Screenshot</div>
-
-				<div class="six columns">
-					<img class="u-pull-right" src="{{ game.screenshot.url }}">
-				</div>
-			</div><hr>
+			<tr>
+				<td><strong>Screenshot</strong></td>
+				<td><img class="u-pull-right game-screenshot-thumb" src="{{ game.screenshot.url }}"></td>
+			</tr>
 			{% endif %}
 
 			{% if game.title_image %}
-			<div class="row">
-				<div class="five columns">Title Image</div>
-
-				<div class="six columns">
-					<img class="u-pull-right" src="{{ game.title_image.url }}">
-				</div>
-			</div><hr>
+			<tr>
+				<td><strong>Title</strong></td>
+				<td><img class="u-pull-right game-title-thumb" src="{{ game.title_image.url }}"></td>
+			</tr>
 			{% endif %}
 
 			{% if game.icon %}
-			<div class="row">
-				<div class="five columns">Icon</div>
-
-				<div class="six columns">
-					<img class="icon u-pull-right" src="{{ game.icon.url }}">
-				</div>
-			</div><hr>
+			<tr>
+				<td><strong>Icon</strong></td>
+				<td><img class="u-pull-right game-icon" src="{{ game.icon.url }}"></td>
+			</tr>
 			{% endif %}
-		</div>
+
+		</table>					
 	</div>
 </div>
 

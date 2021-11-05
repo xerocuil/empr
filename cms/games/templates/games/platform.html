@@ -6,14 +6,15 @@
 
 	<h2>{{ platform.name }}</h2>
 
+
 	{% for g in games %}
 		<p><a href="/detail/{{ g.id }}/">{{ g.title }}</a></p>
 	{% endfor %}
 
 {% endblock %}
 
-{% block sidebar %}
+{% block sidebar %}	
 	<p><a href="{% url 'games:gamelist' platform.id %}">Export XML</a></p>
-	
-	{% include "games/default_sidebar.html" %}	
+
+	{% include "games/default_sidebar.html" %}
 {% endblock %}
