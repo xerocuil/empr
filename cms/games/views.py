@@ -11,13 +11,13 @@ from django.views.generic import TemplateView, ListView
 from .forms import ScrapeGameForm
 from .models import Collection, Game, Genre, Platform, Tag
 	
+latest_games = Game.objects.order_by('-date_added')[:15]
+collections = Collection.objects.order_by('name')
+genres = Genre.objects.order_by('name')
+platforms = Platform.objects.order_by('name')
+tags = Tag.objects.order_by('name')
+
 def home(request):
-	latest_games = Game.objects.order_by('-date_added')[:15]
-	collections = Collection.objects.order_by('name')
-	genres = Genre.objects.order_by('name')
-	platforms = Platform.objects.order_by('name')
-	tags = Tag.objects.order_by('name')
-	
 	return render(request, 'games/home.html', {
 		'collections': collections,
 		'genres': genres,
@@ -38,6 +38,10 @@ def detail(request, game_id):
 	game = get_object_or_404(Game, pk=game_id)
 	return render(request, 'games/detail.html', {
 		'game': game,
+		'collections': collections,
+		'genres': genres,
+		'platforms': platforms,
+		'tags': tags
 	})
 
 # def gamelist(request, platform_id):

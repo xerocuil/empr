@@ -7,11 +7,7 @@
 	<style>
 		.box { display: none }
 	</style>
-	<script>
-		function toggle (target, cclass) {
-			document.getElementById(target).classList.toggle(cclass);
-		}
-	</script>
+	
 </head>
 
 <body{% if game.wallpaper %} style="background-image: url('{{ game.wallpaper.url }}'); background-repeat: no-repeat; background-size: 1920px 1080px;"{% endif %}>
@@ -50,11 +46,11 @@
 
 	<div id="page">
 		<div id="content" class="container">
-			<div class="eight columns">
+			<div class="nine columns">
 				{% block content %}{% endblock %}
 			</div>
 
-			<div class="four columns">
+			<div class="three columns">
 				{% block sidebar %}{% endblock %}
 			</div>
 		</div>
