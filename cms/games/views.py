@@ -102,6 +102,10 @@ def platform(request, platform_id):
 	return render(request, 'games/platform.html', {
 		'games': games,
 		'platform': platform,
+		'collections': collections,
+		'genres': genres,
+		'platforms': platforms,
+		'tags': tags
 	})
 
 class SearchResultsView(ListView):
