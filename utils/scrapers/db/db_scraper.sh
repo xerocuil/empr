@@ -2,7 +2,6 @@
 
 source /opt/empr/config/settings.sh
 
-ARCHIVEDIR=/run/media/xerocuil/2tb/games
 MEDIADIR=$CMSDIR/media
 SCRAPERDIR=$UTILSDIR/scrapers
 SKYSCRAPERDIR=$HOME/.skyscraper/import

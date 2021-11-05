@@ -205,4 +205,4 @@ if [[ ! -f $asset_clearlogo ]]; then
 	wget -O $asset_clearlogo $base_url$logo_file
 fi
 
-firefox "http://0.0.0.0:8000/admin/games/game/add/?title=$title&sort_title=$sort_title&slug=$slug&genre=$genre&developer=${developer_name_array[*]}&publisher=${publisher_name_array[*]}&release_date=$release_date&path=$path&description=$description" &
+firefox "http://empr.local/admin/games/game/add/?title=$title&sort_title=$sort_title&slug=$slug&genre=$genre&developer=${developer_name_array[*]}&publisher=${publisher_name_array[*]}&release_date=$release_date&path=$path&description=$description" &

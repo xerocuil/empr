@@ -1,142 +1,170 @@
 {% extends "games/base.html" %}
 {% load markdown %}
+
 {% block title %}{{ game.title }}{% endblock %}
 
 {% block content %}
-<div class="row">
-	<div class="ten columns">
-		<h2>{{ game.title }}</h2>
-		{% if game.collection %}<em>Part of the <a href="/collection/{{ game.collection_id }}/">{{ game.collection.name }} Collection</a></em>{% endif %}
-	</div>
-
-	<div class="two columns right">
-		{% if game.platform.icon %}<img class="platform_icon" src="{{ game.platform.icon.url }}" title="{{ game.platform.full_name }}">{% endif %}
-	</div>
-</div>
-
-<hr>
 
 <div class="row">
-	<div class="six columns">
-		<b>{{ game.genre }}</b>
-		{% if game.tags %}<br>{{ game.get_game_tags }}{% endif %}
+	{% if game.display %}
+	<div class="twelve columns">
+		<img class="game-display" src="{{ game.display.url }}" title="{{ game.title }}">
 	</div>
-
-	<div class="six columns right">
-		<b>{{ game.get_player_display }}</b>
-		{% if game.co_op %}<br>Co-Op{% endif %}			
-		{% if game.online_multiplayer %}<br>Online Mulitplayer{% endif %}
+	{% elif game.boxart %}
+	<div class="twelve columns">
+		<img class="game-boxart" src="{{ game.boxart.url }}" title="{{ game.title }}">
 	</div>
+	{% endif %}
 </div>
-
-<hr>
 
 <div class="row">
 	<div class="twelve columns">
-		{{ game.description|linebreaks|safe }}
-
-		{% if game.notes %}
 		<hr>
-		<p>{{ game.notes | markdown | safe }}</p>
-		{% endif %}
-
-		{% if game.manual %}<a href="{{ game.manual.url }}">{{ game.title }} Manual</a>{% endif %}
-
+		{{ game.description }}
+		<hr>
 	</div>
 </div>
 
 <div class="row">
-	<table class="grid-info">
-		<tr>
-			<td>
-				{% if game.esrb %}
-					<img class="icon" src="/static/imgs/esrb/{{ game.get_esrb_display|slugify }}.png" title="ESRB Rating">
-				{% endif %}
-			</td>
-			<td>{{ game.get_esrb_display }}</td>
-		</tr>
-
-		<tr>
-			<td>
-				{% if game.controller_support %}
-					<img class="icon" src="/static/imgs/icons/controller.png" title="Controller Support">
-				{% endif %}
-			</td>
-			<td>
-				{% if game.controller_support %}
-					<span>Controller Support</span>
-				{% endif %}
-			</td>
-		</tr>
-	</table>
-
-	<table>
-		{% if game.icon %}
-			<tr>
-				<td>Icon</td>
-				<td><img src="{{ game.icon.url }}"></td>
-			</tr>
-		{% endif %}
-
-		{% if game.title_image %}
-			<tr>
-				<td>Title</td>
-				<td><img class="title-image" src="{{ game.title_image.url }}"></td>
-			</tr>
-		{% endif %}
-
-		{% if game.screenshot %}
-			<tr>
-				<td>Screenshot</td>
-				<td><img class="screenshot" src="{{ game.screenshot.url }}"></td>
-			</tr>
-		{% endif %}
-
-		{% if game.display %}
-			<tr>
-				<td>Display</td>
-				<td><img class="title-image" src="{{ game.display.url }}"></td>
-			</tr>
-		{% endif %}
-
+	<div class="eight columns">
+		<h4>Game Information</h4>
 		
-	</table>
+		<table class="u-full-width">
+			<tr>
+				<td><strong>Sort Title</strong></td>
+				<td>{{ game.sort_title }}</td>
+			</tr>
+			
+			{% if game.collection %}
+			<tr>
+				<td>Collection</td>
+				<td><a href="/collection/{{ game.collection_id }}/">{{ game.collection.name }} Collection</a></td>
+			</tr>
+			{% endif %}
+			
+			<tr>
+				<td><strong>Genre</strong></td>
+				<td>{{ game.genre }}</td>
+			</tr>
+
+			{% if game.get_game_tags %}
+			<tr>
+				<td><strong>Tags</strong></td>
+				<td>{{ game.get_game_tags }}</td>
+			</tr>
+			{% endif %}
+
+			<tr>
+				<td><strong>Perspective</strong></td>
+				<td>{{ game.get_perspective_display }}</td>
+			</tr>
+			<tr>
+				<td><strong>Release Date</strong></td>
+				<td>{{ game.release_date }}</td>
+			</tr>
+			<tr>
+				<td><strong>Developer</strong></td>
+				<td>{{ game.developer }}</td>
+			</tr>
+			<tr>
+				<td><strong>Publisher</strong></td>
+				<td>{{ game.publisher }}</td>
+			</tr>
+			<tr>
+				<td><strong>ESRB Rating</strong></td>
+				<td>{{ game.esrb }}</td>
+			</tr>
+			<tr>
+				<td><strong>Region</strong></td>
+				<td>{{ game.get_region_display }}</td>
+			</tr>
+
+			{% if game.store %}
+			<tr>
+				<td><strong>Store</strong></td>
+				<td>{{ game.get_store_display }}</td>
+			</tr>
+			{% endif %}
+		</table>
+
+		{% if game.operating_system %}
+
+		<h4>System Requirements</h4>
+		<table class="u-full-width">
+			<tr>
+				<td><strong>OS</strong></td>
+				<td>{{ game.operating_system }}</td>
+			</tr>
+			<tr>
+				<td><strong>CPU</strong></td>
+				<td>{{ game.processor }}</td>
+			</tr>
+			<tr>
+				<td><strong>RAM</strong></td>
+				<td>{{ game.ram }}</td>
+			</tr>
+			<tr>
+				<td><strong>HDD</strong></td>
+				<td>{{ game.hdd }}</td>
+			</tr>
+			<tr>
+				<td><strong>GPU</strong></td>
+				<td>{{ game.gpu }}</td>
+			</tr>
+
+		</table>
+
+		{% endif %}
+	</div>
+
+	<div class="four columns">
+		<h4>Assets</h4>
+		<div class="images">
+			{% if game.boxart %}
+			<div class="row">
+				<div class="five columns">Boxart</div>
+
+				<div class="six columns">
+					<img class="u-pull-right" src="{{ game.boxart.url }}">
+				</div>
+			</div><hr>
+			{% endif %}
+
+			{% if game.screenshot %}
+			<div class="row">
+				<div class="five columns">Screenshot</div>
+
+				<div class="six columns">
+					<img class="u-pull-right" src="{{ game.screenshot.url }}">
+				</div>
+			</div><hr>
+			{% endif %}
+
+			{% if game.title_image %}
+			<div class="row">
+				<div class="five columns">Title Image</div>
+
+				<div class="six columns">
+					<img class="u-pull-right" src="{{ game.title_image.url }}">
+				</div>
+			</div><hr>
+			{% endif %}
+
+			{% if game.icon %}
+			<div class="row">
+				<div class="five columns">Icon</div>
+
+				<div class="six columns">
+					<img class="icon u-pull-right" src="{{ game.icon.url }}">
+				</div>
+			</div><hr>
+			{% endif %}
+		</div>
+	</div>
 </div>
 
-<div class="row right">
-	{% if game.installed %}<button><a href="/launcher/{{ game.id }}">Launch Game</a></button>{% endif %}
-</div>
-
-<div class="row right">
-	{% if game.installed_remote %}<button><a href="/launcher_remote/{{ game.id }}">Launch on Arcade</a></button>{% endif %}
-</div>
 {% endblock %}
 
 {% block sidebar %}
-{% if game.boxart %}
-<img class="boxart" src="{{ game.boxart.url }}" title="{{ game.title }}">
-{% endif %}
-
-<table class="u-full-width">
-	{% if game.developer %}
-	<tr>
-		<td>Developer</td>
-		<td class="right">{{ game.developer }}</td>
-	</tr>
-	{% endif %}
-	
-	{% if game.publisher %}
-	<tr>
-		<td>Publisher</td>
-		<td class="right">{{ game.publisher }}</td>
-	</tr>
-	{% endif %}
-
-	{% if game.release_date %}
-	<tr>
-		<td>Release Date</td>
-		<td class="right">{{ game.release_date }}</td>
-	</tr>
-	{% endif %}
-</table>
+{% include "games/default_sidebar.html" %}
 {% endblock %}

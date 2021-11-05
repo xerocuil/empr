@@ -1,6 +1,6 @@
 {% extends "games/base.html" %}
 
-{% block title %}{{ platform.full_name }}{% endblock %}
+{% block title %}{{ platform.name }}{% endblock %}
 
 {% block content %}
 
@@ -14,4 +14,6 @@
 
 {% block sidebar %}
 	<p><a href="{% url 'games:gamelist' platform.id %}">Export XML</a></p>
+	
+	{% include "games/default_sidebar.html" %}	
 {% endblock %}
