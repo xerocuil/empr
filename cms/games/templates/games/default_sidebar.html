@@ -1,27 +1,61 @@
-<h4 onclick="toggle('platformBox', 'box')">Platforms</h4>
+<script>
+	function toggle (target, cclass) {
+		document.getElementById(target).classList.toggle(cclass);
+	}
+</script>
+
+<div class="sidebar-header">
+	<h4 onclick="toggle('platformBox', 'box')">Platforms</h4>
+</div>
+
 <div id="platformBox" class="box">
-	{% for p in platforms %}
-		<p><a href="/platform/{{ p.id }}">{{ p.name }}</a></p>
-	{% endfor %}
+	<div class="box-content">
+		<ul>
+			{% for p in platforms %}
+			<li><a href="/platform/{{ p.id }}">{{ p.name }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
 </div>
 
-<h4 onclick="toggle('genreBox', 'box')">Genres</h4>
+<div class="sidebar-header">
+	<h4 onclick="toggle('genreBox', 'box')">Genres</h4>
+</div>
+
 <div id="genreBox" class="box">
-	{% for g in genres %}
-		<p><a href="/genre/{{ g.id }}">{{ g.name }}</a></p>
-	{% endfor %}
+	<div class="box-content">
+		<ul>
+			{% for g in genres %}
+			<li><a href="/genre/{{ g.id }}">{{ g.name }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
 </div>
 
-<h4 onclick="toggle('tagBox', 'box')">Tags</h4>
+<div class="sidebar-header">
+	<h4 onclick="toggle('tagBox', 'box')">Tags</h4>
+</div>
+
 <div id="tagBox" class="box">
-	{% for t in tags %}
-		<p><a href="/tag/{{ t.id }}">{{ t.name }}</a></p>
-	{% endfor %}
+	<div class="box-content">
+		<p>
+			{% for t in tags %}
+			<a href="/tag/{{ t.id }}">{{ t.name }}</a>&nbsp;&nbsp;&nbsp;
+			{% endfor %}
+		</p>
+	</div>
 </div>
 
-<h4 onclick="toggle('collectionBox', 'box')">Collections</h4>
+<div class="sidebar-header">
+	<h4 onclick="toggle('collectionBox', 'box')">Collections</h4>
+</div>
+
 <div id="collectionBox" class="box">
-	{% for c in collections %}
-		<p><a href="/collection/{{ c.id }}">{{ c.name }}</a></p>
-	{% endfor %}
+	<div class="box-content">
+		<ul>
+			{% for c in collections %}
+			<li><a href="/collection/{{ c.id }}">{{ c.name }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
 </div>

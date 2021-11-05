@@ -1,13 +1,6 @@
 #!/bin/bash
 source /opt/empr/config/settings.sh
 
-PHOTODB=$HOME/.empr/digikam
-
-## Organize/Edit CMS photos
-photos(){
-	digikam --config $PHOTODB/photodb.ini --database-directory $PHOTODB
-}
-
 ## Update source code
 update-src(){
 	cd $CMSDIR
@@ -37,7 +30,6 @@ help(){
 	Options
 	-------
 	
-	photos:    		Open CMS photo gallery in Digikam
 	update-src:		Update source code
 	update-server:	Update source code (server)
 	"
