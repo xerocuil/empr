@@ -25,18 +25,6 @@ publisher_list=$HELPERS/publishers.json
 
 mkdir -p $json_dir
 
-# ## Check file
-# path_query(){
-# 	$SQLITE "$APPDB" "select id from games_game where path = '$path'"
-# }
-
-# if [[ -z $(path_query) ]];then
-# 	echo "No path in database."
-# else
-# 	echo "Path found in database: id# $(path_query)"
-# 	exit
-# fi
-
 ## Search for TGDB ID
 #####################
 
@@ -92,17 +80,8 @@ fi
 ### Set delimiter to carriage return for JSON values.
 IFS=$'\n'
 
-echo "
-### Geting fields
-"
-
 coop=$(cat $tgdb_file | jq -r '.data.games[].coop')
-echo "Co-op: $coop"
-
 description=$(cat $tgdb_file | jq -r '.data.games[].overview')
-echo "description:
-$description
-"
 
 developer_id_array=()
 developer_name_array=()
@@ -113,9 +92,6 @@ do
 	developer_name_array+=($developer_name)
 done
 
-echo "developer(s): $developer_name_array"
-
-### Get genre
 genre_id_array=()
 genre_name_array=()
 genre_id_array=$(cat $tgdb_file | jq -r '.data.games[].genres[]')
@@ -205,4 +181,29 @@ if [[ ! -f $asset_clearlogo ]]; then
 	wget -O $asset_clearlogo $base_url$logo_file
 fi
 
-firefox "http://empr.local/admin/games/game/add/?title=$title&sort_title=$sort_title&slug=$slug&genre=$genre&developer=${developer_name_array[*]}&publisher=${publisher_name_array[*]}&release_date=$release_date&path=$path&description=$description" &
+echo "
+developer: $developer_name_array
+genre: $genre
+path: $path
+publisher: $publisher_name_array
+release_date: $release_date
+slug: $slug
+sort_title: $sort_title
+title: $title
+" >$asset_dir/tgdb-$slug-details.txt
+
+echo "$description" >$asset_dir/tgdb-$slug-description.txt
+
+echo "
+Details:
+--------
+"
+cat $asset_dir/tgdb-$slug-details.txt
+
+echo "
+Description:
+------------
+"
+cat $asset_dir/tgdb-$slug-description.txt
+
+#firefox "http://empr.local/admin/games/game/add/?title=$title&sort_title=$sort_title&slug=$slug&genre=$genre&developer=${developer_name_array[*]}&publisher=${publisher_name_array[*]}&release_date=$release_date&path=$path&description=$description" &

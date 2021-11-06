@@ -6,9 +6,13 @@
 
 	<h2>Latest Games</h2>
 
+	{% include "games/game_list_header.html" %}
 	{% for g in latest_games %}
-	<p><a href="/detail/{{ g.id }}">{{ g.title }}</a></p>
+		{% include "games/game_list.html" %}
 	{% endfor %}
+	{% include "games/game_list_footer.html" %}
+	
+
 {% endblock %}
 
 {% block sidebar %}

@@ -133,6 +133,8 @@ scraper_dir: $scraper_dir
 path: $path
 slug: $slug
 
+boxart_url: $boxart_url
+
 asset_icon: $asset_icon
 asset_boxart: $asset_boxart
 asset_background: $asset_background
@@ -141,22 +143,30 @@ total_results: $total_results
 total_results_cap: $total_results_cap
 
 ###############
+"
 
-
-#################
-### Game Data ###
-#################
-
-title: $title
-sort_title: $sort_title
+echo "
 developer: $developer
+esrb: $esrb
 publisher: $publisher
 release_date: $release_date
-esrb: $esrb
+sort_title: $sort_title
 tags: $tag_list
+title: $title
+" >$asset_dir/gb-$slug-details.txt
 
-description:
-$description
+echo "$description" >$asset_dir/gb-$slug-description.txt
 
-boxart_url: $boxart_url
+echo "
+Details:
+--------
 "
+
+cat $asset_dir/gb-$slug-details.txt
+
+echo "
+Description:
+------------
+"
+
+cat $asset_dir/gb-$slug-description.txt
