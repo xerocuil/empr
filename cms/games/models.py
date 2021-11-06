@@ -110,8 +110,7 @@ class Game(models.Model):
 	date_added = models.DateTimeField('Date Added', auto_now_add=True)
 	date_modified = models.DateTimeField('Date Modified', auto_now=True)
 	notes = models.TextField(blank=True, null=True)
-	path = models.CharField(blank=True, max_length=128, null=True)
-	installed = models.BooleanField(default=False)
+	path = models.CharField(max_length=128, unique=True)
 	archived = models.BooleanField(default=False)
 	
 	def __str__(self):

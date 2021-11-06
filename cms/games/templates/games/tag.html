@@ -1,17 +1,21 @@
 {% extends "games/base.html" %}
 
-{% block title %}Tag: {{ tag.name }}{% endblock %}
+{% block title %}{{ tag.name }} Games{% endblock %}
 
 {% block content %}
 	
-	<h2>Tag: {{ tag.name }}</h2>
+<h2>{{ tag.name }}</h2>
 
-	{% for g in games %}
-		<p><a href="/detail/{{ g.id }}/">{{ g.title }}</a></p>
-	{% endfor %}
+{% include "games/game_list_header.html" %}
+{% for g in games %}
+	{% include "games/game_list.html" %}
+{% endfor %}
+{% include "games/game_list_footer.html" %}
 
 {% endblock %}
 
 {% block sidebar %}
+
+{% include "games/default_sidebar.html" %}
 
 {% endblock %}

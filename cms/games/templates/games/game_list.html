@@ -1,0 +1,7 @@
+<tr>
+	<td>{% if g.icon %}<img class="icon" src="{{ g.icon.url }}">{% elif g.boxart %}<img class="icon" src="{{ g.boxart.url }}">{% endif %}</td>
+	<td><a href="{% url 'games:detail' g.id %}">{{ g.title }}</a></td>
+	<td><a href="{% url 'games:platform' g.platform_id %}">{{ g.platform }}</a></td>
+	<td><a href="{% url 'games:genre' g.genre_id %}">{{ g.genre }}</a></td>
+	<td>{{ g.release_date }}</td>
+</tr>
