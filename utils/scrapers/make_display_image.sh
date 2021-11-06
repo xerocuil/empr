@@ -9,6 +9,7 @@ PATH="$1"
 FILENAME=${PATH##*/}
 SLUG=${FILENAME%.*}
 REMOTEDB=""
+IMPORTDATAFILE=$APPDIR/docs/csv/import_display.csv
 
 id_query(){
 	$SQLITE "$APPDB" "select id from games_game where path = '$FILENAME'"
@@ -34,6 +35,7 @@ wallpaper=$($SQLITE "$APPDB" "select wallpaper from games_game where id = '$ID'"
 echo "
 ID: $ID
 PATH: $PATH
+FILENAME: $(basename $PATH)
 platform_name: $platform_name
 platform_slug: $platform_slug
 "
@@ -59,10 +61,18 @@ fi
 /usr/local/bin/skyscraper -p $platform_slug -i import $PATH
 /usr/local/bin/skyscraper -p $platform_slug $PATH
 
+#"$SQLITE" "$APPDB" "update games_game set display = 'games/display/$SLUG.png' where id = $ID"
+
+echo "id,path,display
+$ID,$FILENAME,games/display/$SLUG.png
+" >$IMPORTDATAFILE
+
+/usr/bin/scp $IMPORTDATAFILE brinstar:$IMPORTDATAFILE
 /usr/bin/scp $DISPLAYIMAGES/$SLUG.png brinstar:$CMSDIR/media/games/display/
 
-/usr/bin/scp "brinstar:/opt/empr/cms/db.sqlite3" "/opt/empr/cms/"
+. $VENV/bin/activate
+cd $CMSDIR
 
-"$SQLITE" "$APPDB" "update games_game set display = 'games/display/$SLUG.png' where id = $ID"
+ssh brinstar "/opt/empr/utils/import_game_display.sh"
 
-/usr/bin/scp "/opt/empr/cms/db.sqlite3" "brinstar:/opt/empr/cms/" 
+#/usr/bin/mv $IMPORTDATAFILE $IMPORTDATAFILE.bak
