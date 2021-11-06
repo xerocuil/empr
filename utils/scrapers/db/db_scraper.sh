@@ -4,18 +4,25 @@ source /opt/empr/config/settings.sh
 
 MEDIADIR=$CMSDIR/media
 SCRAPERDIR=$UTILSDIR/scrapers
-SKYSCRAPERDIR=$HOME/.skyscraper/import
-CACHE=$CACHEDIR/xml
+SKYSCRAPERDIR=$HOME/.empr/screenscraper/import
 PATH="$1"
 FILENAME=${PATH##*/}
 SLUG=${FILENAME%.*}
 
 
 id_query(){
-	$SQLITE "$APPDB" "select id from games_game where path = '$PATH'"
+	$SQLITE "$APPDB" "select id from games_game where path = '$FILENAME'"
 }
 
 ID=$(id_query)
+
+echo "
+PATH: $PATH"
+
+if [[ -z $ID ]];then
+  echo "$FILENAME not found in database."
+  exit
+fi
 
 title=$($SQLITE "$APPDB" "select title from games_game where id = '$ID'")
 sort_title=$($SQLITE "$APPDB" "select sort_title from games_game where id = '$ID'")
@@ -43,6 +50,9 @@ wallpaper=$($SQLITE "$APPDB" "select wallpaper from games_game where id = '$ID'"
 
 date_added=$($SQLITE "$APPDB" "select date_added from games_game where id = '$ID'")
 date_modified=$($SQLITE "$APPDB" "select date_modified from games_game where id = '$ID'")
+
+mkdir -p $SKYSCRAPERDIR/$platform_slug
+mkdir -p $SKYSCRAPERDIR/$platform_slug/covers 
 
 echo -e "<game>
   <title>$title</title>

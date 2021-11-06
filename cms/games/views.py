@@ -31,7 +31,12 @@ def collection(request, collection_id):
 	games = Collection.objects.get(id=collection_id).game_set.order_by('release_date')
 	return render(request, 'games/collection.html', {
 		'games': games,
-		'collection': collection
+		'collection': collection,
+		'collections': collections,
+		'genres': genres,
+		'latest_games': latest_games,
+		'platforms': platforms,
+		'tags': tags
 	})
 
 def detail(request, game_id):
@@ -71,7 +76,12 @@ def genre(request, genre_id):
 	games = Genre.objects.get(id=genre_id).game_set.order_by('sort_title')
 	return render(request, 'games/genre.html', {
 		'games': games,
-		'genre': genre
+		'genre': genre,
+		'collections': collections,
+		'genres': genres,
+		'latest_games': latest_games,
+		'platforms': platforms,
+		'tags': tags
 	})
 
 def launcher(request, game_id):
@@ -149,7 +159,12 @@ def tag(request, tag_id):
 	games = Tag.objects.get(id=tag_id).game_set.order_by('sort_title')
 	return render(request, 'games/tag.html', {
 		'games': games,
-		'tag': tag
+		'tag': tag,
+		'collections': collections,
+		'genres': genres,
+		'latest_games': latest_games,
+		'platforms': platforms,
+		'tags': tags
 	})
 
 def readme(request, game_id):
