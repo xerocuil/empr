@@ -16,6 +16,9 @@ PLATFORMDIR="$(dirname $FILE)"
 PLATFORM_SLUG=$(basename $PLATFORMDIR)
 ASSETDIR="$CACHEDIR/assets/$SLUG"
 
+echo "
+Scraping $FILENAME ..."
+
 $TGDBSCRAPER "$FILE"
 $GBSCRAPER "$FILE"
 
@@ -76,4 +79,4 @@ release_date: $release_date
 players: $players
 "
 
-firefox "http://empr.local/admin/games/game/add/?path=$path&title=$title&sort_title=$sort_title&genre=$genre&developer=$developer&publisher=$publisher&release_date=$release_date&path=$path&description=$description" &
+firefox "http://0.0.0.0:8000/admin/games/game/add/?path=$path&title=$title&sort_title=$sort_title&genre=$genre&developer=$developer&publisher=$publisher&release_date=$release_date&path=$path&description=$description" &

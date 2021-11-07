@@ -5,13 +5,20 @@ source /opt/empr/config/settings.sh
 BACKUPDIR=$APPDIR/docs/backup
 
 ## Pull db/media from server
-update_local(){
+pull(){
 	cd $CMSDIR
 	/usr/bin/tar cvzf $BACKUPDIR/db/db-$(/usr/bin/date +%Y.%m%d.%H%M).tar.gz db.sqlite3
 	/usr/bin/rsync -hirt brinstar:$APPDB $APPDB
 	/usr/bin/rsync -hirt --progress brinstar:$CMSDIR/media/ $CMSDIR/media/
-	cp $CMSDIR/test.sqlite3 $CMSDIR/test.sqlite3.bak
 	cp $APPDB $CMSDIR/test.sqlite3
+}
+
+## Push db/media to server
+push(){
+	cd $CMSDIR
+	/usr/bin/tar cvzf $BACKUPDIR/db/db-$(/usr/bin/date +%Y.%m%d.%H%M).tar.gz db.sqlite3
+	/usr/bin/rsync $APPDB -hirt brinstar:$APPDB
+	/usr/bin/rsync -hirt --delete-before --exclude .dtrash --progress $CMSDIR/media/ brinstar:$CMSDIR/media/	
 }
 
 ## Pull from repository and migrate
