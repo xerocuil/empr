@@ -25,15 +25,6 @@ class Game(models.Model):
 		M = 'M', _('Mature')
 		AO = 'AO', _('Adults Only')
 
-	class perspective_options(models.TextChoices):
-		FPP = 'FPP', _('1st-person')
-		TPP = 'TPP', _('3rd-person')
-		BEHIND = 'BEHIND', _('Behind View')
-		BIRDSEYE = 'BIRDSEYE', _("Bird's Eye View")
-		SIDEVIEW = 'SIDEVIEW', _("Side View")
-		TEXT = 'TEXT', _("Text-Based")
-		TOPDOWN = 'TOPDOWN', _('Top Down')
-
 	class player_options(models.TextChoices):
 		ONE = '1', _('1 Player')
 		TWO = '2', _('2 Players')
@@ -65,9 +56,9 @@ class Game(models.Model):
 	publisher = models.CharField(blank=True, max_length=128)
 	esrb = models.CharField('ESRB', blank=True, choices=esrb_ratings.choices, max_length=4, null=True)
 	genre = models.ForeignKey('Genre', blank=True, null=True, on_delete=models.CASCADE)
-	perspective = models.CharField(blank=True, choices=perspective_options.choices, max_length=8, null=True)
 	tags = models.ManyToManyField(Tag, blank=True)
 	region = models.CharField(choices=regions.choices, default="NA", max_length=2, blank=True, null=True)
+	translation = models.BooleanField(default=False)
 	release_date = models.DateField('Release Date', blank=True, null=True)
 	store = models.CharField(blank=True, choices=store_options.choices, max_length=10, null=True)
 	collection = models.ForeignKey('Collection', blank=True, null=True, on_delete=models.CASCADE)
@@ -102,7 +93,6 @@ class Game(models.Model):
 	## Misc
 	favorite = models.BooleanField(default=False)
 	kid_game = models.BooleanField(default=False)
-	required_files = models.TextField(blank=True, null=True)
 	steam_id = models.IntegerField(blank=True, null=True)
 	hidden = models.BooleanField(default=False)
 

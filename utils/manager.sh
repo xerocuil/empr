@@ -1,16 +1,20 @@
 #!/bin/bash
+
 source /opt/empr/config/settings.sh
 
 BACKUPDIR=$APPDIR/docs/backup
 
-## Update source code
-update-local-db(){
+## Pull db/media from server
+update_local(){
 	cd $CMSDIR
-	tar cvzf $BACKUPDIR/db/db-$(date +%Y.%m%d.%H%M).tar.gz db.sqlite3
-	rsync -hirt brinstar:$APPDB $APPDB
-	rsync -hirt --progress brinstar:$CMSDIR/media/ $CMSDIR/media/
+	/usr/bin/tar cvzf $BACKUPDIR/db/db-$(/usr/bin/date +%Y.%m%d.%H%M).tar.gz db.sqlite3
+	/usr/bin/rsync -hirt brinstar:$APPDB $APPDB
+	/usr/bin/rsync -hirt --progress brinstar:$CMSDIR/media/ $CMSDIR/media/
+	cp $CMSDIR/test.sqlite3 $CMSDIR/test.sqlite3.bak
+	cp $APPDB $CMSDIR/test.sqlite3
 }
 
+## Pull from repository and migrate
 update-src(){
 	cd $CMSDIR
 	git pull origin
@@ -39,6 +43,7 @@ help(){
 	Options
 	-------
 	
+	update-local:	Pull db/media from server
 	update-src:		Update source code
 	update-server:	Update source code (server)
 	"
