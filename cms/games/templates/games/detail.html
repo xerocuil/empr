@@ -67,10 +67,6 @@
 			{% endif %}
 
 			<tr>
-				<td><strong>Perspective</strong></td>
-				<td>{{ game.get_perspective_display }}</td>
-			</tr>
-			<tr>
 				<td><strong>Release Date</strong></td>
 				<td>{{ game.release_date }}</td>
 			</tr>
@@ -88,7 +84,7 @@
 			</tr>
 			<tr>
 				<td><strong>Region</strong></td>
-				<td>{{ game.get_region_display }}</td>
+				<td>{{ game.get_region_display }}{% if game.translation %} (Translated){% endif %}</td>
 			</tr>
 
 			{% if game.store %}
