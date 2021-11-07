@@ -8,10 +8,6 @@ SKYSCRAPERDIR=$HOME/.empr/screenscraper/import
 PATH="$1"
 FILENAME=${PATH##*/}
 SLUG=${FILENAME%.*}
-REMOTEDB=""
-IMPORTDATAFILE=$APPDIR/docs/csv/import_display.csv
-
-/opt/empr/utils/manager.sh update_local
 
 id_query(){
 	$SQLITE "$APPDB" "select id from games_game where path = '$FILENAME'"
@@ -60,21 +56,21 @@ if [[ -f $MEDIADIR/$title_image ]]; then
 	/usr/bin/cp -v $MEDIADIR/$title_image $SKYSCRAPERDIR/$platform_slug/wheels/$SLUG.png
 fi
 
-/usr/local/bin/skyscraper -p $platform_slug -i import $FILENAME
+/usr/local/bin/skyscraper -p $platform_slug -s import $FILENAME
 /usr/local/bin/skyscraper -p $platform_slug $FILENAME
 
-#"$SQLITE" "$APPDB" "update games_game set display = 'games/display/$SLUG.png' where id = $ID"
+"$SQLITE" "$APPDB" "update games_game set display = 'games/display/$SLUG.png' where id = $ID"
 
-echo "id,path,display
-$ID,$FILENAME,games/display/$SLUG.png
-" >$IMPORTDATAFILE
+# echo "id,path,display
+# $ID,$FILENAME,games/display/$SLUG.png
+# " >$IMPORTDATAFILE
 
-/usr/bin/scp $IMPORTDATAFILE brinstar:$IMPORTDATAFILE
-/usr/bin/scp $DISPLAYIMAGES/$SLUG.png brinstar:$CMSDIR/media/games/display/
+# /usr/bin/scp $IMPORTDATAFILE brinstar:$IMPORTDATAFILE
+/usr/bin/cp $DISPLAYIMAGES/$SLUG.png $CMSDIR/media/games/display/
 
-. $VENV/bin/activate
-cd $CMSDIR
+# . $VENV/bin/activate
+# cd $CMSDIR
 
-/usr/bin/ssh brinstar "/opt/empr/utils/import_game_display.sh"
+# /opt/empr/utils/import_game_display.sh
 
-#/usr/bin/mv $IMPORTDATAFILE $IMPORTDATAFILE.bak
+# /usr/bin/mv $IMPORTDATAFILE $IMPORTDATAFILE.bak
