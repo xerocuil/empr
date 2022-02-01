@@ -13,7 +13,9 @@
 		<div class="box-content">
 			<ul>
 				{% for p in platforms %}
-				<li><a href="/platform/{{ p.id }}">{{ p.name }}</a></li>
+					{% if p.game_set.count %}
+						<li><a href="/platform/{{ p.id }}">{{ p.name }}</a></li>
+					{% endif %}
 				{% endfor %}
 			</ul>
 		</div>
@@ -27,7 +29,9 @@
 		<div class="box-content">
 			<ul>
 				{% for g in genres %}
-				<li><a href="/genre/{{ g.id }}">{{ g.name }}</a></li>
+					{% if g.game_set.count %}
+						<li><a href="/genre/{{ g.id }}">{{ g.name }}</a></li>
+					{% endif %}
 				{% endfor %}
 			</ul>
 		</div>
@@ -41,7 +45,9 @@
 		<div class="box-content">
 			<p>
 				{% for t in tags %}
-				<a href="/tag/{{ t.id }}">{{ t.name }}</a>&nbsp;&nbsp;&nbsp;
+					{% if t.game_set.count %}
+						<a href="/tag/{{ t.id }}">{{ t.name }}</a>&nbsp;&nbsp;&nbsp;
+					{% endif %}
 				{% endfor %}
 			</p>
 		</div>
@@ -55,7 +61,9 @@
 		<div class="box-content">
 			<ul>
 				{% for c in collections %}
-				<li><a href="/collection/{{ c.id }}">{{ c.name }}</a></li>
+					{% if c.game_set.count %}
+						<li><a href="/collection/{{ c.id }}">{{ c.name }}</a></li>
+					{% endif %}
 				{% endfor %}
 			</ul>
 		</div>

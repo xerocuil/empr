@@ -10,10 +10,11 @@ from django.views.generic import TemplateView, ListView
 
 from .forms import ScrapeGameForm
 from .models import Collection, Game, Genre, Platform, Tag
-	
-latest_games = Game.objects.order_by('-date_added')[:15]
+
 collections = Collection.objects.order_by('name')
+games = Game.objects.order_by('sort_title')
 genres = Genre.objects.order_by('name')
+latest_games = Game.objects.order_by('-date_added')[:10]
 platforms = Platform.objects.order_by('name')
 tags = Tag.objects.order_by('name')
 
@@ -22,6 +23,19 @@ def home(request):
 		'collections': collections,
 		'genres': genres,
 		'latest_games': latest_games,
+		'platforms': platforms,
+		'tags': tags
+	})
+
+def games_index(request):
+	order_by = request.GET.get('order_by', '-date_added')
+	object_list = Game.objects.order_by(order_by)
+	return render(request, 'games/games_index.html', {
+		'collections': collections,
+		'genres': genres,
+		'games': games,
+		'object_list': object_list,
+		'order_by': order_by,
 		'platforms': platforms,
 		'tags': tags
 	})
@@ -73,13 +87,15 @@ def detail(request, game_id):
 
 def genre(request, genre_id):
 	genre = get_object_or_404(Genre, pk=genre_id)
-	games = Genre.objects.get(id=genre_id).game_set.order_by('sort_title')
+	order_by = request.GET.get('order_by', 'sort_title')
+	games = Genre.objects.get(id=genre_id).game_set.order_by(order_by)
 	return render(request, 'games/genre.html', {
 		'games': games,
 		'genre': genre,
 		'collections': collections,
 		'genres': genres,
 		'latest_games': latest_games,
+		'order_by': order_by,
 		'platforms': platforms,
 		'tags': tags
 	})
@@ -108,12 +124,14 @@ def launcher_remote(request, game_id):
 
 def platform(request, platform_id):
 	platform = get_object_or_404(Platform, pk=platform_id)
-	games = Platform.objects.get(id=platform_id).game_set.order_by('sort_title')
+	order_by = request.GET.get('order_by', 'sort_title')
+	games = Platform.objects.get(id=platform_id).game_set.order_by(order_by)
 	return render(request, 'games/platform.html', {
 		'games': games,
 		'platform': platform,
 		'collections': collections,
 		'genres': genres,
+		'order_by': order_by,
 		'platforms': platforms,
 		'tags': tags
 	})
@@ -123,7 +141,7 @@ class SearchResultsView(ListView):
 	template_name = 'games/search_results.html'
 
 	def get_queryset(self):
-		query = self.request.GET.get('q')
+		query = self.request.GET.get('q', '')
 		object_list = Game.objects.filter(
 			Q(sort_title__icontains=query) |
 			Q(developer__icontains=query) |
