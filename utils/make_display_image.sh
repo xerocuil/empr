@@ -4,7 +4,7 @@ source /opt/empr/config/settings.sh
 
 MEDIADIR=$CMSDIR/media
 SCRAPERDIR=$UTILSDIR/scrapers
-SKYSCRAPERDIR=$HOME/.empr/screenscraper/import
+SKYSCRAPERDIR=$HOME/.empr/import
 PATH="$1"
 FILENAME=${PATH##*/}
 SLUG=${FILENAME%.*}
@@ -38,7 +38,7 @@ platform_name: $platform_name
 platform_slug: $platform_slug
 "
 
-DISPLAYIMAGES=$CACHEDIR/skyscraper/$platform_slug/screenshots
+DISPLAYIMAGES=$APPFILES/media/$platform_slug/screenshots
 
 ## Get Images
 
@@ -56,21 +56,13 @@ if [[ -f $MEDIADIR/$title_image ]]; then
 	/usr/bin/cp -v $MEDIADIR/$title_image $SKYSCRAPERDIR/$platform_slug/wheels/$SLUG.png
 fi
 
+if [[ $platform_slug = "ps1" ]]; then
+	platform_slug="psx"
+fi
+
 /usr/local/bin/skyscraper -p $platform_slug -s import $FILENAME
 /usr/local/bin/skyscraper -p $platform_slug $FILENAME
 
 "$SQLITE" "$APPDB" "update games_game set display = 'games/display/$SLUG.png' where id = $ID"
 
-# echo "id,path,display
-# $ID,$FILENAME,games/display/$SLUG.png
-# " >$IMPORTDATAFILE
-
-# /usr/bin/scp $IMPORTDATAFILE brinstar:$IMPORTDATAFILE
 /usr/bin/cp $DISPLAYIMAGES/$SLUG.png $CMSDIR/media/games/display/
-
-# . $VENV/bin/activate
-# cd $CMSDIR
-
-# /opt/empr/utils/import_game_display.sh
-
-# /usr/bin/mv $IMPORTDATAFILE $IMPORTDATAFILE.bak
