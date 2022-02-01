@@ -4,10 +4,12 @@
 
 <h1>Search Results</h1>
 
-<ul>
-	{% for game in object_list %}
-	<li><a href="/detail/{{ game.id }}">{{ game.title }}</a></li>
-	{% endfor %}
-</ul>
+{% include "games/game_list_header.html" %}
+
+{% for g in object_list %}
+	{% include "games/game_list.html" %}
+{% endfor %}
+
+{% include "games/game_list_footer.html" %}
 
 {% endblock %}

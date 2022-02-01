@@ -9,10 +9,11 @@ from .views import SearchResultsView
 
 app_name = 'games'
 urlpatterns = [
-	path('', views.home, name='home'),
+	path('', views.games_index, name='games_index'),
 	path('admin/', admin.site.urls),
 	path('collection/<int:collection_id>/', views.collection, name='collection'),
 	path('detail/<int:game_id>/', views.detail, name='detail'),
+	path('games/', views.games_index, name='games_index'),
 	path('genre/<int:genre_id>/', views.genre, name='genre'),
 	path('platform/<int:platform_id>/', views.platform, name='platform'),
 	path('launcher/<int:game_id>/', views.launcher, name='launcher'),

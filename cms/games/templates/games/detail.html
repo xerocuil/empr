@@ -11,7 +11,7 @@
 	</div>
 
 	<div class="three columns">
-		<h4 class="u-pull-right">{{ game.platform }}</h4>
+		<h4 class="u-pull-right">{% if game.platform.logo %}<img class="logo" src="{{ game.platform.logo.url }}">{% else %}{{ game.platform.slug.upper }}{% endif %}</h4>
 	</div>
 </div>
 
@@ -42,6 +42,18 @@
 		<h4>Game Information</h4>
 
 		<table class="u-full-width">
+			{% if game.steam_id %}
+			<tr>
+				<td><strong>Steam ID</strong></td>
+				<td>{{ game.steam_id }}</td>
+			</tr>
+			{% endif %}
+
+			<tr>
+				<td><strong>Path</strong></td>
+				<td>{{ game.path }}</td>
+			</tr>
+
 			<tr>
 				<td><strong>Sort Title</strong></td>
 				<td>{{ game.sort_title }}</td>
@@ -54,10 +66,12 @@
 			</tr>
 			{% endif %}
 			
+			{% if game.genre %}
 			<tr>
 				<td><strong>Genre</strong></td>
 				<td>{{ game.genre }}</td>
 			</tr>
+			{% endif %}
 
 			{% if game.get_game_tags %}
 			<tr>
@@ -66,22 +80,30 @@
 			</tr>
 			{% endif %}
 
+			{% if game.release_date %}
 			<tr>
 				<td><strong>Release Date</strong></td>
 				<td>{{ game.release_date }}</td>
 			</tr>
+			{% endif %}
+
 			<tr>
 				<td><strong>Developer</strong></td>
 				<td>{{ game.developer }}</td>
 			</tr>
+
 			<tr>
 				<td><strong>Publisher</strong></td>
 				<td>{{ game.publisher }}</td>
 			</tr>
+
+			{% if game.esrb %}
 			<tr>
 				<td><strong>ESRB Rating</strong></td>
 				<td>{{ game.esrb }}</td>
 			</tr>
+			{% endif %}
+
 			<tr>
 				<td><strong>Region</strong></td>
 				<td>{{ game.get_region_display }}{% if game.translation %} (Translated){% endif %}</td>
@@ -123,13 +145,35 @@
 		</table>
 
 		{% endif %}
+
+		<h4>Links</h4>
+		<table class="u-full-width">
+			<tr>
+				<td colspan="2"><a href="https://lutris.net/games?q={{ game.title }}">Lutris</a></td>
+			</tr>
+			<tr>
+				<td colspan="2"><a href="https://www.mobygames.com/search/quick?q={{ game.title }}">Moby</a></td>
+			</tr>
+			<tr>
+				<td colspan="2"><a href="https://www.pcgamingwiki.com/w/index.php?search={{ game.title }}">PCGW</a></td>
+			</tr>
+			<tr>
+				<td colspan="2"><a href="https://steamdb.info/search/?a=app&q={{ game.title }}">SteamDB</a></td>
+			</tr>
+			<tr>
+				<td colspan="2"><a href="https://thegamesdb.net/search.php?name={{ game.title }}">TGDB</a></td>
+			</tr>
+		</table>
 	</div>
 
 	<div class="four columns">
-
 		<h4>Files</h4>
 
 		<table class="u-full-width">
+			<tr>
+				<td><strong>Readme</strong></td>
+				<td><span class="u-pull-right"><a href="/readme/{{ game.id }}/" target="_blank">Preview</a></span></td>
+			</tr>
 
 			{% if game.manual %}
 			<tr>
@@ -138,41 +182,55 @@
 			</tr>
 			{% endif %}
 
+			{% if game.icon %}
 			<tr>
-				<td><strong>Readme</strong></td>
-				<td><span class="u-pull-right"><a href="/readme/{{ game.id }}/" target="_blank">Preview</a></span></td>
+				<td><strong>Icon</strong></td>
+				<td><a href="{{ game.icon.url }}"><img class="u-pull-right game-icon" src="{{ game.icon.url }}" title="{{ game.title }} Icon"></a></td>
 			</tr>
+			{% endif %}
 
 			{% if game.boxart %}
 			<tr>
 				<td><strong>Boxart</strong></td>
-				<td><img class="u-pull-right game-boxart-thumb" src="{{ game.boxart.url }}"></td>
+				<td><a href="{{ game.boxart.url }}"><img class="u-pull-right game-boxart-thumb" src="{{ game.boxart.url }}" title="{{ game.title }} Box Art"></a></td>
 			</tr>
 			{% endif %}
 
 			{% if game.screenshot %}
 			<tr>
 				<td><strong>Screenshot</strong></td>
-				<td><img class="u-pull-right game-screenshot-thumb" src="{{ game.screenshot.url }}"></td>
+				<td><a href="{{ game.screenshot.url }}"><img class="u-pull-right game-screenshot-thumb" src="{{ game.screenshot.url }}" title="{{ game.title }} Screenshot"></a></td>
+			</tr>
+			{% endif %}
+
+			{% if game.banner %}
+			<tr>
+				<td><strong>Banner</strong></td>
+				<td><a href="{{ game.banner.url }}"><img class="u-pull-right game-title-thumb" src="{{ game.banner.url }}" title="{{ game.title }} Banner"></a></td>
+			</tr>
+			{% endif %}
+
+			
+			{% if game.header %}
+			<tr>
+				<td><strong>Header</strong></td>
+				<td><a href="{{ game.header.url }}"><img class="u-pull-right game-title-thumb" src="{{ game.header.url }}"></a></td>
 			</tr>
 			{% endif %}
 
 			{% if game.title_image %}
 			<tr>
 				<td><strong>Title</strong></td>
-				<td><img class="u-pull-right game-title-thumb" src="{{ game.title_image.url }}"></td>
-			</tr>
-			{% endif %}
-
-			{% if game.icon %}
-			<tr>
-				<td><strong>Icon</strong></td>
-				<td><img class="u-pull-right game-icon" src="{{ game.icon.url }}"></td>
+				<td><a href="{{ game.title_image.url }}"><img class="u-pull-right game-title-thumb" src="{{ game.title_image.url }}"></a></td>
 			</tr>
 			{% endif %}
 
 		</table>					
 	</div>
+</div>
+
+<div>
+	<a class="button" href="/admin/games/game/{{ game.id }}/delete/">Delete</a>
 </div>
 
 {% endblock %}

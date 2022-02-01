@@ -33,24 +33,26 @@
 			{% if game.id %}
 			<li><a href="/admin/games/game/{{ game.id }}/change/">Edit Game</a></li>
 			{% else %}
-			<li><a href="/admin/games/platform/">Add Game</a></li>
+			<li><a href="/admin/games/game/add/">Add Game</a></li>
 			{% endif %}
 			<li><a href="/admin/games/game/">Games</a></li>
 			<li><a href="/admin/games/platform/">Platforms</a></li>
-			<hr>
-			<li><a href="/test/">Test</a></li>
-			<li><a href="/scrape_game/">scrape_game</a></li>
+			<!-- <hr> -->
+			<!-- <li><a href="/test/">Test</a></li> -->
+			<!-- <li><a href="/scrape_game/">scrape_game</a></li> -->
 		</ul>
 	</div>
 
 	<div id="page">
 		<div id="content" class="container">
-			<div class="nine columns">
-				{% block content %}{% endblock %}
-			</div>
+			<div class="row">
+				<div class="nine columns">
+					{% block content %}{% endblock %}
+				</div>
 
-			<div class="three columns">
-				{% block sidebar %}{% endblock %}
+				<div class="three columns">
+					{% block sidebar %}{% endblock %}
+				</div>
 			</div>
 		</div>
 	</div>
