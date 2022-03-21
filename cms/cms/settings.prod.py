@@ -3,11 +3,11 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'iAFV_c3/ed!X>]4GNyV=Xn8VO_n;qv4R9bD]uj/j:W(^FqA/@B[eVrCxRw_Q@{vU'
+SECRET_KEY = 'f6l!bn#hnz@^-+(%s1zzb^dxmx@e9x7e9#q01cteqh*y@9qs0!'
 
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['empr.local', '192.168.0.144']
+ALLOWED_HOSTS = ['192.168.0.144', 'empr.brinstar', 'localhost']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -49,19 +49,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'cms.wsgi.application'
 
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'empr',
-        'USER': 'empr',
-        'PASSWORD': 'k1dcham3l30n',
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -77,7 +70,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'America/New_York'

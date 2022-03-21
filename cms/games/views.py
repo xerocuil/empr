@@ -1,7 +1,7 @@
 import csv
 import subprocess
 from django.contrib import messages
-
+from django.core.paginator import Paginator
 from django.db.models import Q
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
@@ -30,12 +30,16 @@ def home(request):
 def games_index(request):
 	order_by = request.GET.get('order_by', '-date_added')
 	object_list = Game.objects.order_by(order_by)
+	paginator = Paginator(object_list, 50)
+	page_number = request.GET.get('page')
+	page_obj = paginator.get_page(page_number)
 	return render(request, 'games/games_index.html', {
 		'collections': collections,
 		'genres': genres,
 		'games': games,
 		'object_list': object_list,
 		'order_by': order_by,
+		'page_obj': page_obj,
 		'platforms': platforms,
 		'tags': tags
 	})
