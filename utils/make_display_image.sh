@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 source /opt/empr/config/settings.sh
 
@@ -24,6 +24,9 @@ platform_id=$($SQLITE "$APPDB" "select platform_id from games_game where id = '$
 platform_name=$($SQLITE "$APPDB" "select name from games_platform where id = '$platform_id'")
 platform_slug=$($SQLITE "$APPDB" "select slug from games_platform where id = '$platform_id'")
 
+if [[ $platform_slug = steam ]]; then
+	platform_slug="pc"
+fi
 
 boxart=$($SQLITE "$APPDB" "select boxart from games_game where id = '$ID'")
 screenshot=$($SQLITE "$APPDB" "select screenshot from games_game where id = '$ID'")
@@ -58,6 +61,8 @@ fi
 
 if [[ $platform_slug = "ps1" ]]; then
 	platform_slug="psx"
+elif [[ $platform_slug = "atari-2600" ]]; then
+	platform_slug="atari2600"
 fi
 
 /usr/local/bin/skyscraper -p $platform_slug -s import $FILENAME

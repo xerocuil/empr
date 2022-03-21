@@ -79,4 +79,4 @@ release_date: $release_date
 players: $players
 "
 
-firefox "http://0.0.0.0:8000/admin/games/game/add/?path=$path&title=$title&sort_title=$sort_title&genre=$genre&developer=$developer&publisher=$publisher&release_date=$release_date&path=$path&description=$description" &
+firefox "http://empr.brinstar/admin/games/game/add/?path=$path&title=$title&sort_title=$sort_title&genre=$genre&developer=$developer&publisher=$publisher&release_date=$release_date&path=$path&description=$description" &

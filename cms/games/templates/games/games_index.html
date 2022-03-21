@@ -4,13 +4,18 @@
 
 {% block content %}
 
-	<h2>Games</h2>
+<h2>Games</h2>
 
+<table class="u-full-width">
 	{% include "games/game_list_header.html" %}
-	{% for g in object_list %}
+
+	{% for g in page_obj %}
 		{% include "games/game_list.html" %}
 	{% endfor %}
-	{% include "games/game_list_footer.html" %}
+
+</table>
+	
+{% include "games/game_list_footer.html" %}
 	
 
 {% endblock %}

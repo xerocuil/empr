@@ -1,0 +1,14 @@
+{
+    "human_name": "empr.ps2",
+    "description": "Sony PS2 Game Launcher",
+    "platforms": ["Sony PlayStation 2"],
+    "runner_executable": "empr/empr.ps2",
+    "game_options": [
+        {
+            "option": "main_file",
+            "type": "file",
+            "label": "ISO file",
+            "default_path": "game_path"
+        }
+    ]
+}

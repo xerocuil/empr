@@ -1,0 +1,14 @@
+{
+    "human_name": "empr.atari-2600",
+    "description": "Atari 2600 Game Launcher",
+    "platforms": ["Atari 2600"],
+    "runner_executable": "empr/empr.atari-2600",
+    "game_options": [
+        {
+            "option": "main_file",
+            "type": "file",
+            "label": "ISO file",
+            "default_path": "game_path"
+        }
+    ]
+}
