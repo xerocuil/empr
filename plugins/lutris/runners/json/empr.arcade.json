@@ -1,0 +1,14 @@
+{
+    "human_name": "empr.arcade",
+    "description": "Arcade Game Launcher",
+    "platforms": ["Arcade"],
+    "runner_executable": "empr/empr.arcade",
+    "game_options": [
+        {
+            "option": "main_file",
+            "type": "file",
+            "label": "ISO file",
+            "default_path": "game_path"
+        }
+    ]
+}
