@@ -1,0 +1,14 @@
+{
+    "human_name": "empr.gba",
+    "description": "Gameboy Advance Game Launcher",
+    "platforms": ["Gameboy Advance"],
+    "runner_executable": "empr/empr.gba",
+    "game_options": [
+        {
+            "option": "main_file",
+            "type": "file",
+            "label": "ROM file",
+            "default_path": "game_path"
+        }
+    ]
+}

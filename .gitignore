@@ -4,7 +4,9 @@
 browser
 cache
 docs
-emulationstation
+empr.db
+es_log.txt
+gamelist.xml
 launchers
 mame
 media
@@ -13,6 +15,7 @@ nvram
 package-lock.json
 package.json
 settings.py
+tmp
 Vagrantfile
 venv
 
