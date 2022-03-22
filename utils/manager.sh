@@ -11,6 +11,7 @@ pull(){
 	/usr/bin/rsync -hirt brinstar:$APPDB $APPDB
 	/usr/bin/rsync -hirt --progress brinstar:$CMSDIR/media/ $CMSDIR/media/
 	cp $APPDB $CMSDIR/test.sqlite3
+	cp $APPDB $CMSDIR/empr.db
 }
 
 ## Push db/media to server

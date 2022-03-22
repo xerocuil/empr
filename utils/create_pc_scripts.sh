@@ -8,10 +8,16 @@ PC_LIST="$LUTRIS_CACHE/pc_list.txt"
 PC_DIR=$ROMSDIR/pc
 
 mkdir -p $LUTRIS_CACHE
-mkdir -p $PC_DIR
+
+if [[ ! -d $PC_DIR ]]; then
+  mkdir -p $PC_DIR
+else
+  rm -f $PC_DIR/*
+fi
+
 cd $PC_DIR
 
-lutris -l >$LUTRIS_LIST
+lutris -lo >$LUTRIS_LIST
 IFS=$'\n'
 
 LINES=$(cat $LUTRIS_LIST)
