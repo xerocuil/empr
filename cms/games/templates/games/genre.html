@@ -6,10 +6,12 @@
 	
 <h2>{{ genre.name }}</h2>
 
-{% include "games/game_list_header.html" %}
-{% for g in games %}
-	{% include "games/game_list.html" %}
-{% endfor %}
+<table class="u-full-width">
+	{% include "games/game_list_header.html" %}
+	{% for g in games %}
+		{% include "games/game_list.html" %}
+	{% endfor %}
+</table>
 {% include "games/game_list_footer.html" %}
 
 {% endblock %}
