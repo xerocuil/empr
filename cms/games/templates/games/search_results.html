@@ -4,11 +4,13 @@
 
 <h1>Search Results</h1>
 
-{% include "games/game_list_header.html" %}
+<table class="u-full-width">
+	{% include "games/game_list_header.html" %}
 
-{% for g in object_list %}
-	{% include "games/game_list.html" %}
-{% endfor %}
+	{% for g in object_list %}
+		{% include "games/game_list.html" %}
+	{% endfor %}
+</table>
 
 {% include "games/game_list_footer.html" %}
 
