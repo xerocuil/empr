@@ -8,6 +8,7 @@ PC_LIST="$LUTRIS_CACHE/pc_list.txt"
 PC_DIR=$ROMSDIR/pc
 
 mkdir -p $LUTRIS_CACHE
+mkdir -p $PC_DIR
 cd $PC_DIR
 
 lutris -l >$LUTRIS_LIST
