@@ -11,5 +11,9 @@ CONFIGDIR="$APPDIR/config"
 UTILSDIR="$APPDIR/utils"
 VENV="$APPDIR/venv"
 
+## Game Settings
+GAMESDIR="$HOME/Games"
+ROMSDIR="$GAMESDIR/roms"
+
 ## System Settings
 SQLITE="/usr/bin/sqlite3"
