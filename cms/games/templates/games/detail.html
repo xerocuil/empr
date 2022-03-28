@@ -73,6 +73,13 @@
 			</tr>
 			{% endif %}
 
+			{% if game.players %}
+			<tr>
+				<td><strong>Players</strong></td>
+				<td>{{ game.players }}</td>
+			</tr>
+			{% endif %}
+
 			{% if game.get_game_tags %}
 			<tr>
 				<td><strong>Tags</strong></td>
