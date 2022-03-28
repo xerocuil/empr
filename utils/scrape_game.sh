@@ -16,6 +16,13 @@ PLATFORMDIR="$(dirname $FILE)"
 PLATFORM_SLUG=$(basename $PLATFORMDIR)
 ASSETDIR="$CACHEDIR/assets/$SLUG"
 
+if [[ -d  $CACHEDIR/assets ]]; then
+	echo "Clearing cache directory..."
+	rm -rf $CACHEDIR/*
+fi
+
+mkdir -p $ASSETDIR
+
 echo "
 Scraping $FILENAME ..."
 
