@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 from PIL import Image
 
 class Tag(models.Model):
-	name = models.CharField(max_length=64)
+	name = models.CharField(max_length=64, blank=False, null=False, unique=True)
 	class Meta:
 		ordering = ['name']
 	def __str__(self):
