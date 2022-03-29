@@ -4,7 +4,7 @@ source /opt/empr/config/settings.sh
 
 PLATFORM="$1"
 PLATFORMDIR="$ROMSDIR/$PLATFORM"
-ESGAMELISTDIR="$APPDIR/plugins/emulationstation/gamelists/$PLATFORM"
+ESGAMELISTDIR="$HOME/.emulationstation/gamelists/$PLATFORM"
 GAMES=$(ls -1 $PLATFORMDIR)
 MEDIADIR="$APPDIR/cms/media"
 
@@ -59,29 +59,3 @@ do
 done
 
 echo -e "</gameList>" >>$ESGAMELISTDIR/gamelist.xml
-
-
-
-#<tags>$(printf '%s\n' ${TAGARRAY[@]})</tags>
-
-
-
-# PATH_LIST=$HOME/Downloads/path_list.txt
-
-# IFS=$'\n'
-
-# LINES=$(cat $PATH_LIST)
-
-# for i in $LINES
-# do
-#   sqlite3 $LOCALDB "update games_game set path = '$i.sh' where path = '$i';"
-# done
-
-# CMD="$1"
-# PATH="$2"
-# FILENAME="$(/usr/bin/basename $PATH)"
-# path_query(){
-#   echo $FILENAME
-# }
-
-# $CMD
