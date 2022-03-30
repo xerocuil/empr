@@ -19,11 +19,11 @@
 
 <div class="row">
 	{% if game.display %}
-	<div class="eight columns">
+	<div class="columns">
 		<img class="game-display" src="{{ game.display.url }}" title="{{ game.title }}">
 	</div>
 	{% elif game.boxart %}
-	<div class="eight columns">
+	<div class="columns">
 		<img class="game-boxart" src="{{ game.boxart.url }}" title="{{ game.title }}">
 	</div>
 	{% endif %}
