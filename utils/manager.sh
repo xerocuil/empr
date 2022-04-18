@@ -38,8 +38,8 @@ update-server(){
 	cd $CMSDIR
 	. $VENV/bin/activate
 	python3 manage.py collectstatic --noinput
-	sudo service nginx restart
-	sudo service gunicorn restart
+	sudo service apache2 restart
+	#sudo service gunicorn restart
 }
 
 
