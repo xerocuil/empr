@@ -202,3 +202,56 @@ def gamelist(request, platform_id):
 		'games': games,
 		'platform': platform
 	})
+
+## CSV Export
+def export_csv(request):
+	games = Game.objects.all()
+	fieldnames = [
+		'sort_title',
+		'description',
+		'developer',
+		'publisher',
+		'esrb',
+		'genre',
+		# 'tags',
+		'region',
+		'translation',
+		'release_date',
+		'store',
+		'collection',
+		'controller_support',
+		'platform',
+		'player',
+		'co_op',
+		'online_multiplayer',
+		'display',
+	]
+
+	response = HttpResponse(content_type='text/csv')
+	response['Content-Disposition'] = 'attachment; filename="empr_games.csv"'
+	writer = csv.DictWriter(response, fieldnames=fieldnames, restval='')
+	writer.writeheader()
+
+	for g in games:
+		writer.writerow({
+			'sort_title': g.sort_title,
+			'description': g.description,
+			'developer': g.developer,
+			'publisher': g.publisher,
+			'esrb': g.esrb,
+			'genre': g.genre,
+			# 'tags': g.tags,
+			'region': g.region,
+			'translation': g.translation,
+			'release_date': g.release_date,
+			'store': g.store,
+			'collection': g.collection,
+			'controller_support': g.controller_support,
+			'platform': g.platform,
+			'player': g.player,
+			'co_op': g.co_op,
+			'online_multiplayer': g.online_multiplayer,
+			'display': g.display,
+		})
+
+	return response
