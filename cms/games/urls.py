@@ -13,6 +13,7 @@ urlpatterns = [
 	path('admin/', admin.site.urls),
 	path('collection/<int:collection_id>/', views.collection, name='collection'),
 	path('detail/<int:game_id>/', views.detail, name='detail'),
+	path('export/', views.export_csv, name='export_csv'),
 	path('games/', views.games_index, name='games_index'),
 	path('genre/<int:genre_id>/', views.genre, name='genre'),
 	path('platform/<int:platform_id>/', views.platform, name='platform'),

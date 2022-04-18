@@ -4,4 +4,5 @@
 	<td class="center"><a href="{% url 'games:platform' g.platform_id %}">{% if g.platform.icon %}<img class="icon" src="{{ g.platform.icon.url }}" title="{{ g.platform.name }}">{% else %}{{ g.platform.slug.upper }}{% endif %}</a></td>
 	<td>{% if g.genre %}<a href="{% url 'games:genre' g.genre_id %}">{{ g.genre }}</a>{% endif %}</td>
 	<td>{{ g.release_date }}</td>
+	<td>{{ g.archived }}</td>
 </tr>
