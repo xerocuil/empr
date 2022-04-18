@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/bash
 
 ## Empr Settings
 APPDIR="/opt/empr"
