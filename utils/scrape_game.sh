@@ -1,8 +1,9 @@
 #! /bin/bash
 
-source /opt/empr/config/settings.sh
+UTILS="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+source $UTILS/utils.sh
 
-SCRAPERDIR=$UTILSDIR/scrapers
+SCRAPERDIR=$UTILS/scrapers
 BACKUPDIR=/opt/empr/docs/backup
 GBSCRAPER=$SCRAPERDIR/gb/gb_scraper.sh
 SKYSCRAPER=$SCRAPERDIR/ss/skyscraper.sh
@@ -86,4 +87,4 @@ release_date: $release_date
 players: $players
 "
 
-firefox "http://empr.brinstar/admin/games/game/add/?path=$path&title=$title&sort_title=$sort_title&genre=$genre&developer=$developer&publisher=$publisher&release_date=$release_date&path=$path&description=$description" &
+firefox "$LOCALURL/admin/games/game/add/?path=$path&title=$title&sort_title=$sort_title&genre=$genre&developer=$developer&publisher=$publisher&release_date=$release_date&path=$path&description=$description" &
