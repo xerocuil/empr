@@ -83,7 +83,6 @@ class Game(models.Model):
 	manual = models.FileField(blank=True, null=True, upload_to='games/manual/')
 
 	## Images
-	banner = models.ImageField(blank=True, null=True, upload_to='games/banner/')
 	boxart = models.ImageField(blank=True, null=True, upload_to='games/boxart/')
 	display = models.ImageField(blank=True, null=True, upload_to='games/display/')
 	header = models.ImageField(blank=True, null=True, upload_to='games/header/')
