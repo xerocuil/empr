@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}Video Game Database{% endblock %}&nbsp;&nbsp;|&nbsp;&nbsp;Empr</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <link rel="shortcut icon" type="image/png" href="{% static 'assets/favicon.ico' %}"/>
+  <style>
+    .box { display: none }
+  </style>
+  
+</head>
+
+<body>
+
+  <div id="header">
+    <div class="container">
+      <div class="row">
+        <div id="title" class="six columns">
+          <a class="link" href="/"><img src="{% static 'assets/logo.png' %}"></a>
+        </div>
+
+        <div class="six columns right">
+          <form action="{% url 'games:search_results' %}" method="get">
+            <input class="input is-rounded" name="q" type="text" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

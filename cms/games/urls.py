@@ -12,7 +12,12 @@ urlpatterns = [
 	path('', views.games_index, name='games_index'),
 	path('admin/', admin.site.urls),
 	path('collection/<int:collection_id>/', views.collection, name='collection'),
-	path('detail/<int:game_id>/', views.detail, name='detail'),
+	path('games/<int:game_id>/', views.detail, name='detail'),
+	path('games/add/', views.add_game, name='add_game'),
+	path('games/delete/<int:game_id>/', views.delete_game, name='delete_game'),
+	path('games/edit/<int:game_id>/', views.edit_game, name='edit_game'),
+	path('games/scrape/', views.scrape_game, name='scrape_game'),
+	
 	path('export/', views.export_csv, name='export_csv'),
 	path('games/', views.games_index, name='games_index'),
 	path('genre/<int:genre_id>/', views.genre, name='genre'),

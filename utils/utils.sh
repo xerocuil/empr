@@ -1,3 +1,5 @@
+#! /bin/bash
+
 # Global Variables
 
 ## Application name/slug
@@ -27,6 +29,7 @@ CORES=$HOME/.config/retroarch/cores
 
 ## System Settings
 SQLITE="/usr/bin/sqlite3"
+
 
 # Modules
 source $UTILS/empr.sh
