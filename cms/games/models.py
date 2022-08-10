@@ -3,6 +3,7 @@ import datetime
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+import datetime
 
 from PIL import Image
 
@@ -93,9 +94,7 @@ class Game(models.Model):
 
 	## Misc
 	favorite = models.BooleanField(default=False)
-	kid_game = models.BooleanField(default=False)
 	steam_id = models.IntegerField(blank=True, null=True)
-	hidden = models.BooleanField(default=False)
 
 	## DB Info
 	date_added = models.DateTimeField('Date Added', auto_now_add=True)
@@ -118,6 +117,10 @@ class Game(models.Model):
 			ret = ret + tag.name + ', '
 
 		return ret[:-2]
+
+	def release_year(self):
+		formatDate=self.release_date.strftime("%Y")
+		return formatDate
 
 class Collection(models.Model):
 	name = models.CharField(max_length=128, unique=True)

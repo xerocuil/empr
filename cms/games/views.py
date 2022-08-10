@@ -4,11 +4,11 @@ from django.contrib import messages
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.http import Http404, HttpResponse, HttpResponseRedirect
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.urls import reverse
 from django.views.generic import TemplateView, ListView
 
-from .forms import ScrapeGameForm
+from .forms import GameForm
 from .models import Collection, Game, Genre, Platform, Tag
 
 collections = Collection.objects.order_by('name')
@@ -27,6 +27,71 @@ def home(request):
 		'tags': tags
 	})
 
+# Games
+
+## Add
+def add_game(request):
+	if request.method == "POST":
+		game_form = GameForm(request.POST, request.FILES)
+		if game_form.is_valid():
+			game_form.save()
+			messages.success(request, 'Game was successfully added!', extra_tags='safe')
+		else:
+			messages.error(request, 'Error adding product.')
+		return redirect("games:games_index")
+	else:
+		game_form = GameForm()
+
+	return render(
+		request=request,
+		template_name="games/add.html",
+		context={
+			'game_form': game_form
+		}
+	)
+
+## Delete
+def delete_game(request, game_id):
+	game = get_object_or_404(Game, pk=game_id)
+
+	if request.method == 'POST':
+		game.delete()
+		messages.success(request, '<p class="tag">Game Deleted</p>', extra_tags='safe')
+		return redirect("games:games_index")
+
+	return render(
+		request=request,
+		template_name="games/delete.html",
+		context={
+			'game': game
+		}
+	)
+
+## Edit
+def edit_game(request, game_id):
+	game = get_object_or_404(Game, pk=game_id)
+
+	if request.method == 'POST':
+		game_form = GameForm(request.POST, request.FILES, instance=game)
+		if game_form.is_valid():
+			game_form.save()
+			messages.success(request, str(game.title) + 'was successfully edited.', extra_tags='safe')
+		else:
+			messages.error(request, game_form.errors)
+		return redirect("games:games_index")
+	else:
+		game_form = GameForm(instance=game)
+
+	return render(
+		request=request,
+		template_name="games/edit.html",
+		context = {
+			'game': game,
+			'game_form': game_form
+		}
+	)
+
+## Index
 def games_index(request):
 	order_by = request.GET.get('order_by', '-date_added')
 	object_list = Game.objects.order_by(order_by)
@@ -43,6 +108,39 @@ def games_index(request):
 		'platforms': platforms,
 		'tags': tags
 	})
+
+## Scrape Game
+def scrape_game(request):
+	if request.method == "POST":
+		game_form = GameForm(request.POST, request.FILES)
+		if game_form.is_valid():
+			game_form.save()
+			messages.success(request, 'Game was successfully added!', extra_tags='safe')
+		else:
+			messages.error(request, 'Error adding product.')
+		return redirect("games:games_index")
+	elif request.method == "GET":
+		description = request.GET['description']
+		developer = request.GET['developer']
+		path = request.GET['path']
+		publisher = request.GET['publisher']
+		release_date = request.GET['release_date']
+		title = request.GET['title']
+		game_form = GameForm()
+
+	return render(
+		request=request,
+		template_name="games/scrape.html",
+		context={
+			'description': description,
+			'developer': developer,
+			'path': path,
+			'publisher': publisher,
+			'release_date': release_date,
+			'title': title,
+			'game_form': game_form
+		}
+	)
 
 def collection(request, collection_id):
 	collection = get_object_or_404(Collection, pk=collection_id)
@@ -164,17 +262,6 @@ def scrape_search(request,file_name):
 	return render(request, 'games/scrape_search.html', {
 		'notification': notification
 	})
-
-def scrape_game(request):
-	if request.method == 'POST':
-		form = ScrapeGameForm(request.POST)
-		if form.is_valid():
-			file_name = form.cleaned_data['file_name']
-			return HttpResponseRedirect('/scrape_search/' + file_name)
-	else:
-		form = ScrapeGameForm()
-
-	return render(request, 'games/scrape_game.html', { 'form': form })
 
 def tag(request, tag_id):
 	tag = get_object_or_404(Tag, pk=tag_id)
