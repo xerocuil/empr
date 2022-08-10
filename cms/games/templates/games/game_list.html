@@ -1,8 +1,42 @@
+{% load static %}
+
 <tr>
-	<td>{% if g.icon %}<img class="icon" src="{{ g.icon.url }}">{% elif g.boxart %}<img class="icon" src="{{ g.boxart.url }}">{% elif g.platform.icon %}<img class="icon" src="{{ g.platform.icon.url }}">{% endif %}</td>
-	<td><a href="{% url 'games:detail' g.id %}">{{ g.title }}</a></td>
-	<td class="center"><a href="{% url 'games:platform' g.platform_id %}">{% if g.platform.icon %}<img class="icon" src="{{ g.platform.icon.url }}" title="{{ g.platform.name }}">{% else %}{{ g.platform.slug.upper }}{% endif %}</a></td>
-	<td>{% if g.genre %}<a href="{% url 'games:genre' g.genre_id %}">{{ g.genre }}</a>{% endif %}</td>
-	<td>{{ g.release_date }}</td>
-	<td>{{ g.archived }}</td>
+	<td>
+		{% if g.icon %}
+			<img class="icon" src="{{ g.icon.url }}">
+		{% elif g.boxart %}
+			<img class="icon" src="{{ g.boxart.url }}">
+		{% elif g.platform.icon %}
+			<img class="icon" src="{{ g.platform.icon.url }}">
+		{% endif %}
+	</td>
+	
+	<td>
+		<a href="{% url 'games:detail' g.id %}">{{ g.title }}</a>
+	</td>
+	
+	<td class="center">
+		<a href="{% url 'games:platform' g.platform_id %}">
+			{% if g.platform.icon %}
+				<img class="icon" src="{{ g.platform.icon.url }}" title="{{ g.platform.name }}">
+			{% else %}
+				{{ g.platform.slug.upper }}
+			{% endif %}
+		</a>
+	</td>
+	
+	<td>
+		{% if g.genre %}
+			<a href="{% url 'games:genre' g.genre_id %}">{{ g.genre }}</a>
+		{% endif %}
+	</td>
+	
+	<td>{% if g.release_date %}{{ g.release_year }}{% endif %}</td>
+	
+	<td>
+		<a href="{% url 'games:edit_game' g.id %}"><img src="{% static 'imgs/icons/edit.svg' %}"></a>
+		{% if g.archived %}
+			<img src="{% static 'imgs/icons/archive.svg' %}">
+		{% endif %}
+	</td>
 </tr>

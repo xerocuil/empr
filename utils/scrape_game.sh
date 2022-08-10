@@ -87,4 +87,4 @@ release_date: $release_date
 players: $players
 "
 
-firefox "$LOCALURL/admin/games/game/add/?path=$path&title=$title&sort_title=$sort_title&genre=$genre&developer=$developer&publisher=$publisher&release_date=$release_date&path=$path&description=$description" &
+firefox "$LOCALURL/games/add/?path=$path&title=$title&sort_title=$sort_title&developer=$developer&publisher=$publisher&release_date=$release_date&path=$path&description=$description" &

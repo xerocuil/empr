@@ -2,17 +2,15 @@
 
 {% include "games/header.html" %}
 
+<!-- {% include "games/admin_panel.html" %} -->
+
 	<div id="content" class="container">
 
 		{% include "games/messages.html" %}
 
 		<div class="row">
-			<div class="nine columns">
+			<div class="twelve columns">
 				{% block content %}{% endblock %}
-			</div>
-
-			<div class="three columns">
-				{% block sidebar %}{% endblock %}
 			</div>
 		</div>
 	</div>

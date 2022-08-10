@@ -7,7 +7,7 @@
 
 <div class="row">
 	<div class="nine columns">
-		<h2>{{ game.title }}</h2>
+		<h2><a href="{% url 'games:edit_game' game.id %}">{{ game.title }}</a></h2>
 	</div>
 
 	<div class="three columns">
@@ -196,6 +196,13 @@
 			</tr>
 			{% endif %}
 
+			{% if game.title_image %}
+			<tr>
+				<td><strong>Title</strong></td>
+				<td><a href="{{ game.title_image.url }}"><img class="u-pull-right game-title-thumb" src="{{ game.title_image.url }}"></a></td>
+			</tr>
+			{% endif %}
+
 			{% if game.boxart %}
 			<tr>
 				<td><strong>Boxart</strong></td>
@@ -209,18 +216,11 @@
 				<td><a href="{{ game.screenshot.url }}"><img class="u-pull-right game-screenshot-thumb" src="{{ game.screenshot.url }}" title="{{ game.title }} Screenshot"></a></td>
 			</tr>
 			{% endif %}
-			
-			{% if game.header %}
-			<tr>
-				<td><strong>Header</strong></td>
-				<td><a href="{{ game.header.url }}"><img class="u-pull-right game-title-thumb" src="{{ game.header.url }}"></a></td>
-			</tr>
-			{% endif %}
 
-			{% if game.title_image %}
+			{% if game.wallpaper %}
 			<tr>
-				<td><strong>Title</strong></td>
-				<td><a href="{{ game.title_image.url }}"><img class="u-pull-right game-title-thumb" src="{{ game.title_image.url }}"></a></td>
+				<td><strong>Wallpaper</strong></td>
+				<td><a href="{{ game.wallpaper.url }}"><img class="u-pull-right game-screenshot-thumb" src="{{ game.wallpaper.url }}" title="{{ game.title }} Screenshot"></a></td>
 			</tr>
 			{% endif %}
 
@@ -229,7 +229,7 @@
 </div>
 
 <div>
-	<a class="button" href="/admin/games/game/{{ game.id }}/delete/">Delete</a>
+	<a class="button" href="{% url 'games:delete_game' game.id %}">Delete</a>
 </div>
 
 {% endblock %}
