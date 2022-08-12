@@ -1,4 +1,4 @@
-{% extends "games/base.html" %}
+{% extends "dashboard/base.html" %}
 {% load markdown %}
 
 {% block title %}{{ game.title }}{% endblock %}
@@ -9,7 +9,7 @@
 
 <div class="three columns">
 	{% block sidebar %}
-		{% include "games/default_sidebar.html" %}
+		{% include "dashboard/default_sidebar.html" %}
 	{% endblock %}
 </div>
 

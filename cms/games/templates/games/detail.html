@@ -1,4 +1,4 @@
-{% extends "games/base.html" %}
+{% extends "dashboard/base.html" %}
 {% load markdown %}
 
 {% block title %}{{ game.title }}{% endblock %}
@@ -156,20 +156,23 @@
 		<h4>Links</h4>
 		<table class="u-full-width">
 			<tr>
-				<td colspan="2"><a href="https://lutris.net/games?q={{ game.title }}">Lutris</a></td>
-			</tr>
-			<tr>
-				<td colspan="2"><a href="https://www.mobygames.com/search/quick?q={{ game.title }}">Moby</a></td>
-			</tr>
-			<tr>
-				<td colspan="2"><a href="https://www.pcgamingwiki.com/w/index.php?search={{ game.title }}">PCGW</a></td>
-			</tr>
-			<tr>
-				<td colspan="2"><a href="https://steamdb.info/search/?a=app&q={{ game.title }}">SteamDB</a></td>
+				<td colspan="2"><a href="https://www.mobygames.com/game/{{ game.slug }}">Moby</a></td>
 			</tr>
 			<tr>
 				<td colspan="2"><a href="https://thegamesdb.net/search.php?name={{ game.title }}">TGDB</a></td>
 			</tr>
+			{% if game.platform.slug == 'pc' or game.platform.slug == 'steam' %}
+				<tr>
+					<td colspan="2"><a href="https://www.pcgamingwiki.com/w/index.php?search={{ game.title }}">PCGW</a></td>
+				</tr>
+				<tr>
+					{% if game.steam_id %}
+						<td colspan="2"><a href="https://steamdb.info/app/{{ game.steam_id }}">SteamDB</a></td>
+					{% else %}
+						<td colspan="2"><a href="https://steamdb.info/search/?a=app&q={{ game.title }}">SteamDB</a></td>
+					{% endif %}
+				</tr>
+			{% endif %}
 		</table>
 	</div>
 
@@ -235,5 +238,5 @@
 {% endblock %}
 
 {% block sidebar %}
-{% include "games/default_sidebar.html" %}
+{% include "dashboard/default_sidebar.html" %}
 {% endblock %}

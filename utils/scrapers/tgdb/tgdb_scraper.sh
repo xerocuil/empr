@@ -1,8 +1,11 @@
 #! /bin/bash
 
-source /opt/empr/config/settings.sh
-SCRAPERRDIR=$UTILSDIR/scrapers/tgdb
-HELPERS=$SCRAPERRDIR/helpers
+DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+SCRAPERS="$(dirname $DIR)"
+UTILS="$(dirname $SCRAPERS)"
+source $UTILS/utils.sh
+
+HELPERS=$DIR/helpers
 
 ## Set variables
 file="$1"
@@ -205,5 +208,3 @@ Description:
 ------------
 "
 cat $asset_dir/tgdb-$slug-description.txt
-
-#firefox "http://empr.local/admin/games/game/add/?title=$title&sort_title=$sort_title&slug=$slug&genre=$genre&developer=${developer_name_array[*]}&publisher=${publisher_name_array[*]}&release_date=$release_date&path=$path&description=$description" &

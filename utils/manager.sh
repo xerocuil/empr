@@ -1,6 +1,7 @@
 #!/bin/bash
 
-source /opt/empr/config/settings.sh
+UTILS="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+source $UTILS/utils.sh
 
 BACKUPDIR=$APPDIR/docs/backup
 

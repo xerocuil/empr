@@ -17,6 +17,7 @@ PLATFORMDIR="$(dirname $FILE)"
 PLATFORM_SLUG=$(basename $PLATFORMDIR)
 ASSETDIR="$CACHEDIR/assets/$SLUG"
 
+echo -e "\nClearing cache...\n"
 if [[ -d  $CACHEDIR/assets ]]; then
 	echo "Clearing cache directory..."
 	rm -rf $CACHEDIR/*
@@ -87,4 +88,22 @@ release_date: $release_date
 players: $players
 "
 
-firefox "$LOCALURL/games/add/?path=$path&title=$title&sort_title=$sort_title&developer=$developer&publisher=$publisher&release_date=$release_date&path=$path&description=$description" &
+firefox "$LOCALURL/games/scrape/?path=$path&title=$title&sort_title=$sort_title&developer=$developer&publisher=$publisher&release_date=$release_date&path=$path&description=$description" &
+
+
+
+echo -e "
+UTILS: $UTILS
+SCRAPERDIR: $SCRAPERDIR
+BACKUPDIR: $BACKUPDIR
+GBSCRAPER: $GBSCRAPER
+SKYSCRAPER: $SKYSCRAPER
+TGDBSCRAPER: $TGDBSCRAPER
+FILE: $FILE
+FILEPATH: $FILEPATH
+FILENAME: $FILENAME
+SLUG: $SLUG
+PLATFORMDIR: $PLATFORMDIR
+PLATFORM_SLUG: $PLATFORM_SLUG
+ASSETDIR: $ASSETDIR
+"

@@ -14,9 +14,10 @@
 			<ul>
 				{% for p in platforms %}
 					{% if p.game_set.count %}
-						<li><a href="/platform/{{ p.id }}">{{ p.name }}</a></li>
+						<li><a href="{% url 'games:platform' p.id %}">{{ p.name }}</a></li>
 					{% endif %}
 				{% endfor %}
+				<li><a href="{% url 'games:platform_index' %}">>> Manage</a>
 			</ul>
 		</div>
 	</div>
@@ -30,9 +31,10 @@
 			<ul>
 				{% for g in genres %}
 					{% if g.game_set.count %}
-						<li><a href="/genre/{{ g.id }}">{{ g.name }}</a></li>
+						<li><a href="{% url 'games:genre' g.id %}">{{ g.name }}</a></li>
 					{% endif %}
 				{% endfor %}
+				<li><a href="{% url 'games:genre_index' %}">>> Manage</a>
 			</ul>
 		</div>
 	</div>
@@ -50,6 +52,7 @@
 					{% endif %}
 				{% endfor %}
 			</p>
+			<p><a href="{% url 'games:tag_index' %}">>> Manage</a></p>
 		</div>
 	</div>
 
@@ -65,6 +68,7 @@
 						<li><a href="/collection/{{ c.id }}">{{ c.name }}</a></li>
 					{% endif %}
 				{% endfor %}
+				<li><a href="{% url 'games:collection_index' %}">>> Manage</a>
 			</ul>
 		</div>
 	</div>
