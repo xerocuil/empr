@@ -1,6 +1,9 @@
 #! /bin/bash
 
-source /opt/empr/config/settings.sh
+DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+SCRAPERS="$(dirname $DIR)"
+UTILS="$(dirname $SCRAPERS)"
+source $UTILS/utils.sh
 
 FILE=$1
 FILEPATH=$(readlink -f "$FILE")

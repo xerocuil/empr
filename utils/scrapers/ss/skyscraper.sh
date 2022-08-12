@@ -1,14 +1,17 @@
 #! /bin/bash
 
-source /opt/empr/config/settings.sh
+DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+SCRAPERS="$(dirname $DIR)"
+UTILS="$(dirname $SCRAPERS)"
+source $UTILS/utils.sh
 
 FILE=$1
 FILEPATH=$(readlink -f "$FILE")
 PLATFORMDIR="$(dirname $FILE)"
 PLATFORM_SLUG=$(basename $PLATFORMDIR)
 
-QUICKIDXML="$HOME/.empr/screenscraper/cache/$PLATFORM_SLUG/quickid.xml"
-DBXML="$HOME/.empr/screenscraper/cache/$PLATFORM_SLUG/db.xml"
+QUICKIDXML="$HOME/.empr/skyscraper/cache/$PLATFORM_SLUG/quickid.xml"
+DBXML="$HOME/.empr/skyscraper/cache/$PLATFORM_SLUG/db.xml"
 
 XMLPATHQUERY="string(/quickids/quickid[@filepath='$FILEPATH']/@id)"
 XMLIDQUERY=$(xmllint --xpath "$XMLPATHQUERY" $QUICKIDXML)
@@ -43,7 +46,7 @@ title_image=$(xmllint --xpath "$WHEEL_QUERY" "$DBXML")
 description=$(xmllint --xpath "$DESC_QUERY" "$DBXML")
 
 ASSETDIR="$CACHEDIR/assets/$slug"
-ASSETDATA="$APPFILES/screenscraper/cache/$PLATFORM_SLUG"
+ASSETDATA="$APPFILES/skyscraper/cache/$PLATFORM_SLUG"
 
 mkdir -p $ASSETDIR
 

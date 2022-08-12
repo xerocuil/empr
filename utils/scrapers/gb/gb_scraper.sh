@@ -1,7 +1,11 @@
 #! /bin/bash
 
-source /opt/empr/config/settings.sh
-#CONFIGFILE=$HOME/.empr/config.ini
+DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+SCRAPERS="$(dirname $DIR)"
+UTILS="$(dirname $SCRAPERS)"
+source $UTILS/utils.sh
+
+echo "$UTILS"
 
 # Variables
 #############
