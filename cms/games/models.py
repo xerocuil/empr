@@ -1,4 +1,5 @@
 import datetime
+import os
 
 from django.db import models
 from django.utils import timezone
@@ -122,11 +123,17 @@ class Game(models.Model):
 		formatDate=self.release_date.strftime("%Y")
 		return formatDate
 
+	def slug(self):
+		file_slug = os.path.splitext(self.path)[0]
+		return file_slug
+
 class Collection(models.Model):
 	name = models.CharField(max_length=128, unique=True)
 	description = models.TextField(blank=True, max_length=1024)
+
 	class Meta:
 		ordering = ['name']
+		
 	def __str__(self):
 		return self.name
 

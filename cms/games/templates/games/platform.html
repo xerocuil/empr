@@ -1,4 +1,4 @@
-{% extends "games/base.html" %}
+{% extends "dashboard/base.html" %}
 
 {% block title %}{{ platform.name }}{% endblock %}
 
@@ -32,6 +32,6 @@
 
 <p><a href="{% url 'games:gamelist' platform.id %}">Export XML</a></p>
 
-{% include "games/default_sidebar.html" %}
+{% include "dashboard/default_sidebar.html" %}
 
 {% endblock %}

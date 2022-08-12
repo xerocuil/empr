@@ -2,8 +2,6 @@
 
 {% load static %}
 
-{% block title %}{{ page_title }}{% endblock %}
-
 {% block content %}
 
 <div class="row">
@@ -12,25 +10,27 @@
 	</div>
 
 	<div class="four columns right">
-		<p><a href="/game/add"><img class="sm-icon" src="{% static 'assets/add.png' %}" title="Add Game"></a></p>
+		<p><a href="/genre/add"><img class="sm-icon" src="{% static 'assets/add.png' %}" title="Add Genre"></a></p>
 	</div>
 </div>
 
 <div class="row">
 	<div class="twelve columns">
 		<table class="u-full-width">
-			{% include "games/game_list_header.html" %}
-
-			{% for g in page_obj %}
-				{% include "games/game_list.html" %}
-			{% endfor %}
-
+			<thead>
+				<th>Name</th>
+			</thead>
+			<tbody>
+				{% for g in genres %}
+				<tr>
+					<td><a href="{% url 'games:edit_genre' g.id %}">{{ g.name }}</a></td>
+				</tr>
+				{% endfor %}
+			</tbody>
 		</table>
 	</div>
 </div>
 	
-{% include "games/game_list_footer.html" %}
-
 {% endblock %}
 
 {% block sidebar %}
