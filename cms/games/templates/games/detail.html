@@ -1,5 +1,5 @@
 {% extends "dashboard/base.html" %}
-{% load markdown %}
+{% load markdown static %}
 
 {% block title %}{{ game.title }}{% endblock %}
 
@@ -125,55 +125,30 @@
 		</table>
 
 		{% if game.operating_system %}
-
-		<h4>System Requirements</h4>
-		<table class="u-full-width">
-			<tr>
-				<td><strong>OS</strong></td>
-				<td>{{ game.operating_system }}</td>
-			</tr>
-			<tr>
-				<td><strong>CPU</strong></td>
-				<td>{{ game.processor }}</td>
-			</tr>
-			<tr>
-				<td><strong>RAM</strong></td>
-				<td>{{ game.ram }}</td>
-			</tr>
-			<tr>
-				<td><strong>HDD</strong></td>
-				<td>{{ game.hdd }}</td>
-			</tr>
-			<tr>
-				<td><strong>GPU</strong></td>
-				<td>{{ game.gpu }}</td>
-			</tr>
-
-		</table>
-
+			<h4>System Requirements</h4>
+			<table class="u-full-width">
+				<tr>
+					<td><strong>OS</strong></td>
+					<td>{{ game.operating_system }}</td>
+				</tr>
+				<tr>
+					<td><strong>CPU</strong></td>
+					<td>{{ game.processor }}</td>
+				</tr>
+				<tr>
+					<td><strong>RAM</strong></td>
+					<td>{{ game.ram }}</td>
+				</tr>
+				<tr>
+					<td><strong>HDD</strong></td>
+					<td>{{ game.hdd }}</td>
+				</tr>
+				<tr>
+					<td><strong>GPU</strong></td>
+					<td>{{ game.gpu }}</td>
+				</tr>
+			</table>
 		{% endif %}
-
-		<h4>Links</h4>
-		<table class="u-full-width">
-			<tr>
-				<td colspan="2"><a href="https://www.mobygames.com/game/{{ game.slug }}">Moby</a></td>
-			</tr>
-			<tr>
-				<td colspan="2"><a href="https://thegamesdb.net/search.php?name={{ game.title }}">TGDB</a></td>
-			</tr>
-			{% if game.platform.slug == 'pc' or game.platform.slug == 'steam' %}
-				<tr>
-					<td colspan="2"><a href="https://www.pcgamingwiki.com/w/index.php?search={{ game.title }}">PCGW</a></td>
-				</tr>
-				<tr>
-					{% if game.steam_id %}
-						<td colspan="2"><a href="https://steamdb.info/app/{{ game.steam_id }}">SteamDB</a></td>
-					{% else %}
-						<td colspan="2"><a href="https://steamdb.info/search/?a=app&q={{ game.title }}">SteamDB</a></td>
-					{% endif %}
-				</tr>
-			{% endif %}
-		</table>
 	</div>
 
 	<div class="four columns">
@@ -227,7 +202,33 @@
 			</tr>
 			{% endif %}
 
-		</table>					
+		</table>
+
+		<h4>Links</h4>
+		<table class="u-full-width">
+			<tr>
+				<td><a href="https://www.mobygames.com/game/{{ game.slug }}">
+					<img class="icon" src="{% static 'imgs/icons/moby.png' %}">
+				</a></td>
+				<td><a href="https://thegamesdb.net/search.php?name={{ game.title }}">
+					<img class="icon" src="{% static 'imgs/icons/tgdb.png' %}">
+				</a></td>
+				{% if game.platform.slug == 'pc' or game.platform.slug == 'steam' %}
+					<td><a href="https://www.pcgamingwiki.com/w/index.php?search={{ game.title }}">
+						<img class="icon" src="{% static 'imgs/icons/pcgw.png' %}">
+					</a></td>
+				{% if game.steam_id %}
+					<td><a href="https://steamdb.info/app/{{ game.steam_id }}">
+					<img class="icon" src="{% static 'imgs/icons/steamdb.png' %}">
+					</a></td>
+				{% else %}
+					<td><a href="https://steamdb.info/search/?a=app&q={{ game.title }}">
+						<img class="icon" src="{% static 'imgs/icons/steamdb.png' %}">
+					</a></td>
+				{% endif %}
+			{% endif %}
+			</tr>
+		</table>			
 	</div>
 </div>
 

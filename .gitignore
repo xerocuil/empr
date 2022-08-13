@@ -1,50 +1,12 @@
-## General Files
 .cache
 .vagrant
-browser
-cache
-docs
-empr.db
-es_log.txt
-gamelist.xml
-launchers
-mame
-media
-node_modules
-nvram
-package-lock.json
-package.json
-settings.py
-tmp
-Vagrantfile
-venv
-cms/static
-
-## Compiled Object files
-*.lo
-*.o
-*.slo
-
-## Compiled Dynamic libraries
-*.so
-
-## Compiled Static libraries
-*.a
-*.la
-*.lai
-
-## Dependency makefiles
-*.d
-
-## build directory
+bin
+cms/browser/*
+!cms/browser/.gitkeep
 build
-Debug
-MinSizeRel
-Release
-RelWithDebInfo
-
-## CMake
-cmake_install.cmake
-CMakeCache.txt
-CMakeFiles
-Makefile
+cache
+cms/static/*
+cms/media/*
+!cms/media/.gitkeep
+settings.py
+venv

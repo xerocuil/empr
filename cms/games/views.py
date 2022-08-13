@@ -1,5 +1,6 @@
 import csv
 import subprocess
+from django.conf import settings
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.db.models import Q
@@ -17,15 +18,6 @@ genres = Genre.objects.order_by('name')
 latest_games = Game.objects.order_by('-date_added')[:10]
 platforms = Platform.objects.order_by('name')
 tags = Tag.objects.order_by('name')
-
-def home(request):
-	return render(request, 'games/home.html', {
-		'collections': collections,
-		'genres': genres,
-		'latest_games': latest_games,
-		'platforms': platforms,
-		'tags': tags
-	})
 
 
 ########
@@ -340,7 +332,7 @@ def genre_index(request):
 	return render(request, 'genre/index.html', {
 		'page_title': page_title,
 		'genres': genres,
-		'genres': genres,
+		'collections': collections,
 		'platforms': platforms,
 		'tags': tags
 		})
