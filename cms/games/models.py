@@ -67,7 +67,7 @@ class Game(models.Model):
 
 	## System Info
 	controller_support = models.BooleanField(default=True)
-	platform = models.ForeignKey('Platform', on_delete=models.CASCADE)
+	platform = models.ForeignKey('Platform', on_delete=models.CASCADE, blank=True, null=True)
 
 	## System Requirements
 	operating_system = models.CharField(max_length=128, blank=True, null=True)

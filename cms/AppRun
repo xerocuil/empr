@@ -1,17 +1,34 @@
 #! /bin/bash
 
-## Get config
 APPDIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-APPFILES="$HOME/.empr"
+APP_FILES="$HOME/.empr"
 BROWSER="$APPDIR/browser"
+SERVER_URL="127.0.0.1:8088"
 
-URL="--app=file://$APPDIR/games/templates/gui/loading.html"
+LOAD="--app=file://$APPDIR/games/templates/gui/loading.html"
+
+## Init
+init(){
+  $APPDIR/empr.py init
+  $APPDIR/empr.py makemigrations
+  $APPDIR/empr.py migrate
+}
 
 ## Run server
-$APPDIR/empr runserver 127.0.0.1:8088 --noreload &
+run(){
+  ## Start Django server
+  $APPDIR/empr.py runserver $SERVER_URL --noreload &
 
-## Launch browser
-$BROWSER/linux-x64/browser $URL
+  ## Launch browser
+  $BROWSER/linux-x64/browser $LOAD
 
-## Stop server
-pkill -f runserver
+  ## Stop server
+  pkill -f runserver
+}
+
+if [[ ! -d $APP_FILES ]]; then
+  init
+  run
+else
+  run
+fi
