@@ -30,7 +30,7 @@ django.package(){
     --add-data $CMS/AppRun:. \
     --add-data $CMS/empr.desktop:. \
     --add-data $CMS/empr.png:. \
-    --add-data $CMS/browser/linux-x64:browser \
+    --add-data $CMS/browser/linux-x64:browser/linux-x64 \
     --add-data $CMS/games:games \
     --add-data $CMS/media:media \
     --add-data $CMS/static:static \
