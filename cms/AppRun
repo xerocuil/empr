@@ -5,16 +5,13 @@ APPDIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 APPFILES="$HOME/.empr"
 BROWSER="$APPDIR/browser"
 
-URL="--app=file://$APPDIR/games/templates/gui/loading.html --minimal --user-data-dir=$APPFILES/data --window-size=1280,720"
-
-echo "BROWSER:    $BROWSER"
+URL="--app=file://$APPDIR/games/templates/gui/loading.html"
 
 ## Run server
 $APPDIR/empr runserver 127.0.0.1:8088 --noreload &
-# python3 $APPDIR/manage.py runserver 127.0.0.1:8088 --noreload &
 
 ## Launch browser
-$BROWSER/lin/chrome $URL
+$BROWSER/linux-x64/browser $URL
 
 ## Stop server
 pkill -f runserver
