@@ -205,30 +205,36 @@
 		</table>
 
 		<h4>Links</h4>
-		<table class="u-full-width">
-			<tr>
-				<td><a href="https://www.mobygames.com/game/{{ game.slug }}">
-					<img class="icon" src="{% static 'imgs/icons/moby.png' %}">
-				</a></td>
-				<td><a href="https://thegamesdb.net/search.php?name={{ game.title }}">
-					<img class="icon" src="{% static 'imgs/icons/tgdb.png' %}">
-				</a></td>
-				{% if game.platform.slug == 'pc' or game.platform.slug == 'steam' %}
-					<td><a href="https://www.pcgamingwiki.com/w/index.php?search={{ game.title }}">
-						<img class="icon" src="{% static 'imgs/icons/pcgw.png' %}">
-					</a></td>
+		<p>
+			<a href="https://www.giantbomb.com/search/?i=game&q={{ game.title }}">
+				<img class="icon" src="{% static 'imgs/icons/giantbomb.png' %}" title="Giant Bomb"></a>
+
+			<a href="https://www.igdb.com/games/{{ game.slug }}">
+				<img class="icon" src="{% static 'imgs/icons/igdb.png' %}" title="IGDB"></a>
+
+			<a href="https://www.mobygames.com/game/{{ game.slug }}">
+				<img class="icon" src="{% static 'imgs/icons/moby.png' %}" title="Moby Games"></a>
+
+			<a href="https://thegamesdb.net/search.php?name={{ game.title }}">
+				<img class="icon" src="{% static 'imgs/icons/tgdb.png' %}" title="TGDB"></a>
+			{% if game.platform.slug == 'pc' or game.platform.slug == 'steam' %}
+				<a href="https://www.pcgamingwiki.com/w/index.php?search={{ game.title }}">
+					<img class="icon" src="{% static 'imgs/icons/pcgw.png' %}" title="PCGamingWiki"></a>
 				{% if game.steam_id %}
-					<td><a href="https://steamdb.info/app/{{ game.steam_id }}">
-					<img class="icon" src="{% static 'imgs/icons/steamdb.png' %}">
-					</a></td>
+					<a href="https://www.protondb.com/app/{{ game.steam_id }}">
+						<img class="icon" src="{% static 'imgs/icons/protondb.png' %}" title="ProtonDB"></a>
+
+					<a href="https://steamdb.info/app/{{ game.steam_id }}">
+						<img class="icon" src="{% static 'imgs/icons/steamdb.png' %}" title="SteamDB"></a>
 				{% else %}
-					<td><a href="https://steamdb.info/search/?a=app&q={{ game.title }}">
-						<img class="icon" src="{% static 'imgs/icons/steamdb.png' %}">
-					</a></td>
+					<a href="https://www.protondb.com/search?q={{ game.title }}&type=1&category=0">
+						<img class="icon" src="{% static 'imgs/icons/protondb.png' %}" title="ProtonDB"></a>
+
+					<a href="https://steamdb.info/search/?a=app&q={{ game.title }}&type=1&category=0">
+						<img class="icon" src="{% static 'imgs/icons/steamdb.png' %}" title="SteamDB"></a>
 				{% endif %}
 			{% endif %}
-			</tr>
-		</table>			
+		</p>
 	</div>
 </div>
 

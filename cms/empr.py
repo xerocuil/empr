@@ -11,7 +11,12 @@ APPFILES = USER_DIR + "/.empr"
 DBDIR = "db"
 DBPATH = os.path.join(APPFILES,DBDIR)
 EMPRDB = APPFILES + "/db/empr.sqlite3"
-OPT = sys.argv[1]
+
+if len(sys.argv) == 1:
+  OPT = ""
+else:
+  OPT = sys.argv[1]
+
 
 # file_path = os.path.realpath(__file__)
 # browser_dir = os.path.dirname(file_path)
@@ -31,16 +36,12 @@ def create_connection(db):
 def init():
   print("\n## Empr Init ##\n")
   print("USER_DIR: " + USER_DIR)
-  if os.path.exists(APPFILES):
-    print("Empr path found.")
-  else:
-    print("Empr path not found.")
-    os.makedirs(DBPATH)
-    os.mkdir(APPFILES + "/media")
-    os.mkdir(APPFILES + "/static")
-    print("'% s' directory created." % APPFILES)
-    create_connection(EMPRDB)
-    print("'% s' database created." % EMPRDB)
+  os.makedirs(DBPATH)
+  os.mkdir(APPFILES + "/media")
+  os.mkdir(APPFILES + "/static")
+  print("'% s' directory created." % APPFILES)
+  create_connection(EMPRDB)
+  print("'% s' database created." % EMPRDB)
   print("\n---\n")
 
 def main():

@@ -2,8 +2,8 @@
 
 ## To-Do
 
-- Fix Links on Details page (Link width)
 - Fix sorting/pagination
+
 
 ## [Unreleased]
 
@@ -11,12 +11,17 @@
 
 - Loading screen
 - App initializes database and app directories if not found
+- Giantbomb, IGDB, ProtonDB to Links section on games.detail
 
 ### Changed
 
 - Added `empr.py` to replace `manage.py` as main exec
 - Platform is no longer a required field
+- Changed browser engine to nativefier
 
+### Removed
+
+- Iron browser
 
 ## [0.2.0] - 2022.0812.2158
 
