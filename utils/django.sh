@@ -14,7 +14,7 @@ check_venv(){
 django.launcher(){
   check_venv
   $DIST/lin/$APPSLUG/$APPSLUG runserver $LOCALURL --noreload &
-  $BROWSER/lin/chrome --app=file://$CMS/games/templates/gui/loading.html --user-data-dir=$APPFILES/data --window-size=1280,720
+  $BROWSER/lin/chrome "--app=file://$CMS/games/templates/gui/loading.html --user-data-dir=$APPFILES/data --window-size=1280,720"
   django.stop
 }
 
@@ -30,7 +30,7 @@ django.package(){
     --add-data $CMS/AppRun:. \
     --add-data $CMS/empr.desktop:. \
     --add-data $CMS/empr.png:. \
-    --add-data $CMS/browser/lin:browser/lin \
+    --add-data $CMS/browser/linux-64:browser \
     --add-data $CMS/games:games \
     --add-data $CMS/media:media \
     --add-data $CMS/static:static \

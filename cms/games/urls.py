@@ -47,14 +47,16 @@ urlpatterns = [
 	path('tag/delete/<int:tag_id>/', views.delete_tag, name='delete_tag'),
 	path('tag/edit/<int:tag_id>/', views.edit_tag, name='edit_tag'),
 
+	# Launchers
+	path('launcher/<int:game_id>/', views.launcher, name='launcher'),
+	path('launcher_remote/<int:game_id>/', views.launcher_remote, name='launcher_remote'),
+
 	# Reports
 	path('export/', views.export_csv, name='export_csv'),
 	path('gamelist/<int:platform_id>/', views.gamelist, name='gamelist'),
 	
-	
-	path('launcher/<int:game_id>/', views.launcher, name='launcher'),
-	path('launcher_remote/<int:game_id>/', views.launcher_remote, name='launcher_remote'),
-	
+	# Misc
+	path('loading/', views.loading, name='loading'),
 	path('readme/<int:game_id>/', views.readme, name='readme'),
 	path('scrape_game/', views.scrape_game, name='scrape_game'),
 	path('scrape_search/<str:file_name>', views.scrape_search, name='scrape_search'),

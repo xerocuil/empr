@@ -2,7 +2,7 @@
 Name=Empr
 Comment=Video game manager
 MimeType=application/x-shellscript;
-Exec=launch.sh
+Exec=AppRun
 Type=Application
 Categories=Game;
 Terminal=false

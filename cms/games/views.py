@@ -597,9 +597,13 @@ def delete_tag(request, tag_id):
 	)
 
 
-###########
-# Reports #
-###########
+########
+# Misc #
+########
+
+## Loading
+def loading(request):
+	return render(request, 'gui/loading.html')
 
 ## Readme
 def readme(request, game_id):
