@@ -34,7 +34,7 @@ django.package(){
     --add-data $CMS/games:games \
     --add-data $CMS/media:media \
     --add-data $CMS/static:static \
-    --name=$APPSLUG $CMS/manage.py
+    --name=$APPSLUG $CMS/empr.py
 }
 
 ## Django server
