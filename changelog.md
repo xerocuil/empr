@@ -2,15 +2,29 @@
 
 ## To-Do
 
+- Fix Links on Details page (Link width)
 - Fix sorting/pagination
+
+## [Unreleased]
+
+### Added
+
+- Loading screen
+- App initializes database and app directories if not found
+
+### Changed
+
+- Added `empr.py` to replace `manage.py` as main exec
+- Platform is no longer a required field
+
 
 ## [0.2.0] - 2022.0812.2158
 
-## Added
+### Added
 
 - Desktop support (Iron Browser)
 
-## Changed
+### Changed
 
 - Minor UI changes
 

@@ -16,6 +16,7 @@
 	</td>
 	
 	<td class="center">
+		{% if g.platform %}
 		<a href="{% url 'games:platform' g.platform_id %}">
 			{% if g.platform.icon %}
 				<img class="icon" src="{{ g.platform.icon.url }}" title="{{ g.platform.name }}">
@@ -23,6 +24,7 @@
 				{{ g.platform.slug.upper }}
 			{% endif %}
 		</a>
+		{% endif %}
 	</td>
 	
 	<td>
