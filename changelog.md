@@ -3,9 +3,9 @@
 ## To-Do
 
 - Fix sorting/pagination
+- Windows support
 
-
-## [Unreleased]
+## [0.3.0]
 
 ### Added
 

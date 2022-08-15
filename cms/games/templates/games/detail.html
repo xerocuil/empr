@@ -125,29 +125,29 @@
 		</table>
 
 		{% if game.operating_system %}
-			<h4>System Requirements</h4>
-			<table class="u-full-width">
-				<tr>
-					<td><strong>OS</strong></td>
-					<td>{{ game.operating_system }}</td>
-				</tr>
-				<tr>
-					<td><strong>CPU</strong></td>
-					<td>{{ game.processor }}</td>
-				</tr>
-				<tr>
-					<td><strong>RAM</strong></td>
-					<td>{{ game.ram }}</td>
-				</tr>
-				<tr>
-					<td><strong>HDD</strong></td>
-					<td>{{ game.hdd }}</td>
-				</tr>
-				<tr>
-					<td><strong>GPU</strong></td>
-					<td>{{ game.gpu }}</td>
-				</tr>
-			</table>
+		<h4>System Requirements</h4>
+		<table class="u-full-width">
+			<tr>
+				<td><strong>OS</strong></td>
+				<td>{{ game.operating_system }}</td>
+			</tr>
+			<tr>
+				<td><strong>CPU</strong></td>
+				<td>{{ game.processor }}</td>
+			</tr>
+			<tr>
+				<td><strong>RAM</strong></td>
+				<td>{{ game.ram }}</td>
+			</tr>
+			<tr>
+				<td><strong>HDD</strong></td>
+				<td>{{ game.hdd }}</td>
+			</tr>
+			<tr>
+				<td><strong>GPU</strong></td>
+				<td>{{ game.gpu }}</td>
+			</tr>
+		</table>
 		{% endif %}
 	</div>
 
@@ -217,21 +217,22 @@
 
 			<a href="https://thegamesdb.net/search.php?name={{ game.title }}">
 				<img class="icon" src="{% static 'imgs/icons/tgdb.png' %}" title="TGDB"></a>
+				
 			{% if game.platform.slug == 'pc' or game.platform.slug == 'steam' %}
-				<a href="https://www.pcgamingwiki.com/w/index.php?search={{ game.title }}">
-					<img class="icon" src="{% static 'imgs/icons/pcgw.png' %}" title="PCGamingWiki"></a>
+			<a href="https://www.pcgamingwiki.com/w/index.php?search={{ game.title }}">
+				<img class="icon" src="{% static 'imgs/icons/pcgw.png' %}" title="PCGamingWiki"></a>
 				{% if game.steam_id %}
-					<a href="https://www.protondb.com/app/{{ game.steam_id }}">
-						<img class="icon" src="{% static 'imgs/icons/protondb.png' %}" title="ProtonDB"></a>
+				<a href="https://www.protondb.com/app/{{ game.steam_id }}">
+					<img class="icon" src="{% static 'imgs/icons/protondb.png' %}" title="ProtonDB"></a>
 
-					<a href="https://steamdb.info/app/{{ game.steam_id }}">
-						<img class="icon" src="{% static 'imgs/icons/steamdb.png' %}" title="SteamDB"></a>
+				<a href="https://steamdb.info/app/{{ game.steam_id }}">
+					<img class="icon" src="{% static 'imgs/icons/steamdb.png' %}" title="SteamDB"></a>
 				{% else %}
-					<a href="https://www.protondb.com/search?q={{ game.title }}&type=1&category=0">
-						<img class="icon" src="{% static 'imgs/icons/protondb.png' %}" title="ProtonDB"></a>
+				<a href="https://www.protondb.com/search?q={{ game.title }}&type=1&category=0">
+					<img class="icon" src="{% static 'imgs/icons/protondb.png' %}" title="ProtonDB"></a>
 
-					<a href="https://steamdb.info/search/?a=app&q={{ game.title }}&type=1&category=0">
-						<img class="icon" src="{% static 'imgs/icons/steamdb.png' %}" title="SteamDB"></a>
+				<a href="https://steamdb.info/search/?a=app&q={{ game.title }}&type=1&category=0">
+					<img class="icon" src="{% static 'imgs/icons/steamdb.png' %}" title="SteamDB"></a>
 				{% endif %}
 			{% endif %}
 		</p>
