@@ -14,12 +14,12 @@ CMS="$APPDIR/cms"
 DIST=$APPDIR/dist
 VENV="$APPDIR/venv"
 
-APPDB="$CMS/db.sqlite3"
-LOCALURL="127.0.0.1:8088"
-
 APPFILES="$HOME/.empr"
 CACHEDIR="$APPFILES/cache"
 PHOTODB=$APPFILES/digikam
+
+APPDB="$APPFILES/db/empr.sqlite3"
+LOCALURL="127.0.0.1:8088"
 
 ## Game Settings
 GAMESDIR="$HOME/Games"
@@ -32,17 +32,16 @@ SQLITE="/usr/bin/sqlite3"
 
 
 # Modules
-source $UTILS/empr.sh
 source $UTILS/git.sh
 source $UTILS/help.sh
 source $UTILS/report.sh
 source $UTILS/django.sh
+source $UTILS/empr.sh
 
 
 # Functions
 
 ## List functions
-
 utils.list(){
   array=()
   for i in $(ls -1 $UTILS/*.sh); do

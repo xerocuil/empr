@@ -1,5 +1,13 @@
 # Empr functions
 
+## Run Empr
+empr.run(){
+  django.start
+  sleep 2
+  $CMS/browser/linux-x64/browser
+  django.stop
+}
+
 ## Organize/Edit CMS photos in digikam
 empr.gallery(){
   digikam --config $PHOTODB/photodb.ini --database-directory $PHOTODB

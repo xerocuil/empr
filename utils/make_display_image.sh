@@ -79,7 +79,7 @@ fi
 /usr/local/bin/skyscraper -p $platform_slug -s import $FILENAME
 /usr/local/bin/skyscraper -p $platform_slug $FILENAME
 
-/usr/bin/cp -v $DISPLAYIMAGES/$SLUG.png $CMS/media/games/display/
+/usr/bin/cp -v $DISPLAYIMAGES/$SLUG.png $APPFILES/media/games/display/
 
 /usr/bin/sqlite3 $APPDB "update games_game set display = 'games/display/$SLUG.png' where id = $ID;"
 

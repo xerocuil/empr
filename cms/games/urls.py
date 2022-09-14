@@ -58,7 +58,7 @@ urlpatterns = [
 	# Misc
 	path('loading/', views.loading, name='loading'),
 	path('readme/<int:game_id>/', views.readme, name='readme'),
-	path('scrape_game/', views.scrape_game, name='scrape_game'),
+	# path('scrape_game/', views.scrape_game, name='scrape_game'),
 	path('scrape_search/<str:file_name>', views.scrape_search, name='scrape_search'),
 	path('search/', SearchResultsView.as_view(), name='search_results'),
 	path('tag/<int:tag_id>/', views.tag, name='tag'),

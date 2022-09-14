@@ -88,7 +88,7 @@ release_date: $release_date
 players: $players
 "
 
-firefox "$LOCALURL/games/scrape/?path=$path&title=$title&sort_title=$sort_title&developer=$developer&publisher=$publisher&release_date=$release_date&path=$path&description=$description" &
+firefox "$LOCALURL/game/scrape/?path=$path&title=$title&sort_title=$sort_title&developer=$developer&publisher=$publisher&release_date=$release_date&path=$path&description=$description" &
 
 
 
