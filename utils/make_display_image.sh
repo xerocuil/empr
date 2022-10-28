@@ -3,7 +3,7 @@
 UTILS="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 source $UTILS/utils.sh
 
-MEDIADIR=$CMS/media
+MEDIADIR=$APPFILES/media
 SCRAPERDIR=$UTILS/scrapers
 SKYSCRAPERDIR=$HOME/.empr/skyscraper/import
 PATH="$1"
@@ -11,7 +11,7 @@ FILENAME=${PATH##*/}
 SLUG=${FILENAME%.*}
 
 id_query(){
-	$SQLITE $APPDB "select id from games_game where path = '$PATH';"
+	$SQLITE $APPDB "select id from games_game where path = '$FILENAME';"
 }
 
 ID=$(id_query)
@@ -68,12 +68,28 @@ else
 	/usr/bin/touch $HOME/Games/roms/$platform_slug/$FILENAME
 fi
 
-if [[ $platform_slug = "ps1" ]]; then
-	platform_slug="psx"
+if [[ $platform_slug = "3d0" ]]; then
+	platform_slug="3do"
 elif [[ $platform_slug = "atari-2600" ]]; then
 	platform_slug="atari2600"
+elif [[ $platform_slug = "jaguar" ]]; then
+	platform_slug="atarijaguar"
+elif [[ $platform_slug = "game-gear" ]]; then
+	platform_slug="gamegear"
 elif [[ $platform_slug = "gamecube" ]]; then
 	platform_slug="gc"
+elif [[ $platform_slug = "ps1" ]]; then
+	platform_slug="psx"
+elif [[ $platform_slug = "sms" ]]; then
+	platform_slug="mastersystem"
+elif [[ $platform_slug = "turboduo" ]]; then
+	platform_slug="pcengine"
+elif [[ $platform_slug = "sega-cd" ]]; then
+	platform_slug="segacd"
+elif [[ $platform_slug = "vb" ]]; then
+	platform_slug="virtualboy"
+elif [[ $platform_slug = "wii-u" ]]; then
+	platform_slug="wiiu"
 fi
 
 /usr/local/bin/skyscraper -p $platform_slug -s import $FILENAME

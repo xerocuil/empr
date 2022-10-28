@@ -1,4 +1,9 @@
-# Empr functions
+#! /bin/bash
+
+source /opt/empr/utils/utils.sh
+
+CMD="$1"
+FILE="$2"
 
 ## Run Empr
 empr.run(){
@@ -14,78 +19,98 @@ empr.gallery(){
 }
 
 ## Game launchers
-empr.3d0(){
-  retroarch -L $CORES/opera_libretro.so "$1"
+3d0(){
+  retroarch -L $CORES/opera_libretro.so "$FILE"
 }
-empr.arcade(){
-  mame "$1" -skip_gameinfo
+amiga(){
+  retroarch -L $CORES/puae_libretro.so "$FILE"
 }
-empr.atari-2600(){
-  retroarch -L $CORES/stella_libretro.so "$1"
+arcade(){
+  mame "$FILE" -skip_gameinfo
 }
-empr.cps-2(){
-  retroarch -L $CORES/fbalpha2012_cps2_libretro.so "$1"
+atari-2600(){
+  retroarch -L $CORES/stella_libretro.so "$FILE"
 }
-empr.dreamcast(){
-  retroarch -L $CORES/flycast_libretro.so "$1"
+cps-2(){
+  retroarch -L $CORES/fbalpha2012_cps2_libretro.so "$FILE"
 }
-empr.gamecube(){
-  dolphin-emu -b -e "$1"
+dreamcast(){
+  retroarch -L $CORES/flycast_libretro.so "$FILE"
 }
-empr.gba(){
-  retroarch -L $CORES/mgba_libretro.so "$1"
+gamecube(){
+  dolphin-emu -b -e "$FILE"
 }
-empr.genesis(){
-  retroarch -L $CORES/genesis_plus_gx_libretro.so "$1"
+gba(){
+  retroarch -L $CORES/mgba_libretro.so "$FILE"
 }
-empr.jaguar(){
-  retroarch -L $CORES/virtualjaguar_libretro.so "$1"
+gg(){
+  retroarch -L $CORES/picodrive_libretro.so "$FILE"
 }
-empr.love(){
-  love "$1"
+genesis(){
+  retroarch -L $CORES/picodrive_libretro.so "$FILE"
 }
-empr.n64(){
-  retroarch -L $CORES/mupen64plus_next_libretro.so "$1"
+jaguar(){
+  retroarch -L $CORES/virtualjaguar_libretro.so "$FILE"
 }
-empr.n64-alt(){
-  retroarch -L $CORES/parallel_n64_libretro.so "$1"
+love(){
+  love "$FILE"
 }
-empr.nes(){
-  retroarch -L $CORES/nestopia_libretro.so "$1"
+sms(){
+  retroarch -L $CORES/picodrive_libretro.so "$FILE"
 }
-empr.neo-geo(){
-  mame "$1" -bios unibios40 -skip_gameinfo
+n64(){
+  retroarch -L $CORES/mupen64plus_next_libretro.so "$FILE"
 }
-empr.ngp(){
-  retroarch -L $CORES/race_libretro.so "$1"
+n64-alt(){
+  retroarch -L $CORES/parallel_n64_libretro.so "$FILE"
 }
-empr.pc(){
-  "$1"
+nes(){
+  retroarch -L $CORES/nestopia_libretro.so "$FILE"
 }
-empr.ps1(){
-  retroarch -L $CORES/pcsx_rearmed_libretro.so "$1"
+neo-geo(){
+  mame "$FILE" -skip_gameinfo
 }
-empr.ps2(){
-  PCSX2 --nogui --fullscreen "$1"
+ngp(){
+  retroarch -L $CORES/race_libretro.so "$FILE"
 }
-empr.psp (){
-  retroarch -L $CORES/ppsspp_libretro.so "$1"
+pc(){
+  "$FILE"
 }
-empr.saturn(){
-  retroarch -L $CORES/mednafen_saturn_libretro.so "$1"
+ps1(){
+  retroarch -L $CORES/pcsx_rearmed_libretro.so "$FILE"
 }
-empr.steam(){
-  /usr/games/steam -silent -applaunch "$(cat "$1")"
+ps2(){
+  pcsx2-qt "$FILE"
 }
-empr.snes(){
-  retroarch -L $CORES/snes9x_libretro.so "$1"
+ps2-alt(){
+  pcsx2-qt --nogui --fullscreen "$FILE"
 }
-empr.turbografx-16(){
-  retroarch -L $CORES/mednafen_pce_libretro.so "$1"
+psp (){
+  retroarch -L $CORES/ppsspp_libretro.so "$FILE"
 }
-empr.wii(){
-  dolphin-emu -b -e "$1"
+saturn(){
+  retroarch -L $CORES/mednafen_saturn_libretro.so "$FILE"
 }
-empr.xbox(){
-  xemu -full-screen -dvd_path "$1"
+sega-cd(){
+  retroarch -L $CORES/picodrive_libretro.so "$FILE"
 }
+steam(){
+  /usr/games/steam -silent -applaunch "$(cat "$FILE")"
+}
+snes(){
+  retroarch -L $CORES/snes9x_libretro.so "$FILE"
+}
+turboduo(){
+  retroarch -L $CORES/mednafen_pce_libretro.so "$FILE"
+}
+vb(){
+  retroarch -L $CORES/mednafen_vb_libretro.so "$FILE"
+}
+wii(){
+  dolphin-emu -b -e "$FILE"
+}
+xbox(){
+  xemu -full-screen -dvd_path "$FILE"
+}
+
+$CMD

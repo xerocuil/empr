@@ -13,6 +13,11 @@ PLATFORM_SLUG=$(basename $PLATFORMDIR)
 QUICKIDXML="$HOME/.empr/skyscraper/cache/$PLATFORM_SLUG/quickid.xml"
 DBXML="$HOME/.empr/skyscraper/cache/$PLATFORM_SLUG/db.xml"
 
+echo "
+QUICKIDXML: $QUICKIDXML
+DBXML: $DBXML
+"
+
 XMLPATHQUERY="string(/quickids/quickid[@filepath='$FILEPATH']/@id)"
 XMLIDQUERY=$(xmllint --xpath "$XMLPATHQUERY" $QUICKIDXML)
 
@@ -39,7 +44,7 @@ publisher=$(xmllint --xpath "$PUBLISHER_QUERY" "$DBXML")
 players=$(xmllint --xpath "$PLAYERS_QUERY" "$DBXML")
 ages=$(xmllint --xpath "$AGES_QUERY" "$DBXML")
 tags=$(xmllint --xpath "$TAGS_QUERY" "$DBXML")
-releasedate=$(xmllint --xpath "$RELEASEDATE_QUERY" "$DBXML")
+release_date=$(xmllint --xpath "$RELEASEDATE_QUERY" "$DBXML")
 boxart=$(xmllint --xpath "$COVER_QUERY" "$DBXML")
 screenshot=$(xmllint --xpath "$SCREENSHOT_QUERY" "$DBXML")
 title_image=$(xmllint --xpath "$WHEEL_QUERY" "$DBXML")
@@ -50,9 +55,11 @@ ASSETDATA="$APPFILES/skyscraper/cache/$PLATFORM_SLUG"
 
 mkdir -p $ASSETDIR
 
-cp -v $ASSETDATA/$boxart $ASSETDIR/ss-$slug-boxart.jpg
-cp -v $ASSETDATA/$screenshot $ASSETDIR/ss-$slug-screenshot.jpg
-cp -v $ASSETDATA/$title_image $ASSETDIR/ss-$slug-title.jpg
+cp -v $ASSETDATA/$boxart $ASSETDIR/$slug-boxart.jpg
+cp -v $ASSETDATA/$screenshot $ASSETDIR/$slug-screenshot.jpg
+cp -v $ASSETDATA/$title_image $ASSETDIR/$slug-title.jpg
+cp -v $APPFILES/skyscraper/media/$PLATFORM_SLUG/screenshots/$slug.png $ASSETDIR/$slug-display.png
+
 
 echo "
 ages: $ages
@@ -63,7 +70,7 @@ platform: $platform
 platform_slug: $PLATFORM_SLUG
 players: $players
 publisher: $publisher
-releasedate: $releasedate
+release_date: $release_date
 screenshot: $screenshot
 slug: $slug
 tags: $tags
@@ -98,3 +105,5 @@ Description:
 "
 
 cat $ASSETDIR/ss-$slug-description.txt
+
+firefox "$LOCALURL/game/scrape/?path=$path&title=$title&sort_title=$sort_title&developer=$developer&publisher=$publisher&release_date=$release_date&path=$path&description=$description" &

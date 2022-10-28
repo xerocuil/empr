@@ -8,10 +8,11 @@
 <div class="row">
 	<div class="nine columns">
 		<h2><a href="{% url 'games:edit_game' game.id %}">{{ game.title }}</a></h2>
+		{% if game.alt_title %}<p>Original Title: {{ game.alt_title }}</p>{% endif %}
 	</div>
 
 	<div class="three columns">
-		<h4 class="u-pull-right">{% if game.platform.logo %}<img class="logo" src="{{ game.platform.logo.url }}">{% else %}{{ game.platform.slug.upper }}{% endif %}</h4>
+		<h4 class="u-pull-right"><a href="{% url 'games:platform' game.platform_id %}">{% if game.platform.logo %}<img class="logo" src="{{ game.platform.logo.url }}">{% else %}{{ game.platform.slug.upper }}{% endif %}</a></h4>
 	</div>
 </div>
 

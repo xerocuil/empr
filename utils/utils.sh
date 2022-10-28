@@ -36,7 +36,7 @@ source $UTILS/git.sh
 source $UTILS/help.sh
 source $UTILS/report.sh
 source $UTILS/django.sh
-source $UTILS/empr.sh
+# source $UTILS/empr.sh
 
 
 # Functions

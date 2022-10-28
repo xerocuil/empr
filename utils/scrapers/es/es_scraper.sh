@@ -9,35 +9,35 @@ PLATFORM="$1"
 PLATFORMDIR="$ROMSDIR/$PLATFORM"
 ESGAMELISTDIR="$HOME/.emulationstation/gamelists/$PLATFORM"
 GAMES=$(ls -1 $PLATFORMDIR)
-MEDIADIR="$APPDIR/cms/media"
+MEDIADIR="$APPFILES/media"
 
 echo -e "<?xml version=\"1.0\"?>
 <gameList>" >$ESGAMELISTDIR/gamelist.xml
 
 for g in $GAMES
 do
-  ID_QUERY=$(sqlite3 "$LOCALDB" "select id from games_game where path = '$g'";)
-  TITLE_QUERY=$(sqlite3 "$LOCALDB" "select title from games_game where id = '$ID_QUERY'";)
-  DESC_QUERY=$(sqlite3 "$LOCALDB" "select description from games_game where id = '$ID_QUERY'";)
-  DEV_QUERY=$(sqlite3 "$LOCALDB" "select developer from games_game where id = '$ID_QUERY'";)
-  PUB_QUERY=$(sqlite3 "$LOCALDB" "select publisher from games_game where id = '$ID_QUERY'";)
-  ESRB_QUERY=$(sqlite3 "$LOCALDB" "select esrb from games_game where id = '$ID_QUERY'";)
-  GENREID_QUERY=$(sqlite3 "$LOCALDB" "select genre_id from games_game where id = '$ID_QUERY'";)
-  GENRE_QUERY=$(sqlite3 "$LOCALDB" "select name from games_genre where id = '$GENREID_QUERY'";)
-  RELEASEDATE_QUERY=$(sqlite3 "$LOCALDB" "select release_date from games_game where id = '$ID_QUERY'";)
-  PLAYER_QUERY=$(sqlite3 "$LOCALDB" "select player from games_game where id = '$ID_QUERY'";)
+  ID_QUERY=$(sqlite3 "$APPDB" "select id from games_game where path = '$g'";)
+  TITLE_QUERY=$(sqlite3 "$APPDB" "select title from games_game where id = '$ID_QUERY'";)
+  DESC_QUERY=$(sqlite3 "$APPDB" "select description from games_game where id = '$ID_QUERY'";)
+  DEV_QUERY=$(sqlite3 "$APPDB" "select developer from games_game where id = '$ID_QUERY'";)
+  PUB_QUERY=$(sqlite3 "$APPDB" "select publisher from games_game where id = '$ID_QUERY'";)
+  ESRB_QUERY=$(sqlite3 "$APPDB" "select esrb from games_game where id = '$ID_QUERY'";)
+  GENREID_QUERY=$(sqlite3 "$APPDB" "select genre_id from games_game where id = '$ID_QUERY'";)
+  GENRE_QUERY=$(sqlite3 "$APPDB" "select name from games_genre where id = '$GENREID_QUERY'";)
+  RELEASEDATE_QUERY=$(sqlite3 "$APPDB" "select release_date from games_game where id = '$ID_QUERY'";)
+  PLAYER_QUERY=$(sqlite3 "$APPDB" "select player from games_game where id = '$ID_QUERY'";)
 
   IFS=$'\n'
-  TAGID_QUERY=($(sqlite3 "$LOCALDB" "select tag_id from games_game_tags where game_id = '$ID_QUERY'";))
+  TAGID_QUERY=($(sqlite3 "$APPDB" "select tag_id from games_game_tags where game_id = '$ID_QUERY'";))
   TAGARRAY=()
   for TAGID in "${TAGID_QUERY[@]}"
   do
-    TAGS=$(sqlite3 "$LOCALDB" "select name from games_tag where id = '$TAGID';")
+    TAGS=$(sqlite3 "$APPDB" "select name from games_tag where id = '$TAGID';")
     TAGARRAY+=($TAGS)
   done
 
-  DISPLAY_QUERY=$(sqlite3 "$LOCALDB" "select display from games_game where id = '$ID_QUERY'";)
-  BOXART_QUERY=$(sqlite3 "$LOCALDB" "select boxart from games_game where id = '$ID_QUERY'";)
+  DISPLAY_QUERY=$(sqlite3 "$APPDB" "select display from games_game where id = '$ID_QUERY'";)
+  BOXART_QUERY=$(sqlite3 "$APPDB" "select boxart from games_game where id = '$ID_QUERY'";)
 
   # if [[ -z $DISPLAY_QUERY ]]; then
   #   IMAGE="$BOXART_QUERY"
@@ -56,7 +56,7 @@ do
     <genre>$GENRE_QUERY</genre>
     <releasedate>$RELEASEDATE_QUERY</releasedate>
     <players>$PLAYER_QUERY</players>
-    <image>$MEDIADIR/$BOXART_QUERY</image>
+    <image>$MEDIADIR/$DISPLAY_QUERY</image>
   </game>" >>$ESGAMELISTDIR/gamelist.xml
   fi
 done

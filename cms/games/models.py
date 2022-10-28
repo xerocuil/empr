@@ -53,6 +53,7 @@ class Game(models.Model):
 	## Release Info
 	title = models.CharField(max_length=128, unique=True)
 	sort_title = models.CharField(max_length=128, unique=True)
+	alt_title = models.CharField(max_length=128, blank=True, null=True, unique=True)
 	description = models.TextField(blank=True, max_length=1024)
 	developer = models.CharField(blank=True, max_length=128)
 	publisher = models.CharField(blank=True, max_length=128)

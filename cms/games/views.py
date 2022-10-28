@@ -159,6 +159,7 @@ class SearchResultsView(ListView):
 		query = self.request.GET.get('q', '')
 		object_list = Game.objects.filter(
 			Q(sort_title__icontains=query) |
+			Q(alt_title__icontains=query) |
 			Q(developer__icontains=query) |
 			Q(genre__name__icontains=query) |
 			#Q(tags__name__icontains=query) |

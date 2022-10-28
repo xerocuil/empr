@@ -5,7 +5,18 @@
 - Fix sorting/pagination
 - Windows support
 
-## [0.3.0]
+## [Unreleased]
+
+### Added
+
+- "Alt. Title" to games model
+- Amiga/Virtual Boy support
+
+### Changed
+
+- Platform logos like to platform game index.
+
+## [0.3.0] - 2022.0814.2023
 
 ### Added
 
