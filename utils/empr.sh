@@ -68,13 +68,10 @@ nes(){
   retroarch -L $CORES/nestopia_libretro.so "$FILE"
 }
 neo-geo(){
-  mame "$FILE" -skip_gameinfo
+  mame "$FILE" -skip_gameinfo -bios unibios40
 }
 ngp(){
   retroarch -L $CORES/race_libretro.so "$FILE"
-}
-pc(){
-  "$FILE"
 }
 ps1(){
   retroarch -L $CORES/pcsx_rearmed_libretro.so "$FILE"
@@ -94,9 +91,6 @@ saturn(){
 sega-cd(){
   retroarch -L $CORES/picodrive_libretro.so "$FILE"
 }
-steam(){
-  /usr/games/steam -silent -applaunch "$(cat "$FILE")"
-}
 snes(){
   retroarch -L $CORES/snes9x_libretro.so "$FILE"
 }
@@ -108,6 +102,9 @@ vb(){
 }
 wii(){
   dolphin-emu -b -e "$FILE"
+}
+wonderswan(){
+  retroarch -L $CORES/mednafen_wswan_libretro.so "$FILE"
 }
 xbox(){
   xemu -full-screen -dvd_path "$FILE"

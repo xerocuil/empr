@@ -68,6 +68,7 @@ genre=$(cat $tgdb_details | grep "genre:" | cut -d ":" -f 2 | xargs)
 developer=$(cat $tgdb_details | grep "developer:" | cut -d ":" -f 2 | xargs)
 publisher=$(cat $tgdb_details | grep "publisher:" | cut -d ":" -f 2 | xargs)
 release_date=$(cat $tgdb_details | grep "release_date:" | cut -d ":" -f 2 | xargs)
+release_year=${release_date:0:4}
 players=$(cat $ss_details | grep "players:" | cut -d ":" -f 2 | xargs)
 description="$(cat $gb_description)"
 
@@ -84,11 +85,11 @@ genre: $genre
 developer: $developer
 publisher: $publisher
 
-release_date: $release_date
+release_date: $release_year
 players: $players
 "
 
-firefox "$LOCALURL/game/scrape/?path=$path&title=$title&sort_title=$sort_title&developer=$developer&publisher=$publisher&release_date=$release_date&path=$path&description=$description" &
+firefox "$LOCALURL/game/scrape/?path=$path&title=$title&sort_title=$sort_title&developer=$developer&publisher=$publisher&release_date=$release_year&path=$path&description=$description" &
 
 
 

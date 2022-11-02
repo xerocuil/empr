@@ -45,6 +45,7 @@ players=$(xmllint --xpath "$PLAYERS_QUERY" "$DBXML")
 ages=$(xmllint --xpath "$AGES_QUERY" "$DBXML")
 tags=$(xmllint --xpath "$TAGS_QUERY" "$DBXML")
 release_date=$(xmllint --xpath "$RELEASEDATE_QUERY" "$DBXML")
+release_year=${release_date:0:4}
 boxart=$(xmllint --xpath "$COVER_QUERY" "$DBXML")
 screenshot=$(xmllint --xpath "$SCREENSHOT_QUERY" "$DBXML")
 title_image=$(xmllint --xpath "$WHEEL_QUERY" "$DBXML")
@@ -70,7 +71,7 @@ platform: $platform
 platform_slug: $PLATFORM_SLUG
 players: $players
 publisher: $publisher
-release_date: $release_date
+release_date: $release_year
 screenshot: $screenshot
 slug: $slug
 tags: $tags
@@ -106,4 +107,4 @@ Description:
 
 cat $ASSETDIR/ss-$slug-description.txt
 
-firefox "$LOCALURL/game/scrape/?path=$path&title=$title&sort_title=$sort_title&developer=$developer&publisher=$publisher&release_date=$release_date&path=$path&description=$description" &
+firefox "$LOCALURL/game/scrape/?path=$path&title=$title&sort_title=$sort_title&developer=$developer&publisher=$publisher&release_date=$release_year&path=$path&description=$description" &

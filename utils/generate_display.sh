@@ -68,7 +68,9 @@ else
 	/usr/bin/touch $HOME/Games/roms/$platform_slug/$FILENAME
 fi
 
-if [[ $platform_slug = "3d0" ]]; then
+if [[ $platform_slug = "32x" ]]; then
+	platform_slug="sega32x"
+elif [[ $platform_slug = "3d0" ]]; then
 	platform_slug="3do"
 elif [[ $platform_slug = "atari-2600" ]]; then
 	platform_slug="atari2600"
@@ -82,6 +84,8 @@ elif [[ $platform_slug = "ps1" ]]; then
 	platform_slug="psx"
 elif [[ $platform_slug = "sms" ]]; then
 	platform_slug="mastersystem"
+elif [[ $platform_slug = "neo-geo" ]]; then
+	platform_slug="neogeo"
 elif [[ $platform_slug = "turboduo" ]]; then
 	platform_slug="pcengine"
 elif [[ $platform_slug = "sega-cd" ]]; then

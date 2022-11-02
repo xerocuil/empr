@@ -1,4 +1,4 @@
-{% extends "dashboard/base.html" %}
+	{% extends "dashboard/base.html" %}
 {% load markdown static %}
 
 {% block title %}{{ game.title }}{% endblock %}
@@ -91,7 +91,7 @@
 			{% if game.release_date %}
 			<tr>
 				<td><strong>Release Date</strong></td>
-				<td>{{ game.release_date }}</td>
+				<td>{{ game.release_year }}</td>
 			</tr>
 			{% endif %}
 
@@ -210,10 +210,10 @@
 			<a href="https://www.giantbomb.com/search/?i=game&q={{ game.title }}">
 				<img class="icon" src="{% static 'imgs/icons/giantbomb.png' %}" title="Giant Bomb"></a>
 
-			<a href="https://www.igdb.com/games/{{ game.slug }}">
+			<a href="https://www.igdb.com/search?type=1&q={{ game.title }}">
 				<img class="icon" src="{% static 'imgs/icons/igdb.png' %}" title="IGDB"></a>
 
-			<a href="https://www.mobygames.com/game/{{ game.slug }}">
+			<a href="https://www.mobygames.com/search/quick?q={{ game.title }}">
 				<img class="icon" src="{% static 'imgs/icons/moby.png' %}" title="Moby Games"></a>
 
 			<a href="https://thegamesdb.net/search.php?name={{ game.title }}">
