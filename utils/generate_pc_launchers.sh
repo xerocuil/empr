@@ -17,7 +17,6 @@ do
   fi
 done
 
-
 ## Steam Games
 rm -rf "$ROMSDIR/steam"
 mkdir -p "$ROMSDIR/steam"
