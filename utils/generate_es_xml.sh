@@ -6,10 +6,10 @@ source $UTILS/utils.sh
 
 PLATFORMS=($(sqlite3 "$APPDB" "select slug from games_platform";))
 MEDIADIR="$APPFILES/media"
+COLLECTIONSDIR="$HOME/.emulationstation/collections"
 
 generate_xml(){
-  echo -e "<?xml version=\"1.0\"?>
-  <gameList>" >$ESGAMELISTDIR/gamelist.xml
+  echo -e "<?xml version=\"1.0\"?>\n<gameList>" >$ESGAMELISTDIR/gamelist.xml
 
   for g in $GAMES
   do
@@ -43,39 +43,99 @@ generate_xml(){
     fi
 
     if [[ ! -z $TITLE_QUERY ]]; then
-      echo -e "  <game>
-      <path>./$g</path>
-      <name>$TITLE_QUERY</name>
-      <desc>$DESC_QUERY</desc>
-      <developer>$DEV_QUERY</developer>
-      <publisher>$PUB_QUERY</publisher>
-      <esrb>$ESRB_QUERY</esrb>
-      <genre>$GENRE_QUERY</genre>
-      <releasedate>$RELEASEDATE_QUERY</releasedate>
-      <players>$PLAYER_QUERY</players>
-      <image>$MEDIADIR/$IMAGE</image>
-    </game>" >>"$ESGAMELISTDIR/gamelist.xml"
+      echo -e " <game>
+    <path>./$g</path>
+    <name>$TITLE_QUERY</name>
+    <desc>$DESC_QUERY</desc>
+    <developer>$DEV_QUERY</developer>
+    <publisher>$PUB_QUERY</publisher>
+    <esrb>$ESRB_QUERY</esrb>
+    <genre>$GENRE_QUERY</genre>
+    <releasedate>$RELEASEDATE_QUERY</releasedate>
+    <players>$PLAYER_QUERY</players>
+    <image>$MEDIADIR/$IMAGE</image>
+  </game>" >>"$ESGAMELISTDIR/gamelist.xml"
     fi
   done
 
   echo -e "</gameList>" >>"$ESGAMELISTDIR/gamelist.xml"
 
   echo -e "<theme>
-    <formatVersion>4</formatVersion>
-    <include>./../empr.xml</include>  
-    <view name=\"system, basic, detailed\">
-      <image name=\"logo\">
-        <path>./system.svg</path>
-      </image>
-    </view>
-  </theme>" >"$ESTHEME/theme.xml"
+  <formatVersion>4</formatVersion>
+  <include>./../empr.xml</include>
+
+  <view name=\"system\">
+    <image name=\"logo\">
+      <path>./system.svg</path>
+    </image>
+  </view>
+
+  <view name=\"basic, detailed, video\">
+    <image name=\"logo\">
+      <path>./system.svg</path>
+      <pos>0.266 0.074</pos>
+      <maxSize>0.460 0.126</maxSize>
+      <origin>0.5 0.5</origin>
+    </image>
+  </view>
+
+  <view name=\"basic\">   
+  </view>
+
+  <view name=\"detailed\">
+  </view>
+</theme>" >"$ESTHEME/theme.xml"
 }
 
-echo -e "
-UTILS: $UTILS
-APPDIR: $APPDIR
-"
+generate_collections(){
+  echo -e "\nGenerating collections...\n"
+  rm -f "$COLLECTIONSDIR/*"
+  COLLECTION_QUERY=$(sqlite3 "$APPDB" "select id,name from games_collection order by name;")
+  IFS=$'\n'
+  for c in $COLLECTION_QUERY
+  do
+    COLLECTION_ID=$(echo "$c" | cut -d "|" -f 1)
+    COLLECTION_NAME=$(echo "$c" | cut -d "|" -f 2)
+    COLLECTION_SLUG=$(echo $COLLECTION_NAME | iconv -t ascii//TRANSLIT | sed -r s/[^a-zA-Z0-9]+/-/g | sed -r s/^-+\|-+$//g)
+    GAME_QUERY=$(sqlite3 "$APPDB" "select path,platform_id,release_date from games_game where collection_id = $COLLECTION_ID order by release_date asc;")
+    CONFIG_FILE="$COLLECTIONSDIR/custom-$COLLECTION_NAME.cfg"
+    
+    for g in $GAME_QUERY
+    do
+      GAME_PATH=$(echo "$g" | cut -d "|" -f 1)
+      GAME_PLATFORM=$(echo "$g" | cut -d "|" -f 2)
+      PLATFORM_QUERY=$(sqlite3 "$APPDB" "select slug from games_platform where id = $GAME_PLATFORM;")
+      GAME_LOC="$GAMESDIR/roms/$PLATFORM_QUERY/$GAME_PATH"
 
+      if [[ -f $GAME_LOC ]]; then
+        echo -e "$GAME_LOC" >>"$CONFIG_FILE"
+      fi
+    done
+  done
+
+  GENRE_QUERY=$(sqlite3 "$APPDB" "select id,name from games_genre order by name;")
+  for g in $GENRE_QUERY
+  do
+    GENRE_ID=$(echo "$g" | cut -d "|" -f 1)
+    GENRE_NAME=$(echo "$g" | cut -d "|" -f 2)
+    GAME_GENRE_QUERY=$(sqlite3 "$APPDB" "select platform_id,path,release_date from games_game where genre_id = $GENRE_ID order by release_date asc;")
+    GENRE_CONFIG_FILE="$COLLECTIONSDIR/custom-$GENRE_NAME Games.cfg"
+
+    for game in $GAME_GENRE_QUERY
+    do
+      GAME_GENRE_PATH=$(echo "$game" | cut -d "|" -f 2)
+      GAME_GENRE_PLATFORM=$(echo "$game" | cut -d "|" -f 1)
+      GENRE_PLATFORM_QUERY=$(sqlite3 "$APPDB" "select slug from games_platform where id = $GAME_GENRE_PLATFORM;")
+      GENRE_GAME_LOC="$GAMESDIR/roms/$GENRE_PLATFORM_QUERY/$GAME_GENRE_PATH"
+
+      if [[ -f $GENRE_GAME_LOC ]]; then
+        echo -e "$GENRE_GAME_LOC" >>"$GENRE_CONFIG_FILE"
+      fi
+    done
+  done
+}
+
+echo -e "\nGenerating xml files...\n"
 for PLATFORM in ${PLATFORMS[*]}
 do
   PLATFORMDIR="$ROMSDIR/$PLATFORM"
@@ -91,3 +151,5 @@ do
     generate_xml "$PLATFORM"
   fi
 done
+
+generate_collections

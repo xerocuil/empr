@@ -2,19 +2,23 @@
 @import "skeleton.sass"
 
 /* Palette */
+$black: rgb(0,0,0)
+$cod-grey: rgb(25,25,25)
 $mine-shaft: rgb(34,34,34)
 $mine-shaft-sheer: rgba(24,24,24,0.9)
+$dove-grey: rgb(103,103,103)
+$nobel: rgb(182,182,182)
+$silver: rgb(200,200,200)
 $white: rgb(255,255,255)
 $white-sheer: rgba(255,255,255,0.8)
-$silver: rgb(200,200,200)
 
 $main-color: $white
 $default-background: $mine-shaft
 $alt-background: $mine-shaft-sheer
 
 @font-face
-  font-family: "silkscreen"
-  src: url("/static/assets/slkscr.ttf")
+  font-family: "cabin-bold"
+  src: url("/static/assets/cabin-bold.ttf")
 
 body
   color: $main-color
@@ -42,7 +46,8 @@ nav
 
 h1, h2, h3, h4, h5, h6
   line-height: 0.8
-  font-family: "silkscreen"
+  font-family: "cabin-bold"
+  text-transform: uppercase
 
 h2
   font-size: 32px  
@@ -112,6 +117,13 @@ table
 .detail_footer
   border-bottom: 0px
 
+.game-title
+  font-size: 32px
+  text-transform: uppercase
+  font-weight: bold
+  a
+    text-decoration: none
+
 .icon
   max-height: 32px
   max-width: 32px
@@ -145,6 +157,8 @@ table.grid-info
 
 .sidebar-header
   cursor: pointer
+  a:hover
+    color: $silver
 
 .box-content
   padding-left: 20px

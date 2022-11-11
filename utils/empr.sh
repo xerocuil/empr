@@ -31,6 +31,9 @@ arcade(){
 atari-2600(){
   retroarch -L $CORES/stella_libretro.so "$FILE"
 }
+c64(){
+  retroarch -L $CORE/vice_x64_libretro.so "$FILE"
+}
 cps-2(){
   retroarch -L $CORES/fbalpha2012_cps2_libretro.so "$FILE"
 }
@@ -42,6 +45,9 @@ gamecube(){
 }
 gba(){
   retroarch -L $CORES/mgba_libretro.so "$FILE"
+}
+gbc(){
+  retroarch -L $CORES/sameboy_libretro.so "$FILE"
 }
 gg(){
   retroarch -L $CORES/picodrive_libretro.so "$FILE"
@@ -74,7 +80,7 @@ ngp(){
   retroarch -L $CORES/race_libretro.so "$FILE"
 }
 ps1(){
-  retroarch -L $CORES/pcsx_rearmed_libretro.so "$FILE"
+  retroarch -L $CORES/mednafen_psx_libretro.so "$FILE"
 }
 ps2(){
   pcsx2-qt "$FILE"

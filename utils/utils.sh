@@ -25,6 +25,7 @@ LOCALURL="127.0.0.1:8088"
 GAMESDIR="$HOME/Games"
 PCDIR="$GAMESDIR/pc"
 ROMSDIR="$GAMESDIR/roms"
+ARCHIVEDIR="/run/media/xerocuil/2tb/Games"
 CORES=$HOME/.config/retroarch/cores
 
 ## System Settings
