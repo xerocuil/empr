@@ -34,9 +34,6 @@ atari-2600(){
 c64(){
   retroarch -L $CORE/vice_x64_libretro.so "$FILE"
 }
-cps-2(){
-  retroarch -L $CORES/fbalpha2012_cps2_libretro.so "$FILE"
-}
 dreamcast(){
   retroarch -L $CORES/flycast_libretro.so "$FILE"
 }
@@ -74,7 +71,13 @@ nes(){
   retroarch -L $CORES/nestopia_libretro.so "$FILE"
 }
 neo-geo(){
-  mame "$FILE" -skip_gameinfo -bios unibios40
+  BASE=${FILE%.*}
+  EXT=${FILE#$BASE.}
+  if [[ $EXT = "zip" ]]; then
+    mame -skip_gameinfo -bios unibios40 "$FILE"
+  elif [[ $EXT = "chd" ]]; then
+    mame -skip_gameinfo -bios unibios40 neocdz -cdrm "$FILE"
+  fi
 }
 ngp(){
   retroarch -L $CORES/race_libretro.so "$FILE"

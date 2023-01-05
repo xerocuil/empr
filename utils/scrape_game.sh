@@ -31,8 +31,38 @@ Scraping $FILENAME ..."
 $TGDBSCRAPER "$FILE"
 $GBSCRAPER "$FILE"
 
-skyscraper -p $PLATFORM_SLUG -s screenscraper $FILEPATH
-skyscraper -p $PLATFORM_SLUG $FILEPATH
+if [[ $PLATFORM_SLUG = "32x" ]]; then
+	SS_SLUG="sega32x"
+elif [[ $PLATFORM_SLUG = "3d0" ]]; then
+	SS_SLUG="3do"
+elif [[ $PLATFORM_SLUG = "atari-2600" ]]; then
+	SS_SLUG="atari2600"
+elif [[ $PLATFORM_SLUG = "jaguar" ]]; then
+	SS_SLUG="atarijaguar"
+elif [[ $PLATFORM_SLUG = "gg" ]]; then
+	SS_SLUG="gamegear"
+elif [[ $PLATFORM_SLUG = "gamecube" ]]; then
+	SS_SLUG="gc"
+elif [[ $PLATFORM_SLUG = "ps1" ]]; then
+	SS_SLUG="psx"
+elif [[ $PLATFORM_SLUG = "sms" ]]; then
+	SS_SLUG="mastersystem"
+elif [[ $PLATFORM_SLUG = "neo-geo" ]]; then
+	SS_SLUG="neogeo"
+elif [[ $PLATFORM_SLUG = "turboduo" ]]; then
+	SS_SLUG="pcengine"
+elif [[ $PLATFORM_SLUG = "sega-cd" ]]; then
+	SS_SLUG="segacd"
+elif [[ $PLATFORM_SLUG = "vb" ]]; then
+	SS_SLUG="virtualboy"
+elif [[ $PLATFORM_SLUG = "wii-u" ]]; then
+	SS_SLUG="wiiu"
+else
+	SS_SLUG="$PLATFORM_SLUG"
+fi
+
+skyscraper -p $SS_SLUG -s screenscraper $FILEPATH
+skyscraper -p $SS_SLUG $FILEPATH
 $SKYSCRAPER "$FILE"
 
 gb_description=$ASSETDIR/gb-$SLUG-description.txt
@@ -89,22 +119,6 @@ release_date: $release_year
 players: $players
 "
 
+rm $ASSETDIR/*.txt
+
 firefox "$LOCALURL/game/scrape/?path=$path&title=$title&sort_title=$sort_title&developer=$developer&publisher=$publisher&release_date=$release_year&path=$path&description=$description" &
-
-
-
-echo -e "
-UTILS: $UTILS
-SCRAPERDIR: $SCRAPERDIR
-BACKUPDIR: $BACKUPDIR
-GBSCRAPER: $GBSCRAPER
-SKYSCRAPER: $SKYSCRAPER
-TGDBSCRAPER: $TGDBSCRAPER
-FILE: $FILE
-FILEPATH: $FILEPATH
-FILENAME: $FILENAME
-SLUG: $SLUG
-PLATFORMDIR: $PLATFORMDIR
-PLATFORM_SLUG: $PLATFORM_SLUG
-ASSETDIR: $ASSETDIR
-"

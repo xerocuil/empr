@@ -4,6 +4,7 @@
 
 - Fix sorting/pagination
 - Windows support
+- Port Bash scripting to Python
 
 ## [Unreleased]
 
@@ -14,7 +15,7 @@
 
 ### Changed
 
-- Platform logos like to platform game index.
+- Platform logos to platform game index.
 
 ## [0.3.0] - 2022.0814.2023
 

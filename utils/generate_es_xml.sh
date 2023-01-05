@@ -89,16 +89,16 @@ generate_xml(){
 
 generate_collections(){
   echo -e "\nGenerating collections...\n"
-  rm -f "$COLLECTIONSDIR/*"
   COLLECTION_QUERY=$(sqlite3 "$APPDB" "select id,name from games_collection order by name;")
   IFS=$'\n'
   for c in $COLLECTION_QUERY
   do
     COLLECTION_ID=$(echo "$c" | cut -d "|" -f 1)
     COLLECTION_NAME=$(echo "$c" | cut -d "|" -f 2)
-    COLLECTION_SLUG=$(echo $COLLECTION_NAME | iconv -t ascii//TRANSLIT | sed -r s/[^a-zA-Z0-9]+/-/g | sed -r s/^-+\|-+$//g)
+    COLLECTION_SLUG=$(echo $COLLECTION_NAME | iconv -t ascii//TRANSLIT | sed -r s/[^a-zA-Z0-9\'\&\ ]+/-/g | sed -r s/^-+\|-+$//g)
     GAME_QUERY=$(sqlite3 "$APPDB" "select path,platform_id,release_date from games_game where collection_id = $COLLECTION_ID order by release_date asc;")
-    CONFIG_FILE="$COLLECTIONSDIR/custom-$COLLECTION_NAME.cfg"
+    CONFIG_FILE="$COLLECTIONSDIR/custom-$COLLECTION_SLUG.cfg"
+    rm -f "$CONFIG_FILE"
     
     for g in $GAME_QUERY
     do
@@ -118,8 +118,10 @@ generate_collections(){
   do
     GENRE_ID=$(echo "$g" | cut -d "|" -f 1)
     GENRE_NAME=$(echo "$g" | cut -d "|" -f 2)
+    GENRE_SLUG=$(echo "$GENRE_NAME" | iconv -t ascii//TRANSLIT | sed -r s/[^a-zA-Z0-9\'\&\ ]+/-/g | sed -r s/^-+\|-+$//g)
     GAME_GENRE_QUERY=$(sqlite3 "$APPDB" "select platform_id,path,release_date from games_game where genre_id = $GENRE_ID order by release_date asc;")
-    GENRE_CONFIG_FILE="$COLLECTIONSDIR/custom-$GENRE_NAME Games.cfg"
+    GENRE_CONFIG_FILE="$COLLECTIONSDIR/custom-$GENRE_SLUG Games.cfg"
+    rm -f "$GENRE_CONFIG_FILE"
 
     for game in $GAME_GENRE_QUERY
     do
