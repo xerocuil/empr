@@ -1,12 +1,12 @@
 .cache
 .vagrant
 bin
-cms/browser/*
-!cms/browser/.gitkeep
 build
 cache
-cms/static/*
+cms/browser/*
 cms/media/*
+cms/static/*
+!cms/browser/.gitkeep
 !cms/media/.gitkeep
 settings.py
-venv
+test.*
