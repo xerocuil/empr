@@ -12,7 +12,7 @@ APPDIR="$(dirname $UTILS)"
 BUILD=$APPDIR/build
 CMS="$APPDIR/cms"
 DIST=$APPDIR/dist
-VENV="$APPDIR/venv"
+VENV="$HOME/.python-env/empr"
 
 APPFILES="$HOME/.empr"
 CACHEDIR="$APPFILES/cache"

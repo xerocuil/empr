@@ -196,10 +196,17 @@
 			</tr>
 			{% endif %}
 
+			{% if game.header %}
+			<tr>
+				<td><strong>Header</strong></td>
+				<td><a href="{{ game.header.url }}"><img class="u-pull-right game-screenshot-thumb" src="{{ game.header.url }}" title="{{ game.title }} Header"></a></td>
+			</tr>
+			{% endif %}
+
 			{% if game.wallpaper %}
 			<tr>
 				<td><strong>Wallpaper</strong></td>
-				<td><a href="{{ game.wallpaper.url }}"><img class="u-pull-right game-screenshot-thumb" src="{{ game.wallpaper.url }}" title="{{ game.title }} Screenshot"></a></td>
+				<td><a href="{{ game.wallpaper.url }}"><img class="u-pull-right game-screenshot-thumb" src="{{ game.wallpaper.url }}" title="{{ game.title }} Wallpaper"></a></td>
 			</tr>
 			{% endif %}
 

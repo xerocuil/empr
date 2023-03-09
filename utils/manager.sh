@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/bash
 
 UTILS="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 source $UTILS/utils.sh
