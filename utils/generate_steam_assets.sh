@@ -3,8 +3,7 @@
 source /opt/empr/utils/utils.sh
 FILENAME=$1
 SLUG="${FILENAME%.*}"
-APPFILES="$HOME/.empr"
-MEDIADIR=/home/xerocuil/.empr/media
+MEDIADIR=$HOME/.empr/media
 STEAMASSETS=$MEDIADIR/steam
 HEADER_TEMPLATE=$CMS/static/imgs/header.png
 
@@ -38,33 +37,48 @@ fi
 
 printf "Checking for background image..."
 if [[ -z $wallpaper ]]; then
-  printf "None found.\n"
+  printf " none found.\n"
 else
+  printf " found.\n"
   cp -v "$MEDIADIR/$wallpaper" "$STASSETDIR/background.png"
 fi
 
 printf "Checking for boxart..."
-convert "$MEDIADIR/$boxart" "$STASSETDIR/boxart.png"
+if [[ -z $boxart ]]; then
+  printf " none found.\n"
+else
+  printf " found.\n"
+  convert "$MEDIADIR/$boxart" "$STASSETDIR/boxart.png"
+fi
 
-printf "Checking for creating header..."
-convert "$MEDIADIR/$title_image" -resize 415x194\> "$CACHEDIR/$SLUG-title.png"
-composite -gravity center "$CACHEDIR/$SLUG-title.png" "$HEADER_TEMPLATE" "$STASSETDIR/grid.png"
+printf "Checking for logo..."
+if [[ -z $title_image ]]; then
+  printf " none found.\n"
+  exit
+else
+  printf " found. Creating header.\n"
+  convert "$MEDIADIR/$title_image" -resize 415x194\> "$CACHEDIR/$SLUG-title.png"
+  composite -gravity center "$CACHEDIR/$SLUG-title.png" "$HEADER_TEMPLATE" "$STASSETDIR/grid.png"
+  rm "$CACHEDIR/$SLUG-title.png"
+fi
 
-printf "Creating DCF..."
+printf "Creating DCF.\n"
 DCFILE="$STASSETDIR/$SLUG.desktop"
+
 printf "[Desktop Entry]
 Encoding=UTF-8
 Name=$title
 Comment=$platform_name game
 Type=Application
-Exec=rom-launcher.sh $platform_slug $HOME/Games/roms/$platform_slug/$FILENAME
+Exec=rom-launcher.sh $platform_slug /home/player1/Games/roms/$platform_slug/$FILENAME
 Icon=$platform_slug
 Categories=Game;"  >$DCFILE
 chmod +x $DCFILE
 
 # cp -v $DCFILE $HOME/.local/share/applications/
 
-printf "ID: $ID
+printf "
+ID: $ID
 title: $title
 platform_id: $platform_id
 platform_icon: $platform_icon
