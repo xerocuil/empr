@@ -9,7 +9,7 @@ FILE="$2"
 empr.run(){
   django.start
   sleep 2
-  $CMS/browser/linux-x64/browser
+  $CMS/browser/Empr-linux-x64/Empr
   django.stop
 }
 
