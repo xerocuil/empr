@@ -1,4 +1,6 @@
 import csv
+import os
+import sys
 import subprocess
 from django.conf import settings
 from django.contrib import messages
@@ -11,6 +13,7 @@ from django.views.generic import TemplateView, ListView
 
 from .forms import CollectionForm, GameForm, GenreForm, PlatformForm, TagForm
 from .models import Collection, Game, Genre, Platform, Tag
+import lib.system
 
 collections = Collection.objects.order_by('name')
 games = Game.objects.order_by('sort_title')
@@ -47,8 +50,10 @@ def games_index(request):
 ## Detail
 def detail(request, game_id):
 	game = get_object_or_404(Game, pk=game_id)
+	installed = lib.system.check_installed(game.platform.slug, game.path)
 	return render(request, 'games/detail.html', {
 		'game': game,
+		'installed': installed,
 		'collections': collections,
 		'genres': genres,
 		'platforms': platforms,
@@ -116,6 +121,31 @@ def edit_game(request, game_id):
 			'game_form': game_form
 		}
 	)
+
+## Play
+def play_game(request, platform_slug, filename):
+	filename = filename
+	platform_slug = platform_slug
+	if platform_slug == 'pc':
+		# game_path = lib.system.PC_DIR
+		game_slug = os.path.splitext(filename)[0]
+		game_path = os.path.join(lib.system.PC_DIR, game_slug + '/start.sh')
+	else:
+		game_path = os.path.join(lib.system.ROMS_DIR, platform_slug + '/' + filename)
+
+	subprocess.run(["game-launcher.sh", platform_slug, game_path])
+
+	return render(
+		request=request,
+		template_name="games/play.html",
+		context={
+			'game_path': game_path,
+			'platform_slug': platform_slug,
+			'filename': filename,
+		}
+	)
+
+	
 
 ## Scrape Game
 def scrape_game(request):

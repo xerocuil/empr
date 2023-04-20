@@ -43,6 +43,12 @@
 		<h4>Game Information</h4>
 
 		<table class="u-full-width">
+			{% if installed %}
+			<tr>
+				<td colspan="2"><a href="{% url 'games:play_game' game.platform.slug game.path %}">Play</a></td>
+			</tr>
+			{% endif %}
+
 			{% if game.steam_id %}
 			<tr>
 				<td><strong>Steam ID</strong></td>

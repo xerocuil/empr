@@ -28,6 +28,7 @@ urlpatterns = [
 	path('game/scrape/', views.scrape_game, name='scrape_game'),
 	path('game/genre/<int:genre_id>/', views.genre, name='genre'),
 	path('game/platform/<int:platform_id>/', views.platform, name='platform'),
+	path('game/play/<str:platform_slug>/<str:filename>/', views.play_game, name='play_game'),
 	
 	# Genres
 	path('genres/', views.genre_index, name='genre_index'),
