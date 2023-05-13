@@ -6,17 +6,6 @@ import django.db.models.deletion
 
 class Migration(migrations.Migration):
 
-    replaces = [
-        ("games", "0001_initial"),
-        ("games", "0002_auto_20220814_0600"),
-        ("games", "0003_auto_20220814_0602"),
-        ("games", "0004_game_alt_title"),
-        ("games", "0005_auto_20221023_0026"),
-        ("games", "0006_game_save_path"),
-        ("games", "0007_alter_game_save_path"),
-        ("games", "0008_game_engine_alter_game_esrb_alter_game_store"),
-    ]
-
     initial = True
 
     dependencies = []
