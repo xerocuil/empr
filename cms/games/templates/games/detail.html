@@ -123,6 +123,13 @@
 				<td>{{ game.get_region_display }}{% if game.translation %} (Translated){% endif %}</td>
 			</tr>
 
+			{% if game.save_path %}
+			<tr>
+				<td><strong>Save Path</strong></td>
+				<td><code>{{ game.save_path }}</code></td>
+			</tr>
+			{% endif %}
+
 			{% if game.store %}
 			<tr>
 				<td><strong>Store</strong></td>

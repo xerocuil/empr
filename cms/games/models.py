@@ -22,7 +22,7 @@ class Game(models.Model):
 	## Classes
 	class esrb_ratings(models.TextChoices):
 		E = 'E', _('Everyone')
-		E10 = 'E10+', _('Everyone 10+')
+		E10 = 'E10', _('Everyone 10+')
 		T = 'T', _('Teen')
 		M = 'M', _('Mature')
 		AO = 'AO', _('Adults Only')
@@ -41,12 +41,9 @@ class Game(models.Model):
 
 	class store_options(models.TextChoices):
 		BLIZZARD = 'BLIZZARD', _('Blizzard')
-		EPIC = 'EPIC', _('Epic Games')
 		GOG = 'GOG', _('GOG.com')
 		HUMBLE = 'HUMBLE', _('Humble Bundle')
 		ITCH = 'ITCH', _('itch.io')
-		MS = 'MICROSOFT', _('Microsoft')
-		NINTENDO = 'NINTENDO', _('Nintendo')
 		PSN = 'PSN', _('PlayStation Network')
 		STEAM = 'STEAM', _('Steam')
 
@@ -76,6 +73,7 @@ class Game(models.Model):
 	ram = models.CharField('RAM', max_length=128, blank=True, null=True)
 	hdd = models.CharField('HDD', max_length=128, blank=True, null=True)
 	gpu = models.CharField('GPU', max_length=128, blank=True, null=True)
+	engine = models.CharField('Engine', max_length=128, blank=True, null=True)
 
 	## Player Support
 	player = models.CharField(blank=True, choices=player_options.choices, max_length=10, null=True)
@@ -84,6 +82,7 @@ class Game(models.Model):
 
 	## Files
 	manual = models.FileField(blank=True, null=True, upload_to='games/manual/')
+	save_path = models.CharField(max_length=256, blank=True, null=True)
 
 	## Images
 	boxart = models.ImageField(blank=True, null=True, upload_to='games/boxart/')
