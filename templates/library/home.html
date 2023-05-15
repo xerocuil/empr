@@ -1,0 +1,16 @@
+<h1>{{ title }}</h1>
+<h3>We can't stop here...</h3>
+<p>This is bat country.</p>
+
+{% for g in games %}
+<table>
+    <tr>
+        <td>{{ g.id }}</td>
+        <td><a href="{{ url_for('detail', id=g.id) }}">{{ g.title }}</a></td>
+        <td>{{ g.alt_title }}</td>
+        <td>{{ g.filename }}</td>
+        <td>{{ g.developer }}</td>
+        <td>{{ g.publisher }}</td>
+    </tr>
+</table>
+{% endfor %}

@@ -1,0 +1,96 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+
+<div>
+    <img src="{{ url_for('static', filename='game_data/gamecube/alien-hominid/img/logo.png') }}">
+</div>
+
+<div id="display">
+    <section id="display-tags">
+        <div class="tag">{{ game.players_h() }}</div>
+        {% if game.co_op %}<div class="tag">Co-Op</div>{% endif %}
+        {% if game.online %}<div class="tag">Online Multiplayer</div>{% endif %}
+        <div class="tag">{{ game.controller_support_h() }}</div>
+    </section>
+    <!-- <img id="display" alt="{{ title }}" src="img/display.png" /> -->
+</div>
+
+<div id="description">{{ game.description | safe }}</div><hr>
+
+<div id="details">
+  <section>
+    <table>
+        <tr>
+            <th>Genre</th>
+            <td>{{ game.genre_id }}</td>
+        </tr>
+        <tr>
+            <th>Gameplay</th>
+            <td>{{ tags_string }}</td>
+        </tr>
+         <tr>
+            <th>Publisher</th>
+            <td>{{ game.publisher }}</td>
+        </tr>
+        <tr>
+            <th>Developer</th>
+            <td>{{ game.developer }}</td>
+        </tr>
+        <tr>
+            <th>Release</th>
+            <td>{{ game.release_date }}, {{ game.region }}</td>
+        </tr>
+        <tr>
+            <th>Platform</th>
+            <td>{{ game.platform_id }}</td>
+        </tr>
+        {% if manual %}<tr class="no-print">
+            <th>Manual</th>
+            <td><a href="Manual.pdf">Manual</a>
+        </td>{% endif %}
+    </table>
+  </section>
+    
+  {% if game.operating_system %}<section id="system-requirements">
+        <table>
+            <tr>
+                <th colspan="2" align="left">System Requirements</th>
+            </tr>
+            <tr>
+                <th>OS</th>
+                <td>{{ game.operating_system }}</td>
+            </tr>
+            <tr>
+                <th>CPU</th>
+                <td>{{ game.processor }}</td>
+            </tr>
+            <tr>
+                <th>RAM</th>
+                <td>{{ game.ram }}</td>
+            </tr>
+            <tr>
+                <th>HDD</th>
+                <td>{{ game.hdd }}</td>
+            </tr>
+                <th>GPU</th>
+                <td>{{ game.gpu }}</td>
+            </tr>
+        </table>
+    </section>{% endif %}
+
+    <section>
+       <div id="esrb">
+            <img id="esrb-icon" src="img/{{ esrb }}.svg">
+      </div>
+    </section>
+</div>
+
+<div id="footer">
+    <section>
+        <div id="esrb">
+            <img id="esrb-icon" src="img/{{ esrb }}.svg">
+        </div>
+    </section>
+</div>
+{% endblock %}

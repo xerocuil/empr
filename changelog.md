@@ -6,18 +6,14 @@
 - Windows support
 - Port Bash scripting to Python
 
-## [Unreleased]
+## [0.3.1] - 2022.0814.2023
 
 ### Added
 
-- "Alt. Title" to games model
-- Amiga/Virtual Boy support
-
-### Changed
-
+- `alt_title`, `engine` to Game model
 - Platform logos to platform game index.
 
-## [0.3.0] - 2022.0814.2023
+## [0.3.0] 
 
 ### Added
 

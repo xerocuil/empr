@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="256"
+   height="256"
+   viewBox="0 0 67.733332 67.733332"
+   version="1.1"
+   id="svg962"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs959">
+    <linearGradient
+       id="linearGradient5179">
+      <stop
+         style="stop-color:#cccccc;stop-opacity:1;"
+         offset="0"
+         id="stop5177" />
+    </linearGradient>
+    <linearGradient
+       id="Mineshaft">
+      <stop
+         style="stop-color:#333333;stop-opacity:1;"
+         offset="0"
+         id="stop3717" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3690">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop3688" />
+    </linearGradient>
+    <linearGradient
+       id="Silver">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop2230" />
+    </linearGradient>
+  </defs>
+  <g
+     id="layer1"
+     transform="matrix(1.9692309,0,0,1.9692309,-167.25648,-213.9259)">
+    <g
+       id="layer1-3"
+       transform="matrix(0.04085272,0,0,0.04085272,87.768293,103.26606)"
+       style="display:inline;fill:url(#Mineshaft);fill-opacity:1;stroke:#333333;stroke-opacity:1">
+      <path
+         style="fill:url(#Mineshaft);fill-opacity:1;fill-rule:nonzero;stroke:#333333;stroke-opacity:1"
+         d="M -2.3223259,490.72569 H 218.219 v 65.39983 H 6.3928567 v 56.68471 H -2.3223259 V 547.41036 H 209.50392 V 499.44078 H -2.3223259 v -8.71509"
+         class="ps02"
+         id="path6945" />
+      <path
+         style="fill:url(#Mineshaft);fill-opacity:1;fill-rule:nonzero;stroke:#333333;stroke-opacity:1"
+         d="m 493.71414,556.12552 v 56.68471 h -8.71507 V 547.41036 H 696.82531 V 499.44078 H 484.99907 v -8.71509 h 220.54132 v 65.39983 H 493.71414"
+         class="ps02"
+         id="path6947" />
+      <path
+         style="fill:url(#Mineshaft);fill-opacity:1;fill-rule:nonzero;stroke:#333333;stroke-opacity:1"
+         d="M 330.66855,490.72569 V 604.09505 H 218.219 v 8.71518 H 339.86777 V 499.44078 h 112.4495 v -8.71509 H 330.66855"
+         class="ps02"
+         id="path6949" />
+    </g>
+    <circle
+       style="font-variation-settings:normal;opacity:1;fill:none;fill-opacity:1;stroke:#333333;stroke-width:0.52910462;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000;stop-opacity:1"
+       id="path1317"
+       cx="102.13284"
+       cy="125.83215"
+       r="16.933332" />
+  </g>
+</svg>
