@@ -1,6 +1,6 @@
 @charset "utf-8"
 
-$default_width: 128mm
+$default_width: 128mm //Blu ray box width
 
 $black: #000000
 $mineshaft: #333333
@@ -19,6 +19,7 @@ html
 
 body
   font-size: 1.4em
+  font-family: sans-serif
 
 article
     width: $default_width
@@ -55,7 +56,6 @@ article
 //     text-align: right
 //     padding-left: 1.6em
 
-section#display-tags
 
 #esrb-icon
     height: 4.8em
@@ -63,16 +63,18 @@ section#display-tags
 
 #display
     width: $default_width
-    height: 90mm
+    height: auto
     background-image: url(img/display.png)
     background-size: 100% 100%
     background-position: center
     position: relative
+    z-index: 0
     section#display-tags
         text-align: right
         position: absolute
         bottom: 0
         right: 0
+        z-index: 10
         div.tag
             margin: 0.4em 0
             padding: 0.4em

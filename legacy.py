@@ -1,4 +1,4 @@
-import glob, json, html, markdown, os, sass, shutil, sqlite3, subprocess, sys, tarfile, yaml
+import csv, glob, json, html, markdown, os, sass, shutil, sqlite3, subprocess, sys, tarfile, yaml
 from datetime import datetime
 
 from jinja2 import Environment, FileSystemLoader, PackageLoader, select_autoescape
@@ -14,7 +14,7 @@ app_dir = os.path.dirname(os.path.realpath(__file__))
 ### Connect to legacy db
 class legacy_db:
     try:
-        connection = sqlite3.connect(System.l_db_file)
+        connection = sqlite3.connect(System.l_db_file, check_same_thread=False)
         cursor = connection.cursor()
     except:
         notification_stdout('Database Connection error')
@@ -22,7 +22,7 @@ class legacy_db:
 ### Connect to development db
 class new_db:
     try:
-        connection = sqlite3.connect('instance/test.db')
+        connection = sqlite3.connect('instance/test.db', check_same_thread=False)
         cursor = connection.cursor()
     except:
         notification_stdout('Database Connection error')
@@ -415,6 +415,118 @@ def platform_id_q(platform_id):
         exit()
     return result
 
+
+def import_genre(csv_file):
+    fields = []
+    rows = []
+
+    with open(csv_file, 'r') as csvfile:
+        csvreader = csv.reader(csvfile)
+        fields = next(csvreader)
+        for row in csvreader:
+            rows.append(row)
+
+    for row in rows:
+        print(row)
+
+
+        sql = ''' INSERT INTO genre(id, name)VALUES(?,?) '''
+
+        try:
+            new_db.cursor.execute(sql, row)
+            new_db.connection.commit()
+            notification_stdout('Genres imported successfully.')
+        except sqlite3.DatabaseError as err:
+            notification_stdout('Error importing genres.')
+            notification_stdout(str(err))
+
+
+def import_platform(csv_file):
+    fields = []
+    rows = []
+
+    with open(csv_file, 'r') as csvfile:
+        csvreader = csv.reader(csvfile)
+        fields = next(csvreader)
+        for row in csvreader:
+            rows.append(row)
+
+    for row in rows:
+        print(row)
+
+
+        sql = ''' INSERT INTO platform(
+            id,
+            name,
+            slug,
+            emulator,
+            launcher
+            )VALUES(?,?,?,?,?) '''
+
+        try:
+            new_db.cursor.execute(sql, row)
+            new_db.connection.commit()
+            notification_stdout('Platforms imported successfully.')
+        except sqlite3.DatabaseError as err:
+            notification_stdout('Error importing platforms.')
+            notification_stdout(str(err))
+
+def import_tag(tag_file, game_tags_file):
+    
+
+    ### Tag
+
+    fields = []
+    rows = []
+    with open(tag_file, 'r') as csvfile:
+        csvreader = csv.reader(csvfile)
+        fields = next(csvreader)
+        for row in csvreader:
+            rows.append(row)
+
+    for row in rows:
+        print(row)
+
+        sql = ''' INSERT INTO tag(
+            id,
+            name
+            )VALUES(?,?) '''
+
+        try:
+            new_db.cursor.execute(sql, row)
+            new_db.connection.commit()
+            notification_stdout('Tags imported successfully.')
+        except sqlite3.DatabaseError as err:
+            notification_stdout('Error importing Tags.')
+            notification_stdout(str(err))
+
+    ### Game Tags
+
+    fields = []
+    rows = []
+
+    with open(game_tags_file, 'r') as csvfile:
+        csvreader = csv.reader(csvfile)
+        fields = next(csvreader)
+        for row in csvreader:
+            rows.append(row)
+
+    for row in rows:
+        print(row)
+
+        sql = ''' INSERT INTO game_tags(
+            game_id,
+            tag_id
+            )VALUES(?,?) '''
+
+        try:
+            new_db.cursor.execute(sql, row)
+            new_db.connection.commit()
+            notification_stdout('Game Tags imported successfully.')
+        except sqlite3.DatabaseError as err:
+            notification_stdout('Error importing Game Tags.')
+            notification_stdout(str(err))
+
 ### Import data from yaml file into database
 def import_yml(yml_file):
     ### Get data from file
@@ -437,7 +549,7 @@ def import_yml(yml_file):
     # ## DEBUG
     # notification_stdout('values: ' + str(values))
 
-    sql = ''' INSERT INTO games(
+    sql = ''' INSERT INTO game(
         id,
         filename,
         steam_id,
@@ -618,10 +730,22 @@ def fix_paths():
 
 ### Batch
 def batch():
+
+    import_dir = os.path.join(System.app_root, 'import')
+    platform_csv = os.path.join(import_dir, 'platform.csv')
+    genre_csv = os.path.join(import_dir, 'genre.csv')
+    tag_csv = os.path.join(import_dir, 'tag.csv')
+    game_tags_csv = os.path.join(import_dir, 'game_tags.csv')
+
+    import_platform(platform_csv)
+    import_genre(genre_csv)
+    import_tag(tag_csv, game_tags_csv)
+
     try:
         # legacy_db.cursor.execute('SELECT id, path FROM games_game WHERE 1 ORDER BY id')
         legacy_db.cursor.execute('SELECT id, path FROM games_game WHERE 1 ORDER BY id LIMIT 100')
         result = legacy_db.cursor.fetchall()
+        # legacy_db.connection.close()
     except sqlite3.DatabaseError as err:
         notification_stdout('Game query error.')
         notification_stdout(str(err))
@@ -631,10 +755,6 @@ def batch():
         path = r[1]
         print('path: ' + path)
         game_data(path)
-
-
-
-
 
 
 # legacy_db.connection.commit()

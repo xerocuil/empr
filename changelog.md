@@ -6,6 +6,19 @@
 - Windows support
 - Port Bash scripting to Python
 
+## Unreleased
+
+### Added
+
+- YAML support: import/export game data.
+- Util scripts ported from bash to python.
+
+### Changed
+
+- Refactored app, models to separate modules.
+- Migrated platform from Django to Flask.
+- Images are now managed via a flat-file system instead of via database.
+
 ## [0.3.1] - 2022.0814.2023
 
 ### Added
