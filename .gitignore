@@ -1,4 +1,3 @@
-v0.3.1/
 *.bak*
 *.egg-info/
 *.pyc
@@ -13,6 +12,13 @@ cache
 dist/
 gui
 htmlcov/
+import/
 instance/
+static/assets/*
+static/games/*
+static/img/*
+!static/assets/.gitkeep
+!static/games/.gitkeep
+!static/img/.gitkeep
 test.*
-static/data
+v0.3.1/
