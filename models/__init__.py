@@ -6,6 +6,9 @@ from slugify import slugify
 from libs.config import App as a
 from libs.config import System as s
 
+
+from PIL import Image
+
 static = s.static
 
 class Genre(a.db.Model):
@@ -35,6 +38,7 @@ class Game(a.db.Model):
     #### REQUIRED
     title = a.db.Column(a.db.String(128), nullable=False) 
     alt_title = a.db.Column(a.db.String(128), nullable=True)
+    edition = a.db.Column(a.db.String(128), nullable=True)
     description = a.db.Column(a.db.Text(), nullable=True)
     collection_id = a.db.Column(a.db.Integer(), nullable=True)
     archived = a.db.Column(a.db.Boolean(), default=0)
@@ -53,6 +57,7 @@ class Game(a.db.Model):
 
     region = a.db.Column(a.db.String(2), nullable=True)
     esrb = a.db.Column(a.db.String(4), nullable=True)
+    content_descriptors = a.db.Column(a.db.String(200), nullable=True)
     translation = a.db.Column(a.db.Boolean(), default=0)
     store = a.db.Column(a.db.String(64), nullable=True)
 
@@ -134,13 +139,60 @@ class Game(a.db.Model):
             url_path = '/static/blerg.png'
 
         return url_path
+
+    def get_store_image(self, filename):
+        url_suffix = 'img/store/' + self.store + '/' + filename
+
+        if os.path.exists(os.path.join(static, url_suffix)):
+            url_path = '/static/' + url_suffix
+        else:
+            ### !!!Get Default Images!!!!
+            url_path = ''
+
+        return url_path
+
+
+
+
+    def grayscale_logo(self):
+        logo = self.get_game_image('logo.png')
         
+        app_root = s.app_root
+        l_path = os.path.join(app_root + logo)
         
+        if os.path.exists(l_path):
+            print(l_path)
+
+            l_name = os.path.basename(l_path)
+            l_dir = os.path.dirname(l_path)
+            l_slug = l_name.split('.')[0]
+            l_print = os.path.join(l_dir, l_slug + '-print.png')
+
+            if os.path.exists(l_print):
+                print('\nPrint image exists.')
+            else:
+                try:
+                    img = Image.open(l_path).convert('LA')
+                    img.save(l_print)
+                    print('\nImage created successfully\n')
+                except:
+                    print('\nThere was an error creating the image.\n') 
+        else:
+            print('no l_path')
+
+
+    def content_descriptor_array(self):
+        if self.content_descriptors:
+            cda = self.content_descriptors.split(',')
+            return cda
+
 
 
     def controller_support_h(self):
         if self.controller_support:
             s = 'Controller Supported'
+        else:
+            s = 'Mouse/Keyboard Required'
         return s
 
     def players_h(self):

@@ -415,7 +415,6 @@ def platform_id_q(platform_id):
         exit()
     return result
 
-
 def import_genre(csv_file):
     fields = []
     rows = []
@@ -439,7 +438,6 @@ def import_genre(csv_file):
         except sqlite3.DatabaseError as err:
             notification_stdout('Error importing genres.')
             notification_stdout(str(err))
-
 
 def import_platform(csv_file):
     fields = []
@@ -743,7 +741,7 @@ def batch():
 
     try:
         # legacy_db.cursor.execute('SELECT id, path FROM games_game WHERE 1 ORDER BY id')
-        legacy_db.cursor.execute('SELECT id, path FROM games_game WHERE 1 ORDER BY id LIMIT 100')
+        legacy_db.cursor.execute('SELECT id, path FROM games_game WHERE 1 ORDER BY id')
         result = legacy_db.cursor.fetchall()
         # legacy_db.connection.close()
     except sqlite3.DatabaseError as err:
@@ -755,7 +753,6 @@ def batch():
         path = r[1]
         print('path: ' + path)
         game_data(path)
-
 
 # legacy_db.connection.commit()
 # legacy_db.connection.close()

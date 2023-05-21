@@ -1,58 +1,59 @@
 {% extends 'library/base.html' %}
 {% block content %}
 
-<div id="display">
-    <section id="display-tags">
-        <div class="tag">{{ game.players_h() }}</div>
-        {% if game.co_op %}<div class="tag">Co-Op</div>{% endif %}
-        {% if game.online %}<div class="tag">Online Multiplayer</div>{% endif %}
-        <div class="tag">{{ game.controller_support_h() }}</div>
-    </section>
-    <img id="display" alt="{{ title }}" src="{{ game.get_game_image('display.png') }}" />
-</div>
+<article id="detail">
+    <div id="display">
+        <section id="display-tags">
+            <div class="tag">{{ game.players_h() }}</div>
+            {% if game.co_op %}<div class="tag">Co-Op</div>{% endif %}
+            {% if game.online %}<div class="tag">Online Multiplayer</div>{% endif %}
+            <div class="tag">{{ game.controller_support_h() }}</div>
+        </section>
+        <img id="display" alt="{{ title }}" src="{{ game.get_game_image('display.png') }}" />
+    </div>
 
-<div id="description">{{ game.description | safe }}</div>
+    <div id="description">{{ game.description | safe }}</div>
 
-<div id="details">
-  <section>
-    <table>
-        <tr>
-            <th>Genre</th>
-            <td>{{ game.genre.name }}</td>
-        </tr>
-        <tr>
-            <th>Gameplay</th>
-            <td>
-            {% for t in game.tags %}
-                {{ t.name }}
-                {{ ", " if not loop.last }}
-            {% endfor %}
-            </td>
-        </tr>
-         <tr>
-            <th>Publisher</th>
-            <td>{{ game.publisher }}</td>
-        </tr>
-        <tr>
-            <th>Developer</th>
-            <td>{{ game.developer }}</td>
-        </tr>
-        <tr>
-            <th>Release</th>
-            <td>{{ game.release_date }}, {{ game.region }}</td>
-        </tr>
-        <tr>
-            <th>Platform</th>
-            <td>{{ game.platform.name }}</td>
-        </tr>
-        {% if manual %}<tr class="no-print">
-            <th>Manual</th>
-            <td><a href="Manual.pdf">Manual</a>
-        </td>{% endif %}
-    </table>
-  </section>
-    
-  {% if game.operating_system %}<section id="system-requirements">
+    <div id="details">
+        <section>
+            <table>
+                <tr>
+                    <th>Genre</th>
+                    <td>{{ game.genre.name }}</td>
+                </tr>
+                <tr>
+                    <th>Gameplay</th>
+                    <td>
+                    {% for t in game.tags %}
+                        {{ t.name }}
+                        {{ ", " if not loop.last }}
+                    {% endfor %}
+                    </td>
+                </tr>
+                 <tr>
+                    <th>Publisher</th>
+                    <td>{{ game.publisher }}</td>
+                </tr>
+                <tr>
+                    <th>Developer</th>
+                    <td>{{ game.developer }}</td>
+                </tr>
+                <tr>
+                    <th>Release</th>
+                    <td>{{ game.release_date }}, {{ game.region }}</td>
+                </tr>
+                <tr>
+                    <th>Platform</th>
+                    <td>{{ game.platform.name }}</td>
+                </tr>
+                {% if manual %}<tr class="no-print">
+                    <th>Manual</th>
+                    <td><a href="Manual.pdf">Manual</a>            </td>{% endif %}
+                </tr>
+            </table>
+      </section>
+        
+      {% if game.operating_system %}<section id="system-requirements">
         <table>
             <tr>
                 <th colspan="2" align="left">System Requirements</th>
@@ -73,6 +74,7 @@
                 <th>HDD</th>
                 <td>{{ game.hdd }}</td>
             </tr>
+            <tr>
                 <th>GPU</th>
                 <td>{{ game.gpu }}</td>
             </tr>
@@ -82,15 +84,16 @@
     <section>
         <img id="platform-icon" src="{{ game.get_platform_image('icon.svg') }}">
     </section>
-</div>
+    </div>
 
-<div id="footer">
-    <section>
-        <div id="esrb">
-            <p>esrb: {{ game.esrb }}</p>
-            <img id="esrb-icon" src="{{ game.get_esrb_image() }}">
+    <div id="footer">
+        <section>
+            <div id="esrb">
+                <p>esrb: {{ game.esrb }}</p>
+                <img id="esrb-icon" src="{{ game.get_esrb_image() }}">
 
-        </div>
-    </section>
-</div>
+            </div>
+        </section>
+    </div>
+</article>
 {% endblock %}

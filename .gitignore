@@ -14,11 +14,7 @@ gui
 htmlcov/
 import/
 instance/
-static/assets/*
 static/games/*
-static/img/*
-!static/assets/.gitkeep
 !static/games/.gitkeep
-!static/img/.gitkeep
 test.*
 v0.3.1/

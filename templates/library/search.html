@@ -2,7 +2,7 @@
 {% block content %}
 
 <table>
-    {% for g in recently_added_games %}    
+    {% for g in games %}    
     <tr>
         <td>
             <a href="{{ url_for('detail', id=g.id) }}">{{ g.get_sort_title(g.title) }}</a>

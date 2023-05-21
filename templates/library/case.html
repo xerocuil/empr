@@ -1,0 +1,142 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+<!-- <article id="case-front">
+    <div id="boxart">
+        <img alt="{{ title }}" src="{{ game.get_game_image('boxart.jpg') }}" />
+    </div>
+
+    <div id="case-icons">
+        <img class="icon" src="{{ game.get_platform_image('icon-dark.svg') }}">
+
+        {% if game.esrb %}
+        <img class="icon" src="{{ game.get_esrb_image() }}">
+        {% endif %}
+    </div>
+</article> -->
+
+<div class="template">
+    <div class="spine left">
+        <div class="spine-content">
+            <span><img class="spine-icon" src="{{ game.get_platform_image('icon-dark.svg') }}"></span>
+            <span class="spine-middle">{{ title }}</span>
+            <span class="spine-right"><img class="spine-icon" src="{{ game.get_platform_image('icon-dark.svg') }}"></span>
+        </div>
+    </div>
+
+    <article id="case-back">
+        {% if game.get_game_image %}
+        <section id="logo">
+            <img alt="{{ title }}" src="{{ game.get_game_image('logo-print.png') }}" />
+        </section>
+        {% endif %}
+
+        <section id="description">
+            <div>{{ game.description | safe }}</div>
+        </section>
+
+
+        <section id="details">
+            <div id="release_details">
+                <table>
+                    <tr>
+                        <th>Genre</th>
+                        <td>
+                            {{ game.genre.name }}
+                            {%if game.tags %}<br>{% for t in game.tags %}
+                                {{ t.name }}{{ ", " if not loop.last }}{% endfor %}{% endif %}
+                        </td>
+                    </tr>
+                    
+                     <tr>
+                        <th>Publisher</th>
+                        <td>{{ game.publisher }}</td>
+                    </tr>
+                    <tr>
+                        <th>Developer</th>
+                        <td>{{ game.developer }}</td>
+                    </tr>
+                    {% if game.region != 'NA' %}<tr>
+                        <th>Region</th>
+                        <th>{{ game.region }}</th>
+                    </tr>{% endif %}
+                    <tr>
+                        <th>Release</th>
+                        <td>{{ game.release_date }}</td>
+                    </tr>
+                    <tr>
+                        <th>Platform</th>
+                        <td>{{ game.platform.name }}</td>
+                    </tr>
+                    <!-- {% if manual %}<tr class="no-print">
+                        <th>Manual</th>
+                        <td><a href="Manual.pdf">Manual</a></td>
+                    </tr>{% endif %} -->
+                </table>
+            </div>
+
+            {% if game.operating_system %}<div id="system-requirements">
+                <table>
+                    <tr>
+                        <th colspan="2" align="left">System Requirements</th>
+                    </tr>
+                    <tr>
+                        <th>OS</th>
+                        <td>{{ game.operating_system }}</td>
+                    </tr>
+                    <tr>
+                        <th>CPU</th>
+                        <td>{{ game.processor }}</td>
+                    </tr>
+                    <tr>
+                        <th>RAM</th>
+                        <td>{{ game.ram }}</td>
+                    </tr>
+                    <tr>
+                        <th>HDD</th>
+                        <td>{{ game.hdd }}</td>
+                    </tr>
+                    <tr>
+                        <th>GPU</th>
+                        <td>{{ game.gpu }}</td>
+                    </tr>
+                </table>
+            </div>{% endif %}
+
+            <div id="labels">
+                <span>
+                    <img class="logo" src="{{ game.get_platform_image('logo-dark.svg') }}">
+                </span>
+
+                {% if game.store %}
+                <span>
+                    <img class="logo" src="{{ game.get_store_image('logo-dark.svg') }}" alt="{{ game.store }}">
+                </span>
+                {% endif %}
+
+                {% if game.esrb %}
+                    <span id="esrb">
+                        <img id="esrb-rating" src="{{ game.get_esrb_image() }}">
+
+                        <div id="esrb-cd">
+                        {% if game.content_descriptors %}
+                            {% for c in game.content_descriptor_array() %}
+                                <p class="cd-tag">{{ c }}</p>
+                             {% endfor %}
+                        {% endif %}
+                        </div>
+                    </span>
+                {% endif %}
+            </div>
+        </section>
+    </article>
+
+    <div class="spine right">
+         <div class="spine-content">
+            <span><img class="spine-icon" src="{{ game.get_platform_image('icon-dark.svg') }}"></span>
+            <span class="spine-middle">{{ title }}</span>
+            <span class="spine-right"><img class="spine-icon" src="{{ game.get_platform_image('icon-dark.svg') }}"></span>
+        </div>
+    </div>
+</div>
+{% endblock %}
