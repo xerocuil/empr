@@ -6,15 +6,12 @@
 .pytest_cache/
 .venv/
 __pycache__/
-bin/
+docs/bin/
 build/
 cache
 dist/
 gui
-htmlcov/
 import/
 instance/
-static/games/*
-!static/games/.gitkeep
 test.*
 v0.3.1/

@@ -22,9 +22,33 @@
     </div>
 
     <div class="field">
-        {{ form.esrb.label }}<br>
-        {{ form.esrb(class="esrb", value=game.esrb) }}
+        <label>Genre</label><br>
+        <select name="genre_id" id="genre_id">
+            <option value=None>None</option>
+
+            {% for name, id in genres %}
+                <option value="{{ id }}"
+                    {% if id  == game.genre.id %}
+                        selected
+                    {% endif %}>
+                    {{ name }}
+                </option>
+            {% endfor %}
+
+        </select>
     </div>
+
+    
+
+<!--     <div class="field">
+        <label>Description</label>
+        <textarea
+            name="description"
+            placeholder="Enter description here..."
+            cols="60" rows="5">
+            {{ game.description }}
+        </textarea>
+    </div> -->
 
     <div>{{ form.submit() }}</div>
 </form>
@@ -42,6 +66,10 @@
         <button onClick="launch_game()">Launcher</button>
     </div>
 {% endif %}
+
+
+
+
 
 {% endblock %}
 
