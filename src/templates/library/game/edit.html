@@ -1,0 +1,47 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+
+<h1 class="title">{% block title %} Edit {{ game.title }} {% endblock %}</h1>
+
+<form method="post">
+    {{ form.hidden_tag() }}
+    <div class="field">
+        {{ form.title.label }}<br>
+        {{ form.title(class="title", value=game.title) }}
+    </div>
+
+    <div class="field">
+        {{ form.description.label }}<br>
+        <textarea class="description" id="description" name="description" value="test">{{ game.description }}</textarea>
+    </div>
+
+    <div class="field">
+        {{ form.year.label }}<br>
+        {{ form.year(class="year", value=game.year) }}
+    </div>
+
+    <div class="field">
+        {{ form.esrb.label }}<br>
+        {{ form.esrb(class="esrb", value=game.esrb) }}
+    </div>
+
+    <div>{{ form.submit() }}</div>
+</form>
+
+{% endblock %}
+
+
+{% block sidebar %}
+
+{% if installed %}
+    <div>
+        Installed to <span id="game_path">{{ game_path }}</span>
+    </div>
+    <div class="launcher">
+        <button onClick="launch_game()">Launcher</button>
+    </div>
+{% endif %}
+
+{% endblock %}
+

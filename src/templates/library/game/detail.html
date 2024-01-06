@@ -1,0 +1,81 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+
+<h1 class="title">{% block title %} {{ game.title }} {% endblock %}</h1>
+<div id="game">
+    <div id="boxart">
+        <img src="{{ url_for('media', path='games/'+game.platform.slug+'/'+game.slug+'/boxart.jpg') }}">
+    </div>
+
+    
+
+    <div id="game_details">
+        <div class="detail">
+            <label>Slug</label>
+            <div>
+                <span id="slug">{{ game.slug }}</span>
+            </div>
+        </div>
+        
+        <div class="detail">
+            <label>Platform</label>
+            <div>
+                {{ game.platform.name }}<br>
+                <span id="platform_slug">{{ game.platform.slug }}</span>
+            </div>
+        </div>
+
+        <div class="detail">
+            <label>Genre</label>
+            <div>{{ game.genre }}</div>
+        </div>
+
+        <div class="detail">
+            <label>Developer</label>
+            <div>{{ game.developer }}</div>
+        </div>
+
+        <div class="detail">
+            <label>Publisher</label>
+            <div>{{ game.publisher }}</div>
+        </div>
+
+        
+
+        {% if game.collection_id %}
+            <div class="detail">
+                <label>Collection</label>
+                <div>{{ game.collection }}</div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<div>
+    <div class="description">
+        <h3>Description</h3>
+        {{ desc | safe }}
+    </div>
+
+    {% if notes %}
+        <div class="notes">
+            <h3>Notes</h3>
+            {{ notes | safe }}
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}
+
+{% block sidebar %}
+    {% if installed %}
+        <div>
+            Installed to <span id="game_path">{{ game_path }}</span>
+        </div>
+        <div class="launcher">
+            <button onClick="launch_game()">Launcher</button>
+        </div>
+    {% endif %}
+{% endblock %}
+
