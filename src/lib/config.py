@@ -7,15 +7,19 @@ from configparser import ConfigParser
 
 HOME_DIR = os.path.expanduser('~')
 PROFILE_DIR = os.path.join(HOME_DIR, '.config/empr')
-CONFIG = os.path.join(PROFILE_DIR, 'config.ini')
+CONFIG_PATH = os.path.join(PROFILE_DIR, 'config.ini')
+
+if not os.path.exists(CONFIG_PATH):
+    init_config()
+
+conf = ConfigParser()
+conf.read(CONFIG_PATH)
 
 def generate_key():
   key = ''.join(random.SystemRandom().choice(string.ascii_letters + string.digits) for _ in range(64))
   return key
 
 def init_config():
-
-    config = ConfigParser()
 
     # Create 'profiles' directory if missing
     if not os.path.exists(PROFILE_DIR):
@@ -27,8 +31,8 @@ def init_config():
         'app_title': str(os.getenv('APP_TITLE')),
         'debug': True,
         'db': os.path.join(PROFILE_DIR, 'db.sqlite3'),
-        'media': os.path.join(PROFILE_DIR, 'media')
-        'secret_key': generate_key()
+        'media': os.path.join(PROFILE_DIR, 'media'),
+        'key': generate_key()
     }
 
     config['GAMES'] = {
@@ -47,5 +51,17 @@ def init_config():
     }
 
     # Write to config.ini
-    with open(CONFIG, 'w') as conf_data:
+    with open(CONFIG_PATH, 'w') as conf_data:
         config.write(conf_data)
+
+
+# Create Config class
+class Config:
+  APP_ID = conf['APP']['app_id']
+  APP_TITLE = conf['APP']['app_title']
+  CONFIG_PATH = CONFIG_PATH
+  DB = conf['APP']['db']
+  KEY = conf['APP']['key']
+  MEDIA = conf['APP']['media']
+  GAMES_DIR = conf['GAMES']['games_dir']
+  ROMS_DIR = conf['GAMES']['roms_dir']

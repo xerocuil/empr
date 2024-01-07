@@ -17,13 +17,13 @@
                     {% for g in games %}
                         <tr>
                             <td>
-                                <a href="{{ url_for('game_detail', game_id=g.id) }}">{{ g.title }}</a>
+                                <a href="{{ url_for('library.game_detail', game_id=g.id) }}">{{ g.title }}</a>
                             </td>
                             <td>
                                 <a href="">{{ g.platform }}</a>
                             </td>
                             <td>{{ g.esrb }}</td>
-                            <td><a href="{{ url_for('game_edit', game_id=g.id) }}">Edit</a></td>
+                            <td><a href="{{ url_for('library.game_edit', game_id=g.id) }}">Edit</a></td>
                         </tr>
                     {% endfor %}
                 </tbody>

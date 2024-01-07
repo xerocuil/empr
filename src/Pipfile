@@ -24,6 +24,5 @@ flask-wtf = "*"
 python_version = "3.11"
 
 [scripts]
-config = "python -c \"import config; config.init_config()\""
 main = "./main.py"
 test = "./test.py"

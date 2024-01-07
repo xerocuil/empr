@@ -1,0 +1,239 @@
+[
+    {
+        "id": 2,
+        "name": "GameCube",
+        "core": "dolphin_libretro",
+        "slug": "gamecube"
+    },
+    {
+        "id": 3,
+        "name": "Amiga",
+        "core": "puae_libretro",
+        "slug": "amiga"
+    },
+    {
+        "id": 4,
+        "name": "Steam",
+        "slug": "steam"
+    },
+    {
+        "id": 5,
+        "name": "PlayStation",
+        "core": "mednafen_psx_libretro",
+        "slug": "ps1"
+    },
+    {
+        "id": 6,
+        "name": "Dreamcast",
+        "core": "flycast_libretro",
+        "slug": "dreamcast"
+    },
+    {
+        "id": 7,
+        "name": "Nintendo 64",
+        "core": "mupen64plus_next_libretro",
+        "slug": "n64"
+    },
+    {
+        "id": 8,
+        "name": "PlayStation Portable",
+        "core": "ppsspp_libretro",
+        "slug": "psp"
+    },
+    {
+        "id": 9,
+        "name": "Atari 2600",
+        "core": "stella_libretro",
+        "slug": "2600"
+    },
+    {
+        "id": 10,
+        "name": "Nintendo",
+        "core": "nestopia_libretro",
+        "slug": "nes"
+    },
+    {
+        "id": 11,
+        "name": "PlayStation 2",
+        "core": "pcsx2_libretro",
+        "slug": "ps2"
+    },
+    {
+        "id": 12,
+        "name": "Genesis",
+        "core": "picodrive_libretro",
+        "slug": "genesis"
+    },
+    {
+        "id": 13,
+        "name": "3DO",
+        "core": "opera_libretro",
+        "slug": "3d0"
+    },
+    {
+        "id": 14,
+        "name": "Arcade",
+        "core": "mame_libretro",
+        "slug": "arcade"
+    },
+    {
+        "id": 15,
+        "name": "Game Boy Advance",
+        "core": "mgba_libretro",
+        "slug": "gba"
+    },
+    {
+        "id": 16,
+        "name": "Game Boy Color",
+        "core": "sameboy_libretro",
+        "slug": "gbc"
+    },
+    {
+        "id": 17,
+        "name": "NEO•GEO",
+        "core": "fbneo_libretro",
+        "slug": "neo-geo"
+    },
+    {
+        "id": 18,
+        "name": "Neo Geo Pocket",
+        "core": "race_libretro",
+        "slug": "ngp"
+    },
+    {
+        "id": 19,
+        "name": "Saturn",
+        "core": "mednafen_saturn_libretro",
+        "slug": "saturn"
+    },
+    {
+        "id": 20,
+        "name": "TurboGrafx-16",
+        "core": "mednafen_pce_libretro",
+        "slug": "tg-16"
+    },
+    {
+        "id": 21,
+        "name": "Wii",
+        "core": "dolphin_libretro",
+        "slug": "wii"
+    },
+    {
+        "id": 22,
+        "name": "Xbox",
+        "slug": "xbox"
+    },
+    {
+        "id": 23,
+        "name": "Wii U",
+        "slug": "wii-u"
+    },
+    {
+        "id": 24,
+        "name": "Super Nintendo",
+        "core": "snes9x_libretro",
+        "slug": "snes"
+    },
+    {
+        "id": 26,
+        "name": "Atari Jaguar",
+        "core": "virtualjaguar_libretro",
+        "slug": "jaguar"
+    },
+    {
+        "id": 27,
+        "name": "Sega CD",
+        "core": "picodrive_libretro",
+        "slug": "scd"
+    },
+    {
+        "id": 28,
+        "name": "Game Gear",
+        "core": "picodrive_libretro",
+        "slug": "gg"
+    },
+    {
+        "id": 29,
+        "name": "Master System",
+        "core": "picodrive_libretro",
+        "slug": "sms"
+    },
+    {
+        "id": 30,
+        "name": "Atari Lynx",
+        "core": "mednafen_lynx_libretro",
+        "slug": "lynx"
+    },
+    {
+        "id": 31,
+        "name": "32X",
+        "core": "picodrive_libretro",
+        "slug": "32x"
+    },
+    {
+        "id": 32,
+        "name": "Virtual Boy",
+        "core": "mednafen_vb_libretro",
+        "slug": "vb"
+    },
+    {
+        "id": 33,
+        "name": "WonderSwan",
+        "core": "mednafen_wswan_libretro",
+        "slug": "ws"
+    },
+    {
+        "id": 34,
+        "name": "Commodore 64",
+        "core": "vice_x64_libretro",
+        "slug": "c64"
+    },
+    {
+        "id": 35,
+        "name": "Game Boy",
+        "core": "sameboy_libretro",
+        "slug": "gb"
+    },
+    {
+        "id": 36,
+        "name": "PlayStation 3",
+        "slug": "ps3"
+    },
+    {
+        "id": 37,
+        "name": "Nintendo DS",
+        "core": "desmume_libretro",
+        "slug": "nds"
+    },
+    {
+        "id": 38,
+        "name": "Nintendo 3DS",
+        "core": "citra_libretro",
+        "slug": "3ds"
+    },
+    {
+        "id": 39,
+        "name": "MSX",
+        "slug": "msx"
+    },
+    {
+        "id": 41,
+        "name": "MS-DOS",
+        "slug": "dos"
+    },
+    {
+        "id": 42,
+        "name": "Linux",
+        "slug": "linux"
+    },
+    {
+        "id": 43,
+        "name": "Windows",
+        "slug": "windows"
+    },
+    {
+        "id": 44,
+        "name": "Adobe Flash",
+        "slug": "flash"
+    }
+]
