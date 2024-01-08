@@ -37,6 +37,8 @@ def game_detail(game_id):
 
     platform = Platform.query.get_or_404(game.platform_id)
 
+
+    # Get paths
     if platform.emulator:
         base_dir = Config.ROMS_DIR
     else:
@@ -45,12 +47,24 @@ def game_detail(game_id):
     platform_dir = os.path.join(base_dir, game.platform.slug)
     game_path = os.path.join(platform_dir, game.slug)
 
+    boxart_url = os.path.join(os.path.join(Config.MEDIA, 'games/'+game.platform.slug+'/boxart/'+game.slug+'.jpg'))
+    if os.path.exists(boxart_url):
+        boxart = boxart_url
+    else:
+        boxart = None
+
+    logo_url = os.path.join(os.path.join(Config.MEDIA, 'games/'+game.platform.slug+'/logo/'+game.slug+'.png'))
+    if os.path.exists(logo_url):
+        logo = logo_url
+    else:
+        logo = None
+
     if os.path.exists(game_path):
         installed = True
     else:
         installed = False
 
-    return render_template('library/game/detail.html', desc=desc, game=game, game_path=game_path, installed=installed, notes=notes)
+    return render_template('library/game/detail.html', boxart=boxart, logo=logo, desc=desc, game=game, game_path=game_path, installed=installed, notes=notes)
 
 @library_bp.route('/library/game/edit/<int:game_id>', methods=('GET', 'POST'))
 def game_edit(game_id):

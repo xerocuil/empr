@@ -8,7 +8,6 @@ $base: 1.6rem
 // $default-border: 0.1rem solid $highlight-color-alpha
 
 // Elements
-
 html
   font-size: 62.5%
 
@@ -21,21 +20,24 @@ textarea
   font-family: $default-sans-serif
   font-size: $base
 
+code
+    font-size: $base
+
 label
     font-weight: 600
 
 nav
     a
-        margin-right: 3.2em
+        margin-right: 3.2rem
 
-#content
+#content, #sidebar
     margin-top: $base * 4
 
 #header
     width: 100%
-    height: $base * 4
+    height: 6.4rem
     display: grid
-    grid-template-columns: 13fr 3fr
+    grid-template-columns: 12fr 4fr
     position: fixed
     top: 0
     background: white
@@ -47,7 +49,7 @@ nav
 
 #main-window
     display: grid
-    grid-template-columns: 13fr 3fr
+    grid-template-columns: 12fr 4fr
     z-index: 0
 
 
@@ -59,16 +61,22 @@ nav
 
 // Game
 #game
-    display: inline-grid
-    grid-template-columns: 1fr 1fr 1fr
+    display: grid
+    grid-template-columns: 1fr 2fr
     #boxart
         img
-            width: 100%
+            max-width: 24.0rem
+            position: relative
 
     #game_details
+        max-height: 32.0rem
         display: flex
         flex-flow: column wrap
-        justify-content: space-between
-        .details
-            font-size: 200%
+        justify-content: flex-start
+        .detail
+            margin: 0.8rem
 
+#tech-info
+    display: flex
+    flex-flow: row nowrap
+    justify-content: space-between

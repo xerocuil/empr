@@ -6,7 +6,7 @@ import string
 from configparser import ConfigParser
 
 HOME_DIR = os.path.expanduser('~')
-PROFILE_DIR = os.path.join(HOME_DIR, '.config/empr')
+PROFILE_DIR = os.path.join(HOME_DIR, '.empr')
 CONFIG_PATH = os.path.join(PROFILE_DIR, 'config.ini')
 MEDIA = os.path.join(PROFILE_DIR, 'media')
 JSON = os.path.join(PROFILE_DIR, 'json')

@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import os
+import subprocess
 import sys
 import threading
 import webview
@@ -15,7 +16,7 @@ from lib.extensions import db, Config
 from routes.app import app_bp
 from routes.library import library_bp
 
-DB_PATH = os.path.join(os.path.expanduser('~'), '.config/empr/db.sqlite3')
+DB_PATH = os.path.join(os.path.expanduser('~'), '.empr/db.sqlite3')
 
 def create_app():
     app = Flask(__name__, template_folder='templates')

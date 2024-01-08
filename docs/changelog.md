@@ -2,11 +2,20 @@
 
 ## To-Do
 
-- Settings
-- Package management
-- Forms
-- JSON API
-- UX
+- [ ] Settings
+- [ ] Package management
+    - [ ] Server support
+
+- [ ] Import legacy media
+- [ ] Remove legacy elements from models
+- [ ] Forms
+    + [ ] SQLite
+    + [ ] JSON
+- [ ] API 
+- [x] Create list tables
+- [x] Pagination
+- [x] Search
+- [ ] UX
 
 ## Unreleased
 
