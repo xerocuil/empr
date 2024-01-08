@@ -33,6 +33,7 @@ class Platform(db.Model):
 
 class Game(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    # tags = models.ManyToManyField(Tag, blank=True)
     alt_title = db.Column(db.String(128), nullable=True, unique=True)
     archived = db.Column(db.Boolean, default=0)
     co_op = db.Column(db.Boolean, default=0)
@@ -44,6 +45,7 @@ class Game(db.Model):
     developer = db.Column(db.String(64), nullable=True)
     esrb = db.Column(db.String(4), nullable=True)
     favorite = db.Column(db.Boolean, default=0)
+    filename = db.Column(db.String(128), nullable=False, unique=True)
     genre_id = db.Column(db.Integer, db.ForeignKey('genre.id'))
     gpu = db.Column(db.String(64), nullable=True)
     hdd = db.Column(db.String(64), nullable=True)
@@ -60,13 +62,15 @@ class Game(db.Model):
     ram = db.Column(db.String(64), nullable=True)
     region = db.Column(db.String(2))
     save_path = db.Column(db.String(256), nullable=True)
-    slug = db.Column(db.String(128), nullable=False, unique=True)
     steam_id = db.Column(db.Integer, nullable=True)
     store = db.Column(db.String(64), nullable=True)
     title = db.Column(db.String(128), nullable=False, unique=True)
-    # tags = models.ManyToManyField(Tag, blank=True)
     translation = db.Column(db.Boolean, default=0)
     year = db.Column(db.Integer, db.CheckConstraint('year >= 1948 AND players < 9999'), nullable=True)
 
     def __repr__(self):
         return f'{self.title}'
+
+    def slug(self):
+        slug = self.filename.split('.')[0]
+        return slug

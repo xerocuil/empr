@@ -2,11 +2,11 @@
 
 {% block content %}
 
-
+<h1>{{ game.title }}</h1>
 <div id="game">
     <div id="boxart">
         {% if boxart %}
-            <img src="{{ url_for('app.media', path='games/'+game.platform.slug+'/boxart/'+game.slug+'.jpg') }}" alt="Boxart">
+            <img src="{{ url_for('app.media', path='games/'+game.platform.slug+'/boxart/'+game.slug()+'.jpg') }}" alt="Boxart">
         {% else %}
             <h1 class="title">{% block title %} {{ game.title }} {% endblock %}</h1>
         {% endif %}
@@ -210,10 +210,11 @@
     <div class="data-fields">
         <label>Debug</label>
         <ul>
-            <li id="slug"><b>slug: </b>{{ game.slug }}</li>
+            <li id="slug"><b>slug: </b>{{ game.filename }}</li>
             <li id="platform_slug"><b>platform_slug: </b>{{ game.platform.slug }}</li>
             <li id="game_path"><b>game_path: </b>{{ game_path }}</li>
             <li id="save_path"><b>save_path: </b>{{ game.save_path }}</li>
+            <li id="boxart_url"><b>boxart_url: </b>{{ boxart_url }}</li>
         </ul>
     </div>
 {% endblock %}

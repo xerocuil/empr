@@ -45,15 +45,15 @@ def game_detail(game_id):
         base_dir = Config.GAMES_DIR
 
     platform_dir = os.path.join(base_dir, game.platform.slug)
-    game_path = os.path.join(platform_dir, game.slug)
+    game_path = os.path.join(platform_dir, game.filename)
 
-    boxart_url = os.path.join(os.path.join(Config.MEDIA, 'games/'+game.platform.slug+'/boxart/'+game.slug+'.jpg'))
+    boxart_url = os.path.join(os.path.join(Config.MEDIA, 'games/'+game.platform.slug+'/boxart/'+game.slug()+'.jpg'))
     if os.path.exists(boxart_url):
         boxart = boxart_url
     else:
         boxart = None
 
-    logo_url = os.path.join(os.path.join(Config.MEDIA, 'games/'+game.platform.slug+'/logo/'+game.slug+'.png'))
+    logo_url = os.path.join(os.path.join(Config.MEDIA, 'games/'+game.platform.slug+'/logo/'+game.filename+'.png'))
     if os.path.exists(logo_url):
         logo = logo_url
     else:
@@ -64,7 +64,7 @@ def game_detail(game_id):
     else:
         installed = False
 
-    return render_template('library/game/detail.html', boxart=boxart, logo=logo, desc=desc, game=game, game_path=game_path, installed=installed, notes=notes)
+    return render_template('library/game/detail.html', boxart=boxart, boxart_url=boxart_url, logo=logo, desc=desc, game=game, game_path=game_path, installed=installed, notes=notes)
 
 @library_bp.route('/library/game/edit/<int:game_id>', methods=('GET', 'POST'))
 def game_edit(game_id):
