@@ -2,20 +2,23 @@
 
 ## To-Do
 
-- Fix sorting/pagination
-- Windows support
-- Port Bash scripting to Python
+- Settings
+- Package management
+- Forms
+- JSON API
+- UX
 
 ## Unreleased
 
 ### Added
 
-- YAML support: import/export game data.
-- Util scripts ported from bash to python.
+- Game list pagination
+- Pywebview window management
+- Javascript-based search function
 
 ### Changed
 
-- Refactored app, models to separate modules.
+- Blueprint support.
 - Migrated platform from Django to Flask.
 - Images are now managed via a flat-file system instead of via database.
 

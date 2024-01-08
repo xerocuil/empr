@@ -1,0 +1,74 @@
+
+// Fonts
+$default-sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif !default
+$default-monospace: monospace !default
+
+// Global Variables
+$base: 1.6rem
+// $default-border: 0.1rem solid $highlight-color-alpha
+
+// Elements
+
+html
+  font-size: 62.5%
+
+body,
+button,
+input,
+optgroup,
+select,
+textarea
+  font-family: $default-sans-serif
+  font-size: $base
+
+label
+    font-weight: 600
+
+nav
+    a
+        margin-right: 3.2em
+
+#content
+    margin-top: $base * 4
+
+#header
+    width: 100%
+    height: $base * 4
+    display: grid
+    grid-template-columns: 13fr 3fr
+    position: fixed
+    top: 0
+    background: white
+    z-index: 100
+    *
+        align-self: center
+    #query
+        width: $base * 8
+
+#main-window
+    display: grid
+    grid-template-columns: 13fr 3fr
+    z-index: 0
+
+
+#system-messages
+    display: none
+    padding: $base
+    border: 1px dashed #ccc
+
+
+// Game
+#game
+    display: inline-grid
+    grid-template-columns: 1fr 1fr 1fr
+    #boxart
+        img
+            width: 100%
+
+    #game_details
+        display: flex
+        flex-flow: column wrap
+        justify-content: space-between
+        .details
+            font-size: 200%
+

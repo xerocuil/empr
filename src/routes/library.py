@@ -1,21 +1,24 @@
 import os
+import markdown
 
 from flask import Flask, Blueprint, render_template, request, redirect, send_from_directory, url_for
-import markdown
+# from flask_sqlalchemy import SQLAlchemy
 
 from lib.extensions import db, Config
 from forms.library import *
 from models.library import *
+
+# Debug
+from icecream import ic
 
 library_bp = Blueprint('library', __name__)
 
 # Routes
 @library_bp.route('/')
 def home():
-    games = Game.query.all()
-    return render_template('library/home/index.html', games=games)
-
-
+    # page = request.args.get('page', 1, type=int)
+    pagination = Game.query.order_by(Game.date_added.desc()).paginate(per_page=50, max_per_page=100)
+    return render_template('library/home/index.html', pagination=pagination)
 
 @library_bp.route('/library/game/<int:game_id>')
 def game_detail(game_id):
@@ -40,14 +43,12 @@ def game_detail(game_id):
         base_dir = Config.GAMES_DIR
 
     platform_dir = os.path.join(base_dir, game.platform.slug)
-
     game_path = os.path.join(platform_dir, game.slug)
 
     if os.path.exists(game_path):
         installed = True
     else:
         installed = False
-
 
     return render_template('library/game/detail.html', desc=desc, game=game, game_path=game_path, installed=installed, notes=notes)
 
@@ -74,6 +75,15 @@ def collections():
     collections = Collection.query.all()
     return render_template('library/collection/index.html', collections=collections)
 
+@library_bp.route('/library/favorites')
+def favorites():
+    pagination = Game.query.filter(
+        Game.favorite == True
+    ).paginate(
+        per_page=25,
+        max_per_page=100)
+    return render_template('/library/favorites.html', pagination=pagination)
+
 @library_bp.route('/library/genres')
 def genres():
     genres = Genre.query.all()
@@ -84,8 +94,21 @@ def platforms():
     platforms = Platform.query.all()
     return render_template('library/platform/index.html', platforms=platforms)
 
-
-
-# @library_bp.route('/media/<path:path>')
-# def media(path):
-#     return send_from_directory(Config.MEDIA, path)
+@library_bp.route('/library/search', methods =['GET'])
+def search():
+    query = request.args.get('query')
+    # results = Game.query
+    if query:
+        ic('query found: ',query)
+        pagination = Game.query.filter(
+            (Game.title.like('%' + query + '%')) |
+            (Game.alt_title.like('%' + query + '%')) |
+            (Game.developer.like('%' + query + '%')) |
+            (Game.publisher.like('%' + query + '%'))
+        ).paginate(per_page=25, max_per_page=100)
+    else:
+        pagination = None
+    return render_template('library/search.html',
+        query=query,
+        pagination=pagination,
+    )

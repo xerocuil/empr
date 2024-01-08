@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-UTILS_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-APPDIR=$(dirname "$UTILS_DIR")
+LIB_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+APPDIR=$(dirname "$LIB_DIR")
 
 CMD="$1"
 

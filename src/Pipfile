@@ -26,3 +26,4 @@ python_version = "3.11"
 [scripts]
 main = "./main.py"
 test = "./test.py"
+clean = "lib/bash.sh clean"
