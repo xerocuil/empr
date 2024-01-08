@@ -13,7 +13,6 @@ JSON = os.path.join(PROFILE_DIR, 'json')
 
 
 def init_config():
-
     # Create 'profiles' directory if missing
     if not os.path.exists(PROFILE_DIR):
         os.makedirs(PROFILE_DIR)
@@ -54,18 +53,11 @@ def generate_key():
   key = ''.join(random.SystemRandom().choice(string.ascii_letters + string.digits) for _ in range(64))
   return key
 
-# if not os.path.exists(CONFIG_PATH):
-#     init_config()
-#     init_db()
-
-
 conf = ConfigParser()
 conf.read(CONFIG_PATH)
 
 if not os.path.exists(CONFIG_PATH):
     init_config()
-
-
 
 # Create Config class
 class Config:

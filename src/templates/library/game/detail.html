@@ -8,7 +8,7 @@
         {% if boxart %}
             <img src="{{ url_for('app.media', path='games/'+game.platform.slug+'/boxart/'+game.slug()+'.jpg') }}" alt="Boxart">
         {% else %}
-            <h1 class="title">{% block title %} {{ game.title }} {% endblock %}</h1>
+            <span>boxart</span>
         {% endif %}
     </div>
 
@@ -75,6 +75,13 @@
             <label>Genre</label>
             <div>{{ game.genre }}</div>
         </div>
+
+        {% if game.tags %}
+            <div class="detail">
+                <label>Tags</label>
+                <div>{{ game.tags }}</div>
+            </div>
+        {% endif %}
 
         <div class="detail">
             <label>Developer</label>
