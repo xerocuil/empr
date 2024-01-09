@@ -27,7 +27,8 @@ def init_config():
         'db': os.path.join(PROFILE_DIR, 'db.sqlite3'),
         'media': MEDIA,
         'json': JSON,
-        'key': generate_key()
+        'key': generate_key(),
+        'server_name': 'http://127.0.0.10:8080'
     }
 
     conf['GAMES'] = {
@@ -73,7 +74,9 @@ class Config:
   KEY = conf['APP']['key']
   JSON = conf['APP']['json']
   MEDIA = conf['APP']['media']
+  SERVER_NAME = conf['APP']['server_name']
   GAMES_DIR = conf['GAMES']['games_dir']
   ROMS_DIR = conf['GAMES']['roms_dir']
   FTP_HOST = conf['FTP']['host']
   FTP_PORT = conf['FTP']['port']
+  

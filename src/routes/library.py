@@ -92,14 +92,14 @@ def collections():
     collections = Collection.query.all()
     return render_template('library/collection/index.html', collections=collections)
 
-@library_bp.route('/library/favorites')
+@library_bp.route('/library/game/favorites')
 def favorites():
     pagination = Game.query.filter(
         Game.favorite == True
     ).paginate(
         per_page=25,
         max_per_page=100)
-    return render_template('/library/favorites.html', pagination=pagination)
+    return render_template('/library/game/favorites.html', pagination=pagination)
 
 @library_bp.route('/library/genres')
 def genres():
@@ -134,8 +134,7 @@ def search():
 ## TAGS
 @library_bp.route('/library/tags')
 def tags():
-    DEBUG = []
-    tags_api = 'http://127.0.0.1:5000'+url_for('library.tags_api')
+    tags_api = Config.SERVER_NAME+url_for('api.tags')
     tags = requests.get(tags_api).json()
     return render_template('library/tags/index.html', tags=tags)
 
@@ -152,24 +151,22 @@ def tag_detail():
         pagination=pagination,
     )
 
-
-
 ## API
-@library_bp.route('/library/api/tags')
-def tags_api():
-    tags_all = [(g.tags) for g in Game.query.all()]
-    tag_list = []
-    tags_unique = []
+# @library_bp.route('/api/tags')
+# def tags_api():
+#     tags_all = [(g.tags) for g in Game.query.all()]
+#     tag_list = []
+#     tags_unique = []
 
-    for t in tags_all:
-        if t:
-            tag_string = t.split(', ')
-            for ts in tag_string:
-                tag_list.append(ts)
+#     for ta in tags_all:
+#         if ta:
+#             tag_string = ta.split(', ')
+#             for ts in tag_string:
+#                 tag_list.append(ts)
 
-    for tag in tag_list:
-        if tag not in tags_unique:
-            tags_unique.append(tag)
+#     for tl in tag_list:
+#         if tl not in tags_unique:
+#             tags_unique.append(tl)
 
-    sorted_tags = sorted(tags_unique)
-    return (sorted_tags)
+#     sorted_tags = sorted(tags_unique)
+#     return (sorted_tags)

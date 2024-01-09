@@ -13,6 +13,7 @@ from flask import Blueprint
 from icecream import ic
 
 from lib.extensions import db, Config
+from routes.api import api_bp
 from routes.app import app_bp
 from routes.library import library_bp
 
@@ -23,9 +24,12 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+Config.DB
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SECRET_KEY'] = Config.KEY
+    app.config['SERVER_NAME'] = '127.0.0.10:8080'
+    app.config['DEBUG'] = True
     db.init_app(app)
-    app.register_blueprint(library_bp)
+    app.register_blueprint(api_bp)
     app.register_blueprint(app_bp)
+    app.register_blueprint(library_bp)
     return app
 
 app = create_app()
