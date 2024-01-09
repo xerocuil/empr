@@ -2,8 +2,13 @@
 
 {% block content %}
 
-<h1 class="title">{% block title %} Favorites {% endblock %}</h1>
-
+<h2 class="title">{{ query }}</h2>
 {% include 'library/game/list.html' %}
 
 {% endblock %}
+
+
+{% block sidebar %}
+
+{% endblock %}
+

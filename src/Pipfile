@@ -17,6 +17,7 @@ pycairo = "*"
 pygobject = "*"
 markdown = "*"
 flask-wtf = "*"
+requests = "*"
 
 [dev-packages]
 

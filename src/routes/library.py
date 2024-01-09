@@ -1,5 +1,7 @@
+import json
 import os
 import markdown
+import requests
 
 from flask import Flask, Blueprint, render_template, request, redirect, send_from_directory, url_for
 # from flask_sqlalchemy import SQLAlchemy
@@ -12,6 +14,7 @@ from models.library import *
 from icecream import ic
 
 library_bp = Blueprint('library', __name__)
+
 
 # Routes
 @library_bp.route('/')
@@ -111,14 +114,15 @@ def platforms():
 @library_bp.route('/library/search', methods =['GET'])
 def search():
     query = request.args.get('query')
-    # results = Game.query
+
     if query:
         ic('query found: ',query)
         pagination = Game.query.filter(
             (Game.title.like('%' + query + '%')) |
             (Game.alt_title.like('%' + query + '%')) |
             (Game.developer.like('%' + query + '%')) |
-            (Game.publisher.like('%' + query + '%'))
+            (Game.publisher.like('%' + query + '%')) |
+            (Game.tags.like('%' + query + '%'))
         ).paginate(per_page=25, max_per_page=100)
     else:
         pagination = None
@@ -126,3 +130,46 @@ def search():
         query=query,
         pagination=pagination,
     )
+
+## TAGS
+@library_bp.route('/library/tags')
+def tags():
+    DEBUG = []
+    tags_api = 'http://127.0.0.1:5000'+url_for('library.tags_api')
+    tags = requests.get(tags_api).json()
+    return render_template('library/tags/index.html', tags=tags)
+
+@library_bp.route('/library/tags/detail', methods =['GET'])
+def tag_detail():
+    query = request.args.get('query')
+
+    if query:
+        pagination = Game.query.filter(Game.tags.like('%' + query + '%')).paginate(per_page=25, max_per_page=100)
+    else:
+        pagination = None
+    return render_template('library/tags/detail.html',
+        query=query,
+        pagination=pagination,
+    )
+
+
+
+## API
+@library_bp.route('/library/api/tags')
+def tags_api():
+    tags_all = [(g.tags) for g in Game.query.all()]
+    tag_list = []
+    tags_unique = []
+
+    for t in tags_all:
+        if t:
+            tag_string = t.split(', ')
+            for ts in tag_string:
+                tag_list.append(ts)
+
+    for tag in tag_list:
+        if tag not in tags_unique:
+            tags_unique.append(tag)
+
+    sorted_tags = sorted(tags_unique)
+    return (sorted_tags)

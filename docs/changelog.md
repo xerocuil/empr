@@ -11,7 +11,7 @@
 - [ ] Forms
     + [ ] SQLite
     + [ ] JSON
-- [ ] API 
+- [x] API 
 - [x] Create list tables
 - [x] Pagination
 - [x] Search

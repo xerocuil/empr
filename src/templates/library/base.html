@@ -17,6 +17,7 @@
         <a href="{{ url_for('library.collections') }}">Collections</a>
         <a href="{{ url_for('library.genres') }}">Genres</a>
         <a href="{{ url_for('library.platforms') }}">Platforms</a>
+        <a href="{{ url_for('library.tags') }}">Tags</a>
         <a href="" onClick="toggle_fullscreen()">Toggle Fullscreen</a>
         <a href="" onClick="close_window()">Close Window</a>
     </nav>
@@ -34,8 +35,11 @@
                 {{ message }}
             {% endif %}
         </div>
-        {% block content %} {% endblock %}
+        <div id="page">
+            {% block content %} {% endblock %}
+        </div>
     </div>
+
     <div id="sidebar">
         {% block sidebar %} {% endblock %}
         <div class="debug">

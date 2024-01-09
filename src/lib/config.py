@@ -45,6 +45,11 @@ def init_config():
         'cores': os.path.join(HOME_DIR, '.emulationstation')
     }
 
+    conf['FTP'] =  {
+        'host': '192.168.0.100',
+        'port': 21
+    }
+
     # Write to config.ini
     with open(CONFIG_PATH, 'w') as conf_data:
         conf.write(conf_data)
@@ -70,3 +75,5 @@ class Config:
   MEDIA = conf['APP']['media']
   GAMES_DIR = conf['GAMES']['games_dir']
   ROMS_DIR = conf['GAMES']['roms_dir']
+  FTP_HOST = conf['FTP']['host']
+  FTP_PORT = conf['FTP']['port']

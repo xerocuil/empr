@@ -3,14 +3,7 @@
 {% block content %}
 
 <h1 class="title">{% block title %} Games {% endblock %}</h1>
-<div class="content">
-    <div class="game_list">
-        {% include 'library/game/list_header.html' %}
 
-            {% include 'library/game/list_body.html' %}
-            
-        {% include 'library/game/list_footer.html' %}
-    </div>
-</div>
+{% include 'library/game/list.html' %}
 
 {% endblock %}
