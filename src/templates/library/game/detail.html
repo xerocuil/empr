@@ -114,8 +114,6 @@
             </div>
         {% endif %}
 
-        
-
         {% if game.collection_id %}
             <div class="detail">
                 <label>Collection</label>
@@ -132,6 +130,13 @@
         {% if game.archived %}
         <div class="detail">
             <label>Archived &#x1f4bf;<!--disc unicode --></label>
+        </div>
+        {% endif %}
+
+        {% if mc_score %}
+        <div class="detail">
+            <label>Metacritic Score</label>
+            <div>{{ mc_score }}</div>
         </div>
         {% endif %}
 

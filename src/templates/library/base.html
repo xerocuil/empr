@@ -43,12 +43,13 @@
 
     <div id="sidebar">
         {% block sidebar %} {% endblock %}
-        <div class="debug">
-            <label>Debug [Main]</label>
-            <ul>
-                <li>&nbsp;</li>
-            </ul>
-        </div>
+
+        {% if debug_info() %}
+            <div class="debug">
+                <label>Debug [Main]</label>
+                <div>{{ debug_info() }}</div>
+            </div>
+        {% endif %}
     </div>
 </div>
 

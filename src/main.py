@@ -17,15 +17,13 @@ from routes.api import api_bp
 from routes.app import app_bp
 from routes.library import library_bp
 
-# DB_PATH = os.path.join(os.path.expanduser('~'), '.empr/db.sqlite3')
-
 def create_app():
     app = Flask(__name__, template_folder='templates')
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+Config.DB
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SECRET_KEY'] = Config.KEY
     app.config['SERVER_NAME'] = '127.0.0.10:8080'
-    app.config['DEBUG'] = True
+    app.config['FLASK_DEBUG'] = Config.DEBUG
     db.init_app(app)
     app.register_blueprint(api_bp)
     app.register_blueprint(app_bp)

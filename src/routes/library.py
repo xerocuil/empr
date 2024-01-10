@@ -9,11 +9,29 @@ from flask import Flask, Blueprint, render_template, request, redirect, send_fro
 from lib.extensions import db, Config
 from forms.library import *
 from models.library import *
+import utils.scrapers as scrapers
 
 # Debug
 from icecream import ic
 
 library_bp = Blueprint('library', __name__)
+
+
+## CONTEXT PROCESSORS
+@library_bp.context_processor
+def utility_processor():
+    def debug_info():
+        if Config.DEBUG == True:
+            debug_info = {}
+            debug_info.update({'app_title': Config.APP_TITLE })
+            debug_info.update({'debug': Config.DEBUG })
+        else:
+            debug_info = None
+        return debug_info
+
+    return dict(
+        debug_info=debug_info,
+    )
 
 
 # Routes
@@ -25,6 +43,7 @@ def home():
 
 @library_bp.route('/library/game/<int:game_id>')
 def game_detail(game_id):
+
     game = Game.query.get_or_404(game_id)
 
     try:
@@ -40,6 +59,12 @@ def game_detail(game_id):
 
     platform = Platform.query.get_or_404(game.platform_id)
 
+    # Get metacritic score
+    show_mc = Config.SHOW_MC
+    if show_mc:
+        mc_score = scrapers.mc_score(game.slug())
+    else:
+        mc_score = None
 
     # Get paths
     if platform.emulator:
@@ -56,7 +81,7 @@ def game_detail(game_id):
     else:
         boxart = None
 
-    logo_url = os.path.join(os.path.join(Config.MEDIA, 'games/'+game.platform.slug+'/logo/'+game.filename+'.png'))
+    logo_url = os.path.join(os.path.join(Config.MEDIA, 'games/'+game.platform.slug+'/logo/'+game.slug()+'.png'))
     if os.path.exists(logo_url):
         logo = logo_url
     else:
@@ -67,7 +92,7 @@ def game_detail(game_id):
     else:
         installed = False
 
-    return render_template('library/game/detail.html', boxart=boxart, boxart_url=boxart_url, logo=logo, desc=desc, game=game, game_path=game_path, installed=installed, notes=notes)
+    return render_template('library/game/detail.html', boxart=boxart, boxart_url=boxart_url, logo=logo, desc=desc, game=game, game_path=game_path, installed=installed, mc_score=mc_score, notes=notes)
 
 @library_bp.route('/library/game/edit/<int:game_id>', methods=('GET', 'POST'))
 def game_edit(game_id):

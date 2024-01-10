@@ -18,6 +18,8 @@ pygobject = "*"
 markdown = "*"
 flask-wtf = "*"
 requests = "*"
+beautifulsoup4 = "*"
+lxml = "*"
 
 [dev-packages]
 
