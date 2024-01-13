@@ -4,23 +4,29 @@
 
 - [ ] Settings
 - [ ] Package management
-    - [ ] Server support
+    - [X] FTP Server
+    - [ ] Install scripts
+    - [ ] Package upload scripts
 
-- [ ] Import legacy media
+- [x] Import legacy media
 - [ ] Remove legacy elements from models
 - [ ] Forms
-    + [ ] SQLite
+    + [ ] SQLite*
     + [ ] JSON
 - [x] API 
 - [x] Create list tables
 - [x] Pagination
 - [x] Search
 - [ ] UX
+- [ ] Devices
+    + [ ] Upload Config Form
+    + [ ] Device Edit Form
 
 ## Unreleased
 
 ### Added
 
+- Device support
 - Game list pagination
 - Pywebview window management
 - Javascript-based search function

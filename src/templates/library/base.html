@@ -18,7 +18,8 @@
         <a href="{{ url_for('library.genres') }}">Genres</a>
         <a href="{{ url_for('library.platforms') }}">Platforms</a>
         <a href="{{ url_for('library.tags') }}">Tags</a>
-        <a href="{{ url_for('api.tags') }}">Tags API</a>
+        <!-- <a href="{{ url_for('api.tags') }}">Tags API</a> -->
+        <a href="{{ url_for('device.devices') }}">Devices</a>
         <a href="" onClick="toggle_fullscreen()">Toggle Fullscreen</a>
         <a href="" onClick="close_window()">Close Window</a>
     </nav>
@@ -43,13 +44,6 @@
 
     <div id="sidebar">
         {% block sidebar %} {% endblock %}
-
-        {% if debug_info() %}
-            <div class="debug">
-                <label>Debug [Main]</label>
-                <div>{{ debug_info() }}</div>
-            </div>
-        {% endif %}
     </div>
 </div>
 

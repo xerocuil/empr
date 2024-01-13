@@ -176,6 +176,13 @@ def tag_detail():
         pagination=pagination,
     )
 
+
+# @library_bp.route('/test')
+# def test():
+#     return render_template('test.html')
+
+
+
 ## API
 # @library_bp.route('/api/tags')
 # def tags_api():

@@ -15,6 +15,7 @@ from icecream import ic
 from lib.extensions import db, Config
 from routes.api import api_bp
 from routes.app import app_bp
+from routes.device import device_bp
 from routes.library import library_bp
 
 def create_app():
@@ -22,11 +23,12 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+Config.DB
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SECRET_KEY'] = Config.KEY
-    app.config['SERVER_NAME'] = '127.0.0.10:8080'
+    # app.config['SERVER_NAME'] = '127.0.0.10:8080'
     app.config['FLASK_DEBUG'] = Config.DEBUG
     db.init_app(app)
     app.register_blueprint(api_bp)
     app.register_blueprint(app_bp)
+    app.register_blueprint(device_bp)
     app.register_blueprint(library_bp)
     return app
 
@@ -42,9 +44,6 @@ class Api:
         self.cancel_heavy_stuff_flag = False
 
     def launch_game(self, platform, slug):
-        print("HI!")
-        ic(platform)
-        ic(slug)
         subprocess.run(["game-launcher", platform, slug])
 
     def close_window(self):
@@ -52,9 +51,6 @@ class Api:
 
     def toggle_fullscreen(self):
         app_window.toggle_fullscreen()
-
-    def search_query(self, query):
-        ic(query)
 
 api = Api()
 app_window = webview.create_window(

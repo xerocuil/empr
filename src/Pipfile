@@ -20,6 +20,10 @@ flask-wtf = "*"
 requests = "*"
 beautifulsoup4 = "*"
 lxml = "*"
+pandas = "*"
+xlrd = "*"
+openpyxl = "*"
+odfpy = "*"
 
 [dev-packages]
 
@@ -28,6 +32,7 @@ python_version = "3.11"
 
 [scripts]
 main = "./main.py"
+handheld = "./handheld.py"
 test = "./test.py"
 clean = "lib/bash.sh clean"
 import_media = "python -c \"import legacy; legacy.import_media();\""

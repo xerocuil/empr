@@ -95,6 +95,7 @@ class Config:
     DB = conf['APP']['db']
     DEBUG = int(conf['APP']['debug'])
     KEY = conf['APP']['key']
+    PROFILE_DIR = PROFILE_DIR
     JSON = conf['APP']['json']
     MEDIA = conf['APP']['media']
     SERVER_NAME = conf['APP']['server_name']
@@ -102,6 +103,7 @@ class Config:
     ROMS_DIR = conf['GAMES']['roms_dir']
     FTP_HOST = conf['FTP']['host']
     FTP_PORT = conf['FTP']['port']
+    FTP_PATH = conf['FTP']['path']
     GB_API_KEY = conf['SCRAPERS']['gb_api_key']
     MG_API_KEY = conf['SCRAPERS']['mg_api_key']
     SS_DEBUG = conf['SCRAPERS']['ss_debug']
