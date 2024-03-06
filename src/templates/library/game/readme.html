@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ game.sort_title() }} Readme</title>
+    <style>
+        body {
+            width: 800px
+        }
+        table {
+            min-width: 50%;
+            td, th {
+                padding: 8px;
+                text-align: left;
+            }
+        }
+        #logo {
+            max-width: 256px;
+            max-height: 128px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+{% if logo %}
+    <img id="logo" src="data:image/png;base64,{{ logo }}" />
+{% else %}
+    <h1>{{ game.title }}</h1>
+{% endif %}
+
+<h2>Description</h2>
+
+<div id="description">{{ description | safe }}</div>
+
+<table>
+    <tr>
+        <th>Platform</th>
+        <td>{{ game.platform }}</td>
+    </tr>
+
+    <tr>
+        <th>Genre</th>
+        <td>{{ game.genre }}</td>
+    </tr>
+
+    <tr>
+        <th>Year</th>
+        <td>{{ game.year }}</td>
+    </tr>
+
+    <tr>
+        <th>Developer</th>
+        <td>{{ game.developer }}</td>
+    </tr>
+
+    <tr>
+        <th>Publisher</th>
+        <td>{{ game.publisher }}</td>
+    </tr>
+
+    <tr>
+        <th>ESRB</th>
+        <td>{{ game.esrb }}</td>
+    </tr>
+
+    <tr>
+        <th>Player(s)</th>
+        <td>{% if game.players == 1 %}Single Player{% else %}{{ game.players }} Players{% endif %}</td>
+    </tr>
+
+    <tr>
+        <th>Input</th>
+        <td>{% if game.controller_support %}Controller{% else %}Mouse/Keyboard{% endif %}</td>
+    </tr>
+</table>
+
+
+{% if game.operating_system %}
+    <h2>System Requirements</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Spec</th>
+                <th>Requirement</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Operating System</td>
+                <td>{{ game.operating_system }}</td>
+            </tr>
+
+            {% if game.processor %}
+                <tr>
+                    <td>Processor</td>
+                    <td>{{ game.processor }}</td>
+                </tr>
+            {% endif %}
+
+            {% if game.memory %}
+                <tr>
+                    <td>Memory</td>
+                    <td>{{ game.ram }}</td>
+                </tr>
+            {% endif %}
+
+            {% if game.hdd %}
+                <tr>
+                    <td>Disk Space</td>
+                    <td>{{ game.hdd }}</td>
+                </tr>
+            {% endif %}
+
+            {% if game.gpu %}
+                <tr>
+                    <td>Graphics</td>
+                    <td>{{ game.gpu }}</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+{% endif %}
+
+{% if notes %}
+    <h2>Notes</h2>
+    <div id="notes">{{ notes | safe }}</div>
+{% endif %}
+
+</body>
+</html>
