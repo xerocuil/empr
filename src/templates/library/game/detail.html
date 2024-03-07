@@ -2,7 +2,13 @@
 
 {% block content %}
 
-<h1>{{ game.title }}</h1>
+<div id="game-title">
+    <h1>{% block title %}{{ game.sort_title() }}{% endblock %}</h1>
+    {% if game.alt_title %}
+        <div class="alt-title"><em>A.K.A. {{ game.alt_title }}</em></div>
+    {% endif %}
+</div>
+
 <div id="game">
     <div id="boxart">
         {% if boxart %}
@@ -13,14 +19,6 @@
     </div>
 
     <div id="game_details">
-
-        {% if game.alt_title %}
-            <div class="detail">
-                <label>Alternate Title</label>
-                <div>{{ game.alt_title }}</div>
-            </div>
-        {% endif %}
-
         {% if game.esrb %}
             <div class="detail">
                 <label>ESRB</label>
@@ -52,7 +50,7 @@
 
         <div class="detail">
             <label>Platform</label>
-            <div>{{ game.platform.name }}</div>
+            <div><a href="{{ url_for('library.platform_detail', platform_id=game.platform.id) }}">{{ game.platform.name }}</a></div>
         </div>
 
         <div class="detail">
@@ -65,10 +63,9 @@
             <div>
                 {{ game.region }}
                 {% if game.translation %}
-                    , Translated
+                    , <em>Translated</em>
                 {% endif %}
             </div>
-            
         </div>
 
         <div class="detail">
@@ -117,7 +114,9 @@
         {% if game.collection_id %}
             <div class="detail">
                 <label>Collection</label>
-                <div>{{ game.collection }}</div>
+                <div>
+                    <a href="{{ url_for('library.collection_detail', collection_id=game.collection_id) }}">{{ game.collection }}</a>
+                </div>
             </div>
         {% endif %}
 
@@ -212,22 +211,58 @@
 {% endblock %}
 
 {% block sidebar %}
+    <h4>Launch Game</h4>
     
     {% if installed %}
         <div class="launcher">
-            <button onClick="launch_game()">Launcher</button>
+            <button class="execute" onClick="launch_game('{{ game.platform.slug }}','{{ game.filename }}' )">
+                <img src="{{ url_for('static', filename='assets/icons/play.svg')}}"/> Play
+            </button>
         </div>
     {% endif %}
+
+    <h4>Links</h4>
+    <p>
+        <a href="https://www.giantbomb.com/search/?i=game&q={{ game.title }}">
+            <img class="icon" src="{{ url_for('static', filename='assets/icons/giantbomb.svg') }}" title="Giant Bomb"></a>
+
+        <a href="https://www.mobygames.com/search/quick?q={{ game.title }}">
+            <img class="icon" src="{{ url_for('static', filename='assets/icons/moby.svg') }}" title="Moby Games"></a>
+
+        <a href="https://thegamesdb.net/search.php?name={{ game.title }}">
+            <img class="icon" src="{{ url_for('static', filename='assets/icons/tgdb.svg') }}" title="TGDB"></a>
+            
+        {% if game.platform.slug == 'windows' or game.platform.slug == 'steam' or game.platform == 'linux' %}
+            <a href="https://www.pcgamingwiki.com/w/index.php?search={{ game.title }}">
+                <img class="icon" src="{{ url_for('static', filename='assets/icons/pcgw.svg') }}" title="PCGamingWiki"></a>
+                {% if game.platform.slug == 'steam' %}
+                    <a href="https://www.protondb.com/app/{{ game.filename }}">
+                        <img class="icon" src="{{ url_for('static', filename='assets/icons/protondb.svg') }}" title="ProtonDB"></a>
+
+                    <a href="https://steamdb.info/app/{{ game.filename }}">
+                        <img class="icon" src="{{ url_for('static', filename='assets/icons/steamdb.svg') }}" title="SteamDB"></a>
+                {% else %}
+                    <a href="https://www.protondb.com/search?q={{ game.title }}&type=1&category=0">
+                        <img class="icon" src="{{ url_for('static', filename='assets/icons/protondb.svg') }}" title="ProtonDB"></a>
+
+                    <a href="https://steamdb.info/search/?a=app&q={{ game.title }}&type=1&category=0">
+                        <img class="icon" src="{{ url_for('static', filename='assets/icons/steamdb.svg') }}" title="SteamDB"></a>
+            {% endif %}
+        {% endif %}
+    </p>
+
+    <ul>
+        <li><a href="{{ url_for('library.game_edit', game_id=game.id) }}">EDIT</a></li>
+    </ul>
 
     <div class="data-fields">
         <label>Debug</label>
         <ul>
-            <li id="slug"><b>slug: </b>{{ game.filename }}</li>
-            <li id="platform_slug"><b>platform_slug: </b>{{ game.platform.slug }}</li>
-            <li id="game_path"><b>game_path: </b>{{ game_path }}</li>
+            <li><b>filename: </b><span id="filename">{{ game.filename }}</span></li>
+            <li><b>platform_slug: </b><span  id="platform_slug">{{ game.platform.slug }}</span></li>
+            <li><b>file_path: </b><span  id="file_path">{{ file_path }}</span></li>
             <li id="save_path"><b>save_path: </b>{{ game.save_path }}</li>
             <li id="boxart_url"><b>boxart_url: </b>{{ boxart_url }}</li>
         </ul>
     </div>
 {% endblock %}
-

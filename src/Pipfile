@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 asgiref = "==3.7.2"
 configparser = "==6.0.0"
-pillow = "==10.1.0"
+pillow = "==10.2.0"
 sqlparse = "==0.4.4"
 icecream = "*"
 flask = "*"
