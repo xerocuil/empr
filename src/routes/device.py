@@ -78,13 +78,15 @@ def platform(device_slug, platform_slug):
     platform_games = pd.DataFrame(platform_json_data['games'])
 
     # Query Game model
-    games_db = pd.DataFrame(Game.query.with_entities(
-        Game.id, Game.filename, Game.title, Game.platform_id))
+    games_db = pd.DataFrame(Game.query.with_entities(Game.id, Game.filename, Game.title, Game.platform_id))
     device_games = []
+    files = []
 
     # Look for all games in device platform directory
     try:
-        files = [f for f in os.listdir(str(platform_path)) if os.path.isfile(os.path.join(str(platform_path), f))]
+        for f in os.listdir(str(platform_path)):
+            if os.path.isfile(os.path.join(str(platform_path), f)):
+                files.append(f)
         file_list = sorted(files)
     except FileNotFoundError as e:
         file_list = None
@@ -101,7 +103,7 @@ def platform(device_slug, platform_slug):
                 "platform_id": games_db.loc[games_db['filename'] == f]['platform_id'].values[0]
             })
         except IndexError as e:
-            print('Could not find ' + f + '.')
+            print('Could not find ' + f)
             print(e)
             device_games.append({"filename": f})
 

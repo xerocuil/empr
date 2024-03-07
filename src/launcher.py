@@ -4,29 +4,29 @@ import os
 import subprocess
 import sys
 
-# Global variables
+# GLOBALS
+
 system = sys.argv[1]
 filename = sys.argv[2]
 cores = os.path.join(os.path.expanduser('~'),'.config/retroarch/cores')
 
-# Functions
+# FUNCTIONS
+
+'''Look for `start.sh` file,
+else try to exec Lutris with game slug.'''
 def start_app(filename):
   print(filename)
   start_file = filename+'/start.sh'
   if os.path.exists(start_file):
     subprocess.run([start_file])
-  else:
-    slug= os.path.basename(filename)
-    subprocess.run(['/usr/bin/lutris', 'lutris:rungame/'+slug])
 
+'''Launch rom in RetroArch with configured core.'''
 def start_retroarch(core, filename):
   core_path = os.path.join(cores, core+'.so')
   subprocess.run(['retroarch', '-L', core_path, filename])
 
-def main():
-  if system == '2600':
-    start_retroarch('stella_libretro', filename)
 
+def main():
   if system == '32x':
     start_retroarch('picodrive_libretro', filename)
 
@@ -40,6 +40,9 @@ def main():
     start_retroarch('puae_libretro', filename)
     # os.chdir(filename)
     # subprocess.run(['fs-uae', 'conf.fs-uae', '--fullscreen'])
+
+  if system == 'atari2600':
+    start_retroarch('stella_libretro', filename)
 
   if system == 'c64':
     start_retroarch('vice_x64_libretro', filename)
@@ -128,7 +131,7 @@ def main():
     start_retroarch('picodrive_libretro', filename)
 
   if system == 'scummvm':
-    subprocess.run(['scummvm', '-f', '--auto-detect', '-p', filename])
+    subprocess.run(['scummvm', '-f', filename])
 
   if system == 'sms':
     start_retroarch('picodrive_libretro', filename)

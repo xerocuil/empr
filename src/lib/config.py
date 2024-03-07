@@ -23,6 +23,7 @@ else:
     SS_PASSWD = None
     SS_DEBUG = None
 
+
 def init_config():
     # Create 'profiles' directory if missing
     if not os.path.exists(PROFILE_DIR):
@@ -36,8 +37,8 @@ def init_config():
         'app_title': str(os.getenv('APP_TITLE')),
         'debug': os.getenv('FLASK_DEBUG'),
         'db': os.path.join(PROFILE_DIR, 'db.sqlite3'),
-        'media': MEDIA,
-        'json': JSON,
+        'media': MEDIA,  # Deprecate
+        'json': JSON,  # Deprecate
         'key': generate_key(),
         'server_name': 'http://127.0.0.10:8080'
     }
@@ -57,7 +58,7 @@ def init_config():
         'cores': os.path.join(HOME_DIR, '.emulationstation')
     }
 
-    conf['FTP'] =  {
+    conf['FTP'] = {
         'host': '192.168.0.100',
         'port': 21
     }
@@ -69,17 +70,17 @@ def init_config():
         'ss_debug': SS_DEBUG
     }
 
-    conf['SETTINGS'] = {
-        'show_mc': 0
-    }
+    conf['SETTINGS'] = {'show_mc': '0'}  # Deprecate
 
     # Write to config.ini
     with open(CONFIG_PATH, 'w') as conf_data:
         conf.write(conf_data)
 
+
 def generate_key():
-  key = ''.join(random.SystemRandom().choice(string.ascii_letters + string.digits) for _ in range(64))
-  return key
+    key = ''.join(random.SystemRandom().choice(string.ascii_letters + string.digits) for _ in range(64))
+    return key
+
 
 conf = ConfigParser()
 conf.read(CONFIG_PATH)
@@ -87,8 +88,10 @@ conf.read(CONFIG_PATH)
 if not os.path.exists(CONFIG_PATH):
     init_config()
 
+
 # Create Config class
 class Config:
+    # App
     APP_ID = conf['APP']['app_id']
     APP_TITLE = conf['APP']['app_title']
     CONFIG_PATH = CONFIG_PATH
@@ -96,11 +99,15 @@ class Config:
     DEBUG = int(conf['APP']['debug'])
     KEY = conf['APP']['key']
     PROFILE_DIR = PROFILE_DIR
-    JSON = conf['APP']['json']
-    MEDIA = conf['APP']['media']
-    SERVER_NAME = conf['APP']['server_name']
-    GAMES_DIR = conf['GAMES']['games_dir']
-    ROMS_DIR = conf['GAMES']['roms_dir']
+    JSON = conf['APP']['json']  # Deprecate
+    MEDIA = conf['APP']['media']  # Deprecate
+    SERVER_NAME = conf['APP']['server_name']  # Deprecate
+
+    # Games
+    GAMES_DIR = conf['GAMES']['games_dir']  # Deprecate
+    ROMS_DIR = conf['GAMES']['roms_dir']  # Deprecate
+
+    # Host'
     FTP_HOST = conf['FTP']['host']
     FTP_PORT = conf['FTP']['port']
     FTP_PATH = conf['FTP']['path']
@@ -109,4 +116,3 @@ class Config:
     SS_DEBUG = conf['SCRAPERS']['ss_debug']
     SS_PASSWD = conf['SCRAPERS']['ss_passwd']
     SHOW_MC = int(conf['SETTINGS']['show_mc'])
-  

@@ -21,6 +21,7 @@ install_deps(){
     sudo pacman -S python cairo pkgconf gobject-introspection gtk4
 }
 
+
 help(){
     printf "
 ## Usage: start.sh [COMMAND]

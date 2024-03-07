@@ -1,6 +1,7 @@
 from lib.extensions import db
 from datetime import datetime
 
+
 # MODELS
 
 class Collection(db.Model):
@@ -8,16 +9,20 @@ class Collection(db.Model):
     name = db.Column(db.String(128), nullable=False, unique=True)
     description = db.Column(db.Text(1024))
     games = db.relationship('Game', backref='collection')
+
     def __repr__(self):
         return f'{self.name}'
+
 
 class Genre(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(128))
     games = db.relationship('Game', backref='genre')
     legacy_id = db.Column(db.Integer, unique=True)
+
     def __repr__(self):
         return f'{self.name}'
+
 
 class Platform(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -28,12 +33,13 @@ class Platform(db.Model):
     slug = db.Column(db.String(128), unique=True)
     legacy_id = db.Column(db.Integer, unique=True)
     games = db.relationship('Game', backref='platform')
+
     def __repr__(self):
         return f'{self.name}'
 
+
 class Game(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    # tags = models.ManyToManyField(Tag, blank=True)
     alt_title = db.Column(db.String(128), unique=True)
     archived = db.Column(db.Boolean, default=0)
     co_op = db.Column(db.Boolean, default=0)
@@ -42,7 +48,7 @@ class Game(db.Model):
     date_added = db.Column(db.DateTime, default=datetime.utcnow)
     date_modified = db.Column(db.DateTime, default=datetime.utcnow)
     description = db.Column(db.Text(8192))
-    developer = db.Column(db.String(64))
+    developer = db.Column(db.String(128))
     esrb = db.Column(db.String(4))
     favorite = db.Column(db.Boolean, default=0)
     filename = db.Column(db.String(128), nullable=False, unique=True)
@@ -58,14 +64,14 @@ class Game(db.Model):
     play_count = db.Column(db.Integer, default=0)
     players = db.Column(db.Integer, db.CheckConstraint('players >= 1 AND players <= 64'), default=1)
     processor = db.Column(db.String(64))
-    publisher = db.Column(db.String(64))
+    publisher = db.Column(db.String(128))
     ram = db.Column(db.String(64))
     region = db.Column(db.String(2))
     save_path = db.Column(db.String(256))
     steam_id = db.Column(db.Integer)
-    store = db.Column(db.String(64))
+    store = db.Column(db.String(32))
     tags = db.Column(db.String(128))
-    title = db.Column(db.String(128), nullable=False, unique=True)
+    title = db.Column(db.String(128), nullable=False)
     translation = db.Column(db.Boolean, default=0)
     year = db.Column(db.Integer, db.CheckConstraint('year >= 1948 AND players < 9999'))
 
@@ -75,6 +81,14 @@ class Game(db.Model):
     def slug(self):
         slug = self.filename.split('.')[0]
         return slug
+
+    def sort_title(self):
+        if self.title.endswith(', The') or self.title.endswith(', A'):
+            x, y = self.title.split(', ')
+            sort_title = str(y + ' ' + x)
+        else:
+            sort_title = self.title
+        return sort_title
 
     def tag_array(self):
         tag_array = []

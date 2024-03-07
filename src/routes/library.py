@@ -1,3 +1,4 @@
+import base64
 import datetime
 import markdown
 import os
@@ -263,7 +264,30 @@ def game_edit(game_id):
 @library_bp.route('/library/game/<int:game_id>/readme')
 def game_readme(game_id):
     game = Game.query.get_or_404(game_id)
-    return render_template('/library/game/readme.html', game=game)
+    if game.description:
+        description = markdown.markdown(game.description)
+    else:
+        description = None
+
+    if game.notes:
+        notes = markdown.markdown(game.notes)
+    else:
+        notes = None
+
+    logo_dir = os.path.join(Config.MEDIA, 'games')
+    logo_dir = os.path.join(logo_dir, game.platform.slug)
+    logo_dir = os.path.join(logo_dir, 'logo')
+    logo_file = game.slug() + '.png'
+    logo_url = os.path.join(logo_dir, logo_file)
+
+    if os.path.exists(logo_url):
+        with open(logo_url, 'rb') as logo_file:
+            logo_data = base64.b64encode(logo_file.read())
+            logo = logo_data.decode('utf-8')
+    else:
+        logo = None
+
+    return render_template('/library/game/readme.html', game=game, description=description, logo=logo, notes=notes)
 
 
 @library_bp.route('/library/game/favorites')

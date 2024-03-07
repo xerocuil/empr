@@ -5,15 +5,17 @@
 - [ ] Settings
 - [ ] Package management
     - [X] FTP Server
-    - [ ] Install scripts
-    - [ ] Package upload scripts
+    - [x] Install scripts
+    - [x] Package upload scripts
+    - [ ] Replace alert in uninstall script
 
 - [x] Import legacy media
 - [ ] Remove legacy elements from models
 - [ ] Forms
-    + [ ] SQLite*
+    + [x] SQLite*
     + [ ] JSON
-- [x] API 
+- [ ] API 
+    - [ ] Host platforms sync
 - [x] Create list tables
 - [x] Pagination
 - [x] Search
@@ -21,28 +23,32 @@
 - [ ] Devices
     + [ ] Upload Config Form
     + [ ] Device Edit Form
+- [x] Flash messaging
+- [x] Add confirm to delete function
 
-## Unreleased
+## Build 2024.0306
 
 ### Added
 
-- Device support
+- Device support (install/remove)
+- FTP server support
 - Game list pagination
 - Pywebview window management
 - Javascript-based search function
+- Single page readme for packages
 
 ### Changed
 
-- Blueprint support.
-- Migrated platform from Django to Flask.
-- Images are now managed via a flat-file system instead of via database.
+- Route management through Blueprint
+- Migrated platform from Django to Flask
+- Images managed via a flat-file system instead of database
 
 ## [0.3.1] - 2022.0814.2023
 
 ### Added
 
 - `alt_title`, `engine` to Game model
-- Platform logos to platform game index.
+- Platform logos to platform game index
 
 ## [0.3.0] 
 

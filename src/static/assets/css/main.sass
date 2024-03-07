@@ -1,16 +1,47 @@
+@import "normalize.sass"
+
+/* Palette */
+$black: rgb(0,0,0)
+$cod-grey: rgb(25,25,25)
+$mine-shaft: rgb(34,34,34)
+$mine-shaft-sheer: rgba(24,24,24,0.9)
+$dove-grey: rgb(103,103,103)
+$nobel: rgb(182,182,182)
+$white: rgb(255,255,255)
+$white-sheer: rgba(255,255,255,0.8)
+
+$puerto-rico: rgb(90,204,160)
+$steel-blue: rgb(80,125,186)
+$muddy-waters: rgb(186,141,80)
+$mulberry: rgb(204,90,134)
+
+$confirm: $steel-blue
+$error: $mulberry
+$execute: $puerto-rico
+$warning: $muddy-waters
+
+$main-color: $white
+$default-background: $mine-shaft
+$alt-background: $mine-shaft-sheer
+$default-border: 1px solid $dove-grey
+
 
 // Fonts
+@font-face
+    font-family: "cabin-bold"
+    src: url("/static/assets/fonts/cabin-bold.ttf")
 $default-sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif !default
 $default-monospace: monospace !default
 
+
 // Global Variables
 $base: 1.6rem
+$default-margin: $base * 2
 
-// $default-border: 0.1rem solid $highlight-color-alpha
 
 // Elements
 html
-  font-size: 62.5%
+    font-size: 62.5%
 
 body,
 button,
@@ -18,11 +49,47 @@ input,
 optgroup,
 select,
 textarea
-  font-family: $default-sans-serif
-  font-size: $base
+    font-family: $default-sans-serif
+    font-size: $base
+
+body
+    color: $main-color
+    background-color: $default-background
+    height: 100%
+    z-index: 0
+
+a
+    color: $nobel
+    text-decoration: underline
+    text-decoration-style: dotted
+
+a:hover
+    text-decoration: underline
+    text-decoration-style: dotted
+
+.confirm
+    background-color: $steel-blue
+
+button
+    display: inline-flex
+    align-items: center
+    padding: 0.8rem
+    font-family: "cabin-bold"
+    text-transform: uppercase
+    color: white
+    border: $default-border
 
 code
+    background: rgb(55, 55, 55)
     font-size: $base
+    border: none
+
+h1, h2, h3, h4, h5, h6
+    font-family: "cabin-bold"
+    text-transform: uppercase
+
+input
+    border: $default-border
 
 label
     font-weight: 600
@@ -31,34 +98,91 @@ nav
     a
         margin-right: 3.2rem
 
+table
+    width: 100%
+    tr
+        td, th
+            text-align: left
+            padding: 0.4em 0
+            border-bottom: $default-border
+            
+// IDS
+#console
+    height: 100%
+    width: 100%
+    z-index: 100
+    position: fixed
+    top: 0
+    left: 0
+    background-color: $mine-shaft-sheer
+    #console-container
+        width: 64.0rem
+        height: 80%
+        top: $default-margin
+        margin: 3.2rem auto 0 auto
+        padding: $default-margin
+        background-color: $white-sheer
+
 #content, #sidebar
-    margin-top: $base * 4
+    margin-top: $default-margin * 2
+
+#device
+    display: grid
+    grid-template-columns: 1fr 1fr
+    gap: $default-margin * 2
+    .listing
+        height: 72vh
+        overflow: scroll
+        scrollbar-width: thin
 
 #header
     width: 100%
     height: 6.4rem
-    display: grid
-    grid-template-columns: 12fr 4fr
+    padding: 0 $default-margin
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    gap: 0 $base
     position: fixed
     top: 0
-    background: white
-    z-index: 100
+    background: $alt-background
+    z-index: 10
     *
         align-self: center
     #query
         width: $base * 8
 
 #main-window
+    width: 100%
     display: grid
     grid-template-columns: 12fr 4fr
     justify-content: space-between
     z-index: 0
 
+#search
+    height: $default-margin
+    border-radius: $base
+    input:focus
+        border: $default-border
+    input#query
+        // border-radius: 0.4rem
+        height: $default-margin
+        width: 18.4rem
+        padding-right: 4.8rem
+        // display: flex
+        // align-items: center
+        background-image: url("/static/assets/icons/search.svg")
+        background-repeat: no-repeat
+        background-position: right
+        background-size: 3.6rem
+        // padding-left: $default-margin
+
 
 #system-messages
-    display: none
-    padding: $base
-    border: 1px dashed #ccc
+    ul
+        display: block
+        padding: $base
+        border: 1px dashed #ccc
 
 
 // Game
@@ -66,7 +190,7 @@ nav
     display: grid
     grid-template-columns: 1fr 2fr
     #boxart
-        margin: 0 $base*2 0 0
+        margin: 0 $default-margin 0 0
         img
             max-width: 100%
             max-height: 32.0rem
@@ -78,9 +202,64 @@ nav
         flex-flow: column wrap
         justify-content: flex-start
         .detail
-            margin: 0 0 0.8rem 0
+            margin: 0 0 $base 0
+
+#game-title
+    display: flex
+    flex-flow: row nowrap
+    align-items: center
+    gap: 0 $default-margin
+
+#main-window
+    padding: 0 $default-margin
 
 #tech-info
     display: flex
     flex-flow: row nowrap
     justify-content: space-between
+
+
+// CLASSES
+.columns
+    display: flex
+    flex-flow: row nowrap
+
+.icon
+    max-width: $default-margin
+    max-height: $default-margin
+
+.game-list
+    border-collapse: collapse
+    tr
+        td
+            height: 4.8rem
+            .alt_title
+                font-size: 1.4rem 
+
+.sub-header
+    padding: $default-margin 0
+    display: inline-block
+    font-size: 2.0rem
+    text-transform: uppercase
+    a
+        text-decoration: none
+
+.sub-menu-content
+    padding: 0.8rem
+    display: none
+    position: absolute
+    z-index: 50
+    background-color: $alt-background
+    li
+        padding: 0.8rem 0
+        list-style: none
+
+.sub-menu:hover .sub-menu-content
+    display: block
+
+// INTERFACE
+.confirm
+    background-color: $steel-blue
+
+.execute
+    background-color: $puerto-rico

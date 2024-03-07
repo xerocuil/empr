@@ -11,31 +11,60 @@
 <body>
 
 <div id="header">
-    <nav>
-        <a href="{{ url_for('library.home') }}">Home</a>
-        <a href="{{ url_for('library.favorites') }}">Favorites</a>
-        <a href="{{ url_for('library.collections') }}">Collections</a>
-        <a href="{{ url_for('library.genres') }}">Genres</a>
-        <a href="{{ url_for('library.platforms') }}">Platforms</a>
-        <a href="{{ url_for('library.tags') }}">Tags</a>
-        <!-- <a href="{{ url_for('api.tags') }}">Tags API</a> -->
+    <div class="sub-header"><a href="{{ url_for('library.home') }}">Home</a></div>
+
+    <div class="sub-menu sub-header">
+        <a href="{{ url_for('library.home') }}">Browse</a>
+        <ul class="sub-menu-content">
+            <li><a href="{{ url_for('library.favorites') }}">Favorites</a></li>
+            <li><a href="{{ url_for('library.collections') }}">Collections</a></li>
+            <li><a href="{{ url_for('library.genres') }}">Genres</a></li>
+            <li><a href="{{ url_for('library.platforms') }}">Platforms</a></li>
+            <li><a href="{{ url_for('library.tags') }}">Tags</a></li>
+        </ul>
+    </div>
+        
+    <div class="sub-header">
         <a href="{{ url_for('device.devices') }}">Devices</a>
+    </div>
+
+    <div class="sub-header">
+        <button onclick="history.back()">Go Back</button>
+    </div>
+
+    <div class="sub-header">
+        <button onclick="history.go(0)">Refresh</button>
+    </div>
+
+    <div class="sub-header">
         <a href="" onClick="toggle_fullscreen()">Toggle Fullscreen</a>
+    </div>
+
+    <div class="sub-header">
         <a href="" onClick="close_window()">Close Window</a>
-    </nav>
+    </div>
 
     <div id="search">
         <input type="text" name="query" id="query" placeholder="Search...">
-        <button type="submit" onclick="search_query()">Search</button>
     </div>
 </div>
 
 <div id="main-window">
     <div id="content">
         <div id="system-messages">
-            {% if message %}
+            <!-- {% if message %}
                 {{ message }}
-            {% endif %}
+            {% endif %} -->
+    
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <ul class=flashes>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            {% endwith %}
         </div>
         <div id="page">
             {% block content %} {% endblock %}
