@@ -2,8 +2,6 @@ from lib.extensions import db
 from datetime import datetime
 
 
-# MODELS
-
 class Collection(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(128), nullable=False, unique=True)

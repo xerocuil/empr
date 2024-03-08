@@ -216,7 +216,7 @@
     {% if installed %}
         <div class="launcher">
             <button class="execute" onClick="launch_game('{{ game.platform.slug }}','{{ game.filename }}' )">
-                <img src="{{ url_for('static', filename='assets/icons/play.svg')}}"/> Play
+                <img src="{{ url_for('static', filename='assets/img/icons/play.svg')}}"/> Play
             </button>
         </div>
     {% endif %}
@@ -224,29 +224,29 @@
     <h4>Links</h4>
     <p>
         <a href="https://www.giantbomb.com/search/?i=game&q={{ game.title }}">
-            <img class="icon" src="{{ url_for('static', filename='assets/icons/giantbomb.svg') }}" title="Giant Bomb"></a>
+            <img class="icon" src="{{ url_for('static', filename='assets/img/icons/giantbomb.svg') }}" title="Giant Bomb"></a>
 
         <a href="https://www.mobygames.com/search/quick?q={{ game.title }}">
-            <img class="icon" src="{{ url_for('static', filename='assets/icons/moby.svg') }}" title="Moby Games"></a>
+            <img class="icon" src="{{ url_for('static', filename='assets/img/icons/moby.svg') }}" title="Moby Games"></a>
 
         <a href="https://thegamesdb.net/search.php?name={{ game.title }}">
-            <img class="icon" src="{{ url_for('static', filename='assets/icons/tgdb.svg') }}" title="TGDB"></a>
+            <img class="icon" src="{{ url_for('static', filename='assets/img/icons/tgdb.svg') }}" title="TGDB"></a>
             
         {% if game.platform.slug == 'windows' or game.platform.slug == 'steam' or game.platform == 'linux' %}
             <a href="https://www.pcgamingwiki.com/w/index.php?search={{ game.title }}">
-                <img class="icon" src="{{ url_for('static', filename='assets/icons/pcgw.svg') }}" title="PCGamingWiki"></a>
+                <img class="icon" src="{{ url_for('static', filename='assets/img/icons/pcgw.svg') }}" title="PCGamingWiki"></a>
                 {% if game.platform.slug == 'steam' %}
                     <a href="https://www.protondb.com/app/{{ game.filename }}">
-                        <img class="icon" src="{{ url_for('static', filename='assets/icons/protondb.svg') }}" title="ProtonDB"></a>
+                        <img class="icon" src="{{ url_for('static', filename='assets/img/icons/protondb.svg') }}" title="ProtonDB"></a>
 
                     <a href="https://steamdb.info/app/{{ game.filename }}">
-                        <img class="icon" src="{{ url_for('static', filename='assets/icons/steamdb.svg') }}" title="SteamDB"></a>
+                        <img class="icon" src="{{ url_for('static', filename='assets/img/icons/steamdb.svg') }}" title="SteamDB"></a>
                 {% else %}
                     <a href="https://www.protondb.com/search?q={{ game.title }}&type=1&category=0">
-                        <img class="icon" src="{{ url_for('static', filename='assets/icons/protondb.svg') }}" title="ProtonDB"></a>
+                        <img class="icon" src="{{ url_for('static', filename='assets/img/icons/protondb.svg') }}" title="ProtonDB"></a>
 
                     <a href="https://steamdb.info/search/?a=app&q={{ game.title }}&type=1&category=0">
-                        <img class="icon" src="{{ url_for('static', filename='assets/icons/steamdb.svg') }}" title="SteamDB"></a>
+                        <img class="icon" src="{{ url_for('static', filename='assets/img/icons/steamdb.svg') }}" title="SteamDB"></a>
             {% endif %}
         {% endif %}
     </p>

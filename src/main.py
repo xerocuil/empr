@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 import json
 import os
-import pandas as pd
+
 import shutil
 import tarfile
 import webview
 
+import pandas as pd
 from flask import Flask
 from lib.extensions import db, Config
 from routes.api import api_bp
@@ -54,11 +55,17 @@ class Api:
     def install_game(self, device_slug, platform_slug, filename):
         file_slug = filename.split('.')[0]
         file_archive = file_slug + '.tgz'
-        archive_src = os.path.join(Config.FTP_PATH, platform_slug, file_archive)
+        archive_src = os.path.join(
+            Config.FTP_PATH, platform_slug, file_archive)
         cache_dir = os.path.join(Config.PROFILE_DIR, 'cache')
         archive_dest = os.path.join(cache_dir, file_archive)
-        device_json = json.load(open(os.path.join(Config.JSON, 'devices', device_slug + '.json')))
-        platform_dir = os.path.join(str(device_json[0]['games_path']), platform_slug)
+        device_json_path = os.path.join(
+            Config.JSON,
+            'devices',
+            device_slug + '.json')
+        device_json = json.load(open(device_json_path))
+        platform_dir = os.path.join(
+            str(device_json[0]['games_path']), platform_slug)
         file_path = os.path.join(str(platform_dir), filename)
 
         if not os.path.exists(platform_dir):
@@ -106,8 +113,13 @@ class Api:
         if device_slug == 'rg35xx':
             # Get image
             print('Fetching game image...')
-            image_src = os.path.join(Config.PROFILE_DIR, 'media', 'games', platform_slug, 'rg35xx', file_slug + '.png')
-            # image_src = os.path.join(image_dir, )
+            image_src = os.path.join(
+                Config.PROFILE_DIR,
+                'media',
+                'games',
+                platform_slug,
+                'rg35xx',
+                file_slug + '.png')
             image_dest_dir = os.path.join(str(platform_dir), 'imgs')
             image_dest = os.path.join(str(image_dest_dir), file_slug + '.png')
 
@@ -123,14 +135,19 @@ class Api:
             print('Updating device game list...')
             device_path = device_json[0]['path']
             csvfile = os.path.join(device_path, 'CFW/config/mame.csv')
-            platform_json = os.path.join(Config.JSON, 'platforms/' + platform_slug + '.json')
+            platform_json = os.path.join(
+                Config.JSON,
+                'platforms',
+                platform_slug + '.json')
             platform_data = json.load(open(platform_json))
             platform_games_df = pd.DataFrame(platform_data['games'])
             csvdf = pd.read_csv(csvfile)
             if (csvdf['slug'].eq(file_slug)).any():
                 print(file_slug + ' is in the gamelist.')
             else:
-                title = platform_games_df.loc[platform_games_df['filename'] == filename]['title'].values[0]
+                title = platform_games_df
+                title = title.loc[platform_games_df['filename'] == filename]
+                title = title['title'].values[0]
                 print('Adding ' + title + ' to gamelist...')
                 csvdf.loc[len(csvdf.index)] = [file_slug, title]
                 csvdf.sort_values(by=['slug']).to_csv(csvfile, index=False)
@@ -144,10 +161,15 @@ class Api:
 
     def uninstall_game(self, device_slug, platform_slug, filename):
         file_slug = filename.split('.')[0]
-        device_json = json.load(open(os.path.join(Config.JSON, 'devices/' + device_slug + '.json')))
+        device_json = json.load(open(os.path.join(
+            Config.JSON,
+            'devices',
+            device_slug + '.json'
+        )))
         games_path = os.path.join(device_json[0]['games_path'])
         device_platforms = pd.DataFrame(device_json[0]['platforms'])
-        path = device_platforms.loc[device_platforms['slug'] == platform_slug]['path'].values[0]
+        path = device_platforms.loc[device_platforms['slug'] == platform_slug]
+        path = path['path'].values[0]
         platform_dir = os.path.join(str(games_path), path)
         file_path = os.path.join(platform_dir, filename)
 
@@ -167,8 +189,13 @@ class Api:
             else:
                 print(img_path + ' not found.')
 
-        game_data = [{"device": device_slug, "platform": platform_slug, "filename": filename,
-                      "message": "Removed " + filename + " from " + device_slug}]
+        game_data = [{
+            "device": device_slug,
+            "platform": platform_slug,
+            "filename": filename,
+            "message": "Removed " + filename + " from " + device_slug
+        }]
+
         return game_data
 
 
