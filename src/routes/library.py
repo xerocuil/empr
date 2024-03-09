@@ -38,10 +38,11 @@ def home():
     return render_template('library/home/index.html', pagination=pagination)
 
 
-# Games
+# GAMES
 @library_bp.route('/library/game/new', methods=('GET', 'POST'))
 def game_add():
-    ga_collections = [(c.name, c.id) for c in Collection.query.order_by('name')]
+    ga_collections = [
+        (c.name, c.id) for c in Collection.query.order_by('name')]
     ga_genres = [(g.name, g.id) for g in Genre.query.order_by('name')]
     ga_platforms = [(p.name, p.id) for p in Platform.query.order_by('name')]
     form = GameForm()
@@ -85,12 +86,22 @@ def game_add():
         flash('Game saved.')
     elif request.method == 'POST' and not form.validate_on_submit():
         flash('Could not save game.')
-    return render_template('library/game/add.html', collections=ga_collections, form=form, genres=ga_genres, game=game,
-                           platforms=ga_platforms)
+    return render_template(
+        'library/game/add.html',
+        collections=ga_collections,
+        form=form,
+        genres=ga_genres,
+        game=game,
+        platforms=ga_platforms)
 
 
 @library_bp.route('/library/game/delete/<int:game_id>')
 def game_delete(game_id):
+    '''Remove game from database.
+
+    Args:
+        game_id (integer): Game ID
+    '''
     try:
         # Game.query.filter(Game.id == game_id).delete()
         game = Game.query.get_or_404(game_id)
@@ -131,14 +142,22 @@ def game_detail(game_id):
     else:
         boxart = None
 
-    return render_template('library/game/detail.html', boxart=boxart, boxart_url=boxart_url, desc=desc,
-                           game=game, file_path=file_path, installed=installed, notes=notes)
+    return render_template(
+        'library/game/detail.html',
+        boxart=boxart,
+        boxart_url=boxart_url,
+        desc=desc,
+        game=game,
+        file_path=file_path,
+        installed=installed,
+        notes=notes)
 
 
 @library_bp.route('/library/game/edit/<int:game_id>', methods=('GET', 'POST'))
 def game_edit(game_id):
     game = Game.query.get_or_404(game_id)
-    ge_collections = [(c.name, c.id) for c in Collection.query.order_by('name')]
+    ge_collections = [
+        (c.name, c.id) for c in Collection.query.order_by('name')]
     ge_genres = [(g.name, g.id) for g in Genre.query.order_by('name')]
     ge_platforms = [(p.name, p.id) for p in Platform.query.order_by('name')]
 
@@ -287,7 +306,12 @@ def game_readme(game_id):
     else:
         logo = None
 
-    return render_template('/library/game/readme.html', game=game, description=description, logo=logo, notes=notes)
+    return render_template(
+        '/library/game/readme.html',
+        game=game,
+        description=description,
+        logo=logo,
+        notes=notes)
 
 
 @library_bp.route('/library/game/favorites')
@@ -295,14 +319,16 @@ def favorites():
     pagination = Game.query.filter(Game.favorite).paginate(
         per_page=25,
         max_per_page=100)
-    return render_template('/library/game/favorites.html', pagination=pagination)
+    return render_template(
+        '/library/game/favorites.html', pagination=pagination)
 
 
 # Collections
 @library_bp.route('/library/collections')
 def collections():
     collections_index = Collection.query.order_by(Collection.name)
-    return render_template('library/collection/index.html', collections=collections_index)
+    return render_template(
+        'library/collection/index.html', collections=collections_index)
 
 
 @library_bp.route('/library/collections/new', methods=('GET', 'POST'))
@@ -311,8 +337,7 @@ def collection_add():
     if request.method == 'POST' and form.validate_on_submit():
         collection = Collection(
             name=form.name.data,
-            description=form.description.data
-        )
+            description=form.description.data)
         db.session.add(collection)
         db.session.commit()
         flash('Collection saved.')
@@ -325,12 +350,18 @@ def collection_add():
 @library_bp.route('/library/collection_detail/<int:collection_id>')
 def collection_detail(collection_id):
     collection = Collection.query.get_or_404(collection_id)
-    pagination = Game.query.filter(Game.collection_id == collection.id).order_by(Game.year).paginate(per_page=50,
-                                                                                                     max_per_page=100)
-    return render_template('library/collection/detail.html', collection=collection, pagination=pagination)
+    pagination = Game.query.filter(
+        Game.collection_id == collection.id).order_by(Game.year).paginate(
+            per_page=50,
+            max_per_page=100)
+    return render_template(
+        'library/collection/detail.html',
+        collection=collection,
+        pagination=pagination)
 
 
-@library_bp.route('/library/collection/edit/<int:collection_id>', methods=('GET', 'POST'))
+@library_bp.route(
+    '/library/collection/edit/<int:collection_id>', methods=('GET', 'POST'))
 def collection_edit(collection_id):
     collection = Collection.query.get_or_404(collection_id)
     form = CollectionForm()
@@ -339,10 +370,14 @@ def collection_edit(collection_id):
         collection.description = form.description.data
         db.session.commit()
         flash('Collection saved.')
-        return redirect(url_for('library.collection_detail', collection_id=collection_id))
+        return redirect(
+            url_for(
+                'library.collection_detail',
+                collection_id=collection_id))
     elif request.method == 'POST' and not form.validate_on_submit():
         flash('Could not save collection.')
-    return render_template('library/collection/edit.html', collection=collection, form=form)
+    return render_template(
+        'library/collection/edit.html', collection=collection, form=form)
 
 
 @library_bp.route('/library/genres')
@@ -354,7 +389,9 @@ def genres():
 @library_bp.route('/library/platforms')
 def platforms():
     platforms_index = Platform.query.order_by('name')
-    return render_template('library/platform/index.html', platforms=platforms_index)
+    return render_template(
+        'library/platform/index.html',
+        platforms=platforms_index)
 
 
 @library_bp.route('/library/platform/<int:platform_id>')
@@ -363,7 +400,10 @@ def platform_detail(platform_id):
     pagination = (Game.query.filter(Game.platform_id == platform_id)
                   .order_by(Game.title)
                   .paginate(per_page=50, max_per_page=100))
-    return render_template('library/platform/detail.html', platform=platform, pagination=pagination)
+    return render_template(
+        'library/platform/detail.html',
+        platform=platform,
+        pagination=pagination)
 
 
 @library_bp.route('/library/search', methods=['GET'])
@@ -371,15 +411,18 @@ def search():
     query = request.args.get('query')
     if query:
         pagination = Game.query.filter(
-            (Game.title.like('%' + query + '%')) |
-            (Game.alt_title.like('%' + query + '%')) |
-            (Game.developer.like('%' + query + '%')) |
-            (Game.publisher.like('%' + query + '%')) |
-            (Game.tags.like('%' + query + '%'))
+            (Game.title.like('%' + query + '%'))
+            or (Game.alt_title.like('%' + query + '%'))
+            or (Game.developer.like('%' + query + '%'))
+            or (Game.publisher.like('%' + query + '%'))
+            or (Game.tags.like('%' + query + '%'))
         ).paginate(per_page=25, max_per_page=100)
     else:
         pagination = None
-    return render_template('library/search.html', query=query, pagination=pagination)
+    return render_template(
+        'library/search.html',
+        query=query,
+        pagination=pagination)
 
 
 # TAGS
@@ -394,18 +437,26 @@ def tags():
 def tag_detail():
     query = request.args.get('query')
     if query:
-        pagination = Game.query.filter(Game.tags.like('%' + query + '%')).paginate(per_page=25, max_per_page=100)
+        pagination = Game.query\
+            .filter(Game.tags.like('%' + query + '%'))\
+            .paginate(per_page=25, max_per_page=100)
     else:
         pagination = None
-    return render_template('library/tags/detail.html', query=query, pagination=pagination)
+    return render_template(
+        'library/tags/detail.html',
+        query=query,
+        pagination=pagination)
 
 
 @library_bp.route('/launch/game/<string:platform_slug>/<string:filename>')
 def launch_game(platform_slug, filename):
     try:
-        subprocess.run(['game-launcher', platform_slug, Utils.get_filepath(platform_slug, filename)],
-                       stdout=subprocess.DEVNULL,
-                       stderr=subprocess.DEVNULL)
+        subprocess.run([
+            'game-launcher',
+            platform_slug,
+            Utils.get_filepath(platform_slug, filename)],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL)
         launch_message = 'Game launched successfully.'
     except Exception as e:
         launch_message = 'Error launching game.'

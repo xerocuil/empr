@@ -20,6 +20,7 @@ import lib.rg35xx as rgw
 
 
 def create_app():
+    # Initialize Flask settings and register blueprints.
     new = Flask(__name__, template_folder='templates')
     new.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + Config.DB
     new.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -42,17 +43,43 @@ if not os.path.exists(Config.DB):
         db.create_all()
 
 
-class Api:
+class JsApi:
+    '''
+    ## JsApi
+
+    API for bridging front-end JavaScript functions
+    with back-end Python functions.
+    '''
+
     def __init__(self):
         self.cancel_heavy_stuff_flag = False
 
-    def close_window(self):
+    # WINDOW FUNCTIONS
+
+    def closeWindow(self):
+        """Close app window"""
         window.destroy()
 
-    def toggle_fullscreen(self):
+    def toggleFullscreen(self):
+        """Toggle app fullscreen mode"""
         window.toggle_fullscreen()
 
+    # INSTALLATION FUNCTIONS
+
     def install_game(self, device_slug, platform_slug, filename):
+        """Install Game to device
+
+        Example:
+            install_game('local', 'dos', 'breakout.zip')
+
+        Args:
+            device_slug (str): Device slug ID
+            platform_slug (str): Platform slug ID
+            filename (str): Game file name
+
+        Returns:
+            game_data (:object: `dict`): Game data
+        """
         file_slug = filename.split('.')[0]
         file_archive = file_slug + '.tgz'
         archive_src = os.path.join(
@@ -72,12 +99,12 @@ class Api:
             print('Creating platform directory...')
             os.makedirs(platform_dir)
 
-        # Check if game is installed, then
-        # copy file to cache directory
+        # Check if game is installed
         if os.path.exists(file_path):
             print('Game is already installed.')
             exit()
 
+        # Copy file to cache directory
         if not os.path.isdir(cache_dir):
             os.makedirs(cache_dir)
 
@@ -110,6 +137,7 @@ class Api:
         print('Clearing cache.')
         os.remove(archive_dest)
 
+        # Functions for Anberic RG35XX
         if device_slug == 'rg35xx':
             # Get image
             print('Fetching game image...')
@@ -134,7 +162,7 @@ class Api:
             # Update game list
             print('Updating device game list...')
             device_path = device_json[0]['path']
-            csvfile = os.path.join(device_path, 'CFW/config/mame.csv')
+            csvfile = os.path.join(device_path, 'CFW', 'config', 'mame.csv')
             platform_json = os.path.join(
                 Config.JSON,
                 'platforms',
@@ -199,10 +227,9 @@ class Api:
         return game_data
 
 
-api = Api()
 window = webview.create_window(
     os.getenv('APP_TITLE'),
-    app, js_api=api,
+    app, js_api=JsApi(),
     draggable=True,
     min_size=(1280, 720),
     text_select=True)

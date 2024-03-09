@@ -1,16 +1,11 @@
 *.bak*
-*.egg-info/
 *.pyc
 .cache
 .coverage
 .pytest_cache/
-.venv/
 __pycache__/
-docs/bin/
-build/
+bin/
 cache
-dist/
-gui
 import/
 instance/
 test.*

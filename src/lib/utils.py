@@ -13,7 +13,7 @@ try:
     CONNECTION = sqlite3.connect(Config.DB)
     CURSOR = CONNECTION.cursor()
 except sqlite3.OperationalError as e:
-    ic('Could not find database.')
+    ic('Could not find database.', e)
     exit()
 
 

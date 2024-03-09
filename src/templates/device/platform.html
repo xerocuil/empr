@@ -54,47 +54,7 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    function showConsole(response) {
-        const consoleDiv = document.getElementById("console");
-        let message  = document.getElementById("console-text")
-        message.innerText = '';
-        message.innerText = response.message;
-        consoleDiv.style.display = "block";
-    }
 
-    function hideConsole() {
-        document.getElementById("console").style.display = "none";
-    }
-
-    function toggleConsole() {
-        var divStatus = document.getElementById("console").style.display
-        if (divStatus == "block"){
-            hideConsole();
-        } else if (divStatus == "none"){
-            showConsole();
-        }
-    }
-
-    function installGame(device_slug, platform, filename) {
-        let message = {"message":"Installing "+filename+" ..."}
-        const confirmDiv = document.getElementById("console-confirm")
-        showConsole(message);
-        pywebview.api.install_game(device_slug, platform, filename)
-            .then(showConsole)
-            .then(confirmDiv.style.display = "block");
-    }
-
-    function uninstallGame(device_slug, platform_slug, filename) {
-        let test = window.confirm(`Are you sure you want to remove ${filename}?`);
-        if (test == true){
-            pywebview.api.uninstall_game(device_slug, platform_slug, filename)
-            window.alert(`${filename} has been removed.`)
-            window.location.reload()
-        }
-        
-    }
-</script>
 {% endblock %}
 
 

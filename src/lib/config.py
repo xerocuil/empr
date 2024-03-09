@@ -25,6 +25,8 @@ else:
 
 
 def init_config():
+    """Create `config.ini` in user profile directory."""
+
     # Create 'profiles' directory if missing
     if not os.path.exists(PROFILE_DIR):
         os.makedirs(PROFILE_DIR)
@@ -78,7 +80,9 @@ def init_config():
 
 
 def generate_key():
-    key = ''.join(random.SystemRandom().choice(string.ascii_letters + string.digits) for _ in range(64))
+    key = ''.join(
+        random.SystemRandom()
+            .choice(string.ascii_letters + string.digits) for _ in range(64))
     return key
 
 
@@ -89,9 +93,34 @@ if not os.path.exists(CONFIG_PATH):
     init_config()
 
 
-# Create Config class
 class Config:
-    # App
+    """
+    ## Config
+
+    Application configuration class.
+
+    Attributes:
+        APP_ID (str): Application slug ID
+        APP_TITLE (str): Application title
+        CONFIG_PATH (str): Path to configuration file
+        DB (str): Database path
+        DEBUG (bool): Debug mode
+        KEY (str): Application key
+        PROFILE_DIR (str): Path to user profile directory
+        JSON (str): Path to JSON path for API
+        MEDIA (str): Path to `media` directory
+        SERVER_NAME (str): Server Name
+        GAMES_DIR (str): Path to `games` directory
+        FTP_HOST (str): Host name for FTP server
+        FTP_PORT(int): Port number for FTP server (default: 21)
+        FTP_PATH (str): Path to games on FTP server
+        GB_API_KEY (str): Giant Bomb API key
+        MG_API_KEY (str): Moby Games API key
+        SS_DEBUG (str): ScreenScraper debug ID
+        SS_PASSWD (str): ScreenScraper password
+    """
+
+    # App settings
     APP_ID = conf['APP']['app_id']
     APP_TITLE = conf['APP']['app_title']
     CONFIG_PATH = CONFIG_PATH
@@ -103,11 +132,11 @@ class Config:
     MEDIA = conf['APP']['media']  # Deprecate
     SERVER_NAME = conf['APP']['server_name']  # Deprecate
 
-    # Games
+    # Game settings
     GAMES_DIR = conf['GAMES']['games_dir']  # Deprecate
     ROMS_DIR = conf['GAMES']['roms_dir']  # Deprecate
 
-    # Host'
+    # Host settings
     FTP_HOST = conf['FTP']['host']
     FTP_PORT = conf['FTP']['port']
     FTP_PATH = conf['FTP']['path']

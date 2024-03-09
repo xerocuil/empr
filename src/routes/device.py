@@ -51,6 +51,12 @@ def detail(device_slug):
 
 @device_bp.route('/<string:device_slug>/platform/<string:platform_slug>')
 def platform(device_slug, platform_slug):
+    '''Display platform data for given device
+
+    Args:
+        device_slug (string): Device slug ID
+        platform_slug (string): Platform slug ID
+    '''
     # Get platform by slug
     p = db.one_or_404(db.select(Platform).filter_by(slug=platform_slug))
 

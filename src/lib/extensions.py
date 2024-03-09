@@ -16,6 +16,7 @@ local_platforms = pd.DataFrame(local_device_data[0]['platforms'])
 
 class Utils:
     def get_filepath(platform_slug, filename):
-        platform_path = local_platforms.loc[local_platforms['slug'] == platform_slug]['path'].values[0]
+        platform_path = local_platforms\
+            .loc[local_platforms['slug'] == platform_slug]['path'].values[0]
         file_path = os.path.join(games_path, platform_path, filename)
         return file_path

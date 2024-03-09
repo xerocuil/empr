@@ -11,6 +11,11 @@ api_bp = Blueprint('api', __name__)
 # API
 @api_bp.route('/api/tags')
 def tags():
+    '''Searches all tags in database
+
+    Returns:
+        sorted_tags (list): Sorted list of all tags in database
+    '''
     tags_all = [g.tags for g in Game.query.all()]
     tag_list = []
     tags_unique = []
@@ -31,11 +36,17 @@ def tags():
 
 @api_bp.route('/api/device/<string:device_slug>')
 def device(device_slug):
+    '''Get device configuration data
+
+    Args:
+        device_slug (str): Device slug ID
+
+    Returns:
+        device_data (obj): Device configuration data in JSON format
+    '''
     device_dir = os.path.join(Config.PROFILE_DIR, 'json/devices')
     device_config_path = os.path.join(device_dir, device_slug + '.json')
     device_data = json.load(open(device_config_path))
-
-    print(device_data)
     return device_data
 
 
@@ -44,6 +55,4 @@ def platform(platform_slug):
     platform_dir = os.path.join(Config.PROFILE_DIR, 'json/platforms')
     platform_config_path = os.path.join(platform_dir, platform_slug + '.json')
     platform_data = json.load(open(platform_config_path))
-
-    print(platform_data)
     return platform_data

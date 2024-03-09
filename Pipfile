@@ -34,4 +34,4 @@ wand = "*"
 python_version = "3.11"
 
 [scripts]
-main = "./main.py"
+serve = "./serve.sh"
